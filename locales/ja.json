@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "title": "Pitta Band Archive",
+    "description": "PittaBand Archive",
+    "htmlLang": "ja"
+  },
+  "metaPages": {
+    "about": {
+      "title": "About — Pitta Band Archive",
+      "description": "Pitta Band 紹介とステージアーカイブ",
+      "htmlLang": "ja"
+    },
+    "album": {
+      "title": "Album — Pitta Band Archive",
+      "description": "Pitta Band アルバムアーカイブ",
+      "htmlLang": "ja"
+    },
+    "concert": {
+      "title": "Concert — Pitta Band Archive",
+      "description": "Pitta Band ライブ情報",
+      "htmlLang": "ja"
+    },
+    "festival": {
+      "title": "Festival — Pitta Band Archive",
+      "description": "Pitta Band フェスティバル情報",
+      "htmlLang": "ja"
+    },
+    "board": {
+      "title": "ご意見 — Pitta Band Archive",
+      "description": "Pitta Band Archive ご意見",
+      "htmlLang": "ja"
+    }
+  },
+  "lang": {
+    "label": "言語",
+    "ko": "한국어",
+    "en": "English",
+    "ja": "日本語",
+    "es": "Español"
+  },
+  "dday": {
+    "tag": "UPCOMING",
+    "event": "NEXUS LIVE · SEOUL",
+    "linkConcert": "チケット予約",
+    "linkAlbum": "購入する",
+    "hideToday": "今日は表示しない",
+    "dDay": "D-DAY",
+    "dPlus": "D+{days}"
+  },
+  "header": {
+    "navLabel": "メインメニュー",
+    "mobileNavLabel": "モバイルメニュー",
+    "menuOpen": "メニューを開く",
+    "menuClose": "メニューを閉じる",
+    "systemOnline": "システム稼働中",
+    "clockSuffix": "KST"
+  },
+  "nav": {
+    "about": "About",
+    "album": "Album",
+    "concert": "Concert"
+  },
+  "hero": {
+    "tag": "機密保管庫 // レベル 7",
+    "titleLine1": "デジタル",
+    "titleLine2": "記憶金庫",
+    "desc": "量子セクターにわたって断片化された記録を保管する分散型SFアーカイブ。ホログラム索引を探索し、時間異常を解読し、制限されたデータストリームにアクセスしてください。",
+    "searchPlaceholder": "アーカイブ索引を検索...",
+    "searchLabel": "アーカイブ検索",
+    "scan": "スキャン",
+    "scanning": "スキャン中...",
+    "indexNodes": "索引: 2,847,391 ノード",
+    "latency": "遅延: 12ms",
+    "statRecords": "記録",
+    "statSectors": "セクター",
+    "statIntegrity": "完全性 %",
+    "anniversary": {
+      "label": "CELEBRATION",
+      "greeting": "Happy {ordinal} Anniversary!",
+      "cta": "お祝いメッセージを書いてください",
+      "message": "{title} {type} リリース {years}周年です。",
+      "typeAlbum": "アルバム",
+      "typeSingle": "シングル",
+      "typeOst": "OST"
+    }
+  },
+  "sectors": {
+    "sectionTitle": "アーカイブセクター",
+    "sectionDesc": "時間署名別に分類された断片化データクラスタ",
+    "alpha": {
+      "title": "ニューラルログ",
+      "desc": "アーカイブされたAIコアの合成意識転写録とドリーム状態の断片。",
+      "count": "124,892 ファイル",
+      "access": "アクセス →"
+    },
+    "beta": {
+      "title": "ヴォイド地図",
+      "desc": "深宇宙マッピングデータ、ワームホール座標、未探査セクターの遠隔測定値。",
+      "count": "89,204 ファイル",
+      "access": "アクセス →"
+    },
+    "gamma": {
+      "title": "クロノ異常",
+      "desc": "時間歪曲イベント、パラドックス報告書、タイムライン分岐記録。",
+      "count": "31,567 ファイル",
+      "access": "アクセス →"
+    },
+    "delta": {
+      "title": "サイバー遺物",
+      "desc": "復元されたハードウェア設計図、ファームウェア残像、廃止プロトコル仕様。",
+      "count": "456,120 ファイル",
+      "access": "アクセス →"
+    }
+  },
+  "timeline": {
+    "sectionTitle": "時間索引",
+    "sectionDesc": "ネクサスネットワーク全域の年代記アーカイブイベント",
+    "item1": {
+      "title": "アーカイブ創設",
+      "desc": "12個の軌道ノードに初期量子シードを配備。"
+    },
+    "item2": {
+      "title": "セクター β 拡張",
+      "desc": "ヴォイド地図モジュールが深宇宙センサーと統合。"
+    },
+    "item3": {
+      "title": "異常検知",
+      "desc": "制限セクター γ で初のクロノ・パラドックスを検出。"
+    },
+    "item4": {
+      "title": "現在ノード",
+      "desc": "アーカイブ完全性 99.7%。新規データストリーム待機中。"
+    }
+  },
+  "access": {
+    "sectionTitle": "アクセス権限リクエスト",
+    "desc": "レベル7以上の制限アーカイブ階層にアクセスするには資格証明を提出してください。",
+    "agentId": "エージェントID",
+    "clearance": "アクセスレベル",
+    "level5": "レベル 5 — オブザーバー",
+    "level6": "レベル 6 — アナリスト",
+    "level7": "レベル 7 — アーカイビスト",
+    "submit": "ハンドシェイク開始"
+  },
+  "footer": {
+    "fanSite": "Pitta Bandファンサイトです。",
+    "officialLink": "Pitta Official Link",
+    "fancafe": "Pitta Fan Community",
+    "suggest": "ご意見",
+    "x": "X",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "overlay": {
+    "close": "閉じる",
+    "badgeModal": "FULL MODAL",
+    "badgeSheetMid": "BOTTOM SHEET · 50%",
+    "badgeSheetSm": "BOTTOM SHEET · 20%",
+    "statOverlayTypes": "オーバーレイタイプ",
+    "statIntegrity": "完全性",
+    "statSectors": "セクター",
+    "statFiles": "ファイル",
+    "statSector": "セクター",
+    "statBitKey": "ビットキー",
+    "statActive": "アクティブ",
+    "position": "ポジション",
+    "role": "役割",
+    "composition": "編成",
+    "genre": "ジャンル",
+    "transmissionLayer": "伝送層",
+    "encoding": "エンコーディング",
+    "integrityCheck": "完全性検証",
+    "backToStage": "ステージに戻る",
+    "instagram": "Instagram",
+    "openAbout": "Aboutを開く",
+    "viewVoidMap": "ヴォイド地図を見る"
+  },
+  "pages": {
+    "home": {
+      "title": "SCI-FI ARCHIVE",
+      "desc": "Pitta BandのSFアーカイブハブです。すべてのリンクはページ移動なしでオーバーレイとして開きます。"
+    },
+    "about": {
+      "title": "About",
+      "intro": "Pitta BandはサイバーパンクとSF叙事を音楽に翻訳する5人組バンドです。デジタルアーカイブ、ホログラムインターフェース、幾何学的サウンドスケープを通じて、未来と記憶の境界を行き来するライブとレコードを創り出します。",
+      "stageLabel": "Pitta Band ステージ",
+      "tagline": "PITTA BAND // ARCHIVE NODE 01",
+      "guestMember": "guest member",
+      "composition": "Vocal ×1 · Drums ×1 · Guitar ×3",
+      "genre": "Cyberpunk / Sci-Fi Rock"
+    },
+    "album": {
+      "title": "Album",
+      "tabAlbum": "Album",
+      "tabSingle": "Single",
+      "tabOst": "OST",
+      "tabListLabel": "ディスコグラフィー分類",
+      "releaseDate": "発売日",
+      "lyricsBy": "作詞",
+      "composedBy": "作曲",
+      "arrangedBy": "編曲",
+      "producedBy": "プロデュース",
+      "sourceMelon": "出典: Melon",
+      "tabDetails": "詳細",
+      "tabLyrics": "歌詞",
+      "tabMv": "MV",
+      "tabLyricVideo": "Lyric Video",
+      "tabLiveClip": "Live Clip",
+      "detailTabListLabel": "曲詳細メニュー",
+      "noLyrics": "歌詞がありません。",
+      "noMv": "ミュージックビデオがありません。",
+      "noLiveClip": "Live Clipがありません。",
+      "viewLyrics": "歌詞を見る",
+      "hideLyrics": "歌詞を閉じる",
+      "listenMelon": "Melonで聴く",
+      "listenSpotify": "Spotifyで聴く",
+      "listenYoutube": "YouTubeで聴く",
+      "empty": "このカテゴリに項目がありません。",
+      "loadError": "アルバムデータを読み込めませんでした。",
+      "trackList": "トラックリスト",
+      "titleTrack": "タイトル曲",
+      "backToAlbum": "アルバムへ戻る",
+      "crumbSong": "Song"
+    },
+    "concert": {
+      "title": "Concert",
+      "nextShow": "次の公演 · NEXUS LIVE",
+      "details": "2026.09.15 · ソウル · チケット発売",
+      "tabListLabel": "公演フィルター",
+      "tabAll": "All",
+      "tabUpcoming": "Upcoming",
+      "tabPast": "Past",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT SHOW",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "予定されている公演はありません",
+      "noUpcomingDesc": "新しい公演が決まり次第、このノードに更新されます。",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "encore": "アンコール",
+      "openMap": "地図を開く",
+      "empty": "表示する公演がありません。",
+      "loadError": "公演データを読み込めませんでした。",
+      "scrollTop": "ページ上部へ"
+    },
+    "festival": {
+      "title": "Festival",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT FESTIVAL",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "予定されているフェスティバルはありません",
+      "noUpcomingDesc": "新しいフェスティバル日程が確定次第、このノードに更新されます。",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "openMap": "地図を開く",
+      "empty": "表示するフェスティバルがありません。",
+      "loadError": "フェスティバルデータを読み込めませんでした。",
+      "detailPending": "詳細情報は後日更新されます。"
+    },
+    "board": {
+      "title": "ご意見",
+      "titleLabel": "タイトル",
+      "contentLabel": "内容",
+      "submit": "送信",
+      "subjectPrefix": "[ご意見]",
+      "alertConfig": "フォーム設定が完了していません。（Access Keyが必要です）",
+      "alertRequired": "タイトルと内容を入力してください。",
+      "alertSuccess": "送信が完了しました。",
+      "alertFail": "送信に失敗しました。しばらくしてから再度お試しください。"
+    },
+    "sectorAlpha": {
+      "title": "ニューラルログ",
+      "desc": "アーカイブされたAIコアの合成意識転写録とドリーム状態の断片。"
+    },
+    "sectorBeta": {
+      "title": "ヴォイド地図",
+      "desc": "深宇宙マッピングデータ、ワームホール座標、未探査セクターの遠隔測定値。"
+    },
+    "sectorGamma": {
+      "title": "クロノ異常",
+      "desc": "時間歪曲イベント、パラドックス報告書、タイムライン分岐記録。"
+    },
+    "sectorDelta": {
+      "title": "サイバー遺物",
+      "desc": "復元されたハードウェア設計図、ファームウェア残像、廃止プロトコル仕様。"
+    },
+    "protocol": {
+      "title": "プロトコル",
+      "desc": "Nexus Archive通信プロトコル v2.847 — 量子暗号化ハンドシェイクおよびデータストリーム仕様。"
+    },
+    "encryption": {
+      "title": "暗号化",
+      "desc": "アーカイブデータはAES-256-GCMと量子鍵配送(QKD)レイヤーで二重暗号化されます。"
+    },
+    "nodeStatus": {
+      "title": "ノード状態",
+      "status": "12 / 12 ノードオンライン",
+      "metrics": "遅延 12ms · 完全性 99.7%"
+    },
+    "memberVocal": {
+      "title": "Vocal",
+      "name": "カン・ヒョンホ",
+      "instagram": "https://www.instagram.com/pitta.come/",
+      "bio": [
+        "1988年 韓国・釜山生まれ",
+        "2017年 JTBC『ファントムシンガー2』優勝",
+        "2018年 ポレステラ デビュー",
+        "2020年 Pitta デビュー"
+      ]
+    },
+    "memberDrums": {
+      "title": "Drums",
+      "name": "ハン・ソンファン",
+      "instagram": "https://www.instagram.com/sung_hwanhan/",
+      "desc": "ドラム · リアライザー。キットとサンプルレイヤーでグルーヴの基盤を担当。"
+    },
+    "memberGuitar1": {
+      "title": "Guitar",
+      "name": "イ・ヨンウ",
+      "instagram": "https://www.instagram.com/yong_woo_2/",
+      "desc": "ギター1 · ステージ左。リフとテクスチャサウンドを担当。"
+    },
+    "memberGuitar2": {
+      "title": "Base",
+      "name": "ハン・スンモク",
+      "instagram": "https://www.instagram.com/1_jerry_/",
+      "desc": "ベース · ステージ左前。リズムセクションの低音軸を担当。"
+    },
+    "memberGuitar3": {
+      "title": "Guitar",
+      "name": "イ・ウヒョン",
+      "instagram": "https://www.instagram.com/_woohyun_lee_/",
+      "desc": "ギター3 · フロントライン。サウンドスケープとノイズテクスチャを拡張。"
+    },
+    "memberGuestPiano": {
+      "title": "Piano",
+      "name": "オ・ウンチョル",
+      "instagram": "https://www.instagram.com/ecoh_eunchuloh/",
+      "desc": "Guest member · Piano"
+    }
+  },
+  "members": {
+    "drums": "ドラム",
+    "vocal": "ボーカル",
+    "guitar1": "Guitar",
+    "guitar2": "Base",
+    "guitar3": "Guitar",
+    "base": "Base"
+  }
+}

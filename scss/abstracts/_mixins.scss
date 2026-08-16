@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+@mixin max-width($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}
+
+@mixin min-width($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin hover-fine {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

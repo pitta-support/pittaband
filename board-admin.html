@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board Admin</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link
+      rel="stylesheet"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="styles.css?v=111" />
+  </head>
+  <body data-page="board-admin">
+    <div class="scanlines" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <main class="site-main">
+      <article class="site-page site-page--board">
+        <header class="site-page__header">
+          <span class="site-page__id">ADM-01</span>
+          <h1 class="site-page__title">Board Admin</h1>
+        </header>
+        <div class="site-page__body board-admin">
+          <section class="board-admin__login" id="board-admin-login">
+            <form class="board-form" id="board-admin-login-form">
+              <div class="board-form__field">
+                <label class="board-form__label" for="board-admin-password">Admin Password</label>
+                <input
+                  class="board-form__input"
+                  type="password"
+                  id="board-admin-password"
+                  autocomplete="current-password"
+                  required
+                />
+              </div>
+              <button type="submit" class="board-form__submit">입장</button>
+            </form>
+            <p class="board-admin__error" id="board-admin-error" hidden></p>
+          </section>
+
+          <section class="board-admin__panel" id="board-admin-list" hidden>
+            <div class="board-admin__toolbar">
+              <h2 class="board-admin__title">등록된 글</h2>
+              <button type="button" class="board-admin__logout" id="board-admin-logout">로그아웃</button>
+            </div>
+            <p class="board-admin__empty" id="board-admin-empty" hidden>등록된 글이 없습니다.</p>
+            <div class="board-admin__posts" id="board-admin-posts"></div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <script src="scripts/board-admin-page.js?v=1"></script>
+  </body>
+</html>

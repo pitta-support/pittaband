@@ -1,0 +1,337 @@
+@use "../abstracts" as *;
+
+.site-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+body[data-page] .site-main {
+  padding-top: var(--site-top-h);
+  box-sizing: border-box;
+}
+
+body[data-page] .site-page--about {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 0;
+  max-width: none;
+  overflow: hidden;
+}
+
+body[data-page="album"] {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+html:has(body[data-page="album"]) {
+  height: 100%;
+  overflow: hidden;
+}
+
+body[data-page="album"] .site-main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+.site-page--about {
+  .site-page__body {
+    flex: 1 1 auto;
+    min-height: 0;
+    gap: 0;
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+  }
+}
+
+body[data-page]:not([data-page="album"]):not([data-page="concert"]):not(
+    [data-page="festival"]
+  ) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+body[data-page="concert"],
+body[data-page="festival"] {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.32);
+  }
+}
+
+html:has(body[data-page="concert"]),
+html:has(body[data-page="festival"]) {
+  height: 100%;
+  overflow: hidden;
+}
+
+body[data-page="concert"] .site-main,
+body[data-page="festival"] .site-main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+.site-page {
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: min(1024px, 100%);
+  margin-inline: auto;
+  padding: 1.5rem 1.24rem 2.5rem;
+
+  @include min-width($bp-xl) {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  &__header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid rgba(48, 213, 255, 0.14);
+  }
+
+  &__id {
+    display: none;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__desc {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  &__list {
+    margin: 0;
+  }
+
+  &__actions {
+    margin-top: 0.5rem;
+
+    .overlay-btn {
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+
+  &__preview {
+    margin: 0;
+  }
+
+  &__countdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(48, 213, 255, 0.18);
+    background: rgba(48, 213, 255, 0.04);
+  }
+
+  &__countdown-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    color: var(--cyan);
+  }
+
+  &__countdown-value {
+    font-family: var(--font-mono);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  &__countdown-timer {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+}
+
+.member-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--overlay-z);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(1rem, env(safe-area-inset-top, 0px)) 1.24rem
+    max(1rem, env(safe-area-inset-bottom, 0px));
+  pointer-events: none;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-open {
+    pointer-events: auto;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 16, 0.72);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+  }
+
+  &.is-open &__backdrop {
+    opacity: 1;
+  }
+
+  &__panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 520px);
+    max-height: min(85dvh, 680px);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% 100%,
+      20px 100%,
+      0 calc(100% - 20px)
+    );
+  }
+
+  &.is-open &__panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .overlay-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
+
+body.member-overlay-open {
+  overflow: hidden;
+}
+
+.member-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 0.85rem;
+}
+
+.member-profile__name {
+  font-family: var(--font-kr);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.member-profile__instagram {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0;
+  color: #e4405f;
+  text-decoration: none;
+  background: transparent;
+  transition: color 0.25s, opacity 0.25s;
+
+  &:hover,
+  &:focus-visible {
+    color: #f06b84;
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--cyan);
+    outline-offset: 2px;
+  }
+}
+
+.member-profile__instagram-icon {
+  display: flex;
+  width: 1.15rem;
+  height: 1.15rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.member-bio {
+  list-style: disc;
+  list-style-position: outside;
+  margin: 0;
+  padding: 0 0 0 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  li {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "festivals": [
+    {
+      "id": "peak-fest-2024",
+      "title": "PEAK FESTIVAL 2024",
+      "dateTime": "2024-06-01T12:00:00+09:00",
+      "schedule": {
+        "ko": "2024.6.1(토) - 6.2(일)",
+        "en": "Jun 1–2, 2024",
+        "ja": "2024.6.1(土) - 6.2(日)",
+        "es": "1–2 jun 2024"
+      },
+      "venue": {
+        "ko": "난지한강공원",
+        "en": "Nanji Hangang Park",
+        "ja": "Nanji Hangang Park",
+        "es": "Nanji Hangang Park"
+      },
+      "poster": "images/festivals/peak-fest-2024.png",
+      "instagram": "https://www.instagram.com/p/C4-N583rMch/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      "setlist": [
+        { "title": "Don't be quiet" },
+        { "title": "Persona" },
+        { "title": "G.T.H.O." },
+        { "title": "Be the one" },
+        { "title": "Newness" },
+        { "title": "Better" },
+        { "title": "Not alone" },
+        { "title": "Carpe diem" },
+        { "title": "The phantom of the opera" }
+      ],
+      "detail": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      }
+    },
+    {
+      "id": "someday-2024",
+      "title": "SOMEDAY FESTIVAL 2024",
+      "dateTime": "2024-09-07T11:30:00+09:00",
+      "schedule": {
+        "ko": "2024.9.7(토) - 9.8(일)",
+        "en": "Sep 7–8, 2024",
+        "ja": "2024.9.7(土) - 9.8(日)",
+        "es": "7–8 sep 2024"
+      },
+      "venue": {
+        "ko": "서울",
+        "en": "Seoul",
+        "ja": "ソウル",
+        "es": "Seúl"
+      },
+      "poster": "images/festivals/someday-2024.png",
+      "instagram": "https://www.instagram.com/p/C-kHi11Ppt-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      "setlist": [
+        { "title": "Don't be quiet" },
+        { "title": "Icarus" },
+        { "title": "로시난테" },
+        { "title": "Not alone" },
+        { "title": "Universe" },
+        { "title": "Carpe diem" },
+        { "title": "G.T.H.O." },
+        { "title": "Newness" },
+        { "title": "Better" },
+        { "title": "The phantom of the opera", "note": "앵콜" }
+      ],
+      "detail": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      }
+    },
+    {
+      "id": "busan-rock-2024",
+      "title": "2024 BUSAN INTERNATIONAL ROCK FESTIVAL",
+      "dateTime": "2024-10-04T12:00:00+09:00",
+      "schedule": {
+        "ko": "2024.10.4(금) - 10.6(일)",
+        "en": "Oct 4–6, 2024",
+        "ja": "2024.10.4(金) - 10.6(日)",
+        "es": "4–6 oct 2024"
+      },
+      "venue": {
+        "ko": "부산",
+        "en": "Busan",
+        "ja": "釜山",
+        "es": "Busan"
+      },
+      "poster": "images/festivals/busan-rock-2024.png",
+      "instagram": "https://www.instagram.com/p/C9llzprv5Ok/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      "setlist": [
+        { "title": "The Phantom of the Opera" },
+        { "title": "Survival", "note": "Muse" },
+        { "title": "G.T.H.O." },
+        { "title": "Paradox" },
+        { "title": "Newness" },
+        { "title": "Take the Time", "note": "Dream Theater" },
+        { "title": "해무" },
+        { "title": "Better" },
+        { "title": "Wishmaster", "note": "Nightwish" }
+      ],
+      "detail": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      }
+    },
+    {
+      "id": "busan-rock-2025",
+      "title": "2025 BUSAN INTERNATIONAL ROCK FESTIVAL",
+      "dateTime": "2025-09-26T12:00:00+09:00",
+      "schedule": {
+        "ko": "2025.9.26(금) - 9.28(일)",
+        "en": "Sep 26–28, 2025",
+        "ja": "2025.9.26(金) - 9.28(日)",
+        "es": "26–28 sep 2025"
+      },
+      "venue": {
+        "ko": "부산",
+        "en": "Busan",
+        "ja": "釜山",
+        "es": "Busan"
+      },
+      "poster": "images/festivals/busan-rock-2025.png",
+      "instagram": "https://www.instagram.com/reel/DOKw7fgDCeo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      "setlist": [
+        { "title": "Deep Shadow" },
+        { "title": "G.T.H.O." },
+        { "title": "Be The One" },
+        { "title": "Newness" },
+        { "title": "Venta Black" },
+        { "title": "Paradox" },
+        { "title": "Better" },
+        { "title": "The Phantom of the Opera" }
+      ],
+      "detail": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      }
+    }
+  ]
+}

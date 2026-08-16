@@ -1,0 +1,826 @@
+{
+  "album": [
+    {
+      "id": "deep-shadow",
+      "title": "Deep Shadow",
+      "releaseDate": "2024-03-15",
+      "cover": "images/albums/deep-shadow.jpg",
+      "lyricsBy": "",
+      "composedBy": "",
+      "arrangedBy": "",
+      "producedBy": "",
+      "description": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "links": {
+        "melon": "",
+        "spotify": "",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "new-normal-life",
+      "title": "New Normal Life",
+      "releaseDate": "2024-05-16",
+      "cover": "images/albums/new-normal-life.png",
+      "description": {
+        "ko": "PITTA가 제시하는 '삶의 새로운 기준'\n<New Normal Life>!\n\n모든 것이 아무렇지 않은 듯 흘러가는 일상이지만 무엇보다 소중한 건 '나' 이기에\n나의 감정을 살피고, 나의 현재를 인정하며,\n그 안에서 당당하게 온전한 나의 모습을 찾아가자는 내용의 메시지를 담았다.\n\n\"소소한 변칙에서 오는 카타르시스, 그리고 그곳에서 시작되는 새로운 사고의 흐름들!\n나만 아는 작은 마음의 변화부터 행동으로 이어지는 폭발하는 용기까지.\n보다 솔직해지는 나를 맞이하며 새로운 삶을 살아갈 에너지를 충전하고 활기를 얻는다.\"\n\n이번 음반에는 더블 타이틀곡인 G.T.H.O과 Newness를 비롯해 총 5곡의 신곡이 수록되었다. 최근 밴드 음악의 트렌드를 반영하듯 그동안 PITTA가 추구해온 정통 록의 분위기에 하이브리드한 경향이 더해져 시원한 사운드와 간결한 멜로디, 댄서블한 그루브감이 특히 돋보이는 음반으로 완성되었다.\n\nPITTA(강형호, 이용우)의 3번째 EP <New Normal Life>는 \"반복되는 일상으로부터의 가벼운 일탈과 스스로 찾아가는 자유로운 삶에 대한 긍정\"으로 요약된다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "tracks": [
+        {
+          "id": "apollon",
+          "title": "Apollon",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "이용우, 강형호",
+          "producedBy": "강형호, 이용우",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "God, what's an alluring song that I've never heard before\nGod, I wanna engrave this melody I heard in my cell\n\nPriceless, a stunning memory is gone and only the senses remain\nplease god, Will I hear the music once again if I have an infinite dream\n\nGod, Always I forget. Such a dream. There is nothing left\nGod, I don't believe in you but I want to lean on you\n\nPriceless, a stunning memory is gone and only the senses remain\nplease god, Will I hear the music once again if I have an infinite dream",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37527519",
+            "spotify": "https://open.spotify.com/track/2w6yPgqtZDvKc5wwHwAQrr?si=83306417d8974694",
+            "youtube": "https://youtu.be/ilRsq3QC31c?si=ivo_tcwumzQruAvD",
+            "liveclip": "https://youtu.be/4Q4qC1iyPRM?si=mTBQFlc7Ke0MKRnD",
+            "lyrics": ""
+          },
+          "videoType": "lyricvideo"
+        },
+        {
+          "id": "dont-be-quiet",
+          "title": "Don't be quiet",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "UK, 이용우, 강형호",
+          "producedBy": "강형호, 이용우",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "어색한듯한 미소를 짓는 내게\nDon't be quiet don't be quiet\n괜찮은 척하며 숨어버린 내게\nDon't be tired don't be tired\n\n아무렇지 않은 듯 웃는 나의\n여리고 갑갑한 맘은\n아찔한 죽음의 절벽 끝에\n홀로 서있는 듯해\n\nDon't be quiet please don't be quiet!\n뭐라도 좀 뱉기로 해!\nDon't be tired please don't be tired!\n미련 없이 털기로 해!\n가끔은 까칠하게\n때로는 더 당당하게\n\nDon't be quiet please don't be quiet!\n참지 말고 뱉기로 해!\nDon't be tired please don't be tired!\n숨지 말고 나를 꺼내\n후회로 남기 전에\n온전한 내 삶을 위해\n\n아무렇지 않은 듯 웃는 나의\n여리고 갑갑한 맘은\n아찔한 죽음의 절벽 끝에\n홀로 서있는 듯해\n\nDon't be quiet please don't be quiet!\n뭐라도 좀 뱉기로 해!\nDon't be tired please don't be tired!\n미련 없이 털기로 해!\n가끔은 까칠하게\n때로는 더 당당하게\n\nDon't be quiet please don't be quiet!\n참지 말고 뱉기로 해!\nDon't be tired please don't be tired!\n숨지 말고 나를 꺼내\n후회로 남기 전에\n온전한 내 삶을 위해",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37527520",
+            "spotify": "https://open.spotify.com/track/6lCw5A1Zpb9jSC9pEzFdMX?si=043d37c1e57c4418",
+            "youtube": "",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "gtho",
+          "title": "G.T.H.O.",
+          "isTitle": true,
+          "lyricsBy": "UK",
+          "composedBy": "UK",
+          "arrangedBy": "UK",
+          "producedBy": "UK, 강형호, 이용우",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "I got the feel somethin's, already\n양심 터진 너 Go! Get The Hell Out\n딱 마침 피곤했던 김에\n선을 그으려 해 Go! Get The Hell Out\n아쉬울 땐 살짝 비굴한 mode\n필요할 땐 빨대를 냅다 꽂는\n남의 기분 따윈 관심도 없는\n그만 됐어 내 앞에서 꺼져\n어디를 가든 꼭 만나게 되는 그런 사람들\n아무런 말도 섞고 싶지 않으니\n뭣 같은 소리 그만하고 사라져\nGet the hell out\nOh, You make me crazy\n가식적인 태도, 속 보여 Get the hell out\nOh, You make me crazy\n마지못해 주는 관심은 끝났어\n'F' yourself, I said \"Never Mind\"\n네 멋대로 정한 관계는 끝났어\n'F' yourself, I said \"Never Mind\"\n뭣 같은 소리 그만하고 사라져\nGet the hell out\nI got the feel somethin's, already\n양심 터진 너 Go! Get The Hell Out\n딱 마침 피곤했던 김에\n선을 그으려 해 Go! Get The Hell Out\n어디를 가든 꼭 만나게 되는 그런 사람들\n아무런 말도 섞고 싶지 않으니\n뭣 같은 소리 그만하고 사라져\nGet the hell out\nOh, You make me crazy\n가식적인 태도 속 보여 Get the hell out\nOh, You make me crazy\n마지못해 주는 관심은 끝났어!\n'F' yourself, I said \"Never Mind\"\n네 멋대로 정한 관계는 끝났어!\n'F' yourself, I said \"Never Mind\"\n뭣 같은 소리 그만하고 사라져\nI mean, Don't you get me wrong\nI just hate you more and more\nI don't want your somethin'\nYou're nothing anymore\nI mean, Don't you get me wrong\nI just hate you more and more\nI don't want your something\nYou're nothing anymore\nOh, You make me crazy\n가식적인 태도 속 보여 Get the hell out\nOh, You make me crazy\n마지못해 주는 관심은 끝났어\n'F' yourself, I said \"Never Mind\"\n네 멋대로 정한 관계는 끝났어\n'F' yourself, I said \"Never Mind\"\n뭣 같은 소리 그만하고 사라져\nGet the hell out",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37527521",
+            "spotify": "https://open.spotify.com/track/21N5c2kZqdm31Zx4IfvRdX?si=4d228d94bde049b1",
+            "youtube": "https://youtu.be/rDgNvA7mdak?si=UZQXWc1-CWvi67If",
+            "liveclip": "https://youtu.be/MdU4r1cyKBk?si=nWdSm-h_jnBRHF4u",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "newness",
+          "title": "Newness",
+          "isTitle": true,
+          "lyricsBy": "윌로우, 강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "김기욱, 이용우, 강형호",
+          "producedBy": "강형호, 이용우",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "Looking fine, it's looking fine, it's working time\nWhat do you know of me?\nLooking fine, it's looking fine, it's working time\nTrembling, deep in me\n\nLooking fine, it's looking fine, it's working time\nWhat do you know of me?\nLooking fine, it's looking fine, it's working time\nTrembling, deep in me\n\nThe clock is burning, hands are twirling\nFeel my heart beat outside me\n숨 막힐 듯 다가오는 똑같은 삶은 beside me\n지겹게 반복되는 일상으로부터 나가리\n겁먹지 말고 생뚱맞게 시작해 봐 I got it\n\nOh 나 미친 듯이 drive away\n내 스스로 정한 울타리를 벗어나\nLeap from high\nNo wings to fly\nBut changing form a fall to dive\n\nFree my soul and free my body\nLook, I'm rising\nLook, I'm rising\n\nWe'll slowly, surely find\nThis newness, we define\nHere now, let's blur these lines\nThat trembling heart, defeat it\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nMeet a new part of me\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nLook, it's a better me\n\nWhat do you know of me?\nTrembling, deep in me\n\nThe clock is burning, hands are twirling\nFeel my heart beat outside me\n뜨겁게 불타오르는 내 심장으로부터 party\n\nOh 나 미친 듯이 drive away\n내 스스로 정한 울타리를 벗어나\nLeap from high\nNo wings to fly\nBut changing form a fall to dive\n\nFree my soul and free my body\nLook, I'm rising\nLook, I'm rising\n\nWe'll slowly, surely find\nThis newness, we define\nHere now, let's blur these lines\nThat trembling heart, defeat it\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nMeet a new part of me\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nLook, it's a better me\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nMeet a new part of me\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nLook, it's a better me\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nMeet a new part of me\n\nBreak it down and break it down just break it down and\nWe roar!\nBreak it down and break it down just break it down and\nLook, it's a better me\n\nWhat do you know of me?\nTrembling, deep in me\n\nWhat do you know of me?\nTrembling, deep in me",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37527522",
+            "spotify": "https://open.spotify.com/track/2Z6QzpVavgW139wQZzq2SM?si=ed0b18fd9da842dc",
+            "youtube": "",
+            "liveclip": "https://youtu.be/gdBUe_NM8so?si=M1Z410c5QAb-bF2L",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "better",
+          "title": "Better",
+          "lyricsBy": "UK",
+          "composedBy": "UK",
+          "arrangedBy": "황린",
+          "producedBy": "UK",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "아득히 먼 Dream 혹은 Goal\nAll of it seems to be blocked\n제자리 빙빙 도는 꼴\n\nI could've become the better one\n암울한 현실 속에 떠오르는 절망감은 덤\n\nBurning! Deep into the night\n수없이 날 끌어왔던 Passion\n\n타오른 밤과 재가 된 낮\n어디쯤 Location\n\nAgain and again, I gotta move\n악으로 Find a better day\n\nLife goes on and on\nScreaming for the future\nGrab a better one\nI could be, could be everything I want\n\nI will rise up from the past\nWe! Will! Find! Something Better!\n\n아득히 먼 빛을 향해\nWe! Will! Find! Something Better!\n\nSometimes we fail and We're sick of the pain\n몇 번이고 닥칠 괴로움 끝엔\n\n결국 마주하겠지 Someday\nWe! Will! Find! Something Better!\n\n아득히 먼 Dream 혹은 Goal\n사방엔 짙게 깔린 Fog\n그늘진 어둠 속을 Run\n\nI could've become the better one\n어둑한 시야 속에 떠오르는 불안감은 덤\n\nBurning! Deep into the night\n수없이 날 끌어왔던 Passion\n\n타오른 밤과 재가 된 낮\n어디쯤 Location\n\nAgain and again, I gotta move\n악으로 Find a better day\n\nLife goes on and on\nScreaming for the future\nGrab a better one\nI could be, could be everything I want\n\nI will rise up from the past\nWe! Will! Find! Something Better!\n\n아득히 먼 빛을 향해\nWe! Will! Find! Something Better!\n\nSometimes we fail and We're sick of the pain\n몇 번이고 닥칠 괴로움 끝엔\n\n결국 마주하겠지 Someday,\nWe! Will! Find! Something Better!\n\nOh-\nWe! Will! Find! Something Better!\nOh-\n\n아득히 먼 Dream 혹은 Goal\n아직은 닿지 않아 But\n절대 꺼지지 않아 Burn\n\nLife goes on and on\nScreaming for the future\nGrab a better one\nI could be everything I want\n\nSometimes we fail and We're sick of the pain\n몇 번이고 닥칠 괴로움 끝엔\n\n결국 마주하겠지 Someday\nWe! Will! Find! Something Better!\n\nOh-\nWe! Will! Find! Something Better!\nOh",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37527523",
+            "spotify": "https://open.spotify.com/track/5iPe6Onq8ee4ZPchyUuLlE?si=c292c4a9625d48e8",
+            "youtube": "",
+            "liveclip": "https://youtu.be/wnHvEyvIMpA?si=cXSscHad9oeXacpl",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "i-norae",
+          "title": "이 노래",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "오은철, 이용우",
+          "producedBy": "강형호, 이용우",
+          "description": {
+            "ko": "PITTA 강형호가 진심을 담아 마음으로 전하는 메시지 '이 노래'.\n\n활동을 하면서 접하게 된 팬분들의 다양한 사연들 속에서 건강, 가족, 직장문제, 특히 암 투병 중이신 분들이 생각보다 많아서 마음 아파한 강형호.\n\n'이 노래'는 항상 응원해 주시는 팬분들에 대한 감사함, 그리고 힘이 되어드리고 싶은 마음에서 만들기 시작한 곡으로, 이 노래가 많은 사람들에게 희망이, 밝은 빛이, 그리고 친구가 되기를 바라는 마음을 담았다.\n\n\"저희의 음악으로 힘을 얻으신다는 말을 들을 때마다 무엇이든 한 곡이라도 더 만들어 들려 드리고 싶었습니다. 그러나 들려드리고 싶어도 무한히 기다려주시지 않는다는 걸 이번에 깨달았습니다. 발매가 늦었지만 이 노래가 조금이나마 위로와 희망이 되었으면 합니다. 먼저 세상을 떠나신, 그리고 오늘 하루도 치열하게 세상과 맞서 싸워 나아가시는 팬분들께 이 노래를 바칩니다.\"",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "힘겹게 버텨낸\n고단한 하루들\n내일을 생각하며\n오늘을 이겼네\n\n깊은 한숨 쉬는\n거리의 사람들\n무표정한 나의 얼굴과\n닮아 있구나\n\n한 걸음조차 뗄 수 없는\n시련 속에서\n너와 나의 등대가\n밝게 비춰주고\n\n여기 우리들의 노래가\n희망의 시가 되어\n더 웃을 수 있는\n밝고 환한 빛이 될 수 있기를\n\n\n이 노래가 누군가의 친구였음 좋겠어\n세월 지나도 언제나 곁에 머물 수 있는\n이 노래가 우리들의 사랑이면 좋겠어\n서로를 더 빛나게 해주는\n\n무던하던 나의 하루하루는\n다른 어느 누군가의\n결코 시들지 않을 아름다운 꽃이여\n새롭게 저기 불어오는 우리의\n\n이 노래가 누군가의 희망이면 좋겠어\n세월 지나도 언제나 함께 웃을 수 있는\n이 노래가 우리들의 기적이면 좋겠어\n서로를 살아가게 해주는\n\n이 노래가 누군가의 바람이면 좋겠어\n세월 지나도 언제나 함께 머물 수 있는\n이 노래가 우리들의 사랑이면 좋겠어\n서로를 더 빛나게 해주는\n\n서로를 살아가게 해주는",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37288167",
+            "spotify": "https://open.spotify.com/track/2Drvg4yrEXEgu5qN7vuf2t?si=be635ac543cb42a1",
+            "youtube": "https://youtu.be/pCjYWIbZ88Y?si=1fTvVIMnFjaKwnN_",
+            "lyrics": ""
+          },
+          "videoType": "lyricvideo"
+        }
+      ]
+    },
+    {
+      "id": "paradox",
+      "title": "Paradox",
+      "releaseDate": "2026-01-20",
+      "cover": "images/albums/paradox.jpg",
+      "lyricsBy": "",
+      "composedBy": "",
+      "arrangedBy": "",
+      "producedBy": "",
+      "description": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "links": {
+        "melon": "",
+        "spotify": "",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "void-cartography",
+      "title": "Void Cartography",
+      "releaseDate": "2026-04-10",
+      "cover": "images/albums/void-cartography.jpg",
+      "lyricsBy": "",
+      "composedBy": "",
+      "arrangedBy": "",
+      "producedBy": "",
+      "description": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "links": {
+        "melon": "",
+        "spotify": "",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "be-free",
+      "title": "BE FREE",
+      "releaseDate": "2023-04-19",
+      "cover": "images/albums/be-free.png",
+      "description": {
+        "ko": "진정한 자유를 쫓는 로커 PITTA의 스페셜 앨범 <BE FREE>\n\n팔색조 같은 매력을 가진 포레스텔라 멤버 PITTA(강형호)가 스페셜 앨범 <BE FREE>로 자유를 쫓는 로커로서의 행보를 이어간다.\n\n불안한 청춘을 응원하며 오늘을 가치 있게 즐기자는 메시지를 담은 'CARPE DIEM', 어떤 어둠이 찾아와도 빛을 향해 나아간다는 'SMOG', 진정한 자유란 무엇인지 생각하게 만드는 'BE FREE'외 싱글로 선보였던 'DANDELION', 'UNIVERSE'의 new mix 버전 등 스페셜 트랙까지 총 7곡이 담겼다.\n\nPITTA는 강형호와 이용우로 구성된 2인 프로듀서 밴드로 이번에도 역시 함께 했다. 작사, 작곡에 직접 참여하여 본인의 이야기를 담아냄과 동시에, 넓은 음역대를 이용한 다양한 스펙트럼의 음악을 선보인 이번 앨범은 처음부터 끝까지 PITTA, 그 자체 같은 앨범이다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "tracks": [
+        {
+          "id": "intro",
+          "title": "INTRO",
+          "noDetail": true,
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=36380614",
+            "spotify": "https://open.spotify.com/track/5UELSt5uPI04JA0HxjiI5P?si=270a14ccb9b749c3",
+            "youtube": "",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "carpe-diem",
+          "title": "CARPE DIEM",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "UK, 이용우, 강형호",
+          "producedBy": "UK, 강형호, 이용우",
+          "description": {
+            "ko": "크로스오버 그룹 '포레스텔라'의 멤버 강형호.\n그의 또 다른 이름 'PITTA'가 부르는 청춘의 노래 < CARPE DIEM >!\n\n이번 신곡 < CARPE DIEM >은 PITTA의 세 번째 싱글로\n청춘의 패기와 낭만이 담긴 가사와 함께 시원한 락보컬을 선보인다.\n\n청량한 색채감으로 가득한 이번 곡은\n강형호 작사, 작곡 및 UK, 이용우 편곡으로 완성되었다.\nPITTA는 강형호와 이용우로 구성된 2인 프로듀서 밴드이다.\n\n불안한 청춘에게 보내는 힘찬 위로.\n듣는 순간 당장 달려나가고 싶게 만드는 떼창 송.\n\n각자의 인생 철학에 맞게!\nFollow your \"CARPE DIEM!\"",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "어둑해진 방 안\n홀로 남겨진 시간\n불안한 내일과\n매일 흔들리는 맘\n희미한 불빛과\n낡은 시계 소리가\n잠 못 드는 이 밤\n나를 더욱 미치게 해\nFind love,\ndon't worry about tomorrow\nFind love, 나를 위해\n달려, 숨이 차올 때까지\n날려 지난날의 후회\nAnd now, if you follow\nyour 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해\n내리쬐는 태양\n거친 파도 소리와\n날 스치는 바람\n나를 살아있게 해\nFind love, seize the day\nnot tomorrow\nFind love, 나를 위해\n달려, 숨이 차올 때까지\n날려, 지난날의 후회\nAnd now,\nif you follow your 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해\nAnd now,\nif you follow your 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=36255707",
+            "spotify": "https://open.spotify.com/track/4MQdb3CA3Pw8dHgfB4utJF?si=60aa531410fa426c",
+            "youtube": "https://youtu.be/PsEVQZeH8Tc?si=WMh4nfAKo5QfVOwc",
+            "lyrics": ""
+          },
+          "videoType": "lyricvideo"
+        },
+        {
+          "id": "smog",
+          "title": "SMOG",
+          "lyricsBy": "윌로우",
+          "composedBy": "강형호, 이용우",
+          "arrangedBy": "최팽",
+          "producedBy": "최팽",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "Oh a dream we've all seen before\nA single breath whispers, \"I need more\"\nForward through the starlight\nyour eyes Slowly close\nSinking, through the murky depths below\nYou carry me as before\nYou cherish me through storms\nCloser to the light though\nwe can't say for sure\nFollowing the sky we're longing for\nYou can take all the time you want\nFor this time, I will hold your storm\nCovering the skylights,\ndark nights make you weary\nForward through the smog;\nwe aren't alone\nYou carry me as before\nYou cherish me through storms\nCloser to the light though\nwe can't say for sure\nFollowing the sky we're longing for\nI know you so\nI'll light your skies\nStaining the Grey of this smog, unfurl\nDreams no one has seen before\nArise through the sky\nCloser to the light though\nwe can't say for sure\nFollowing the sky we're longing for\nOh a dream we've all seen before\nA single breath whispers, \"I need more\"\nForward through the starlight\nyour eyes Slowly close\nSinking, through the murky depths below",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=36380616",
+            "spotify": "https://open.spotify.com/track/4JdYkGJtFLM7vIqsenRhzG?si=92159dfe08ad475f",
+            "youtube": "",
+            "liveclip": "https://youtu.be/ItAPmgMgrUk?si=ux9vPM_bvgG8wxGe",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "be-free-title",
+          "title": "BE FREE",
+          "isTitle": true,
+          "lyricsBy": "강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "이용우, 강형호",
+          "producedBy": "강형호, 이용우",
+          "description": { "ko": "", "en": "", "ja": "", "es": "" },
+          "lyricsText": "I don't wanna let you down\nBut I don't really wanna let me down\nWhy am I walking on egg shells tonight\nWhen no one asked me to do it\nI don't wanna feel tied down\nAnd I don't really wanna pull me down\nI wanna turn off all the ugly lights.\nI wish to have perfect freedom\nLook in your sorrow\nwhich you're sinking\nAnd walk in this sorrow\nwithout any thinking\nWhy don't you truly give up\nyour obsession and live in your light?\nwhere there is inner peace\nAnd......\nLook in your hollow, nothing exists\nAnd walk in this hollow,\neverything is nothing\nFace it. The more you have,\nthe more emptiness\nWhat is the meaning of life?\nI'm just gonna flow like a river\nCarefree life dreamer\nSounds like a winner\nI wanna be in a place\nwhere my ego is free.\nI don't wanna let you down\nBut I don't really wanna let me down\nWhy am I walking on egg shells tonight\nWhen No one asked me to do it.\nI don't wanna feel tied down\nAnd I don't really wanna pull me down\nI wanna turn off all the ugly lights.\nI wish to have perfect freedom\nOh that flying butterfly is beautiful!\nAnyone who is lying on the top?\nlet me know!\nwho is on cloud nine?\nbutterflies or you?\nOh...... Maybe you're gonna lie!!\nNothing I'm longing for!\nI don't wanna let you down\nBut I don't really wanna let me down\nWhy am I walking on egg shells tonight\nWhen No one asked me to do it.\nI don't wanna let you down\nBut I don't really wanna let me down\nI don't wanna feel tied down\nI wish to have perfect freedom",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=36380617",
+            "spotify": "https://open.spotify.com/track/1WaBpGxayj7lHophbRBbSf?si=5acf5cbde8f54ed5",
+            "youtube": "https://youtu.be/88PNxQnNPYQ?si=A9y25E5-ize2pDZ0",
+            "liveclip": "https://youtu.be/hU1jMiOqkRM?si=-KCx2eoZFeq09NaC",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "dandelion",
+          "title": "DANDELION",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호, 이용우",
+          "arrangedBy": "이용우, 강형호, 황재",
+          "producedBy": "이용우, 강형호",
+          "description": {
+            "ko": "크로스오버 그룹 '포레스텔라'의 강형호.\n그의 또 다른 이름 PITTA의 두 번째 싱글 [dandelion]\n이번 곡은 락보컬 및 크로스오버 가수로서 소프라노 영역까지 소화해내는 팔색조 매력의 강형호만이 표현해 낼 수 있는 이국적이면서도 몽환적인 느낌을 담았다.\n공동 작곡 및 프로듀싱한 이용우의 강형호 목소리에 대한 이해와 아이디어가 고스란히 반영된 곡으로, 앞으로 두 사람이 함께 만들어나갈 PITTA의 곡들에 대한 기대가 높다.",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "A misty sky\nA gentle breeze\nFirefly\nlighting a trail\nDandelion\nUnleash and let pappus go\nWon't know where\nbreeze takes you\nDandelion\nRise on breezes\nIt takes to sky\nYou'll go up\nWe'll grow up",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=33701752",
+            "spotify": "https://open.spotify.com/track/725yNxYGDNLCBu45VstwVC?si=a5ca5debb5c9405d",
+            "youtube": "https://youtu.be/_M13WgixhFw?si=DtVmbrdxT1nKP8WX",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "universe",
+          "title": "UNIVERSE",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호, 이용우",
+          "arrangedBy": "ZigZag Note, 이용우",
+          "producedBy": "ZigZag Note",
+          "description": {
+            "ko": "포레스텔라의 멤버 강형호와 그의 음악 파트너 기타리스트 이용우의 앞으로의 음악 행보에 대한 다짐을 담아낸 첫 자작곡 universe",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "아무 소리 없는\n어둡고 깜깜한 이 밤\n갈 곳을 잃고 헤매이는\n작고 여린 나의 우주선\n\n너무 두려워 하지마\n한걸음 걸음 다가가\n아무 의미없는 시간은 없어\n네 안에 있는 너를 놓지마\n\nUniverse,\nmy universe\n내 뜻대로 날아가\n나의 세상 만들어\n\nmy universe\nuniverse\n뭐라하든 상관없어\n이 길 끝에 내 별이 있으니까\n\n정해진 방향은 없어\n어서 궤도를 벗어나\n마음먹은대로 가다보면\n닿을 수 있다는 걸 알기에\n\nuniverse,\nmy universe\n내 뜻대로 날아가\n나의 세상 만들어\n\nmy universe\nuniverse\n뭐라하든 상관없어\n이길 끝에 내별이 있으니까\n\n앞서는 빠른 걸음에\n너무 서두르려 하지마\n네 바람과, 네 날개로\n충분하니까",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=33020491",
+            "spotify": "https://open.spotify.com/track/64brHos90tIzR9HPOTPYW6?si=485d1d209c964c4b",
+            "youtube": "https://youtu.be/zAi8wTN_54k?si=1ez0uXJBW4o14rIs",
+            "liveclip": "https://youtu.be/fBlc-g-HJuA?si=0C5Ym-yhhsqcZI2D",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "carpe-diem-applause-guide",
+          "title": "CARPE DIEM",
+          "subtitle": "Applause Guide Version",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호",
+          "arrangedBy": "UK, 이용우, 강형호",
+          "producedBy": "UK, 강형호, 이용우",
+          "description": {
+            "ko": "크로스오버 그룹 '포레스텔라'의 멤버 강형호.\n그의 또 다른 이름 'PITTA'가 부르는 청춘의 노래 < CARPE DIEM >!\n\n이번 신곡 < CARPE DIEM >은 PITTA의 세 번째 싱글로\n청춘의 패기와 낭만이 담긴 가사와 함께 시원한 락보컬을 선보인다.\n\n청량한 색채감으로 가득한 이번 곡은\n강형호 작사, 작곡 및 UK, 이용우 편곡으로 완성되었다.\nPITTA는 강형호와 이용우로 구성된 2인 프로듀서 밴드이다.\n\n불안한 청춘에게 보내는 힘찬 위로.\n듣는 순간 당장 달려나가고 싶게 만드는 떼창 송.\n\n각자의 인생 철학에 맞게!\nFollow your \"CARPE DIEM!\"",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "어둑해진 방 안\n홀로 남겨진 시간\n불안한 내일과\n매일 흔들리는 맘\n희미한 불빛과\n낡은 시계 소리가\n잠 못 드는 이 밤\n나를 더욱 미치게 해\nFind love,\ndon't worry about tomorrow\nFind love, 나를 위해\n달려, 숨이 차올 때까지\n날려 지난날의 후회\nAnd now, if you follow\nyour 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해\n내리쬐는 태양\n거친 파도 소리와\n날 스치는 바람\n나를 살아있게 해\nFind love, seize the day\nnot tomorrow\nFind love, 나를 위해\n달려, 숨이 차올 때까지\n날려, 지난날의 후회\nAnd now,\nif you follow your 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해\nAnd now,\nif you follow your 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=36380620",
+            "spotify": "https://open.spotify.com/track/5T5B9p8TbnK1YCQgZ7VRsZ?si=5a9a21d1567b4c48",
+            "youtube": "",
+            "lyrics": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "id-pitta",
+      "title": "ID: PITTA",
+      "releaseDate": "2021-11-10",
+      "cover": "images/albums/id-pitta.png",
+      "description": {
+        "ko": "로커로 변신한 포레스텔라 PITTA(강형호)의 첫 앨범 [ID: PITTA] 발매\n\n로커로 변신한 포레스텔라 멤버 PITTA(강형호)가 자전적인 이야기를 담은 첫 앨범 [ID: PITTA]를 발매한다.\n\n세상이 두려워 숨는 모두에게 지난날은 모두 기억과 시간 너머로 날려버리고 앞으로 나아가자는 메시지를 담은 <The Nation>, 나를 의심하고 시기, 질투하며 함부로 대하는 이들에 대한 선언과 같은 <Be The One>, 사회적 가면을 벗어 던지고 가식 없는 나로 살아가자고 외치는 <Persona>, <Everything Goes Dark>의 한국어 버전인 <Icarus>, 더 이상 도망갈 길 없는 상황에서 외치는 <Prayer>, 스스로 가장 소중한 존재임을 인식하고 늘 응원하고자 하는 바람이 담긴 <Not Alone> 등 총 6곡이 담겼다.\n\n작사, 작곡에 직접 참여하고 저음부터 고음까지 넓은 음역대를 무기로 한 PITTA(강형호)의 이번 앨범은 앞으로 음악가로서 이정표를 제대로 팬들에게 알리는 선언과 같은 앨범이다. 공동 작곡 및 프로듀싱은 PITTA의 음악적 동반자인 이용우가 담당했다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "tracks": [
+        {
+          "id": "the-nation",
+          "title": "The Nation",
+          "isTitle": true,
+          "lyricsBy": "곰돌군 윌로우(백선민), 이종한",
+          "composedBy": "곰돌군, 진민호, 이종한",
+          "arrangedBy": "곰돌군, 이종한",
+          "producedBy": "",
+          "description": {
+            "ko": "어떤 전쟁의 마지막 전투 직전이다. 그 전투를 앞에 둔 개인의 처절함. 누가 됐든지 간에 나 자신을 믿어야 한다. 세상이 두려워 숨는 모두에게 지난날은 모두 기억과 시간 너머로 날려버리고 앞으로 나아가자는 메시지를 담았다.",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "Place we dreamed of\nHeartbeats a sign\n손에 잡힐 듯 가까워져\n불빛 한 틈 샐 수 없어\nI'm ready for this fight\nI used to be used to be\nused to be like a light\nIt has to be has to be has\nto be here tonight\nWinner will be the nation\nThis battle decides the reason\nWe don't hide from the red zone\nDon't let me down\nthere's no time for mistakes\nWe'll never give up\nwe'll turn death away\nThis is the way we survive\nTake in a breath\nUnleash your sighs\n안개가 모두 걷힐 때까지\n어둠을 떨쳐\n나를 던져\nWe'll face the world and rise\nI used to be used to be\nused to be like a light\nIt has to be has to be has\nto be here tonight\nWinner will be the nation\nThis battle decides the reason\nWe don't hide from the red zone\nDon't let me down\nthere's no time for mistakes\nWe'll never give up\nwe'll turn death away\n네 지난날은 모두 뒤로\n기억과 시간 너머로\n네 그림자 뒤로 숨지 마\nDon't let me down\nthere's no time for mistakes\nWe'll never give up\nwe'll turn death away\nThis is the way we survive",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=34156135",
+            "spotify": "https://open.spotify.com/track/06bkfl2SRU6ANAuwjcZbxm?si=93cbb27fd7e84844",
+            "youtube": "https://youtu.be/qIHyIOc3URE?si=ByXeewVUSbL3AAIw",
+            "liveclip": "https://youtu.be/0Y__VuaOUQ8?si=dctBjphRwDV3VBDc",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "be-the-one",
+          "title": "Be The One",
+          "lyricsBy": "윌로우(백선민), 이종한",
+          "composedBy": "곰돌군, 진민호, 이종한",
+          "arrangedBy": "곰돌군, 이종한",
+          "producedBy": "",
+          "description": {
+            "ko": "나를 의심하고 시기, 질투하며 내 밥그릇을 호시탐탐 노리는 이들에게 나는 'THE ONE' 이며 '너희들이 함부로 범접할 수 없다'라고 일갈하는 곡이다.",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "이미 시작된 거야\nUndone\n그 누구도 몰랐던\nArise\n거칠게 뱉어\n차디찬 숨소리\n그날의 기억들\n넌 보게 될 걸\n기회를 주지 마\n시선을 빼지 마\n다 끝인 것처럼\nI'm the ONE\nI'm the ONE\nI'll be the way\n모든 걸 다 다 다 걸어\nI will beat the pain\nNo I will be the pain\n끝을 향해 endless war\nYeah I will be the ONE\n짙은 어둠을 헤쳐\nTonight\n자욱한 안개\n희미하게 비친\n언젠가 마주친\n너의 환영\n모든 곳에서\n내 노래가 들려\n다 꿈인 것처럼\nI'm the ONE\nI'm the ONE\nI'll be the way\n모든 걸 다 다 다 걸어\nI will beat the pain\nNo I will be the pain\n끝을 향해 endless war\nYeah I will be the ONE\n모두가 아니라고 말 해도\n계속 걸어가\n당당히 누려야만 해\nThe world is yours\nI'm the ONE\nI'm the ONE\nI'll be the way\n모든 걸 다 다 다 걸어\nI will beat the pain\nNo I will be the pain\n끝을 향해 endless war\nYeah I will be the ONE\nI will beat the pain\nNo I will be the pain\n끝을 향해 endless war\nYeah I will be the ONE",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=34235514",
+            "spotify": "https://open.spotify.com/track/6a6sQFBXQyhAtjYuGZAWFU?si=1c2493a718034e82",
+            "youtube": "https://youtu.be/oHPRNJX7134?si=P6la1pjlvXKabj0t",
+            "lyrics": ""
+          },
+          "videoType": "liveclip"
+        },
+        {
+          "id": "persona",
+          "title": "Persona",
+          "isTitle": true,
+          "lyricsBy": "강형호",
+          "composedBy": "강형호, 이용우",
+          "arrangedBy": "uk, 이용우, 강형호",
+          "producedBy": "",
+          "description": {
+            "ko": "",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "You make me fakeness and\nI feeling so shabby in my life\nI almost fell for me Too\nYou're just a mask\n날 바라보는 시선들\n뭔가 기대하는 눈빛\n아는 척하는 내 모습\n내가 아닌 것 같아\nYou know I'm hypocrite\n내 안에 많은 얼굴들\nI know you're confused\n이건 네가 아는 나와는 달라\nI'll unmask tonight\n난 나를 원해\nI'll peel off tonight\nI'm not fake people\nI'll unmask tonight\n난 나를 원해\n제발 가식적인 제스처는 No Oh\nI'll unmask tonight\n난 나를 원해\nI'll peel off tonight\nI'm not fake people\nI'll unmask tonight\n난 나를 원해\n제발 광대 같은 거짓 웃음 집어넣어\nLet's make it real my face\nI wanna say goodbye 페르소나\n날 바라보는 시선들\n뭔가 다 아는 눈빛\n아닌 척하는 내 모습\n너무 초라한 것 같아\nYou know I'm hypocrite\n내 안에 많은 얼굴들\nI know you're confused\n이건 네가 아는 나와는 달라\nI'll dismask tonight\n난 나를 원해\nI'll dismask tonight\nI'm not fake people\nI'll dismask tonight\n난 나를 원해\n제발 가식적인 제스처는 No Oh\nI'll dismask tonight\n난 나를 원해\nI'll dismask tonight\nI'm not fake people\nI'll dismask tonight\n난 나를 원해\n제발 광대 같은 거짓 웃음 집어넣어\nLet's make it real my face\nI wanna say goodbye 페르소나",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=34235515",
+            "spotify": "https://open.spotify.com/track/3evNxkirxpw6u7On3MsTOz?si=097b271c29a84b08",
+            "youtube": "https://youtu.be/pinaYiADcqQ?si=KMst6qnupbjhneYo",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "prayer",
+          "title": "Prayer",
+          "subtitle": "배수의 진",
+          "lyricsBy": "강형호",
+          "composedBy": "강형호, 이용우",
+          "arrangedBy": "이종한, 이용우, 강형호",
+          "producedBy": "",
+          "description": {
+            "ko": "",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "저기 higher 멀리\n희미해져가는 불빛 desire\n더는 되돌아갈 길 없는 절벽 끝\n더 이상 의미 없는\n구원의 기도들 다 집어치워\nDecide our fate\nI'm not afraid\n뒤돌아 보지 마\nGo head to head\nYes i'm gonna attain\nWe're gonna celebrate\nPain makes me feel alive\n외쳐봐 say yeah\nWithstand the storm you could hold\n온몸을 파고드는 이 고통 삼켜버려\n더 이상 의미 없는\n구원의 기도들은 다 집어치워\nDecide our fate\nI'm not afraid\n뒤돌아 보지 마\nGo head to head\nYes I'm gonna attain\nWe're gonna celebrate\nPain makes me feel alive\n외쳐봐 say yeah\n다 집어치워\nDecide our fate\nI'm not afraid\n뒤돌아 보지 마\nGo head to head\nYes I'm gonna attain\nWe're gonna celebrate\nPain makes me feel alive\n외쳐봐 say\nDecide our fate\nWe're gonna celebrate\nPain makes me feel alive\n외쳐봐 say yeah",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=34235516",
+            "spotify": "https://open.spotify.com/track/3nKW10FBuKS1uMC9SJIxg6?si=5121f72bfc3d425e",
+            "youtube": "",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "icarus",
+          "title": "Icarus",
+          "lyricsBy": "오현주, Summer Kim",
+          "composedBy": "",
+          "arrangedBy": "ZigZag Note",
+          "producedBy": "",
+          "description": {
+            "ko": "이카루스(Icarus)에는 그리스 로마신화의 이카루스가 하늘을 향해 날아오르는 환희와, 날개가 부서져 추락하는 절망이라는 대비를 웅장하고도 처연하게 담아냈다. 타올라 사라질 모든 것을 알면서도 끝내 하늘을 항해 날아오르는, 불안하고도 아름다운 비행이 많은 이들의 가슴에 슬프지만 찬란한 불꽃을 일게 하기를 기대한다.\n\n\"Icarus\" is a version of \"Everything Goes Dark\"\n(Sharland/Sparkes/Skarendahl).\nPublished by Sony Music Publishing.\nUsed by permission. All rights reserved.",
+            "en": "\"Icarus\" is a version of \"Everything Goes Dark\"\n(Sharland/Sparkes/Skarendahl).\nPublished by Sony Music Publishing.\nUsed by permission. All rights reserved.",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "고요한 마음속에 작은 불꽃이 인다\n바람을 맞으며 turn on the fire\n점점 번져 오르는 이 열기가\n깊은 어둠에 잠긴 날 깨울 때\n나 단숨에 불타오르는 저\n태양을 향해 on the\nFly Yah Fly Yah\n조금 더 오르면 닿을듯해\n환희로 가득 찬 빛나는 어딘가\n차오르는 숨 위태롭게 손을 뻗어\n부서지는 내 날개로\nFall into the dark\n잃고야 말 내 모든 걸\n품에 안은 채 다시\nFly Yah Fly Yah\n더 깊은 어둠 속에 추락한대도\n다시 또 날아 높이 fly to the sky\nFall into the dark fly to the sky",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=34235517",
+            "spotify": "https://open.spotify.com/track/50lyjPrefpFSzjwgzTvN9e?si=ee02605c1cf94bc9",
+            "youtube": "",
+            "liveclip": "https://youtu.be/CFhHCVkwdKY?si=oeh_FYGJIfdcbDo3",
+            "lyrics": ""
+          }
+        },
+        {
+          "id": "not-alone",
+          "title": "Not Alone",
+          "lyricsBy": "uk",
+          "composedBy": "uk",
+          "arrangedBy": "uk",
+          "producedBy": "",
+          "description": {
+            "ko": "우리는 다양한 감정을 느끼며 살아간다. 돌고 도는 감정들 속에 필연적으로 외로움을 마주하게 된다. 낮은 자존감과 우울감을 느낄 때마다 외로움은 커져만 갔고, 스스로를 탓하고 꾸짖는 일이 많았던 것 같다. 이 노래는 삶을 살아내는 우리의 자아에게 보내는 위로이자 스스로 가장 소중한 존재임을 인식하고, 늘 응원하고자 하는 바람이 담겨 있다.",
+            "en": "",
+            "ja": "",
+            "es": ""
+          },
+          "lyricsText": "어둠 속에 홀로 있을 때\n마음에 외로움이 커질 때\n세상은 늘 내게 무심했지\nI know I was invisible\n두근거림을 잊고 사는\n내 마음속 나에게\n깨어나 힘껏 말을 해\nYou know You're not alone\n끝없는 근심 걱정들로부터\nRun away Run away\n세상의 끝이라도\nI'll Run to you Right away\n저 하늘 높이\nWe're Walking on the clouds\n날아올라 날개 없이도 We're flying\nThe wander is over 세상에 외쳐\nI know I'm not alone\n후우후우 후\n후우후우 후\n후우후우 후\n후우후우 후\n돌고 도는 yesterday today\ntomorrow\n매일 겪는 deja-vu\n끝이 없는 미로 속을 헤매는\n내 마음속 나에게\n끝없는 근심 걱정들로부터\nRun away Run away\n세상의 끝이라도\nI'll Run to you Right away\n저 하늘 높이\nWe're Walking on the clouds\n날아올라 날개 없이도 We're flying\nThe wander is over 세상에 외쳐\nI know I'm not alone\n가끔은 힘이 들고 두렵기도 해\nI feel like I'm left alone\n그 어둠 속에 갇혀있는\n내 마음속의 나에게\n저 하늘 높이\nWe're Walking on the clouds\n날아올라 날개 없이도 We're flying\nThe wander is over 더 크게 외쳐\nI know I'm not alone\n후우후우 후\n후우후우 후\n후우후우 후\n후우후우 후\n어둠 속에 홀로 있을 때\n마음엔 내가 항상 있을게",
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=34235518",
+            "spotify": "https://open.spotify.com/track/1ppEJdmcru4MDWAGNIhZSh?si=231b73ec96044688",
+            "youtube": "https://youtu.be/0EtmbgKUu7Y?si=R73-FOzwEICiTAUa",
+            "lyrics": ""
+          }
+        }
+      ]
+    }
+  ],
+  "single": [
+    {
+      "id": "universe",
+      "title": "UNIVERSE",
+      "releaseDate": "2020-10-29",
+      "cover": "images/albums/universe.png",
+      "lyricsBy": "강형호",
+      "composedBy": "강형호, 이용우",
+      "arrangedBy": "ZigZag Note, 이용우",
+      "producedBy": "ZigZag Note",
+      "description": {
+        "ko": "포레스텔라의 멤버 강형호와 그의 음악 파트너 기타리스트 이용우의 앞으로의 음악 행보에 대한 다짐을 담아낸 첫 자작곡 universe",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "아무 소리 없는\n어둡고 깜깜한 이 밤\n갈 곳을 잃고 헤매이는\n작고 여린 나의 우주선\n\n너무 두려워 하지마\n한걸음 걸음 다가가\n아무 의미없는 시간은 없어\n네 안에 있는 너를 놓지마\n\nUniverse,\nmy universe\n내 뜻대로 날아가\n나의 세상 만들어\n\nmy universe\nuniverse\n뭐라하든 상관없어\n이 길 끝에 내 별이 있으니까\n\n정해진 방향은 없어\n어서 궤도를 벗어나\n마음먹은대로 가다보면\n닿을 수 있다는 걸 알기에\n\nuniverse,\nmy universe\n내 뜻대로 날아가\n나의 세상 만들어\n\nmy universe\nuniverse\n뭐라하든 상관없어\n이길 끝에 내별이 있으니까\n\n앞서는 빠른 걸음에\n너무 서두르려 하지마\n네 바람과, 네 날개로\n충분하니까",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=33020491",
+        "spotify": "https://open.spotify.com/track/64brHos90tIzR9HPOTPYW6?si=485d1d209c964c4b",
+        "youtube": "https://youtu.be/zAi8wTN_54k?si=1ez0uXJBW4o14rIs",
+        "liveclip": "https://youtu.be/fBlc-g-HJuA?si=0C5Ym-yhhsqcZI2D",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "dandelion",
+      "title": "DANDELION",
+      "releaseDate": "2021-07-20",
+      "cover": "images/albums/dandelion.png",
+      "lyricsBy": "강형호",
+      "composedBy": "강형호, 이용우",
+      "arrangedBy": "이용우, 강형호, 황재",
+      "producedBy": "이용우, 강형호",
+      "description": {
+        "ko": "크로스오버 그룹 '포레스텔라'의 강형호.\n그의 또 다른 이름 PITTA의 두 번째 싱글 [dandelion]\n이번 곡은 락보컬 및 크로스오버 가수로서 소프라노 영역까지 소화해내는 팔색조 매력의 강형호만이 표현해 낼 수 있는 이국적이면서도 몽환적인 느낌을 담았다.\n공동 작곡 및 프로듀싱한 이용우의 강형호 목소리에 대한 이해와 아이디어가 고스란히 반영된 곡으로, 앞으로 두 사람이 함께 만들어나갈 PITTA의 곡들에 대한 기대가 높다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "A misty sky\nA gentle breeze\nFirefly\nlighting a trail\nDandelion\nUnleash and let pappus go\nWon't know where\nbreeze takes you\nDandelion\nRise on breezes\nIt takes to sky\nYou'll go up\nWe'll grow up",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=33701752",
+        "spotify": "https://open.spotify.com/track/725yNxYGDNLCBu45VstwVC?si=a5ca5debb5c9405d",
+        "youtube": "https://youtu.be/_M13WgixhFw?si=DtVmbrdxT1nKP8WX",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "the-nation",
+      "title": "The Nation",
+      "releaseDate": "2021-10-26",
+      "cover": "images/albums/the-nation.png",
+      "lyricsBy": "곰돌군 윌로우(백선민), 이종한",
+      "composedBy": "곰돌군, 진민호, 이종한",
+      "arrangedBy": "곰돌군, 이종한",
+      "producedBy": "",
+      "description": {
+        "ko": "'The Nation'은 PITTA의 첫 번째 앨범 타이틀곡으로, 헤비하고 강렬한 사운드로 무장했다. 섬세한 보컬 질감과 활화산같이 폭발하는 마성의 고음에서 로커 강형호의 야수적 본능을 만날 수 있다.\n\n\"어떤 전쟁의 마지막 전투 직전이다. 그 전투를 앞에 둔 개인의 처절함. 누가 됐든지 간에 나 자신을 믿어야 한다. 세상이 두려워 숨는 모두에게 지난날은 모두 기억과 시간 너머로 날려버리고 앞으로 나아가자\"는 메시지를 담았다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "Place we dreamed of\nHeartbeats a sign\n손에 잡힐 듯 가까워져\n불빛 한 틈 샐 수 없어\nI'm ready for this fight\nI used to be used to be\nused to be like a light\nIt has to be has to be has\nto be here tonight\nWinner will be the nation\nThis battle decides the reason\nWe don't hide from the red zone\nDon't let me down\nthere's no time for mistakes\nWe'll never give up\nwe'll turn death away\nThis is the way we survive\nTake in a breath\nUnleash your sighs\n안개가 모두 걷힐 때까지\n어둠을 떨쳐\n나를 던져\nWe'll face the world and rise\nI used to be used to be\nused to be like a light\nIt has to be has to be has\nto be here tonight\nWinner will be the nation\nThis battle decides the reason\nWe don't hide from the red zone\nDon't let me down\nthere's no time for mistakes\nWe'll never give up\nwe'll turn death away\n네 지난날은 모두 뒤로\n기억과 시간 너머로\n네 그림자 뒤로 숨지 마\nDon't let me down\nthere's no time for mistakes\nWe'll never give up\nwe'll turn death away\nThis is the way we survive",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=34156135",
+        "spotify": "https://open.spotify.com/track/06bkfl2SRU6ANAuwjcZbxm?si=93cbb27fd7e84844",
+        "youtube": "https://youtu.be/qIHyIOc3URE?si=ByXeewVUSbL3AAIw",
+        "liveclip": "https://youtu.be/0Y__VuaOUQ8?si=dctBjphRwDV3VBDc",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "carpe-diem",
+      "title": "CARPE DIEM",
+      "releaseDate": "2023-03-08",
+      "cover": "images/albums/carpe-diem.png",
+      "lyricsBy": "강형호",
+      "composedBy": "강형호",
+      "arrangedBy": "UK, 이용우, 강형호",
+      "producedBy": "UK, 강형호, 이용우",
+      "description": {
+        "ko": "크로스오버 그룹 '포레스텔라'의 멤버 강형호.\n그의 또 다른 이름 'PITTA'가 부르는 청춘의 노래 < CARPE DIEM >!\n\n이번 신곡 < CARPE DIEM >은 PITTA의 세 번째 싱글로\n청춘의 패기와 낭만이 담긴 가사와 함께 시원한 락보컬을 선보인다.\n\n청량한 색채감으로 가득한 이번 곡은\n강형호 작사, 작곡 및 UK, 이용우 편곡으로 완성되었다.\nPITTA는 강형호와 이용우로 구성된 2인 프로듀서 밴드이다.\n\n불안한 청춘에게 보내는 힘찬 위로.\n듣는 순간 당장 달려나가고 싶게 만드는 떼창 송.\n\n각자의 인생 철학에 맞게!\nFollow your \"CARPE DIEM!\"",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "어둑해진 방 안\n홀로 남겨진 시간\n불안한 내일과\n매일 흔들리는 맘\n희미한 불빛과\n낡은 시계 소리가\n잠 못 드는 이 밤\n나를 더욱 미치게 해\nFind love,\ndon't worry about tomorrow\nFind love, 나를 위해\n달려, 숨이 차올 때까지\n날려 지난날의 후회\nAnd now, if you follow\nyour 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해\n내리쬐는 태양\n거친 파도 소리와\n날 스치는 바람\n나를 살아있게 해\nFind love, seize the day\nnot tomorrow\nFind love, 나를 위해\n달려, 숨이 차올 때까지\n날려, 지난날의 후회\nAnd now,\nif you follow your 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해\nAnd now,\nif you follow your 'Carpe Diem'\nYour lives just go\nwith the flow in the end\n나의 오늘이 새로운 추억이 되어\n내일의 나를 살아가게 해",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=36255707",
+        "spotify": "https://open.spotify.com/track/4MQdb3CA3Pw8dHgfB4utJF?si=60aa531410fa426c",
+        "youtube": "https://youtu.be/PsEVQZeH8Tc?si=WMh4nfAKo5QfVOwc",
+        "lyrics": ""
+      },
+      "videoType": "lyricvideo",
+      "tracks": [
+        {
+          "id": "intro",
+          "title": "INTRO",
+          "noDetail": true,
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=36255706",
+            "spotify": "https://open.spotify.com/track/2tBhMP7GfB9tND54jJt7Uq?si=1f0a5c6c481c4628"
+          }
+        },
+        {
+          "id": "carpe-diem",
+          "title": "CARPE DIEM",
+          "isMain": true
+        }
+      ]
+    },
+    {
+      "id": "haemu",
+      "title": "해무 (feat. 박다울)",
+      "releaseDate": "2024-01-03",
+      "cover": "images/albums/haemu.png",
+      "lyricsBy": "강형호",
+      "composedBy": "강형호",
+      "arrangedBy": "이용우, 강형호",
+      "producedBy": "강형호, 이용우",
+      "description": {
+        "ko": "PITTA의 신곡 '해무'는 영화 <명량>과 <한산: 용의 출현>에서 영감을 받아 쓴 곡으로, 고뇌와 고독을 이겨내야하는 인간 이순신과, 나라와 백성을 위해 끝까지 싸워 이겨야하는 성웅 이순신. 이 두 가지의 모습을 한 곡에 담아내려 노력하였다.\n\n밴드 카디의 멤버이자 거문고 연주자인 박다울의 피처링을 통해 국악적인 색채를 더욱 부각시켰고, 몇몇 국악기를 활용해 포효하는 거친 바다의 이미지를 담아냈다. 또한 가사에 녹아있는 뜨거운 감정과 깊이있는 울림은 듣는 이에게 강한 메시지를 전달한다.\n\n이 곡은 2023년 12월에 개봉한 이순신 3부작의 마지막 영화 <노량: 죽음의 바다>와의 스페셜 컬래보레이션 뮤직비디오로 화제를 모았다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "안녕하신가 나의 이름\n평안하신가 나의 인생\n어떤 대답도 없는 mirror\n\n거울 속의 웃는 내 입술\n흔들리는 나의 눈동자\n흐느끼며 우는 심장 소리\n\n날 바라봐 for me\n더 늦기전에\n나를 구해줘 save me\n쓰러지기 전에\n\nThrow it away!\nWe'll be awaken!\nturn fears and pain into courage now\n\nDon't Scurry away!!\nBlow it away\nthose who wish for death shall stay alive\n\nThrow it away!\nWe'll be awaken!\nturn fears and pain into courage now\n\nDon't Scurry away!!\nBlow it away\nthose who wish for death shall stay alive",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=37091843",
+        "spotify": "https://open.spotify.com/track/5qC95MhoHhn9c879EdjLut?si=306d6f289f4141b1",
+        "youtube": "https://youtu.be/DocWo1U6bIs?si=kW4xiM4QPFET4SqJ",
+        "lyrics": ""
+      }
+    },
+    {
+      "id": "i-norae",
+      "title": "이 노래",
+      "releaseDate": "2024-03-08",
+      "cover": "images/albums/i-norae.png",
+      "lyricsBy": "강형호",
+      "composedBy": "강형호",
+      "arrangedBy": "오은철, 이용우",
+      "producedBy": "강형호, 이용우",
+      "description": {
+        "ko": "PITTA 강형호가 진심을 담아 마음으로 전하는 메시지 '이 노래'.\n\n활동을 하면서 접하게 된 팬분들의 다양한 사연들 속에서 건강, 가족, 직장문제, 특히 암 투병 중이신 분들이 생각보다 많아서 마음 아파한 강형호.\n\n'이 노래'는 항상 응원해 주시는 팬분들에 대한 감사함, 그리고 힘이 되어드리고 싶은 마음에서 만들기 시작한 곡으로, 이 노래가 많은 사람들에게 희망이, 밝은 빛이, 그리고 친구가 되기를 바라는 마음을 담았다.\n\n\"저희의 음악으로 힘을 얻으신다는 말을 들을 때마다 무엇이든 한 곡이라도 더 만들어 들려 드리고 싶었습니다. 그러나 들려드리고 싶어도 무한히 기다려주시지 않는다는 걸 이번에 깨달았습니다. 발매가 늦었지만 이 노래가 조금이나마 위로와 희망이 되었으면 합니다. 먼저 세상을 떠나신, 그리고 오늘 하루도 치열하게 세상과 맞서 싸워 나아가시는 팬분들께 이 노래를 바칩니다.\"",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "힘겹게 버텨낸\n고단한 하루들\n내일을 생각하며\n오늘을 이겼네\n\n깊은 한숨 쉬는\n거리의 사람들\n무표정한 나의 얼굴과\n닮아 있구나\n\n한 걸음조차 뗄 수 없는\n시련 속에서\n너와 나의 등대가\n밝게 비춰주고\n\n여기 우리들의 노래가\n희망의 시가 되어\n더 웃을 수 있는\n밝고 환한 빛이 될 수 있기를\n\n\n이 노래가 누군가의 친구였음 좋겠어\n세월 지나도 언제나 곁에 머물 수 있는\n이 노래가 우리들의 사랑이면 좋겠어\n서로를 더 빛나게 해주는\n\n무던하던 나의 하루하루는\n다른 어느 누군가의\n결코 시들지 않을 아름다운 꽃이여\n새롭게 저기 불어오는 우리의\n\n이 노래가 누군가의 희망이면 좋겠어\n세월 지나도 언제나 함께 웃을 수 있는\n이 노래가 우리들의 기적이면 좋겠어\n서로를 살아가게 해주는\n\n이 노래가 누군가의 바람이면 좋겠어\n세월 지나도 언제나 함께 머물 수 있는\n이 노래가 우리들의 사랑이면 좋겠어\n서로를 더 빛나게 해주는\n\n서로를 살아가게 해주는",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=37288167",
+        "spotify": "https://open.spotify.com/track/2Drvg4yrEXEgu5qN7vuf2t?si=be635ac543cb42a1",
+        "youtube": "https://youtu.be/pCjYWIbZ88Y?si=1fTvVIMnFjaKwnN_",
+        "lyrics": ""
+      },
+      "videoType": "lyricvideo",
+      "tracks": [
+        {
+          "id": "i-norae",
+          "title": "이 노래",
+          "isMain": true
+        },
+        {
+          "id": "i-norae-inst",
+          "title": "이 노래 (inst.)",
+          "noDetail": true,
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37288168",
+            "spotify": "https://open.spotify.com/track/27kSvKTyde1KVSdQj5NMIa?si=c18d8b22acba4802"
+          }
+        }
+      ]
+    },
+    {
+      "id": "paradox",
+      "title": "Paradox",
+      "releaseDate": "2024-10-04",
+      "cover": "images/albums/paradox.png",
+      "lyricsBy": "윌로우, 강형호",
+      "composedBy": "강형호",
+      "arrangedBy": "강형호, 이용우",
+      "producedBy": "",
+      "description": {
+        "ko": "PITTA(강형호)의 신곡 Paradox는 현란한 연주와 빠르고 변화무쌍한 리듬을 기반으로 한 하드락 사운드와 프로그레시브 메탈의 구성이 옅보인다.\n\nPITTA(강형호)가 이번 곡에 담고자 한 이야기는 '내가 마주하고 견뎌내고 있는 세상, 그 대상과 관점에 대한 역설'이다.\n\n\"세상의 고난과 역경을 견뎌낸다는 것은 역설적이게도 세상을 이겨내는 것이 아니라, 나의 내면을 이겨내는 것이다\"라는 이야기를 담았다. 나를 성장시키는 것은 결국 나 스스로라는 이야기인 것이다.\n\n그동안 발표한 곡들을 통해 꾸준히 '스스로 바라보는 나의 내면'에 대해 이야기를 해온 PITTA인 만큼 솔로로 무대에 서면서 느끼는 것에 대한 이야기가 의미있게 다가온다.\n\n이 곡은 포레스텔라 멤버로 활동해 온 PITTA(강형호)가 2024년에 로커로서 PITTA밴드와 함께 많은 무대를 하고, 특히 첫 페스티벌 무대를 뜨겁게 마친 후에 그날의 감정이 바탕이 되어 쓴 곡이다. 곡의 시작과 함께 1분 가량 이어지는 인트로에 PITTA 밴드가 쏟아내는 시원한 강렬한 록사운드는 밴드에 대한 열정과 자신감이 엿보인다. 이 곡은 2024년 부산국제록페스티벌에서 처음 선보일 예정이다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "They put so much weight on \"ideal living\"\nFought the world face-to-face, here all of their lives\n\nSay\nyou've got me locked on this sinister prize\nI reach for what your lips say\nExisting, trapped in your grasp all my life\nI find I'm chained Inside\nInside\nSigh\nMy reflection, cast aside!\n\nSeize!\nOh, my deepest uncertainty!\nFree!\n\nAnd awaken the raptor\nI dance with the monsters I hid from inside\nWarring for solace, I lunged at the world and found\nMe\nI'm the ally, the enemy\nSee\nAll my life, I can stand free\nThe monsters I fight aren't from you, they're inside\nConquer the world here within me and then, I'll thrive\n\nThey put so much weight on \"ideal living\"\nFought the world face-to-face, here all of their lives\n\nSigh\nInside\nSigh\nMy reflection, cast aside!\n\nSeize!\nOh, my deepest uncertainty!\nFree!\n\nAnd awaken the raptor\nI dance with the monsters I hid from inside\nWarring for solace, I lunged at the world and found\nMe\nI'm the ally, the enemy\nSee\nAll my life, I can stand free\nThe monsters I fight aren't from you, they're inside\nConquer the world here within me and then, I'll thrive",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=38065351",
+        "spotify": "https://open.spotify.com/track/5IiwmezDk1JYPtenLsoiQD?si=0d1e9e811c9744ff",
+        "youtube": "https://youtu.be/-EDjAoCIb0U?si=pcGU4ggMRpctAPM6",
+        "lyrics": ""
+      },
+      "videoType": "lyricvideo"
+    },
+    {
+      "id": "deep-shadow",
+      "title": "Deep Shadow",
+      "releaseDate": "2025-03-27",
+      "cover": "images/albums/deep-shadow.png",
+      "lyricsBy": "Summer Kim",
+      "composedBy": "Jeff Buckley (원곡: Dream Brother)",
+      "arrangedBy": "황린",
+      "producedBy": "황린",
+      "description": {
+        "ko": "PITTA (강형호)의 싱글 'Deep Shadow'는 미국의 싱어송라이터 제프 버클리(Jeff Buckley)의 'Dream Brother'를 편곡, 개사한 곡으로, \"위선과 탐욕이 뒤덮인 세상을 조롱하듯, 숨겨진 비밀을 쫓아 경계를 넘어 유유히 움직이는 괴도\"의 이야기를 담았다. \"그가 남기는 것은 흔적이 아닌 진실을 드러내는 그림자. 빛과 어둠이 교차하는 이 도시에서 거짓과 악을 폭로하고 사라지는 그는 위험한 도둑인가, 유일한 정의인가.\"\n\n안개가 자욱한 몽환적 분위기 속에서 서서히 드러나는 암시적인 드럼비트에 서늘한 기타 리프와 와일드하면서도 속삭이듯 노래하는 목소리를 따라가다 보면 'Deep Shadow'는 점점 안개가 걷히면서 진실의 실체를 포착하기라도 한듯 PITTA 표 록사운드가 폭포수처럼 쏟아진다.\n\n원곡이 가진 장점을 가능한 잃지 않고 동시에 PITTA의 원숙한 보컬 솜씨가 돋보이도록 파격보다는 비교적 정직하고 절제된 사운드를 구사하는 일렉 기타의 미덕에서 프로듀서의 철저한 프로정신이 엿보인다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "어둠을 가른 이끌림\n그 욕망 속 끈적한 속삭임\n다시 달빛이 떠오를 때\n나를 부르는 악의 환영은 Price of fame\n\n기꺼이 상대해 Truth or dare?\n역겨운 위선에 물든 Your name\n괜찮아 느껴봐 낡은 가면 끝에\n조여든 너의 가빠지는 숨을\n\nDeep shadow of your guilt\nI'm a Deep shadow\n\n얽히고설켜가는 Whistle\nDon't be sly You're still so bad Can't change this way\n\n이 도시란 무대 오직 진실만 향해\n사라져 버릴 난\n\nDeep shadow\n\nDeep shadow of your guilt\nI'm a Deep shadow\n\n오늘 밤 가려봐 King of games\n거짓된 왕좌의 추락 속\n아직 그대 탐욕을 꿈꾸는가\n뒤바뀐 세상에 허락된 서사는 없어\n\n붉은 벽 너머\n나를 비추는 수많은 빛\n뻔한 경계로\n나를 감당할 수는 없어\n\n점점 선명해지는 미소\n숨기고 감추려고 애가 탈 때\n겁에 질린듯한 니 그 눈빛에 난 더\nRunning to 'til the end\n\n얽히고설켜가는 Whistle\nDon't be sly You're still so bad Can't change this way\n이 도시란 무대 오직 진실만 향해\n사라져 버릴 난\n\nDeep Shadow",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=38710891",
+        "spotify": "https://open.spotify.com/track/081jLXAQBD4CSoPvkh4ERi?si=449e8cbae9bf48a5",
+        "youtube": "https://youtu.be/fbdG62HntuM?si=ZZPBFMzwqzGasjfi",
+        "lyrics": ""
+      },
+      "videoType": "lyricvideo"
+    }
+  ],
+  "ost": [
+    {
+      "id": "thank-you-ost-part1",
+      "title": "Knock the Door",
+      "releaseDate": "2024-07-06",
+      "cover": "images/albums/thank-you-ost-part1.png",
+      "lyricsBy": "전근화(Weeky1)",
+      "composedBy": "장영수, 전근화(Weeky1)",
+      "arrangedBy": "장영수",
+      "producedBy": "",
+      "description": {
+        "ko": "\"믿음을 이용한 죄가 얼마나 큰지\n최선을 다해 보여주겠습니다.\"\n\ntvN 새 토일드라마 '감사합니다'는 횡령, 비리, 사건사고가 끊이지 않는 JU건설 감사팀을 배경으로 회사를 갉아먹는 쥐새끼들을 소탕하러 온 이성파 감사팀장 신차일(신하균 분)과 감성파 신입 구한수(이정하 분)의 본격 오피스 클린 활극으로, 두 사람의 콤비 플레이로 환상의 케미스트리를 예고하며 드라마에 대한 기대감을 높이고 있다.\n\n'감사합니다'의 첫 번째 OST 'Knock the Door'은 믿음을 악용한 오피스 빌런들과 맞서 싸우는 감사팀의 열정과 거침없는 패기를 담아낸 곡으로, 강렬한 기타 리프가 돋보이는 얼터너티브 록 사운드 위 PITTA(강형호)의 시원한 보이스가 어우러져 파워풀한 에너지를 담아냈다.\n\n대체불가 아티스트로 자리매김 중인 강형호는 크로스오버 그룹 포레스텔라 및 록밴드 PITTA의 멤버로 활동하고 있으며, 깊이 있는 음악성과 세련된 무대 매너로 매해 단독 콘서트를 매진시키며 음악팬들의 큰 사랑을 받고 있다. 최근 세 번째 EP 'New Normal Life'를 통해 폭넓은 음악 스펙트럼으로 올라운드 아티스트의 면모를 증명하며 활발한 음악 행보를 이어가고 있다.\n\n이 곡은 '지금, 헤어지는 중입니다', '선배, 그 립스틱 바르지 마요' 등 다수의 히트 드라마 OST에서 높은 완성도와 다양한 음악성을 보여주고 있는 싱어송라이터 전근화(Weeky1)와 장영수가 협업하여 드라마틱한 극 전개에 긴장감과 몰입감을 더할 예정이다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "Knock the door\nWe're gonna have a new world\nKnock the door\nWe're gonna have a new world\n\n두려움은 잠재우고\n굽이치듯 나아가길\n\n밤을 거슬러 뜨거웠던 어제로\n숨을 고르고 발을 내딛는 순간\n샛바람도 차오르네\n깃발 위로 불어오네\n\n캄캄한 생각을 허물어\n내일을 맞설 때 벅차오르는 숨\nStep outside 두 팔을 벌리고\n힘껏 소리치며 난 날아가고파\n\nKnock the door\nWe're gonna have a new world\nKnock the door\nWe're gonna have a new world\nhey hey hey hey\n\n마음을 열어 우린 서로를 보네\n목소릴 높여 우린 노랠 부르네\n노을 속에 몸을 던져\n허공 위로 춤을 추네\n\n캄캄한 생각을 허물어\n내일을 맞설 때 벅차오르는 숨\nStep outside 두 팔을 벌리고\n힘껏 소리치며 난 날아가고파\n\n답답함 느껴지는 순간\n이 곳을 벗어나 저 바람 따를래\n오 Make up mind 세상에 외칠 때\n두려움 없이 나 떠날 수 있도록\n\nKnock the door\nWe're gonna have a new world\nKnock the door\nWe're gonna have a new world\nhey hey hey hey",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=37732187",
+        "spotify": "https://open.spotify.com/track/5xggn1vIP5hMaY4755Ji76?si=23c7ccbf105748c7",
+        "youtube": "https://youtu.be/ew34PRvThog?si=mx_p4SvDCkExve6T",
+        "lyrics": ""
+      },
+      "tracks": [
+        {
+          "id": "thank-you-ost-part1",
+          "title": "Knock the Door",
+          "isMain": true
+        },
+        {
+          "id": "knock-the-door-inst",
+          "title": "Knock the Door (Inst.)",
+          "noDetail": true,
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=37732188",
+            "spotify": "https://open.spotify.com/track/3GLjXzQ0dbaPHHgljL0RTC?si=0bf36d09f61b46db"
+          }
+        }
+      ]
+    },
+    {
+      "id": "family-by-choice-ost-part2",
+      "title": "수백 번 수천 번",
+      "releaseDate": "2024-10-23",
+      "cover": "images/albums/family-by-choice-ost-part2.png",
+      "lyricsBy": "이치훈",
+      "composedBy": "박성일",
+      "arrangedBy": "엉클샘",
+      "producedBy": "",
+      "description": {
+        "ko": "JTBC 수요드라마 '조립식 가족' OST Part.2 발매\n\n10년은 가족으로 함께 했고 10년은 남남으로 그리워했던 세 청춘이 다시 만나 펼쳐지는 로맨스 드라마 '조립식 가족'의 두 번째 OST가 공개된다.\n\nPITTA(강형호)가 가창에 참여한 '수백 번 수천 번'은 극 중 여리면서도 강인한 내면을 지닌 인물, 강해준(배현성 분)의 캐릭터를 닮은 곡이다. 아픔도 해맑은 미소로 승화하는 무해함 그 자체인 햇살 청년의 속마음이 고스란히 담겨있다.\n\n폭넓은 음역대를 오가는 강형호의 파워풀한 가창 또한 업템포의 명확한 멜로디와 맞물려 극의 역동성을 한층 배가한다. 특히 단번에 몰입을 이끄는 사운드와 강형호의 탄탄한 울림이 극 중 인물의 열정을 그려내며 기분 좋은 활력을 전할 전망이다.\n\n강형호는 진정성 진한 음색과 드라마틱한 보이스로 극의 탄탄한 서사를 이끌며, 청춘을 닮은 따뜻한 힐링을 선사할 예정이다.",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "기필코 포기 않고 완주해야 해\n절대 지치면 안 돼\n나의 꿈이 지켜보잖아\n\n세상은 끊임없이 날 짓누르고\n끝없이 날 할퀴지만\n그게 나의 질줄 멈출 순 없어\n\n저 하늘이 무너져 내려앉기 전에는\n내가 먼저 무너질 일은 없어\n\n꼭 두고 봐\n이 길을 어떤 마음으로 달려왔는지\n똑똑히 내 존재를 보일 테니까\n\n시리게 차가운 벽이 날 두르고\n모두가 날 막아서\n오늘도 내 꿈을 빼앗지\n\n수백 번 수천 번 더 주저앉히면\n수천 번 또 일어설게\n그게 지금의 날 키웠으니까\n\n저 하늘이 무너져 내려앉기 전에는\n내가 먼저 무너질 일은 없어\n\n꼭 두고 봐\n이 길을 어떤 마음으로 달려왔는지\n똑똑히 내 존재를 보일 테니까\n\n안개 쌓인 내일\n먼지 쌓인 내 길\n오직 저기 너란 꿈 하나\n\n소리 없이 외치는\n가슴으로 부르는\n간절하고 간절한 너의 이름\n\n꼭 두고 봐\n이 길을 어떤 마음으로 이겨내는지\n똑똑히 증명해 내보일 테니까",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=38127342",
+        "spotify": "https://open.spotify.com/track/0xxYOPCnWcQiIqfBss00S4?si=0f2a378af28d4b66",
+        "youtube": "https://youtu.be/TyR-UDD75gI?si=Dm6WVF0InYD1_WrU",
+        "lyrics": ""
+      },
+      "tracks": [
+        {
+          "id": "family-by-choice-ost-part2",
+          "title": "수백 번 수천 번",
+          "isMain": true
+        },
+        {
+          "id": "family-by-choice-ost-part2-inst",
+          "title": "수백 번 수천 번 (Inst.)",
+          "noDetail": true,
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=38127343",
+            "spotify": "https://open.spotify.com/track/164AhcVrft3WhCwQYIyRSV?si=bbe2b9088f2644f5"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vanta-black",
+      "title": "VANTA BLACK",
+      "releaseDate": "2025-05-26",
+      "cover": "images/albums/vanta-black.png",
+      "lyricsBy": "김기태, 김수빈(AIMING)",
+      "composedBy": "김수빈(AIMING), 조세희(AIMING)",
+      "arrangedBy": "김수빈(AIMING), 조세희(AIMING)",
+      "producedBy": "김기태",
+      "description": {
+        "ko": "\"I was born to be a killer\"\n\n묵직한 서사와 스타일리시한 연출로 시즌 공개와 동시에 주요 플랫폼 인기 순위 상위권에 안착하며 화제를 모으고 있는 웹툰 〈벤타블랙〉의 첫 번째 OST 'VANTA BLACK'이 베일을 벗는다.\n\n이번 OST에는 크로스오버 그룹 포레스텔라와 록밴드 PITTA의 멤버 강형호가 참여해 깊은 울림을 더했다. 고독과 분노, 슬픔이 교차하는 주인공의 내면을 강형호 특유의 섬세한 보컬로 완벽히 구현해내며, 작품의 몰입감을 극대화했다.\n\n'VANTA BLACK'은 다크한 일렉 기타 아르페지오와 음울한 배경음으로 시작해, 7현 기타의 헤비한 리프, 메탈 드럼 그루브, 그리고 강형호의 락킹한 창법이 조화를 이루는 얼터너티브 메탈 트랙이다. 절제된 에너지와 폭발적인 감정이 공존하는 강형호의 보컬이 웹툰 속 액션과 감정의 파동을 청각으로 생생하게 전달한다.\n\nJTBC 〈팬텀싱어2〉 우승을 통해 대중에게 강렬한 인상을 남긴 강형호는, 크로스오버과 록을 자유롭게 넘나드는 음악적 스펙트럼으로 올라운드 아티스트로서의 존재감을 입증해왔다. 이번 OST에서도 대체불가한 매력을 다시 한 번 선보인다.\n\n한편, 웹툰 〈벤타블랙〉은 전 세계 블랙요원 중 선발된 특작부대 '55'의 한국인 리더 '이신혁'의 복수극을 그린다. 동생의 죽음을 계기로 글로벌 K팝 스타 '유채원'의 경호원으로 위장해 브라질 '파벨라'로 잠입, 국제 마약 카르텔 '시카(XICA)'를 추적하는 초국가적 느와르 액션 서사가 펼쳐진다.\n\n〈지구멸망버튼〉, 〈적월의 나라〉의 신신성 작가, 〈캐슬2: 만인지상〉, 〈진주〉, 〈최악의 세대〉의 이승형 PD와 팀 MAJOR가 의기투합해 탄생시킨 이 작품은, 현실적인 캐릭터와 강렬한 액션, 치밀한 플롯으로 장르 팬들의 압도적인 지지를 얻고 있다.\n\nExecutive Producer: 뮤직앤뉴\nProject Manager: 주해림, 윤지현, 신소연",
+        "en": "",
+        "ja": "",
+        "es": ""
+      },
+      "lyricsText": "In the shadows, I see the truth\n끝없는 곳으로\nBreak the wall, there's no fear baby\n빛을 찾고 있어\n\nFantasy 가슴속 깊이\n빠져나올 수 없는 그곳에 서있어\n\nFade away\nI was born to be a killer\n이번엔 아플지도 몰라\nI was born to be a killer\n\n사라질 수 없는 악몽 네 Nightmare\n깨어날 수 없는 악몽 네 Nightmare\n부서지고 깨져도 멈출 수 없어\nFade away\n\nIn the nightmare, I see the truth\n차갑게 무너져\nBreak the wall, there's no fear baby\n이 길의 끝에서\n\nInto the light 가슴 깊숙이\n멈출 수가 없는 그 곳에 서있어\n\nFade away\nI was born to be a killer\n이번엔 아플지도 몰라\nI was born to be a killer\n\n사라질 수 없는 악몽 네 Nightmare\n깨어날 수 없는 악몽 네 Nightmare\n부서지고 깨져도 멈출 수 없어\nFade away\n\n더 멀어지는 Starlight\nI found you to be closed uh uh\nI wanna be your star\n\nI was born to be a killer\n이번엔 아플지도 몰라\nI was born to be a killer\n\n사라질 수 없는 악몽 네 Nightmare\n깨어날 수 없는 악몽 네 Nightmare\n부서지고 깨져도 멈출 수 없어\nFade away",
+      "links": {
+        "melon": "https://www.melon.com/song/detail.htm?songId=39018426",
+        "spotify": "https://open.spotify.com/track/4mXomaOS4DLIA88QhPYT2g?si=a540d30fa138474b",
+        "youtube": "",
+        "lyrics": ""
+      },
+      "tracks": [
+        {
+          "id": "vanta-black",
+          "title": "VANTA BLACK",
+          "isMain": true
+        },
+        {
+          "id": "vanta-black-inst",
+          "title": "VANTA BLACK (Inst.)",
+          "noDetail": true,
+          "links": {
+            "melon": "https://www.melon.com/song/detail.htm?songId=39018427",
+            "spotify": "https://open.spotify.com/track/6Z47aHlxifMqsI5TUfYqu0?si=c02db60e16ba45de"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-family);
+  background: radial-gradient(
+      ellipse 80% 50% at 50% 0%,
+      rgba(84, 98, 111, 0.22) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 90% 70%,
+      rgba(216, 0, 255, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 40% 30% at 10% 90%,
+      rgba(255, 0, 60, 0.04) 0%,
+      transparent 50%
+    ),
+    var(--bg-deep);
+  color: var(--text);
+  line-height: 1.7;
+  height: 100dvh;
+  overflow: hidden;
+  overscroll-behavior: none;
+  word-break: keep-all;
+}
+
+button {
+  border: none;
+}

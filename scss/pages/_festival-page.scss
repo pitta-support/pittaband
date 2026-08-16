@@ -1,0 +1,519 @@
+@use "../abstracts" as *;
+
+.site-page--festival {
+  overflow: visible;
+
+  .site-page__body {
+    gap: 1.25rem;
+    overflow: visible;
+  }
+}
+
+.festival-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.25rem 0;
+  list-style: none;
+  overflow: visible;
+  align-items: center;
+
+  &--focus {
+    gap: 0.35rem;
+  }
+
+  &__item {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    transform: scale(1);
+    transform-origin: center center;
+    z-index: 1;
+    transition:
+      transform 0.48s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.4s ease,
+      filter 0.4s ease,
+      margin 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &--enter &__item {
+    animation: festival-gallery-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--festival-enter-index, 0) * 90ms + 70ms);
+  }
+
+  &--focus &__item[data-dist="0"] {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: brightness(1);
+    z-index: 4;
+  }
+
+  &--focus &__item[data-dist="1"] {
+    transform: scale(0.94);
+    opacity: 0.84;
+    filter: brightness(0.88);
+    z-index: 3;
+    margin-inline: -0.1rem;
+    margin-block: -0.1rem;
+  }
+
+  &--focus &__item[data-dist="2"] {
+    transform: scale(0.86);
+    opacity: 0.62;
+    filter: brightness(0.74);
+    z-index: 2;
+    margin-inline: -0.2rem;
+    margin-block: -0.2rem;
+  }
+
+  &--focus &__item[data-dist="3"] {
+    transform: scale(0.8);
+    opacity: 0.48;
+    filter: brightness(0.65);
+    z-index: 1;
+    margin-inline: -0.2rem;
+    margin-block: -0.2rem;
+  }
+
+  &__empty {
+    grid-column: 1 / -1;
+    width: 100%;
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    list-style: none;
+  }
+}
+
+@keyframes festival-gallery-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.festival-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(48, 213, 255, 0.2);
+  background: rgba(48, 213, 255, 0.03);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    border-color 0.32s ease,
+    box-shadow 0.32s ease;
+
+  .festival-gallery__item[data-dist="0"] &,
+  .festival-gallery__item.is-focused &,
+  .festival-gallery__item:focus-within & {
+    border-color: rgba(48, 213, 255, 0.52);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.38);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--cyan);
+    outline-offset: 3px;
+  }
+
+  &__frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  &__poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  &__meta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 1.75rem 0.55rem 0.55rem;
+    background: linear-gradient(to top, rgba(5, 5, 16, 0.94) 0%, rgba(5, 5, 16, 0.5) 55%, transparent 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+
+    .festival-gallery__item:hover &,
+    .festival-gallery__item.is-focused &,
+    .festival-gallery__item[data-dist="0"] &,
+    .festival-gallery__item:focus-within & {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-kr);
+    font-size: 0.66rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__date {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.04em;
+    color: var(--cyan);
+  }
+}
+
+@include max-width($bp-md - 1px) {
+  .festival-gallery {
+    &--focus {
+      gap: 0.65rem;
+    }
+
+    &--focus &__item,
+    &--focus &__item[data-dist="0"],
+    &--focus &__item[data-dist="1"],
+    &--focus &__item[data-dist="2"],
+    &--focus &__item[data-dist="3"] {
+      transform: none;
+      opacity: 1;
+      filter: none;
+      margin: 0;
+    }
+  }
+
+  .festival-card {
+    .festival-gallery__item[data-dist="0"] &,
+    .festival-gallery__item.is-focused &,
+    .festival-gallery__item:hover &,
+    .festival-gallery__item:focus-within & {
+      border-color: rgba(48, 213, 255, 0.2);
+      box-shadow: none;
+    }
+
+    &__meta {
+      opacity: 0;
+    }
+  }
+}
+
+.festival-modal {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--overlay-z, 200) + 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(5, 5, 16, 0.72);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 0.85rem 1rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+
+    .overlay-close {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  &__head {
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: clamp(0.95rem, 2.4vw, 1.3rem);
+    line-height: 1.35;
+    min-width: 0;
+  }
+
+  &__instagram-slot {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  &__instagram {
+    flex-shrink: 0;
+    width: 1.85rem;
+    height: 1.85rem;
+
+    .member-profile__instagram-icon {
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+  }
+
+  &__info {
+    min-height: 0;
+    overflow: hidden;
+
+    .concert-card__meta {
+      flex: 0 0 auto;
+    }
+
+    .concert-card__date {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 0.45rem;
+
+      @include min-width($bp-md) {
+        font-size: 0.88rem;
+      }
+    }
+
+    .concert-card__venue {
+      font-size: 0.68rem;
+    }
+  }
+
+  &__panel {
+    position: relative;
+    width: min(100%, 920px);
+    height: 90dvh;
+    max-height: 90dvh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transform: translateY(12px) scale(0.98);
+    opacity: 0;
+    transition:
+      transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.32s ease;
+    clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  }
+
+  &.is-open &__panel {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  &__body {
+    padding: 0;
+    overflow: hidden;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .concert-card__layout {
+      flex: 1 1 auto;
+      min-height: 0;
+      height: 100%;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      grid-template-columns: minmax(0, 1fr);
+
+      @include min-width($bp-md) {
+        grid-template-rows: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
+      }
+    }
+
+    .concert-card__media {
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+
+      @include max-width($bp-md - 1px) {
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+        border-bottom: 1px solid rgba(48, 213, 255, 0.14);
+      }
+
+      @include min-width($bp-md) {
+        border-right: 1px solid rgba(48, 213, 255, 0.14);
+      }
+    }
+
+    .concert-card__media--standard {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      max-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .concert-card__info {
+      min-height: 0;
+      min-width: 0;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 0.85rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+
+      @include min-width($bp-md) {
+        padding: 1rem 1.15rem;
+      }
+    }
+
+    &.concert-card--has-poster .concert-card__setlist {
+      padding: 0;
+      margin: 0;
+      border-top: none;
+    }
+
+    .festival-modal__setlist {
+      flex: 1 1 auto;
+      min-height: 0;
+      margin-top: 0.75rem;
+      padding-top: 0.7rem;
+      border-top: 1px solid rgba(48, 213, 255, 0.1);
+      overflow: hidden;
+
+      .concert-card__setlist-list {
+        display: grid;
+        gap: 0.18rem;
+
+        li {
+          font-size: 0.72rem;
+          line-height: 1.35;
+        }
+
+        @include min-width($bp-md) {
+          display: grid;
+          columns: auto;
+          gap: 0.2rem;
+
+          li {
+            font-size: 0.74rem;
+          }
+        }
+      }
+    }
+
+    .concert-card__poster {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      object-position: center center;
+    }
+  }
+
+  &__placeholder {
+    margin: 0.35rem 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  @include max-width($bp-md - 1px) {
+    padding: 0;
+    align-items: stretch;
+
+    &__panel {
+      width: 100%;
+      max-width: none;
+      height: 100dvh;
+      max-height: 100dvh;
+      border: none;
+      clip-path: none;
+      transform: translateY(8px) scale(1);
+    }
+
+    &.is-open &__panel {
+      transform: translateY(0) scale(1);
+    }
+  }
+}
+
+body.festival-modal-open {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .festival-gallery--enter .festival-gallery__item {
+    animation: none;
+    opacity: 1;
+  }
+
+  .festival-gallery--focus .festival-gallery__item {
+    transform: none;
+    opacity: 1;
+    filter: none;
+    margin-inline: 0;
+    margin-block: 0;
+  }
+
+  .festival-gallery--focus .festival-gallery__item[data-dist="0"] {
+    transform: scale(1.08);
+  }
+
+  .festival-modal,
+  .festival-modal__panel {
+    transition: none;
+  }
+}

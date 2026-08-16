@@ -1,0 +1,319 @@
+/* ===== D-day Bar ===== */
+
+body.is-dday-hidden {
+  --dday-h: 0px;
+}
+
+.dday-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 110;
+  height: var(--dday-h);
+  background: #0a0a0a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition: height 0.25s var(--ease);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.dday-bar-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.dday-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 0 1 auto;
+
+  &.has-logo .dday-event {
+    max-width: 10rem;
+  }
+}
+
+.dday-tag {
+  flex-shrink: 0;
+  font-family: var(--font-wide);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--crimson);
+  padding: 0.18rem 0.5rem;
+  border: 1px solid var(--crimson-dim);
+  background: rgba(255, 0, 60, 0.08);
+}
+
+.dday-logo {
+  display: block;
+  flex-shrink: 0;
+  height: calc(var(--dday-h) - 28px);
+  max-height: 56px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.06));
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.dday-event {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.dday-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Flip clock */
+.dday-flip {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.dday-flip__group {
+  display: flex;
+  align-items: center;
+  gap: 0.16rem;
+}
+
+.dday-flip__sep {
+  width: 1px;
+  height: 1.85rem;
+  margin: 0 0.22rem;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.dday-flip__digit {
+  position: relative;
+  width: 1.95rem;
+  height: 2.45rem;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: linear-gradient(
+    180deg,
+    #2e2e2e 0%,
+    #222 46%,
+    #161616 54%,
+    #1e1e1e 100%
+  );
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  &.is-flip .dday-flip__digit-value {
+    animation: dday-flip-tick 0.28s var(--ease);
+  }
+}
+
+.dday-flip__digit-top,
+.dday-flip__digit-bottom,
+.dday-flip__digit-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+}
+
+.dday-flip__digit-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.dday-flip__digit-top,
+.dday-flip__digit-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dday-flip__digit-top {
+  top: 0;
+  align-items: flex-end;
+  padding-bottom: 1px;
+}
+
+.dday-flip__digit-bottom {
+  bottom: 0;
+  align-items: flex-start;
+  padding-top: 1px;
+}
+
+.dday-flip__colon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.32rem;
+  padding: 0 0.1rem;
+  flex-shrink: 0;
+
+  span {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 1px;
+    background: #555;
+  }
+}
+
+.dday-flip--past .dday-flip__digit {
+  opacity: 0.35;
+}
+
+.dday-flip__past-label {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--crimson);
+  text-shadow: 0 0 10px var(--crimson-dim);
+  white-space: nowrap;
+}
+
+@keyframes dday-flip-tick {
+  0% {
+    transform: scaleY(0.85);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.dday-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.dday-link {
+  font-family: var(--font-kr);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cyan);
+  white-space: nowrap;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(48, 213, 255, 0.35);
+  background: rgba(48, 213, 255, 0.06);
+  transition: text-shadow 0.25s, border-color 0.25s, background-color 0.25s;
+}
+
+.dday-link:hover {
+  text-shadow: 0 0 10px var(--cyan-dim);
+  border-color: var(--cyan);
+  background: rgba(48, 213, 255, 0.1);
+}
+
+.dday-hide {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.dday-hide__input {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0;
+  accent-color: var(--cyan);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dday-hide__label {
+  font-family: var(--font-kr);
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.42);
+  white-space: nowrap;
+}
+
+.dday-hide:hover .dday-hide__label {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.dday-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(48, 213, 255, 0.08);
+}
+
+.dday-progress-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--crimson), var(--cyan));
+  transition: width 1s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dday-flip__digit.is-flip .dday-flip__digit-value {
+    animation: none;
+  }
+
+  .dday-bar {
+    transition: none;
+  }
+}

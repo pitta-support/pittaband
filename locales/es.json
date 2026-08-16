@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "title": "Pitta Band Archive",
+    "description": "PittaBand Archive",
+    "htmlLang": "es"
+  },
+  "metaPages": {
+    "about": {
+      "title": "About — Pitta Band Archive",
+      "description": "Perfil de Pitta Band y archivo del escenario",
+      "htmlLang": "es"
+    },
+    "album": {
+      "title": "Album — Pitta Band Archive",
+      "description": "Archivo de álbumes de Pitta Band",
+      "htmlLang": "es"
+    },
+    "concert": {
+      "title": "Concert — Pitta Band Archive",
+      "description": "Información de conciertos de Pitta Band",
+      "htmlLang": "es"
+    },
+    "festival": {
+      "title": "Festival — Pitta Band Archive",
+      "description": "Información de festivales de Pitta Band",
+      "htmlLang": "es"
+    },
+    "board": {
+      "title": "Sugerencias — Pitta Band Archive",
+      "description": "Tablón de sugerencias de Pitta Band Archive",
+      "htmlLang": "es"
+    }
+  },
+  "lang": {
+    "label": "Idioma",
+    "ko": "한국어",
+    "en": "English",
+    "ja": "日本語",
+    "es": "Español"
+  },
+  "dday": {
+    "tag": "UPCOMING",
+    "event": "NEXUS LIVE · SEOUL",
+    "linkConcert": "Reservar entradas",
+    "linkAlbum": "Comprar",
+    "hideToday": "Ocultar hoy",
+    "dDay": "D-DAY",
+    "dPlus": "D+{days}"
+  },
+  "header": {
+    "navLabel": "Menú principal",
+    "mobileNavLabel": "Menú móvil",
+    "menuOpen": "Abrir menú",
+    "menuClose": "Cerrar menú",
+    "systemOnline": "Sistema activo",
+    "clockSuffix": "KST"
+  },
+  "nav": {
+    "about": "About",
+    "album": "Album",
+    "concert": "Concert"
+  },
+  "hero": {
+    "tag": "BÓVEDA CLASIFICADA // NIVEL 7",
+    "titleLine1": "BÓVEDA DE",
+    "titleLine2": "MEMORIA DIGITAL",
+    "desc": "Un archivo SF descentralizado que preserva registros fragmentados a través de sectores cuánticos. Explora índices holográficos, decodifica anomalías temporales y accede a flujos de datos restringidos.",
+    "searchPlaceholder": "Buscar índice del archivo...",
+    "searchLabel": "Búsqueda del archivo",
+    "scan": "Escanear",
+    "scanning": "Escaneando...",
+    "indexNodes": "Índice: 2,847,391 nodos",
+    "latency": "Latencia: 12ms",
+    "statRecords": "Registros",
+    "statSectors": "Sectores",
+    "statIntegrity": "Integridad %",
+    "anniversary": {
+      "label": "CELEBRATION",
+      "greeting": "¡Feliz {ordinal} aniversario!",
+      "cta": "Escribe un mensaje de felicitación",
+      "message": "{title} {type} — {years} años desde su lanzamiento.",
+      "typeAlbum": "Álbum",
+      "typeSingle": "Single",
+      "typeOst": "OST"
+    }
+  },
+  "sectors": {
+    "sectionTitle": "Sectores del Archivo",
+    "sectionDesc": "Clústeres de datos fragmentados clasificados por firma temporal",
+    "alpha": {
+      "title": "Registros Neurales",
+      "desc": "Transcripciones de conciencia sintética y fragmentos de estado onírico de núcleos IA archivados.",
+      "count": "124,892 archivos",
+      "access": "Acceder →"
+    },
+    "beta": {
+      "title": "Cartografía del Vacío",
+      "desc": "Datos de mapeo del espacio profundo, coordenadas de agujeros de gusano y telemetría remota de sectores inexplorados.",
+      "count": "89,204 archivos",
+      "access": "Acceder →"
+    },
+    "gamma": {
+      "title": "Anomalías Cronológicas",
+      "desc": "Eventos de distorsión temporal, informes de paradojas y registros de ramificaciones temporales.",
+      "count": "31,567 archivos",
+      "access": "Acceder →"
+    },
+    "delta": {
+      "title": "Artefactos Cibernéticos",
+      "desc": "Planos de hardware recuperados, fantasmas de firmware y especificaciones de protocolos obsoletos.",
+      "count": "456,120 archivos",
+      "access": "Acceder →"
+    }
+  },
+  "timeline": {
+    "sectionTitle": "Índice Temporal",
+    "sectionDesc": "Eventos cronológicos del archivo en toda la red Nexus",
+    "item1": {
+      "title": "Fundación del Archivo",
+      "desc": "Semillas cuánticas iniciales desplegadas en 12 nodos orbitales."
+    },
+    "item2": {
+      "title": "Expansión del Sector β",
+      "desc": "Módulo de cartografía del vacío integrado con sensores del espacio profundo."
+    },
+    "item3": {
+      "title": "Anomalía Detectada",
+      "desc": "Primera crono-paradoja detectada en el Sector γ restringido."
+    },
+    "item4": {
+      "title": "Nodo Actual",
+      "desc": "Integridad del archivo 99.7%. Esperando nuevos flujos de datos."
+    }
+  },
+  "access": {
+    "sectionTitle": "Solicitar Acceso",
+    "desc": "Envía credenciales para acceder a niveles restringidos del archivo a partir del Nivel 7.",
+    "agentId": "ID de Agente",
+    "clearance": "Nivel de Acceso",
+    "level5": "Nivel 5 — Observador",
+    "level6": "Nivel 6 — Analista",
+    "level7": "Nivel 7 — Archivista",
+    "submit": "Iniciar Handshake"
+  },
+  "footer": {
+    "fanSite": "Este es un sitio de fans de Pitta Band.",
+    "officialLink": "Pitta Official Link",
+    "fancafe": "Pitta Fan Community",
+    "suggest": "Sugerencias",
+    "x": "X",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "overlay": {
+    "close": "Cerrar",
+    "badgeModal": "FULL MODAL",
+    "badgeSheetMid": "BOTTOM SHEET · 50%",
+    "badgeSheetSm": "BOTTOM SHEET · 20%",
+    "statOverlayTypes": "Tipos de Overlay",
+    "statIntegrity": "Integridad",
+    "statSectors": "Sectores",
+    "statFiles": "Archivos",
+    "statSector": "Sector",
+    "statBitKey": "Clave Bit",
+    "statActive": "Activo",
+    "position": "Posición",
+    "role": "Rol",
+    "composition": "Formación",
+    "genre": "Género",
+    "transmissionLayer": "Capa de Transporte",
+    "encoding": "Codificación",
+    "integrityCheck": "Verificación de Integridad",
+    "backToStage": "Volver al Escenario",
+    "instagram": "Instagram",
+    "openAbout": "Abrir About",
+    "viewVoidMap": "Ver Mapa del Vacío"
+  },
+  "pages": {
+    "home": {
+      "title": "SCI-FI ARCHIVE",
+      "desc": "Hub del archivo SF de Pitta Band. Todos los enlaces se abren como overlays sin cambiar de página."
+    },
+    "about": {
+      "title": "About",
+      "intro": "Pitta Band es un grupo de cinco miembros que traduce narrativas cyberpunk y de ciencia ficción en música. A través de archivos digitales, interfaces holográficas y paisajes sonoros geométricos, crean conciertos y discos que cruzan la frontera entre futuro y memoria.",
+      "stageLabel": "Escenario de Pitta Band",
+      "tagline": "PITTA BAND // ARCHIVE NODE 01",
+      "guestMember": "guest member",
+      "composition": "Vocal ×1 · Drums ×1 · Guitar ×3",
+      "genre": "Cyberpunk / Sci-Fi Rock"
+    },
+    "album": {
+      "title": "Album",
+      "tabAlbum": "Album",
+      "tabSingle": "Single",
+      "tabOst": "OST",
+      "tabListLabel": "Categorías de discografía",
+      "releaseDate": "Fecha de lanzamiento",
+      "lyricsBy": "Letra",
+      "composedBy": "Composición",
+      "arrangedBy": "Arreglo",
+      "producedBy": "Producción",
+      "sourceMelon": "Fuente: Melon",
+      "tabDetails": "Detalles",
+      "tabLyrics": "Letra",
+      "tabMv": "Video musical",
+      "tabLyricVideo": "Lyric Video",
+      "tabLiveClip": "Live Clip",
+      "detailTabListLabel": "Menú de detalle",
+      "noLyrics": "No hay letra disponible.",
+      "noMv": "No hay video musical disponible.",
+      "noLiveClip": "No hay Live Clip disponible.",
+      "viewLyrics": "Ver letra",
+      "hideLyrics": "Ocultar letra",
+      "listenMelon": "Escuchar en Melon",
+      "listenSpotify": "Escuchar en Spotify",
+      "listenYoutube": "Escuchar en YouTube",
+      "empty": "No hay elementos en esta categoría.",
+      "loadError": "No se pudieron cargar los datos del álbum.",
+      "trackList": "Lista de pistas",
+      "titleTrack": "Tema principal",
+      "backToAlbum": "Volver al álbum",
+      "crumbSong": "Song"
+    },
+    "concert": {
+      "title": "Concert",
+      "nextShow": "Próximo Concierto · NEXUS LIVE",
+      "details": "2026.09.15 · Seúl · Entradas disponibles",
+      "tabListLabel": "Filtros de conciertos",
+      "tabAll": "All",
+      "tabUpcoming": "Upcoming",
+      "tabPast": "Past",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT SHOW",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "No hay conciertos programados",
+      "noUpcomingDesc": "Este nodo se actualizará cuando se confirme un nuevo concierto.",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "encore": "Bis",
+      "openMap": "Abrir mapa",
+      "empty": "No hay conciertos para mostrar.",
+      "loadError": "No se pudieron cargar los datos de conciertos.",
+      "scrollTop": "Volver arriba"
+    },
+    "festival": {
+      "title": "Festival",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT FESTIVAL",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "No hay festivales próximos",
+      "noUpcomingDesc": "Las nuevas fechas de festivales aparecerán aquí cuando se confirmen.",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "openMap": "Abrir mapa",
+      "empty": "No hay festivales para mostrar.",
+      "loadError": "No se pudieron cargar los datos de festivales.",
+      "detailPending": "Los detalles se actualizarán pronto."
+    },
+    "board": {
+      "title": "Sugerencias",
+      "titleLabel": "Título",
+      "contentLabel": "Contenido",
+      "submit": "Enviar",
+      "subjectPrefix": "[Sugerencia]",
+      "alertConfig": "La configuración del formulario no está completa. (Se requiere Access Key)",
+      "alertRequired": "Introduce un título y un mensaje.",
+      "alertSuccess": "Enviado correctamente.",
+      "alertFail": "Error al enviar. Inténtalo de nuevo más tarde."
+    },
+    "sectorAlpha": {
+      "title": "Registros Neurales",
+      "desc": "Transcripciones de conciencia sintética y fragmentos de estado onírico de núcleos IA archivados."
+    },
+    "sectorBeta": {
+      "title": "Cartografía del Vacío",
+      "desc": "Datos de mapeo del espacio profundo, coordenadas de agujeros de gusano y telemetría remota de sectores inexplorados."
+    },
+    "sectorGamma": {
+      "title": "Anomalías Cronológicas",
+      "desc": "Eventos de distorsión temporal, informes de paradojas y registros de ramificaciones temporales."
+    },
+    "sectorDelta": {
+      "title": "Artefactos Cibernéticos",
+      "desc": "Planos de hardware recuperados, fantasmas de firmware y especificaciones de protocolos obsoletos."
+    },
+    "protocol": {
+      "title": "Protocolo",
+      "desc": "Protocolo de comunicación Nexus Archive v2.847 — handshake cifrado cuántico y especificación de flujo de datos."
+    },
+    "encryption": {
+      "title": "Cifrado",
+      "desc": "Los datos del archivo están doblemente cifrados con AES-256-GCM y una capa de distribución cuántica de claves (QKD)."
+    },
+    "nodeStatus": {
+      "title": "Estado del Nodo",
+      "status": "12 / 12 Nodos en Línea",
+      "metrics": "Latencia 12ms · Integridad 99.7%"
+    },
+    "memberVocal": {
+      "title": "Vocal",
+      "name": "Kang Hyung-ho",
+      "instagram": "https://www.instagram.com/pitta.come/",
+      "bio": [
+        "Nacido en Busan, Corea del Sur, 1988",
+        "Ganador de JTBC Phantom Singer 2, 2017",
+        "Debut con Forestella, 2018",
+        "Debut como Pitta, 2020"
+      ]
+    },
+    "memberDrums": {
+      "title": "Drums",
+      "name": "Han Seong-hwan",
+      "instagram": "https://www.instagram.com/sung_hwanhan/",
+      "desc": "Batería · plataforma trasera. Sostiene el groove con capas de kit y samples."
+    },
+    "memberGuitar1": {
+      "title": "Guitar",
+      "name": "Lee Yong-woo",
+      "instagram": "https://www.instagram.com/yong_woo_2/",
+      "desc": "Guitarra · izquierda del escenario. Riffs y texturas sonoras."
+    },
+    "memberGuitar2": {
+      "title": "Base",
+      "name": "Han Seung-mok",
+      "instagram": "https://www.instagram.com/1_jerry_/",
+      "desc": "Bajo · frente izquierdo. Sostiene el registro grave de la sección rítmica."
+    },
+    "memberGuitar3": {
+      "title": "Guitar",
+      "name": "Lee Woo-hyun",
+      "instagram": "https://www.instagram.com/_woohyun_lee_/",
+      "desc": "Guitarra · derecha del escenario. Expande paisajes sonoros y texturas de ruido."
+    },
+    "memberGuestPiano": {
+      "title": "Piano",
+      "name": "Oh Eun-cheol",
+      "instagram": "https://www.instagram.com/ecoh_eunchuloh/",
+      "desc": "Guest member · Piano"
+    }
+  },
+  "members": {
+    "drums": "Batería",
+    "vocal": "Vocal",
+    "guitar1": "Guitar",
+    "guitar2": "Base",
+    "guitar3": "Guitar",
+    "base": "Base"
+  }
+}

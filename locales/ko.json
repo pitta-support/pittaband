@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "title": "Pitta Band Archive",
+    "description": "PittaBand Archive",
+    "htmlLang": "ko"
+  },
+  "metaPages": {
+    "about": {
+      "title": "About — Pitta Band Archive",
+      "description": "Pitta Band 소개 및 무대 아카이브",
+      "htmlLang": "ko"
+    },
+    "album": {
+      "title": "Album — Pitta Band Archive",
+      "description": "Pitta Band 앨범 아카이브",
+      "htmlLang": "ko"
+    },
+    "concert": {
+      "title": "Concert — Pitta Band Archive",
+      "description": "Pitta Band 공연 정보",
+      "htmlLang": "ko"
+    },
+    "festival": {
+      "title": "Festival — Pitta Band Archive",
+      "description": "Pitta Band 페스티벌 정보",
+      "htmlLang": "ko"
+    },
+    "board": {
+      "title": "건의사항 — Pitta Band Archive",
+      "description": "Pitta Band Archive 건의사항",
+      "htmlLang": "ko"
+    }
+  },
+  "lang": {
+    "label": "언어",
+    "ko": "한국어",
+    "en": "English",
+    "ja": "日本語",
+    "es": "Español"
+  },
+  "dday": {
+    "tag": "UPCOMING",
+    "event": "NEXUS LIVE · SEOUL",
+    "linkConcert": "예매하기",
+    "linkAlbum": "구매하기",
+    "hideToday": "오늘 하루 보이지 않기",
+    "dDay": "D-DAY",
+    "dPlus": "D+{days}"
+  },
+  "header": {
+    "navLabel": "주요 메뉴",
+    "mobileNavLabel": "모바일 메뉴",
+    "menuOpen": "메뉴 열기",
+    "menuClose": "메뉴 닫기",
+    "systemOnline": "시스템 가동",
+    "clockSuffix": "KST"
+  },
+  "nav": {
+    "about": "About",
+    "album": "Album",
+    "concert": "Concert"
+  },
+  "hero": {
+    "tag": "기밀 저장소 // 레벨 7",
+    "titleLine1": "디지털",
+    "titleLine2": "기억 금고",
+    "desc": "양자 섹터에 걸쳐 파편화된 기록을 보관하는 탈중앙화 SF 아카이브. 홀로그램 인덱스를 탐색하고, 시간 이상을 해독하며, 제한된 데이터 스트림에 접근하세요.",
+    "searchPlaceholder": "아카이브 인덱스 검색...",
+    "searchLabel": "아카이브 검색",
+    "scan": "스캔",
+    "scanning": "스캔 중...",
+    "indexNodes": "인덱스: 2,847,391 노드",
+    "latency": "지연: 12ms",
+    "statRecords": "기록",
+    "statSectors": "섹터",
+    "statIntegrity": "무결성 %",
+    "anniversary": {
+      "label": "CELEBRATION",
+      "greeting": "Happy {ordinal} Anniversary!",
+      "cta": "축하 메세지를 써주세요",
+      "message": "{title} {type}발매 {years}주년입니다.",
+      "typeAlbum": "앨범",
+      "typeSingle": "싱글",
+      "typeOst": "OST"
+    }
+  },
+  "sectors": {
+    "sectionTitle": "아카이브 섹터",
+    "sectionDesc": "시간 서명별로 분류된 파편화 데이터 클러스터",
+    "alpha": {
+      "title": "뉴럴 로그",
+      "desc": "아카이브된 AI 코어의 합성 의식 전사록과 드림 상태 파편.",
+      "count": "124,892 파일",
+      "access": "접근 →"
+    },
+    "beta": {
+      "title": "보이드 지도",
+      "desc": "심우주 매핑 데이터, 웜홀 좌표, 미탐사 섹터 원격 측정값.",
+      "count": "89,204 파일",
+      "access": "접근 →"
+    },
+    "gamma": {
+      "title": "크로노 이상",
+      "desc": "시간 왜곡 이벤트, 패러독스 보고서, 타임라인 분기 기록.",
+      "count": "31,567 파일",
+      "access": "접근 →"
+    },
+    "delta": {
+      "title": "사이버 유물",
+      "desc": "복구된 하드웨어 설계도, 펌웨어 잔상, 폐기된 프로토콜 명세.",
+      "count": "456,120 파일",
+      "access": "접근 →"
+    }
+  },
+  "timeline": {
+    "sectionTitle": "시간 인덱스",
+    "sectionDesc": "넥서스 네트워크 전역의 연대기 아카이브 이벤트",
+    "item1": {
+      "title": "아카이브 창설",
+      "desc": "12개 궤도 노드에 초기 양자 시드 배포."
+    },
+    "item2": {
+      "title": "섹터 β 확장",
+      "desc": "보이드 지도 모듈이 심우역 센서와 통합."
+    },
+    "item3": {
+      "title": "이상 감지",
+      "desc": "제한 섹터 γ에서 최초 크로노-패러독스 탐지."
+    },
+    "item4": {
+      "title": "현재 노드",
+      "desc": "아카이브 무결성 99.7%. 신규 데이터 스트림 대기 중."
+    }
+  },
+  "access": {
+    "sectionTitle": "접근 권한 요청",
+    "desc": "레벨 7 이상의 제한 아카이브 계층에 접근하려면 자격 증명을 제출하세요.",
+    "agentId": "에이전트 ID",
+    "clearance": "접근 레벨",
+    "level5": "레벨 5 — 관찰자",
+    "level6": "레벨 6 — 분석가",
+    "level7": "레벨 7 — 아카이비스트",
+    "submit": "핸드셰이크 시작"
+  },
+  "footer": {
+    "fanSite": "Pitta Band 팬사이트입니다.",
+    "officialLink": "Pitta Official Link",
+    "fancafe": "Pitta Fan Community",
+    "suggest": "건의사항",
+    "x": "X",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "overlay": {
+    "close": "닫기",
+    "badgeModal": "FULL MODAL",
+    "badgeSheetMid": "BOTTOM SHEET · 50%",
+    "badgeSheetSm": "BOTTOM SHEET · 20%",
+    "statOverlayTypes": "오버레이 타입",
+    "statIntegrity": "무결성",
+    "statSectors": "섹터",
+    "statFiles": "파일",
+    "statSector": "섹터",
+    "statBitKey": "비트 키",
+    "statActive": "활성",
+    "position": "포지션",
+    "role": "역할",
+    "composition": "구성",
+    "genre": "장르",
+    "transmissionLayer": "전송 계층",
+    "encoding": "인코딩",
+    "integrityCheck": "무결성 검증",
+    "backToStage": "무대로 돌아가기",
+    "instagram": "Instagram",
+    "openAbout": "About 열기",
+    "viewVoidMap": "보이드 지도 보기"
+  },
+  "pages": {
+    "home": {
+      "title": "SCI-FI ARCHIVE",
+      "desc": "Pitta Band의 SF 아카이브 허브입니다. 모든 링크는 페이지 이동 없이 오버레이로 열립니다."
+    },
+    "about": {
+      "title": "About",
+      "intro": "Pitta Band는 사이버펑크와 SF 서사를 음악으로 번역하는 5인조 밴드입니다. 디지털 아카이브, 홀로그램 인터페이스, 기하학적 사운드스케이프를 통해 미래와 기억의 경계를 넘나드는 라이브와 레코드를 만들어갑니다.",
+      "stageLabel": "Pitta Band 무대",
+      "tagline": "PITTA BAND // ARCHIVE NODE 01",
+      "guestMember": "guest member",
+      "composition": "Vocal ×1 · Drums ×1 · Guitar ×3",
+      "genre": "Cyberpunk / Sci-Fi Rock"
+    },
+    "album": {
+      "title": "Album",
+      "tabAlbum": "Album",
+      "tabSingle": "Single",
+      "tabOst": "OST",
+      "tabListLabel": "디스코그래피 분류",
+      "releaseDate": "발매일",
+      "lyricsBy": "작사",
+      "composedBy": "작곡",
+      "arrangedBy": "편곡",
+      "producedBy": "프로듀싱",
+      "sourceMelon": "출처: 멜론",
+      "tabDetails": "상세정보",
+      "tabLyrics": "가사",
+      "tabMv": "뮤직비디오",
+      "tabLyricVideo": "Lyric Video",
+      "tabLiveClip": "LiveClip",
+      "detailTabListLabel": "곡 상세 메뉴",
+      "noLyrics": "등록된 가사가 없습니다.",
+      "noMv": "등록된 뮤직비디오가 없습니다.",
+      "noLiveClip": "등록된 LiveClip이 없습니다.",
+      "viewLyrics": "가사 보기",
+      "hideLyrics": "가사 닫기",
+      "listenMelon": "멜론에서 듣기",
+      "listenSpotify": "Spotify에서 듣기",
+      "listenYoutube": "YouTube에서 듣기",
+      "empty": "등록된 항목이 없습니다.",
+      "loadError": "앨범 데이터를 불러오지 못했습니다.",
+      "trackList": "트랙리스트",
+      "titleTrack": "타이틀곡",
+      "backToAlbum": "앨범으로",
+      "crumbSong": "Song"
+    },
+    "concert": {
+      "title": "Concert",
+      "nextShow": "다음 공연 · NEXUS LIVE",
+      "details": "2026.09.15 · 서울 · 티켓 오픈",
+      "tabListLabel": "공연 분류",
+      "tabAll": "All",
+      "tabUpcoming": "Upcoming",
+      "tabPast": "Past",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT SHOW",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "예정된 공연이 없습니다",
+      "noUpcomingDesc": "새 공연이 확정되면 이 노드에 업데이트됩니다.",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "encore": "앵콜",
+      "openMap": "지도 열기",
+      "empty": "표시할 공연이 없습니다.",
+      "loadError": "공연 데이터를 불러오지 못했습니다.",
+      "scrollTop": "맨 위로"
+    },
+    "festival": {
+      "title": "Festival",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT FESTIVAL",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "예정된 페스티벌이 없습니다",
+      "noUpcomingDesc": "새 페스티벌 일정이 확정되면 이 노드에 업데이트됩니다.",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "openMap": "지도 열기",
+      "empty": "표시할 페스티벌이 없습니다.",
+      "loadError": "페스티벌 데이터를 불러오지 못했습니다.",
+      "detailPending": "상세 정보는 곧 업데이트됩니다."
+    },
+    "board": {
+      "title": "건의사항",
+      "titleLabel": "제목",
+      "contentLabel": "내용",
+      "submit": "등록",
+      "subjectPrefix": "[건의사항]",
+      "alertConfig": "폼 설정이 완료되지 않았습니다. (Access Key 필요)",
+      "alertRequired": "제목과 내용을 입력해 주세요.",
+      "alertSuccess": "완료되었습니다.",
+      "alertFail": "등록에 실패했습니다. 잠시 후 다시 시도해 주세요."
+    },
+    "sectorAlpha": {
+      "title": "뉴럴 로그",
+      "desc": "아카이브된 AI 코어의 합성 의식 전사록과 드림 상태 파편."
+    },
+    "sectorBeta": {
+      "title": "보이드 지도",
+      "desc": "심우주 매핑 데이터, 웜홀 좌표, 미탐사 섹터 원격 측정값."
+    },
+    "sectorGamma": {
+      "title": "크로노 이상",
+      "desc": "시간 왜곡 이벤트, 패러독스 보고서, 타임라인 분기 기록."
+    },
+    "sectorDelta": {
+      "title": "사이버 유물",
+      "desc": "복구된 하드웨어 설계도, 펌웨어 잔상, 폐기된 프로토콜 명세."
+    },
+    "protocol": {
+      "title": "프로토콜",
+      "desc": "Nexus Archive 통신 프로토콜 v2.847 — 양자 암호화 핸드셰이크 및 데이터 스트림 명세."
+    },
+    "encryption": {
+      "title": "암호화",
+      "desc": "아카이브 데이터는 AES-256-GCM과 양자 키 분배(QKD) 레이어로 이중 암호화됩니다."
+    },
+    "nodeStatus": {
+      "title": "노드 상태",
+      "status": "12 / 12 노드 온라인",
+      "metrics": "지연 12ms · 무결성 99.7%"
+    },
+    "memberVocal": {
+      "title": "Vocal",
+      "name": "강형호",
+      "instagram": "https://www.instagram.com/pitta.come/",
+      "bio": [
+        "1988 대한민국 부산 출생",
+        "2017 JTBC 팬텀싱어2 우승",
+        "2018 포레스텔라 데뷔",
+        "2020 Pitta 데뷔"
+      ]
+    },
+    "memberDrums": {
+      "title": "Drums",
+      "name": "한성환",
+      "instagram": "https://www.instagram.com/sung_hwanhan/",
+      "desc": "드럼 · 후면 라이저. 키트와 샘플 레이어로 그루브의 기반을 담당합니다."
+    },
+    "memberGuitar1": {
+      "title": "Guitar",
+      "name": "이용우",
+      "instagram": "https://www.instagram.com/yong_woo_2/",
+      "desc": "기타 · 스테이지 좌측. 리프와 텍스처 사운드를 담당합니다."
+    },
+    "memberGuitar2": {
+      "title": "Base",
+      "name": "한승목",
+      "instagram": "https://www.instagram.com/1_jerry_/",
+      "desc": "베이스 · 스테이지 좌측 전면. 리듬 섹션의 저음 축을 담당합니다."
+    },
+    "memberGuitar3": {
+      "title": "Guitar",
+      "name": "이우현",
+      "instagram": "https://www.instagram.com/_woohyun_lee_/",
+      "desc": "기타 · 스테이지 우측. 사운드스케이프와 노이즈 텍스처를 확장합니다."
+    },
+    "memberGuestPiano": {
+      "title": "Piano",
+      "name": "오은철",
+      "instagram": "https://www.instagram.com/ecoh_eunchuloh/",
+      "desc": "Guest member · Piano"
+    }
+  },
+  "members": {
+    "drums": "드럼",
+    "vocal": "보컬",
+    "guitar1": "Guitar",
+    "guitar2": "Base",
+    "guitar3": "Guitar",
+    "base": "Base"
+  }
+}

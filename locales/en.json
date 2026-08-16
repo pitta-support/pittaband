@@ -1,0 +1,354 @@
+{
+  "meta": {
+    "title": "Pitta Band Archive",
+    "description": "PittaBand Archive",
+    "htmlLang": "en"
+  },
+  "metaPages": {
+    "about": {
+      "title": "About — Pitta Band Archive",
+      "description": "Pitta Band profile and stage archive",
+      "htmlLang": "en"
+    },
+    "album": {
+      "title": "Album — Pitta Band Archive",
+      "description": "Pitta Band album archive",
+      "htmlLang": "en"
+    },
+    "concert": {
+      "title": "Concert — Pitta Band Archive",
+      "description": "Pitta Band concert information",
+      "htmlLang": "en"
+    },
+    "festival": {
+      "title": "Festival — Pitta Band Archive",
+      "description": "Pitta Band festival information",
+      "htmlLang": "en"
+    },
+    "board": {
+      "title": "Suggestions — Pitta Band Archive",
+      "description": "Pitta Band Archive suggestions board",
+      "htmlLang": "en"
+    }
+  },
+  "lang": {
+    "label": "Language",
+    "ko": "한국어",
+    "en": "English",
+    "ja": "日本語",
+    "es": "Español"
+  },
+  "dday": {
+    "tag": "UPCOMING",
+    "event": "NEXUS LIVE · SEOUL",
+    "linkConcert": "Book Tickets",
+    "linkAlbum": "Buy Now",
+    "hideToday": "Hide for today",
+    "dDay": "D-DAY",
+    "dPlus": "D+{days}"
+  },
+  "header": {
+    "navLabel": "Main menu",
+    "mobileNavLabel": "Mobile menu",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "systemOnline": "System Online",
+    "clockSuffix": "KST"
+  },
+  "nav": {
+    "about": "About",
+    "album": "Album",
+    "concert": "Concert"
+  },
+  "hero": {
+    "tag": "CLASSIFIED VAULT // LEVEL 7",
+    "titleLine1": "DIGITAL",
+    "titleLine2": "MEMORY VAULT",
+    "desc": "A decentralized SF archive preserving fragmented records across quantum sectors. Browse holographic indexes, decode temporal anomalies, and access restricted data streams.",
+    "searchPlaceholder": "Search archive index...",
+    "searchLabel": "Archive search",
+    "scan": "Scan",
+    "scanning": "Scanning...",
+    "indexNodes": "Index: 2,847,391 nodes",
+    "latency": "Latency: 12ms",
+    "statRecords": "Records",
+    "statSectors": "Sectors",
+    "statIntegrity": "Integrity %",
+    "anniversary": {
+      "label": "CELEBRATION",
+      "greeting": "Happy {ordinal} Anniversary!",
+      "cta": "Write a congratulatory message",
+      "message": "{title} {type} — {years} years since release.",
+      "typeAlbum": "Album",
+      "typeSingle": "Single",
+      "typeOst": "OST"
+    }
+  },
+  "sectors": {
+    "sectionTitle": "Archive Sectors",
+    "sectionDesc": "Fragmented data clusters classified by temporal signature",
+    "alpha": {
+      "title": "Neural Logs",
+      "desc": "Synthetic consciousness transcripts and dream-state fragments from archived AI cores.",
+      "count": "124,892 files",
+      "access": "Access →"
+    },
+    "beta": {
+      "title": "Void Cartography",
+      "desc": "Deep-space mapping data, wormhole coordinates, and remote telemetry from uncharted sectors.",
+      "count": "89,204 files",
+      "access": "Access →"
+    },
+    "gamma": {
+      "title": "Chrono Anomalies",
+      "desc": "Temporal distortion events, paradox reports, and timeline branch records.",
+      "count": "31,567 files",
+      "access": "Access →"
+    },
+    "delta": {
+      "title": "Cyber Artifacts",
+      "desc": "Recovered hardware schematics, firmware ghosts, and deprecated protocol specs.",
+      "count": "456,120 files",
+      "access": "Access →"
+    }
+  },
+  "timeline": {
+    "sectionTitle": "Temporal Index",
+    "sectionDesc": "Chronological archive events across the Nexus network",
+    "item1": {
+      "title": "Archive Founded",
+      "desc": "Initial quantum seeds deployed across 12 orbital nodes."
+    },
+    "item2": {
+      "title": "Sector β Expansion",
+      "desc": "Void cartography module integrated with deep-space sensors."
+    },
+    "item3": {
+      "title": "Anomaly Detected",
+      "desc": "First chrono-paradox detected in restricted Sector γ."
+    },
+    "item4": {
+      "title": "Current Node",
+      "desc": "Archive integrity 99.7%. Awaiting new data streams."
+    }
+  },
+  "access": {
+    "sectionTitle": "Request Access",
+    "desc": "Submit credentials to access restricted archive tiers at Level 7 and above.",
+    "agentId": "Agent ID",
+    "clearance": "Clearance Level",
+    "level5": "Level 5 — Observer",
+    "level6": "Level 6 — Analyst",
+    "level7": "Level 7 — Archivist",
+    "submit": "Initiate Handshake"
+  },
+  "footer": {
+    "fanSite": "This is a Pitta Band fan site.",
+    "officialLink": "Pitta Official Link",
+    "fancafe": "Pitta Fan Community",
+    "suggest": "Suggestions",
+    "x": "X",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "overlay": {
+    "close": "Close",
+    "badgeModal": "FULL MODAL",
+    "badgeSheetMid": "BOTTOM SHEET · 50%",
+    "badgeSheetSm": "BOTTOM SHEET · 20%",
+    "statOverlayTypes": "Overlay Types",
+    "statIntegrity": "Integrity",
+    "statSectors": "Sectors",
+    "statFiles": "Files",
+    "statSector": "Sector",
+    "statBitKey": "Bit Key",
+    "statActive": "Active",
+    "position": "Position",
+    "role": "Role",
+    "composition": "Lineup",
+    "genre": "Genre",
+    "transmissionLayer": "Transport Layer",
+    "encoding": "Encoding",
+    "integrityCheck": "Integrity Check",
+    "backToStage": "Back to Stage",
+    "instagram": "Instagram",
+    "openAbout": "Open About",
+    "viewVoidMap": "View Void Map"
+  },
+  "pages": {
+    "home": {
+      "title": "SCI-FI ARCHIVE",
+      "desc": "Pitta Band's SF archive hub. All links open as overlays without page navigation."
+    },
+    "about": {
+      "title": "About",
+      "intro": "Pitta Band is a five-member group translating cyberpunk and sci-fi narratives into music. Through digital archives, holographic interfaces, and geometric soundscapes, they craft live shows and records that traverse the boundary between future and memory.",
+      "stageLabel": "Pitta Band stage",
+      "tagline": "PITTA BAND // ARCHIVE NODE 01",
+      "guestMember": "guest member",
+      "composition": "Vocal ×1 · Drums ×1 · Guitar ×3",
+      "genre": "Cyberpunk / Sci-Fi Rock"
+    },
+    "album": {
+      "title": "Album",
+      "tabAlbum": "Album",
+      "tabSingle": "Single",
+      "tabOst": "OST",
+      "tabListLabel": "Discography categories",
+      "releaseDate": "Release date",
+      "lyricsBy": "Lyrics by",
+      "composedBy": "Composed by",
+      "arrangedBy": "Arranged by",
+      "producedBy": "Produced by",
+      "sourceMelon": "Source: Melon",
+      "tabDetails": "Details",
+      "tabLyrics": "Lyrics",
+      "tabMv": "Music Video",
+      "tabLyricVideo": "Lyric Video",
+      "tabLiveClip": "Live Clip",
+      "detailTabListLabel": "Track detail menu",
+      "noLyrics": "No lyrics available.",
+      "noMv": "No music video available.",
+      "noLiveClip": "No live clip available.",
+      "viewLyrics": "View lyrics",
+      "hideLyrics": "Hide lyrics",
+      "listenMelon": "Listen on Melon",
+      "listenSpotify": "Listen on Spotify",
+      "listenYoutube": "Listen on YouTube",
+      "empty": "No items in this category.",
+      "loadError": "Could not load album data.",
+      "trackList": "Tracklist",
+      "titleTrack": "Title track",
+      "backToAlbum": "Back to album",
+      "crumbSong": "Song"
+    },
+    "concert": {
+      "title": "Concert",
+      "nextShow": "Next Show · NEXUS LIVE",
+      "details": "2026.09.15 · Seoul · Tickets Open",
+      "tabListLabel": "Concert filters",
+      "tabAll": "All",
+      "tabUpcoming": "Upcoming",
+      "tabPast": "Past",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT SHOW",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "No upcoming shows",
+      "noUpcomingDesc": "This node will update when a new show is confirmed.",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "encore": "Encore",
+      "openMap": "Open map",
+      "empty": "No concerts to display.",
+      "loadError": "Could not load concert data.",
+      "scrollTop": "Back to top"
+    },
+    "festival": {
+      "title": "Festival",
+      "statusUpcoming": "UPCOMING",
+      "statusLive": "LIVE",
+      "statusEnded": "ENDED",
+      "nextShowLabel": "NEXT FESTIVAL",
+      "noUpcomingLabel": "ARCHIVE",
+      "noUpcomingTitle": "No upcoming festivals",
+      "noUpcomingDesc": "New festival dates will appear here once confirmed.",
+      "tickets": "Tickets",
+      "setlist": "Set List",
+      "openMap": "Open map",
+      "empty": "No festivals to display.",
+      "loadError": "Could not load festival data.",
+      "detailPending": "Details will be updated soon."
+    },
+    "board": {
+      "title": "Suggestions",
+      "titleLabel": "Title",
+      "contentLabel": "Message",
+      "submit": "Submit",
+      "subjectPrefix": "[Suggestion]",
+      "alertConfig": "Form setup is incomplete. (Access Key required)",
+      "alertRequired": "Please enter a title and message.",
+      "alertSuccess": "Submitted successfully.",
+      "alertFail": "Submission failed. Please try again later."
+    },
+    "sectorAlpha": {
+      "title": "Neural Logs",
+      "desc": "Synthetic consciousness transcripts and dream-state fragments from archived AI cores."
+    },
+    "sectorBeta": {
+      "title": "Void Cartography",
+      "desc": "Deep-space mapping data, wormhole coordinates, and remote telemetry from uncharted sectors."
+    },
+    "sectorGamma": {
+      "title": "Chrono Anomalies",
+      "desc": "Temporal distortion events, paradox reports, and timeline branch records."
+    },
+    "sectorDelta": {
+      "title": "Cyber Artifacts",
+      "desc": "Recovered hardware schematics, firmware ghosts, and deprecated protocol specs."
+    },
+    "protocol": {
+      "title": "Protocol",
+      "desc": "Nexus Archive communication protocol v2.847 — quantum-encrypted handshake and data stream specification."
+    },
+    "encryption": {
+      "title": "Encryption",
+      "desc": "Archive data is double-encrypted with AES-256-GCM and a quantum key distribution (QKD) layer."
+    },
+    "nodeStatus": {
+      "title": "Node Status",
+      "status": "12 / 12 Nodes Online",
+      "metrics": "Latency 12ms · Integrity 99.7%"
+    },
+    "memberVocal": {
+      "title": "Vocal",
+      "name": "Kang Hyung-ho",
+      "instagram": "https://www.instagram.com/pitta.come/",
+      "bio": [
+        "Born in Busan, South Korea, 1988",
+        "Winner of JTBC Phantom Singer 2, 2017",
+        "Debuted with Forestella, 2018",
+        "Debuted as Pitta, 2020"
+      ]
+    },
+    "memberDrums": {
+      "title": "Drums",
+      "name": "Han Seong-hwan",
+      "instagram": "https://www.instagram.com/sung_hwanhan/",
+      "desc": "Drums · rear riser. Anchors the groove with kit and sample layers."
+    },
+    "memberGuitar1": {
+      "title": "Guitar",
+      "name": "Lee Yong-woo",
+      "instagram": "https://www.instagram.com/yong_woo_2/",
+      "desc": "Guitar · stage left. Handles riffs and texture sounds."
+    },
+    "memberGuitar2": {
+      "title": "Base",
+      "name": "Han Seung-mok",
+      "instagram": "https://www.instagram.com/1_jerry_/",
+      "desc": "Bass · front left. Holds down the low end of the rhythm section."
+    },
+    "memberGuitar3": {
+      "title": "Guitar",
+      "name": "Lee Woo-hyun",
+      "instagram": "https://www.instagram.com/_woohyun_lee_/",
+      "desc": "Guitar · stage right. Expands soundscapes and noise textures."
+    },
+    "memberGuestPiano": {
+      "title": "Piano",
+      "name": "Oh Eun-cheol",
+      "instagram": "https://www.instagram.com/ecoh_eunchuloh/",
+      "desc": "Guest member · Piano"
+    }
+  },
+  "members": {
+    "drums": "Drums",
+    "vocal": "Vocal",
+    "guitar1": "Guitar",
+    "guitar2": "Base",
+    "guitar3": "Guitar",
+    "base": "Base"
+  }
+}

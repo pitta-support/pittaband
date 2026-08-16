@@ -1,0 +1,49 @@
+:root {
+  /* Image 1 — Deep Shadow */
+  --slate: #54626F;
+  --mist: #A8B3BD;
+  --charcoal: #12171D;
+  --steel: #3E4C59;
+
+  /* Image 2 — New Normal Life */
+  --neon-cyan: #30D5FF;
+  --neon-magenta: #D800FF;
+  --neon-purple: #8A2BE2;
+  --neon-indigo: #050510;
+
+  /* Image 3 — Paradox */
+  --paradox-cyan: #00E5FF;
+  --paradox-red: #FF003C;
+
+  /* Applied tokens */
+  --bg-deep: #0A0C10;
+  --bg-panel: rgba(18, 23, 29, 0.88);
+  --bg-glass: rgba(62, 76, 89, 0.28);
+  --cyan: var(--neon-cyan);
+  --cyan-dim: rgba(48, 213, 255, 0.35);
+  --magenta: var(--neon-magenta);
+  --magenta-dim: rgba(216, 0, 255, 0.35);
+  --purple: var(--neon-purple);
+  --crimson: var(--paradox-red);
+  --crimson-dim: rgba(255, 0, 60, 0.35);
+  --text: #FFFFFF;
+  --text-muted: var(--mist);
+  --border: rgba(48, 213, 255, 0.16);
+  --border-glow: rgba(48, 213, 255, 0.42);
+
+  /* Typography — Pretendard (all locales) */
+  --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-display: var(--font-family);
+  --font-wide: var(--font-family);
+  --font-kr: var(--font-family);
+  --font-mono: var(--font-family);
+
+  --sheet-mid-h: 50vh;
+  --sheet-sm-h: 20vh;
+  --overlay-z: 200;
+  --dday-h: 88px;
+  --header-h: 72px;
+  --site-top-h: calc(var(--dday-h) + var(--header-h));
+  --max-w: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

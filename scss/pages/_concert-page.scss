@@ -1,0 +1,1041 @@
+@use "../abstracts" as *;
+
+.site-page--concert,
+.site-page--festival {
+  .site-page__header {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+  }
+
+  .site-page__body {
+    gap: 1.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.concert-switch {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+
+  &__btn {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid rgba(48, 213, 255, 0.2);
+    background: transparent;
+    color: var(--text-muted);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--cyan);
+      border-color: rgba(48, 213, 255, 0.45);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--cyan);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.concert-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(48, 213, 255, 0.18);
+  background: rgba(48, 213, 255, 0.04);
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    color: var(--cyan);
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-kr);
+    font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+  }
+
+  &__meta {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  &__venue-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(48, 213, 255, 0.28);
+    transition: color 0.2s, border-color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--text);
+      border-color: var(--cyan);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--cyan);
+      outline-offset: 2px;
+    }
+  }
+
+  &__venue-icon {
+    width: 0.85rem;
+    height: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  &__countdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.65rem 1.1rem;
+  }
+
+  &__dday {
+    font-family: var(--font-mono);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    transition: text-shadow 0.15s ease, color 0.15s ease;
+
+    &--tick {
+      text-shadow: 0 0 12px rgba(48, 213, 255, 0.45);
+      color: var(--cyan);
+    }
+  }
+
+  &__timer {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  &__progress {
+    height: 3px;
+    background: rgba(48, 213, 255, 0.1);
+    overflow: hidden;
+  }
+
+  &__progress-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(
+      90deg,
+      var(--cyan-dim),
+      var(--cyan),
+      var(--magenta-dim)
+    );
+    transition: width 1s linear;
+  }
+
+  &--past {
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+
+    .concert-hero__label {
+      color: var(--text-muted);
+    }
+  }
+}
+
+.concert-timeline {
+  position: relative;
+  margin: 0;
+  padding: 0 0 0 2rem;
+  list-style: none;
+
+  @include max-width($bp-md - 1px) {
+    padding-left: 1.15rem;
+
+    &::before {
+      left: 4px;
+    }
+
+    &__empty {
+      margin-left: -1.15rem;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      var(--cyan-dim),
+      var(--magenta-dim),
+      var(--crimson-dim),
+      transparent
+    );
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &--enter::before {
+    transform: scaleY(1);
+  }
+
+  &__empty {
+    padding: 2rem 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    list-style: none;
+    margin-left: -2rem;
+  }
+
+  &__item {
+    position: relative;
+    padding: 0 0 1.35rem 2rem;
+    opacity: 0;
+    transform: translateY(14px);
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &--featured {
+      padding-bottom: 2rem;
+
+      .concert-node {
+        top: 2.4rem;
+      }
+    }
+  }
+
+  @include max-width($bp-md - 1px) {
+    &__item {
+      padding-left: 0.85rem;
+    }
+  }
+
+  &--enter &__item {
+    animation: concert-timeline-enter 0.48s cubic-bezier(0.22, 1, 0.36, 1)
+      forwards;
+    animation-delay: calc(var(--concert-enter-index, 0) * 60ms + 80ms);
+  }
+}
+
+@keyframes concert-timeline-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.concert-node {
+  position: absolute;
+  left: -2rem;
+  top: 1rem;
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--cyan-dim);
+  background: var(--bg-deep);
+  transform: rotate(45deg);
+  transition: box-shadow 0.3s, border-color 0.3s;
+
+  @include max-width($bp-md - 1px) {
+    left: -0.85rem;
+    width: 13px;
+    height: 13px;
+  }
+
+  &--next {
+    border-color: var(--crimson);
+    box-shadow: 0 0 12px var(--crimson-dim);
+    background: rgba(255, 0, 60, 0.12);
+    animation: concert-node-pulse 2.4s ease-in-out infinite;
+  }
+
+  &--ended {
+    border-color: rgba(255, 255, 255, 0.14);
+    opacity: 0.55;
+  }
+}
+
+@keyframes concert-node-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px var(--crimson-dim);
+  }
+
+  50% {
+    box-shadow: 0 0 16px rgba(255, 0, 60, 0.35);
+  }
+}
+
+.concert-card {
+  position: relative;
+  background: var(--bg-glass);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: border-color 0.3s;
+  --concert-poster-h: 373px;
+
+  @include min-width($bp-md) {
+    --concert-poster-h: 480px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(48, 213, 255, 0.07),
+      transparent
+    );
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--border-glow);
+
+    &::after {
+      opacity: 1;
+      animation: concert-card-scan 0.65s ease-out;
+    }
+  }
+
+  &--compact {
+    padding: 0.85rem 1rem;
+
+    .concert-card__title {
+      font-size: 1.25rem;
+    }
+
+    .concert-card__venue {
+      font-size: 0.62rem;
+    }
+
+    .concert-card__detail {
+      font-size: 0.72rem;
+    }
+  }
+
+  &--with-poster {
+    padding: 0;
+  }
+
+  &--has-poster {
+    .concert-card__setlist {
+      padding: 0 1rem 1rem;
+
+      @include min-width($bp-md) {
+        padding: 0.75rem 1.15rem 1.1rem;
+        border-top: 1px solid rgba(48, 213, 255, 0.08);
+      }
+    }
+
+    .concert-card__layout {
+      @include min-width($bp-md) {
+        align-items: stretch;
+      }
+    }
+
+    .concert-card__info {
+      @include min-width($bp-md) {
+        min-height: var(--concert-poster-h);
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  &--featured {
+    border-color: rgba(255, 0, 60, 0.28);
+    background: linear-gradient(
+      135deg,
+      rgba(18, 23, 29, 0.92),
+      rgba(42, 0, 94, 0.32)
+    );
+    padding: 0;
+
+    .concert-card__info {
+      padding: 1rem 1.15rem 0.9rem;
+
+      @include min-width($bp-md) {
+        padding: 1.15rem 1.25rem 1rem;
+      }
+    }
+
+    .concert-card__setlist {
+      @include min-width($bp-md) {
+        padding: 0.85rem 1.25rem 1.2rem;
+      }
+    }
+
+    .concert-card__title {
+      font-size: clamp(1.55rem, 4.2vw, 2.05rem);
+    }
+
+    .concert-card__date {
+      font-size: 0.68rem;
+    }
+
+    .concert-card__venue {
+      font-size: 0.62rem;
+    }
+
+    .concert-card__detail {
+      font-size: 0.84rem;
+    }
+  }
+
+  &--next:not(&--featured) {
+    border-color: rgba(255, 0, 60, 0.22);
+  }
+
+  &--ended {
+    opacity: 0.62;
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+
+    @include min-width($bp-md) {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  &__info {
+    padding: 0.85rem 1rem 0.95rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+
+    @include min-width($bp-md) {
+      flex: 1 1 40%;
+      padding: 1rem 1.15rem;
+    }
+  }
+
+  &__meta {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  &__videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.45rem 0.55rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+  }
+
+  &__video-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.28rem;
+    padding: 0.3rem 0.55rem;
+    border: 1px solid #ff4444;
+    color: #ff4444;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+
+    .concert-card__video-icon {
+      width: 0.95rem;
+      height: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      border-color: #ff6666;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    &:focus-visible {
+      outline: 1px solid #ff4444;
+      outline-offset: 2px;
+    }
+  }
+
+  &__media {
+    display: block;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.35);
+
+    @include min-width($bp-md) {
+      flex: 0 0 60%;
+      width: 60%;
+      max-width: 60%;
+      align-self: flex-start;
+      border-right: 1px solid rgba(48, 213, 255, 0.14);
+    }
+
+    @include max-width($bp-md - 1px) {
+      border-bottom: 1px solid rgba(48, 213, 255, 0.14);
+    }
+
+    &--featured,
+    &--standard {
+      width: min(100%, 280px);
+      margin-inline: auto;
+      height: var(--concert-poster-h);
+
+      @include min-width($bp-md) {
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+        height: var(--concert-poster-h);
+      }
+    }
+  }
+
+  &__poster {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  &__media--slider {
+    @include max-width($bp-md - 1px) {
+      width: min(100%, 280px);
+      margin-inline: auto;
+    }
+  }
+
+  .concert-poster-slider {
+    &__viewport {
+      position: relative;
+      width: 100%;
+      height: var(--concert-poster-h);
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    &__controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.85rem 0.5rem 0.65rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+      pointer-events: none;
+
+      > * {
+        pointer-events: auto;
+      }
+    }
+
+    &__btn {
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(0, 0, 0, 0.28);
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+
+      &:hover,
+      &:focus-visible {
+        border-color: rgba(255, 255, 255, 0.65);
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+      }
+
+      &:focus-visible {
+        outline: 1px solid #fff;
+        outline-offset: 2px;
+      }
+    }
+
+    &__dots {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    &__dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.42);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+
+      &.is-active {
+        background: #fff;
+        transform: scale(1.15);
+      }
+
+      &:focus-visible {
+        outline: 1px solid #fff;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  .concert-poster-slide {
+    display: none;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    &.is-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .concert-card__poster {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-bottom: 0.35rem;
+
+    .concert-card__title {
+      margin: 0;
+      font-family: var(--font-kr);
+      font-weight: 600;
+      line-height: 1.35;
+      font-size: 1.35rem;
+      width: 100%;
+    }
+  }
+
+  &__badge {
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.45rem;
+    border: 1px solid rgba(48, 213, 255, 0.35);
+    color: var(--cyan);
+    background: rgba(48, 213, 255, 0.08);
+
+    &--live {
+      border-color: rgba(255, 0, 60, 0.45);
+      color: var(--crimson);
+      background: rgba(255, 0, 60, 0.1);
+      animation: concert-node-pulse 2.4s ease-in-out infinite;
+    }
+
+    &--ended {
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      background: transparent;
+    }
+  }
+
+  &__date {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    line-height: 1.45;
+
+    time {
+      font: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-kr);
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  &__subtitle {
+    margin: 0 0 0.3rem;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  &__setlist {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(48, 213, 255, 0.1);
+  }
+
+  &__setlist-track {
+    color: inherit;
+  }
+
+  &__setlist-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.22rem;
+
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.15rem 0.35rem;
+      font-size: 0.74rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+      break-inside: avoid;
+    }
+
+    @include min-width($bp-md) {
+      display: block;
+      columns: 2;
+      column-gap: 1.5rem;
+    }
+  }
+
+  &__setlist-num {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: rgba(48, 213, 255, 0.75);
+    margin-right: 0.2rem;
+  }
+
+  &__setlist-note {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  &__live-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.18rem;
+    margin-left: 0.1rem;
+    color: #ff4444;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s, opacity 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      opacity: 0.92;
+    }
+
+    &:focus-visible {
+      outline: 1px solid #ff4444;
+      outline-offset: 2px;
+    }
+  }
+
+  &__live-link-icon {
+    display: flex;
+    width: 0.82rem;
+    height: 0.82rem;
+    flex-shrink: 0;
+  }
+
+  &--featured &__setlist-list li {
+    font-size: 0.78rem;
+  }
+
+  &__venue {
+    margin: 0;
+    font-size: 0.62rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  &__sessions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.15rem;
+  }
+
+  &__session {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    &:not(:last-child) {
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(48, 213, 255, 0.08);
+    }
+
+    @include max-width($bp-md - 1px) {
+      &:not(:last-child) {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
+  }
+
+  &__session-city {
+    margin: 0;
+    font-family: var(--font-kr);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1.35;
+  }
+
+  &--featured &__session-city {
+    font-size: 0.9rem;
+  }
+
+  &__session-date {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  &--featured &__session-date {
+    font-size: 0.78rem;
+  }
+
+  &__venue-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    color: var(--cyan);
+    text-decoration: none;
+    transition: color 0.2s;
+
+    span {
+      border-bottom: 1px solid rgba(48, 213, 255, 0.28);
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--text);
+
+      span {
+        border-color: var(--cyan);
+      }
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--cyan);
+      outline-offset: 2px;
+    }
+  }
+
+  &__venue-icon {
+    width: 0.9rem;
+    height: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  &__detail {
+    margin: 0.35rem 0 0;
+    color: var(--text-muted);
+    line-height: 1.45;
+  }
+
+  &__ticket {
+    display: inline-block;
+    margin-top: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(48, 213, 255, 0.35);
+    transition: color 0.2s, border-color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--text);
+      border-color: var(--cyan);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--cyan);
+      outline-offset: 2px;
+    }
+  }
+
+  @include max-width($bp-md - 1px) {
+    &--has-poster .concert-card__info {
+      padding-top: 0.7rem;
+    }
+  }
+}
+
+@keyframes concert-card-scan {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 140%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .concert-timeline::before {
+    transform: scaleY(1);
+    transition: none;
+  }
+
+  .concert-timeline--enter .concert-timeline__item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .concert-node--next,
+  .concert-card__badge--live {
+    animation: none;
+  }
+
+  .concert-card--compact:hover,
+  .concert-card--compact:focus-within {
+    transform: none;
+  }
+
+  .concert-card:hover,
+  .concert-card:focus-within {
+    &::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  .concert-hero__dday--tick {
+    text-shadow: none;
+    color: var(--text);
+  }
+}
+
+.concert-scroll-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  bottom: max(1.15rem, env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  padding: 0;
+  border: 1px solid rgba(48, 213, 255, 0.35);
+  background: rgba(5, 8, 16, 0.88);
+  color: var(--cyan);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.65rem);
+  transition:
+    opacity 0.24s ease,
+    visibility 0.24s ease,
+    transform 0.24s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+  backdrop-filter: blur(8px);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+
+  svg {
+    display: block;
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: rgba(48, 213, 255, 0.55);
+    background: rgba(48, 213, 255, 0.12);
+    color: var(--text);
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--cyan);
+    outline-offset: 2px;
+  }
+
+  @include min-width($bp-md) {
+    right: max(1.35rem, env(safe-area-inset-right, 0px));
+    bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+}
