@@ -167,23 +167,34 @@
     height: 0.95rem;
   }
 
+  .hero-anniversary__media {
+    overflow: hidden;
+    width: min(100%, var(--anniversary-visual-size));
+    margin-inline: auto;
+  }
+
   .hero-anniversary__visual--paradox {
     overflow: hidden;
   }
 
   .hero-anniversary__paradox-aura {
-    inset: -12%;
-    width: calc(100% + 24%);
-    height: calc(100% + 24%);
+    inset: 0;
+    width: 100%;
+    height: 100%;
     filter: none;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+  }
+
+  .hero-anniversary__visual--paradox::before,
+  .hero-anniversary__visual--paradox::after {
+    display: none;
   }
 
   .hero-anniversary__visual--paradox .hero-anniversary__cover {
-    filter: drop-shadow(0 0 28px rgba(255, 0, 60, 0.16))
-      drop-shadow(0 0 32px rgba(0, 229, 255, 0.12))
-      drop-shadow(0 12px 28px rgba(0, 0, 0, 0.42));
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 20px rgba(255, 0, 60, 0.2))
+      drop-shadow(0 0 24px rgba(0, 229, 255, 0.16))
+      drop-shadow(0 8px 20px rgba(0, 0, 0, 0.38));
   }
 
   .dday-tag {

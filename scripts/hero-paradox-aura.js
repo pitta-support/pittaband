@@ -13,21 +13,45 @@
 
   function getParticleCount() {
     if (prefersReducedMotion()) return 0;
-    return isMobileViewport() ? 24 : 56;
+    return isMobileViewport() ? 18 : 56;
   }
 
   function getMaxDpr() {
-    return isMobileViewport() ? 1.25 : 2;
+    return isMobileViewport() ? 1 : 2;
   }
 
   function getParticleScale() {
-    return isMobileViewport() ? 0.58 : 1;
+    return isMobileViewport() ? 0.44 : 1;
+  }
+
+  function getOrbitScale() {
+    return isMobileViewport()
+      ? { x: 0.44, y: 0.42 }
+      : { x: 0.46, y: 0.46 };
+  }
+
+  function waitForCover(coverEl) {
+    if (coverEl.complete && coverEl.naturalWidth > 0) {
+      return Promise.resolve();
+    }
+
+    return new Promise((resolve) => {
+      coverEl.addEventListener("load", resolve, { once: true });
+      coverEl.addEventListener("error", resolve, { once: true });
+    });
+  }
+
+  function waitForLayout() {
+    return new Promise((resolve) => {
+      requestAnimationFrame(() => requestAnimationFrame(resolve));
+    });
   }
 
   class ParadoxAura {
     constructor(visualEl, coverEl) {
       this.visualEl = visualEl;
       this.coverEl = coverEl;
+      this.mobile = isMobileViewport();
       this.particleCount = getParticleCount();
       this.particles = [];
       this.rafId = 0;
@@ -35,22 +59,27 @@
       this.dpr = 1;
       this.cssWidth = 0;
       this.cssHeight = 0;
+      this.destroyed = false;
 
       this.canvas = document.createElement("canvas");
       this.canvas.className = "hero-anniversary__paradox-aura";
+      if (this.mobile) {
+        this.canvas.classList.add("hero-anniversary__paradox-aura--mobile");
+      }
       this.canvas.setAttribute("aria-hidden", "true");
+      this.canvas.style.opacity = "0";
       visualEl.insertBefore(this.canvas, coverEl);
 
       this.ctx = this.canvas.getContext("2d", { alpha: true });
 
       for (let i = 0; i < this.particleCount; i += 1) {
-        this.particles.push(new AuraParticle(i, this.particleCount));
+        this.particles.push(new AuraParticle(i, this.particleCount, this.mobile));
       }
 
       this.onResize = () => this.resize();
       this.onVisibilityChange = () => {
         if (document.hidden) this.stopLoop();
-        else if (this.isInView()) this.startLoop();
+        else if (this.isInView() && this.isReady) this.startLoop();
       };
 
       this.resizeObserver = new ResizeObserver(this.onResize);
@@ -60,7 +89,7 @@
       this.intersectionObserver = new IntersectionObserver(
         (entries) => {
           const visible = entries.some((entry) => entry.isIntersecting);
-          if (visible) this.startLoop();
+          if (visible && this.isReady) this.startLoop();
           else this.stopLoop();
         },
         { threshold: 0.08 }
@@ -70,9 +99,25 @@
       window.addEventListener("resize", this.onResize, { passive: true });
       document.addEventListener("visibilitychange", this.onVisibilityChange);
 
+      this.isReady = false;
+      this.boot();
+    }
+
+    async boot() {
+      await waitForCover(this.coverEl);
+      if (this.destroyed) return;
+
+      await waitForLayout();
+      if (this.destroyed) return;
+
       this.resize();
       this.resetParticles();
-      this.startLoop();
+      this.isReady = true;
+      this.canvas.style.opacity = "1";
+
+      if (this.isInView()) {
+        this.startLoop();
+      }
     }
 
     isInView() {
@@ -82,17 +127,23 @@
 
     getCoverMetrics() {
       const canvasRect = this.canvas.getBoundingClientRect();
-      if (!canvasRect.width || !canvasRect.height) {
+      const coverRect = this.coverEl.getBoundingClientRect();
+      if (
+        !canvasRect.width ||
+        !canvasRect.height ||
+        !coverRect.width ||
+        !coverRect.height
+      ) {
         return null;
       }
 
-      const coverRect = this.coverEl.getBoundingClientRect();
+      const orbit = getOrbitScale();
 
       return {
         centerX: coverRect.left + coverRect.width / 2 - canvasRect.left,
         centerY: coverRect.top + coverRect.height / 2 - canvasRect.top,
-        distanceX: coverRect.width * 0.46,
-        distanceY: coverRect.height * 0.46,
+        distanceX: coverRect.width * orbit.x,
+        distanceY: coverRect.height * orbit.y,
       };
     }
 
@@ -106,7 +157,10 @@
       this.canvas.width = Math.max(1, Math.round(rect.width * this.dpr));
       this.canvas.height = Math.max(1, Math.round(rect.height * this.dpr));
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
-      this.resetParticles();
+
+      if (this.isReady) {
+        this.resetParticles();
+      }
     }
 
     resetParticles() {
@@ -117,6 +171,8 @@
     }
 
     drawFrame(timestamp) {
+      if (!this.isReady) return;
+
       const metrics = this.getCoverMetrics();
       const { ctx } = this;
 
@@ -132,7 +188,7 @@
     }
 
     startLoop() {
-      if (this.running || this.particleCount === 0) return;
+      if (this.running || this.particleCount === 0 || !this.isReady) return;
       this.running = true;
 
       const tick = (timestamp) => {
@@ -153,6 +209,7 @@
     }
 
     destroy() {
+      this.destroyed = true;
       this.stopLoop();
       window.removeEventListener("resize", this.onResize);
       document.removeEventListener("visibilitychange", this.onVisibilityChange);
@@ -163,9 +220,10 @@
   }
 
   class AuraParticle {
-    constructor(index, total) {
+    constructor(index, total, mobile = false) {
       this.index = index;
       this.total = total;
+      this.mobile = mobile;
       this.timeOffset = Math.random() * 5000;
       this.scale = 1;
       this.reset(null, 1);
@@ -182,20 +240,22 @@
       this.angle = (this.index / this.total) * Math.PI * 2;
       this.baseX = metrics.centerX + Math.cos(this.angle) * metrics.distanceX;
       this.baseY = metrics.centerY + Math.sin(this.angle) * metrics.distanceY;
-      this.baseRadiusX = (Math.random() * 55 + 55) * scale;
-      this.baseRadiusY = (Math.random() * 20 + 12) * scale;
+      this.baseRadiusX = (Math.random() * (this.mobile ? 34 : 55) + (this.mobile ? 34 : 55)) * scale;
+      this.baseRadiusY = (Math.random() * (this.mobile ? 12 : 20) + (this.mobile ? 10 : 12)) * scale;
       this.speed = Math.random() * 0.0015 + 0.001;
-      this.wobbleX = 3.5 * scale;
-      this.wobbleY = 3.5 * scale;
-      this.pulseX = 25 * scale;
-      this.pulseY = 7 * scale;
+      this.wobbleX = (this.mobile ? 2 : 3.5) * scale;
+      this.wobbleY = (this.mobile ? 2 : 3.5) * scale;
+      this.pulseX = (this.mobile ? 12 : 25) * scale;
+      this.pulseY = (this.mobile ? 4 : 7) * scale;
+
+      const alphaBoost = this.mobile ? 0.72 : 1;
 
       if (this.index % 2 === 0) {
         this.color = { r: 255, g: 0, b: 51 };
-        this.maxAlpha = (Math.random() * 0.35 + 0.45) * (scale < 1 ? 1.08 : 1);
+        this.maxAlpha = (Math.random() * 0.22 + 0.28) * alphaBoost;
       } else {
         this.color = { r: 0, g: 240, b: 255 };
-        this.maxAlpha = (Math.random() * 0.3 + 0.4) * (scale < 1 ? 1.08 : 1);
+        this.maxAlpha = (Math.random() * 0.2 + 0.24) * alphaBoost;
       }
     }
 
@@ -218,12 +278,12 @@
       const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.radiusX);
       const { r, g, b } = this.color;
       gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${this.alpha})`);
-      gradient.addColorStop(0.3, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.8})`);
-      gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.2})`);
+      gradient.addColorStop(0.35, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.72})`);
+      gradient.addColorStop(0.65, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.18})`);
       gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
       ctx.beginPath();
-      ctx.globalCompositeOperation = "screen";
+      ctx.globalCompositeOperation = this.mobile ? "source-over" : "screen";
       ctx.fillStyle = gradient;
       ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
       ctx.fill();
