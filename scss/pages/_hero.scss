@@ -433,14 +433,6 @@
   height: calc(100% + 44%);
   pointer-events: none;
   filter: saturate(1.8) contrast(1.3);
-}
-
-.hero-anniversary__paradox-aura--mobile {
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  filter: none;
   transition: opacity 0.35s ease;
 }
 

@@ -13,21 +13,11 @@
 
   function getParticleCount() {
     if (prefersReducedMotion()) return 0;
-    return isMobileViewport() ? 24 : 56;
+    return isMobileViewport() ? 40 : 56;
   }
 
   function getMaxDpr() {
-    return isMobileViewport() ? 1 : 2;
-  }
-
-  function getParticleScale() {
-    return isMobileViewport() ? 0.78 : 1;
-  }
-
-  function getOrbitScale() {
-    return isMobileViewport()
-      ? { x: 0.54, y: 0.52 }
-      : { x: 0.46, y: 0.46 };
+    return isMobileViewport() ? 1.5 : 2;
   }
 
   function waitForCover(coverEl) {
@@ -51,7 +41,6 @@
     constructor(visualEl, coverEl) {
       this.visualEl = visualEl;
       this.coverEl = coverEl;
-      this.mobile = isMobileViewport();
       this.particleCount = getParticleCount();
       this.particles = [];
       this.rafId = 0;
@@ -63,9 +52,6 @@
 
       this.canvas = document.createElement("canvas");
       this.canvas.className = "hero-anniversary__paradox-aura";
-      if (this.mobile) {
-        this.canvas.classList.add("hero-anniversary__paradox-aura--mobile");
-      }
       this.canvas.setAttribute("aria-hidden", "true");
       this.canvas.style.opacity = "0";
       visualEl.insertBefore(this.canvas, coverEl);
@@ -73,7 +59,7 @@
       this.ctx = this.canvas.getContext("2d", { alpha: true });
 
       for (let i = 0; i < this.particleCount; i += 1) {
-        this.particles.push(new AuraParticle(i, this.particleCount, this.mobile));
+        this.particles.push(new AuraParticle(i, this.particleCount));
       }
 
       this.onResize = () => this.resize();
@@ -137,13 +123,11 @@
         return null;
       }
 
-      const orbit = getOrbitScale();
-
       return {
         centerX: coverRect.left + coverRect.width / 2 - canvasRect.left,
         centerY: coverRect.top + coverRect.height / 2 - canvasRect.top,
-        distanceX: coverRect.width * orbit.x,
-        distanceY: coverRect.height * orbit.y,
+        distanceX: coverRect.width * 0.46,
+        distanceY: coverRect.height * 0.46,
       };
     }
 
@@ -166,8 +150,7 @@
     resetParticles() {
       const metrics = this.getCoverMetrics();
       if (!metrics) return;
-      const scale = getParticleScale();
-      this.particles.forEach((particle) => particle.reset(metrics, scale));
+      this.particles.forEach((particle) => particle.reset(metrics));
     }
 
     drawFrame(timestamp) {
@@ -220,18 +203,14 @@
   }
 
   class AuraParticle {
-    constructor(index, total, mobile = false) {
+    constructor(index, total) {
       this.index = index;
       this.total = total;
-      this.mobile = mobile;
       this.timeOffset = Math.random() * 5000;
-      this.scale = 1;
-      this.reset(null, 1);
+      this.reset(null);
     }
 
-    reset(metrics, scale = 1) {
-      this.scale = scale;
-
+    reset(metrics) {
       if (!metrics) {
         this.angle = (this.index / this.total) * Math.PI * 2;
         return;
@@ -240,27 +219,25 @@
       this.angle = (this.index / this.total) * Math.PI * 2;
       this.baseX = metrics.centerX + Math.cos(this.angle) * metrics.distanceX;
       this.baseY = metrics.centerY + Math.sin(this.angle) * metrics.distanceY;
-      this.baseRadiusX = (Math.random() * (this.mobile ? 42 : 55) + (this.mobile ? 46 : 55)) * scale;
-      this.baseRadiusY = (Math.random() * (this.mobile ? 16 : 20) + (this.mobile ? 14 : 12)) * scale;
+      this.baseRadiusX = Math.random() * 55 + 55;
+      this.baseRadiusY = Math.random() * 20 + 12;
       this.speed = Math.random() * 0.0015 + 0.001;
-      this.wobbleX = (this.mobile ? 3 : 3.5) * scale;
-      this.wobbleY = (this.mobile ? 3 : 3.5) * scale;
-      this.pulseX = (this.mobile ? 18 : 25) * scale;
-      this.pulseY = (this.mobile ? 6 : 7) * scale;
-
-      const alphaBoost = this.mobile ? 1.05 : 1;
+      this.wobbleX = 3.5;
+      this.wobbleY = 3.5;
+      this.pulseX = 25;
+      this.pulseY = 7;
 
       if (this.index % 2 === 0) {
         this.color = { r: 255, g: 0, b: 51 };
-        this.maxAlpha = (Math.random() * 0.26 + 0.42) * alphaBoost;
+        this.maxAlpha = Math.random() * 0.35 + 0.45;
       } else {
         this.color = { r: 0, g: 240, b: 255 };
-        this.maxAlpha = (Math.random() * 0.24 + 0.38) * alphaBoost;
+        this.maxAlpha = Math.random() * 0.3 + 0.4;
       }
     }
 
     update(time, metrics) {
-      if (!this.baseX) this.reset(metrics, this.scale);
+      if (!this.baseX) this.reset(metrics);
       const t = time * this.speed + this.timeOffset;
 
       this.x = this.baseX + Math.sin(t * 0.3) * this.wobbleX;
@@ -278,12 +255,12 @@
       const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.radiusX);
       const { r, g, b } = this.color;
       gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${this.alpha})`);
-      gradient.addColorStop(0.35, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.72})`);
-      gradient.addColorStop(0.65, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.18})`);
+      gradient.addColorStop(0.3, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.8})`);
+      gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, ${this.alpha * 0.2})`);
       gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
       ctx.beginPath();
-      ctx.globalCompositeOperation = this.mobile ? "lighter" : "screen";
+      ctx.globalCompositeOperation = "screen";
       ctx.fillStyle = gradient;
       ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
       ctx.fill();
