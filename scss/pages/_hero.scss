@@ -92,6 +92,8 @@
 
 .hero-content {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .hero-anniversary {
@@ -732,6 +734,8 @@
   color: var(--crimson);
   margin-bottom: 1.25rem;
   position: relative;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .hologram-text {
@@ -792,6 +796,8 @@
   max-width: 480px;
   margin-bottom: 2rem;
   line-height: 1.75;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 /* Stats */
 

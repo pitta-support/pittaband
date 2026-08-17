@@ -105,6 +105,29 @@
     align-items: start;
     align-content: start;
     overflow: visible;
+
+    &:not(.hero--anniversary) {
+      overflow-x: clip;
+    }
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .terminal-bar {
+    flex-wrap: wrap;
+  }
+
+  .terminal-input {
+    flex: 1 1 10rem;
+    min-width: 0;
+  }
+
+  .terminal-btn {
+    margin-left: auto;
   }
 
   .hero-anniversary {
@@ -211,6 +234,7 @@
     gap: 0.35rem 0.65rem;
     padding: 0.45rem 0.75rem;
     align-items: center;
+    min-width: 0;
   }
 
   .dday-info {
@@ -234,6 +258,8 @@
   .dday-hide {
     grid-area: hide;
     justify-self: start;
+    min-width: 0;
+    flex-shrink: 1;
   }
 
   .dday-link {
@@ -241,6 +267,9 @@
     justify-self: end;
     font-size: 0.62rem;
     padding: 0.28rem 0.45rem;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 
   .dday-logo {
@@ -250,6 +279,8 @@
 
   .dday-hide__label {
     font-size: 0.5rem;
+    white-space: normal;
+    line-height: 1.35;
   }
 
   .dday-flip__digit {

@@ -1355,6 +1355,8 @@ body:has(.dday-bar[hidden]) {
   margin-bottom: 2rem;
   position: relative;
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  min-width: 0;
+  max-width: 100%;
 }
 
 .terminal-search::before {
@@ -1372,16 +1374,19 @@ body:has(.dday-bar[hidden]) {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .terminal-prompt {
   color: var(--cyan);
   font-size: 1rem;
   text-shadow: 0 0 8px var(--cyan-dim);
+  flex-shrink: 0;
 }
 
 .terminal-input {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   background: transparent;
   border: none;
   outline: none;
@@ -1405,6 +1410,7 @@ body:has(.dday-bar[hidden]) {
   color: var(--cyan);
   cursor: pointer;
   transition: background 0.25s, box-shadow 0.25s;
+  flex-shrink: 0;
 }
 
 .terminal-btn:hover {
@@ -1885,6 +1891,8 @@ body:has(.dday-bar[hidden]) {
 }
 .hero-content {
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .hero-anniversary {
@@ -2475,6 +2483,8 @@ body:has(.dday-bar[hidden]) {
   color: var(--crimson);
   margin-bottom: 1.25rem;
   position: relative;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .hologram-text {
@@ -2528,6 +2538,8 @@ body:has(.dday-bar[hidden]) {
   max-width: 480px;
   margin-bottom: 2rem;
   line-height: 1.75;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 /* Stats */
@@ -5256,6 +5268,24 @@ body.board-overlay-open {
     align-content: start;
     overflow: visible;
   }
+  .hero:not(.hero--anniversary) {
+    overflow-x: clip;
+  }
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .terminal-bar {
+    flex-wrap: wrap;
+  }
+  .terminal-input {
+    flex: 1 1 10rem;
+    min-width: 0;
+  }
+  .terminal-btn {
+    margin-left: auto;
+  }
   .hero-anniversary {
     padding: 0.75rem 1rem 1.5rem;
     gap: 1rem;
@@ -5340,6 +5370,7 @@ body.board-overlay-open {
     gap: 0.35rem 0.65rem;
     padding: 0.45rem 0.75rem;
     align-items: center;
+    min-width: 0;
   }
   .dday-info {
     grid-area: info;
@@ -5359,12 +5390,17 @@ body.board-overlay-open {
   .dday-hide {
     grid-area: hide;
     justify-self: start;
+    min-width: 0;
+    flex-shrink: 1;
   }
   .dday-link {
     grid-area: link;
     justify-self: end;
     font-size: 0.62rem;
     padding: 0.28rem 0.45rem;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
   }
   .dday-logo {
     max-height: 32px;
@@ -5372,6 +5408,8 @@ body.board-overlay-open {
   }
   .dday-hide__label {
     font-size: 0.5rem;
+    white-space: normal;
+    line-height: 1.35;
   }
   .dday-flip__digit {
     width: 1.45rem;

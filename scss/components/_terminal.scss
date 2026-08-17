@@ -7,6 +7,8 @@
   margin-bottom: 2rem;
   position: relative;
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+  min-width: 0;
+  max-width: 100%;
 }
 
 .terminal-search::before {
@@ -24,16 +26,19 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .terminal-prompt {
   color: var(--cyan);
   font-size: 1rem;
   text-shadow: 0 0 8px var(--cyan-dim);
+  flex-shrink: 0;
 }
 
 .terminal-input {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   background: transparent;
   border: none;
   outline: none;
@@ -55,6 +60,7 @@
   color: var(--cyan);
   cursor: pointer;
   transition: background 0.25s, box-shadow 0.25s;
+  flex-shrink: 0;
 }
 
 .terminal-btn:hover {
