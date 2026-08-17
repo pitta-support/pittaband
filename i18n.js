@@ -662,10 +662,25 @@
     });
   }
 
-  const ready = loadLocale(getStoredLang()).then(() => {
+  async function bootstrapLocale() {
+    try {
+      await loadLocale(getStoredLang());
+    } catch (err) {
+      console.error("[i18n] locale load failed, falling back to ko", err);
+      try {
+        await loadLocale(DEFAULT_LANG);
+      } catch (fallbackErr) {
+        console.error("[i18n] ko fallback failed", fallbackErr);
+      }
+    }
+
     initLangSwitcher();
-    document.dispatchEvent(new CustomEvent("i18n:ready", { detail: { lang } }));
-  });
+    document.dispatchEvent(
+      new CustomEvent("i18n:ready", { detail: { lang } })
+    );
+  }
+
+  const ready = bootstrapLocale();
 
   window.i18n = {
     ready,

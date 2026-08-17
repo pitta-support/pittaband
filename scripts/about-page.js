@@ -11,6 +11,7 @@
   const memberBodyEl = document.getElementById("member-panel-body");
   let memberPages = {};
   let lastFocusedEl = null;
+  let aboutBooted = false;
 
   function rebuildMemberPages() {
     if (!window.i18n?.buildOverlayPages) return;
@@ -27,7 +28,11 @@
   function initAboutStage() {
     const stage = pageRoot.querySelector(".band-stage[data-about-figure]");
     if (stage && typeof window.initBandStage === "function") {
-      window.initBandStage(stage);
+      try {
+        window.initBandStage(stage);
+      } catch (err) {
+        console.error("[about] band stage init failed", err);
+      }
     }
   }
 
@@ -108,16 +113,58 @@
 
   function renderAboutStage() {
     const root = document.getElementById("about-stage-root");
-    if (!root || !window.i18n?.aboutStageHtml) return;
-    root.innerHTML = window.i18n.aboutStageHtml();
-    initAboutStage();
-    requestAnimationFrame(() => {
-      requestAnimationFrame(syncAboutPageLayout);
-    });
+    if (!root || !window.i18n?.aboutStageHtml) return false;
+
+    try {
+      root.innerHTML = window.i18n.aboutStageHtml();
+      initAboutStage();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(syncAboutPageLayout);
+      });
+      return true;
+    } catch (err) {
+      console.error("[about] stage render failed", err);
+      return false;
+    }
+  }
+
+  function bootAboutPage() {
+    if (aboutBooted) return;
+    aboutBooted = true;
+
+    rebuildMemberPages();
+    const rendered = renderAboutStage();
+    syncAboutPageLayout();
+
+    if (!rendered) {
+      aboutBooted = false;
+      return;
+    }
+
+    const hashKey = location.hash.replace(/^#/, "");
+    if (hashKey && hashKey.startsWith("member-") && memberPages[hashKey]) {
+      openMemberPanel(hashKey, { fromHistory: true });
+    }
+  }
+
+  function handleLanguageChange() {
+    rebuildMemberPages();
+    renderAboutStage();
+
+    const hashKey = location.hash.replace(/^#/, "");
+    if (memberOverlay?.classList.contains("is-open") && hashKey && memberPages[hashKey]) {
+      openMemberPanel(hashKey, { fromHistory: true });
+    }
   }
 
   window.addEventListener("popstate", handleMemberHistory);
   window.addEventListener("resize", syncAboutPageLayout);
+
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+    aboutBooted = false;
+    bootAboutPage();
+  });
 
   document.addEventListener("click", (e) => {
     const memberTrigger = e.target.closest("[data-overlay^='member-']");
@@ -139,24 +186,16 @@
     }
   });
 
-  document.addEventListener("i18n:ready", () => {
-    rebuildMemberPages();
-    renderAboutStage();
-    syncAboutPageLayout();
+  document.addEventListener("i18n:ready", bootAboutPage);
+  document.addEventListener("i18n:change", handleLanguageChange);
 
-    const hashKey = location.hash.replace(/^#/, "");
-    if (hashKey && hashKey.startsWith("member-")) {
-      openMemberPanel(hashKey, { fromHistory: true });
-    }
-  });
-
-  document.addEventListener("i18n:change", () => {
-    rebuildMemberPages();
-    renderAboutStage();
-
-    const hashKey = location.hash.replace(/^#/, "");
-    if (memberOverlay?.classList.contains("is-open") && hashKey && memberPages[hashKey]) {
-      openMemberPanel(hashKey, { fromHistory: true });
-    }
-  });
+  if (window.i18n?.ready) {
+    window.i18n.ready
+      .then(bootAboutPage)
+      .catch((err) => {
+        console.error("[about] i18n bootstrap failed", err);
+        aboutBooted = false;
+        bootAboutPage();
+      });
+  }
 })();
