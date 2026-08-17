@@ -1,5 +1,83 @@
 @use "../abstracts" as *;
 
+.board-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--overlay-z);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(1rem, env(safe-area-inset-top, 0px)) 1.24rem
+    max(1rem, env(safe-area-inset-bottom, 0px));
+  pointer-events: none;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &.is-open {
+    pointer-events: auto;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 16, 0.72);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease);
+  }
+
+  &.is-open &__backdrop {
+    opacity: 1;
+  }
+
+  &__panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 560px);
+    max-height: min(85dvh, 720px);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+    clip-path: polygon(
+      0 0,
+      calc(100% - 20px) 0,
+      100% 20px,
+      100% 100%,
+      20px 100%,
+      0 calc(100% - 20px)
+    );
+  }
+
+  &.is-open &__panel {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .overlay-body {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .board-form {
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+}
+
+body.board-overlay-open {
+  overflow: hidden;
+}
+
 .site-page--board {
   .site-page__body {
     max-width: 560px;

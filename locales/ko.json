@@ -1,28 +1,33 @@
 {
   "meta": {
     "title": "Pitta Band Archive",
-    "description": "PittaBand Archive",
-    "htmlLang": "ko"
+    "description": "Pitta Band 팬 아카이브. 앨범·싱글·공연·페스티벌 정보와 멤버 소개, 발매 기념 콘텐츠를 만나보세요.",
+    "htmlLang": "ko",
+    "siteName": "Pitta Band Archive",
+    "ogImage": "images/albums/paradox.png"
+  },
+  "accessibility": {
+    "skipToContent": "본문 바로가기"
   },
   "metaPages": {
     "about": {
       "title": "About — Pitta Band Archive",
-      "description": "Pitta Band 소개 및 무대 아카이브",
+      "description": "Pitta Band 멤버 소개와 무대 아카이브. 보컬·기타·베이스·드럼 프로필을 확인하세요.",
       "htmlLang": "ko"
     },
     "album": {
       "title": "Album — Pitta Band Archive",
-      "description": "Pitta Band 앨범 아카이브",
+      "description": "Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요.",
       "htmlLang": "ko"
     },
     "concert": {
       "title": "Concert — Pitta Band Archive",
-      "description": "Pitta Band 공연 정보",
+      "description": "Pitta Band 공연·라이브 일정, 포스터, 세트리스트, 예매 정보를 확인하세요.",
       "htmlLang": "ko"
     },
     "festival": {
       "title": "Festival — Pitta Band Archive",
-      "description": "Pitta Band 페스티벌 정보",
+      "description": "Pitta Band 페스티벌 출연 정보, 포스터, 공연 기록을 확인하세요.",
       "htmlLang": "ko"
     },
     "board": {
@@ -76,7 +81,7 @@
     "statIntegrity": "무결성 %",
     "anniversary": {
       "label": "CELEBRATION",
-      "greeting": "Happy {ordinal} Anniversary!",
+      "greeting": "Happy {yearsYear} Anniversary!",
       "cta": "축하 메세지를 써주세요",
       "message": "{title} {type}발매 {years}주년입니다.",
       "typeAlbum": "앨범",
@@ -220,7 +225,8 @@
       "trackList": "트랙리스트",
       "titleTrack": "타이틀곡",
       "backToAlbum": "앨범으로",
-      "crumbSong": "Song"
+      "crumbSong": "Song",
+      "zoomCover": "앨범 커버 확대"
     },
     "concert": {
       "title": "Concert",

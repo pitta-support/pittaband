@@ -4,6 +4,12 @@
   const LANG_KEY = "sf-archive-lang";
   const DEFAULT_LANG = "ko";
   const SUPPORTED = ["ko", "en", "ja", "es"];
+  const LANG_NATIVE_LABELS = {
+    ko: "한국어",
+    en: "English",
+    ja: "日本語",
+    es: "Español",
+  };
 
   let dict = null;
   let lang = DEFAULT_LANG;
@@ -501,22 +507,94 @@
     const pageKey = document.body?.dataset?.page;
     const pageMeta = pageKey ? getNested(dict, `metaPages.${pageKey}`) : null;
 
-    if (pageMeta) {
-      document.documentElement.lang = pageMeta.htmlLang || t("meta.htmlLang");
-      document.title = pageMeta.title;
-      const desc = document.querySelector('meta[name="description"]');
-      if (desc) desc.setAttribute("content", pageMeta.description);
-      return;
+    const title = pageMeta ? pageMeta.title : t("meta.title");
+    const description = pageMeta ? pageMeta.description : t("meta.description");
+    const htmlLang = pageMeta?.htmlLang || t("meta.htmlLang") || "ko";
+    const siteName = t("meta.siteName") || "Pitta Band Archive";
+    const ogImagePath = t("meta.ogImage") || "images/albums/paradox.png";
+
+    document.documentElement.lang = htmlLang;
+    document.title = title;
+
+    const descEl = document.querySelector('meta[name="description"]');
+    if (descEl) descEl.setAttribute("content", description);
+
+    const baseUrl = document.documentElement.dataset.siteBase || "";
+    const pagePath = document.documentElement.dataset.pagePath || "./";
+    const canonicalUrl = baseUrl
+      ? new URL(pagePath, baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`).href
+      : "";
+    const ogImageUrl = baseUrl
+      ? new URL(ogImagePath, baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`).href
+      : ogImagePath;
+
+    const canonicalEl = document.querySelector('link[rel="canonical"]');
+    if (canonicalEl && canonicalUrl) canonicalEl.setAttribute("href", canonicalUrl);
+
+    const setMeta = (key, value, property = false) => {
+      if (!value) return;
+      const attr = property ? "property" : "name";
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    setMeta("og:type", "website", true);
+    setMeta("og:site_name", siteName, true);
+    setMeta("og:title", title, true);
+    setMeta("og:description", description, true);
+    if (canonicalUrl) setMeta("og:url", canonicalUrl, true);
+    setMeta("og:image", ogImageUrl, true);
+    setMeta("og:locale", htmlLang === "ko" ? "ko_KR" : htmlLang === "ja" ? "ja_JP" : htmlLang === "es" ? "es_ES" : "en_US", true);
+
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setMeta("twitter:image", ogImageUrl);
+
+    applyHreflang(canonicalUrl);
+  }
+
+  function applyHreflang(canonicalUrl) {
+    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+    if (!canonicalUrl) return;
+
+    const hreflangMap = { ko: "ko", en: "en", ja: "ja", es: "es" };
+    for (const code of SUPPORTED) {
+      const link = document.createElement("link");
+      link.rel = "alternate";
+      link.hreflang = hreflangMap[code];
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
     }
 
-    document.documentElement.lang = t("meta.htmlLang");
-    document.title = t("meta.title");
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) desc.setAttribute("content", t("meta.description"));
+    const xDefault = document.createElement("link");
+    xDefault.rel = "alternate";
+    xDefault.hreflang = "x-default";
+    xDefault.href = canonicalUrl;
+    document.head.appendChild(xDefault);
+  }
+
+  function applyLangOptions() {
+    const langSelect = document.getElementById("lang-select");
+    if (!langSelect) return;
+
+    for (const option of langSelect.options) {
+      const label = LANG_NATIVE_LABELS[option.value];
+      if (label) option.textContent = label;
+    }
+
+    langSelect.value = lang;
   }
 
   function applyElements() {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
+      if (el.closest("#lang-select")) return;
+
       const key = el.dataset.i18n;
       const text = t(key);
       if (el.dataset.i18nTarget === "html") {
@@ -536,8 +614,7 @@
     const heroTag = document.querySelector(".hero-tag.hologram-text");
     if (heroTag) heroTag.dataset.text = t("hero.tag");
 
-    const langSelect = document.getElementById("lang-select");
-    if (langSelect) langSelect.value = lang;
+    applyLangOptions();
   }
 
   async function loadLocale(nextLang) {

@@ -1,7 +1,10 @@
 /* ===== D-day Bar ===== */
 
-body.is-dday-hidden {
+html.is-dday-hidden,
+body.is-dday-hidden,
+body:has(.dday-bar[hidden]) {
   --dday-h: 0px;
+  --site-top-h: var(--header-h);
 }
 
 .dday-bar {

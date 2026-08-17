@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" role="img" aria-label="Pitta Band Archive">
+  <path
+    d="M20 3.5L36.5 12.75V27.25L20 36.5L3.5 27.25V12.75L20 3.5Z"
+    stroke="#30D5FF"
+    stroke-width="1.35"
+  />
+  <path
+    d="M14.25 12.75V27.25"
+    stroke="#30D5FF"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M14.25 12.75H19.85C23.45 12.75 26.1 15.35 26.1 18.95C26.1 22.55 23.45 25.15 19.85 25.15H14.25"
+    stroke="#30D5FF"
+    stroke-width="2.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="31.2" cy="8.8" r="1.75" fill="#30D5FF" />
+</svg>

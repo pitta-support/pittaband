@@ -1,18 +1,58 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-site-base="https://pitta-support.github.io/pittaband" data-page-path="album.html">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Album — Pitta Band Archive</title>
-    <meta name="description" content="Pitta Band Archive — Album" />
+    <meta name="description" content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="Yeti" content="index, follow" />
+    <link rel="canonical" href="https://pitta-support.github.io/pittaband/album.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pitta Band Archive" />
+    <meta property="og:title" content="Album — Pitta Band Archive" />
+    <meta property="og:description" content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요." />
+    <meta property="og:url" content="https://pitta-support.github.io/pittaband/album.html" />
+    <meta property="og:image" content="https://pitta-support.github.io/pittaband/images/albums/paradox.png" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Album — Pitta Band Archive" />
+    <meta name="twitter:description" content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요." />
+    <meta name="twitter:image" content="https://pitta-support.github.io/pittaband/images/albums/paradox.png" />
+    <meta name="theme-color" content="#12171D" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="images/albums/paradox.png" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link
       rel="stylesheet"
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="styles.css?v=121" />
+    <link rel="stylesheet" href="styles.css?v=135" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("sf-archive-dday-hide");
+          if (!stored) return;
+          var kst = new Date(Date.now() + 32400000);
+          var key =
+            kst.getUTCFullYear() +
+            "-" +
+            String(kst.getUTCMonth() + 1).padStart(2, "0") +
+            "-" +
+            String(kst.getUTCDate()).padStart(2, "0");
+          if (stored === key) {
+            document.documentElement.classList.add("is-dday-hidden");
+          }
+        } catch (_) {}
+      })();
+    </script>
   </head>
   <body data-page="album">
+    <a class="skip-link" href="#main-content" data-i18n="accessibility.skipToContent">본문 바로가기</a>
     <div class="scanlines" aria-hidden="true"></div>
     <div class="grid-overlay" aria-hidden="true"></div>
 
@@ -43,24 +83,12 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a href="index.html" class="logo">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" fill="none">
-              <path
-                d="M20 2L38 12V28L20 38L2 28V12L20 2Z"
-                stroke="currentColor"
-                stroke-width="1.2"
-              />
-              <path
-                d="M20 10L30 16V26L20 32L10 26V16L20 10Z"
-                fill="currentColor"
-                opacity="0.3"
-              />
-            </svg>
+        <a href="index.html" class="logo" aria-label="Pitta Support">
+          <span class="logo-wordmark">
+            <span class="logo-wordmark__brand">Pitta</span>
+            <span class="logo-wordmark__slash" aria-hidden="true"></span>
+            <span class="logo-wordmark__tag">Support</span>
           </span>
-          <span class="logo-text"
-            >SCI-FI<span class="accent">ARCHIVE</span></span
-          >
         </a>
 
         <nav
@@ -93,21 +121,18 @@
 
         <div class="header-meta">
           <div class="lang-switcher">
-            <label for="lang-select" class="lang-label" data-i18n="lang.label"
-              >언어</label
+            <select
+              id="lang-select"
+              class="lang-select"
+              data-i18n-attr="aria-label:lang.label"
+              aria-label="언어"
             >
-            <select id="lang-select" class="lang-select" aria-label="Language">
               <option value="ko">한국어</option>
               <option value="en">English</option>
               <option value="ja">日本語</option>
               <option value="es">Español</option>
             </select>
           </div>
-          <span class="status-pill">
-            <span class="pulse-dot"></span>
-            <span data-i18n="header.systemOnline">시스템 가동</span>
-          </span>
-          <span class="clock" id="sys-clock">00:00:00 KST</span>
         </div>
 
         <button
@@ -243,7 +268,7 @@
       </div>
     </nav>
 
-    <main class="site-main">
+    <main class="site-main" id="main-content">
       <article class="site-page site-page--album">
         <header class="site-page__header">
           <span class="site-page__id">ALB-02</span>
@@ -350,7 +375,7 @@
           </div>
         </div>
         <div class="footer-right">
-          <a href="board.html" class="footer-suggest" data-i18n="footer.suggest">건의사항</a>
+          <a href="#board" class="footer-suggest" data-board-open data-i18n="footer.suggest">건의사항</a>
           <a
             href="https://cafe.naver.com/phantomkang"
             class="footer-fancafe footer-fancafe--naver"
@@ -417,8 +442,59 @@
       </div>
     </div>
 
-    <script src="i18n.js"></script>
-    <script src="scripts/site-core.js"></script>
-    <script src="scripts/album-page.js?v=34"></script>
+    <div
+      class="album-cover-lightbox"
+      id="album-cover-lightbox"
+      hidden
+      aria-hidden="true"
+    >
+      <div
+        class="album-cover-lightbox__backdrop"
+        data-album-cover-lightbox-close
+        tabindex="-1"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="album-cover-lightbox__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="album-cover-lightbox-title"
+      >
+        <h2 class="visually-hidden" id="album-cover-lightbox-title" data-i18n="pages.album.zoomCover">
+          앨범 커버 확대
+        </h2>
+        <div class="album-cover-lightbox__media">
+          <button
+            type="button"
+            class="album-cover-lightbox__close"
+            data-album-cover-lightbox-close
+            data-i18n-attr="aria-label:overlay.close"
+            aria-label="닫기"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </button>
+          <img
+            class="album-cover-lightbox__img"
+            id="album-cover-lightbox-img"
+            alt=""
+            width="640"
+            height="640"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="i18n.js?v=2" defer></script>
+    <script src="scripts/site-core.js" defer></script>
+    <script src="scripts/board-config.js" defer></script>
+    <script src="scripts/board-modal.js?v=1" defer></script>
+    <script src="scripts/album-page.js?v=37" defer></script>
   </body>
 </html>

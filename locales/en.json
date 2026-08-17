@@ -1,28 +1,33 @@
 {
   "meta": {
     "title": "Pitta Band Archive",
-    "description": "PittaBand Archive",
-    "htmlLang": "en"
+    "description": "Pitta Band fan archive with albums, concerts, member profiles, and release anniversary features.",
+    "htmlLang": "en",
+    "siteName": "Pitta Band Archive",
+    "ogImage": "images/albums/paradox.png"
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content"
   },
   "metaPages": {
     "about": {
       "title": "About — Pitta Band Archive",
-      "description": "Pitta Band profile and stage archive",
+      "description": "Meet Pitta Band members and explore the interactive stage archive.",
       "htmlLang": "en"
     },
     "album": {
       "title": "Album — Pitta Band Archive",
-      "description": "Pitta Band album archive",
+      "description": "Browse Pitta Band albums, singles, and OST releases with tracklists and streaming links.",
       "htmlLang": "en"
     },
     "concert": {
       "title": "Concert — Pitta Band Archive",
-      "description": "Pitta Band concert information",
+      "description": "Pitta Band live show schedule, posters, setlists, and ticket information.",
       "htmlLang": "en"
     },
     "festival": {
       "title": "Festival — Pitta Band Archive",
-      "description": "Pitta Band festival information",
+      "description": "Pitta Band festival appearances, posters, and performance records.",
       "htmlLang": "en"
     },
     "board": {
@@ -76,7 +81,7 @@
     "statIntegrity": "Integrity %",
     "anniversary": {
       "label": "CELEBRATION",
-      "greeting": "Happy {ordinal} Anniversary!",
+      "greeting": "Happy {yearsYear} Anniversary!",
       "cta": "Write a congratulatory message",
       "message": "{title} {type} — {years} years since release.",
       "typeAlbum": "Album",
@@ -214,13 +219,15 @@
       "hideLyrics": "Hide lyrics",
       "listenMelon": "Listen on Melon",
       "listenSpotify": "Listen on Spotify",
+      "platformSpotify": "Spotify",
       "listenYoutube": "Listen on YouTube",
       "empty": "No items in this category.",
       "loadError": "Could not load album data.",
       "trackList": "Tracklist",
       "titleTrack": "Title track",
       "backToAlbum": "Back to album",
-      "crumbSong": "Song"
+      "crumbSong": "Song",
+      "zoomCover": "Zoom album cover"
     },
     "concert": {
       "title": "Concert",

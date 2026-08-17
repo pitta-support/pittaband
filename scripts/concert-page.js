@@ -268,7 +268,9 @@
         <img
           class="concert-card__poster"
           src="${POSTER_PLACEHOLDER}"
-          alt=""
+          alt="Pitta Band"
+          width="480"
+          height="680"
           loading="eager"
           draggable="false"
         />
@@ -285,12 +287,15 @@
 
     if (posters.length === 1) {
       const poster = posters[0].src;
+      const posterAlt = localizedField(show.title) || "Pitta Band";
       return `
       <div class="${mediaClass}">
         <img
           class="concert-card__poster"
           src="${escapeHtml(poster)}"
-          alt=""
+          alt="${escapeHtml(posterAlt)}"
+          width="480"
+          height="680"
           loading="${featured ? "eager" : "lazy"}"
           draggable="false"
           onerror="this.onerror=null;this.src='${POSTER_PLACEHOLDER}';"
@@ -305,7 +310,9 @@
             <img
               class="concert-card__poster"
               src="${escapeHtml(entry.src)}"
-              alt="${escapeHtml(show.title || "")}"
+              alt="${escapeHtml(localizedField(show.title) || "Pitta Band")}"
+              width="480"
+              height="680"
               loading="${featured && index === 0 ? "eager" : "lazy"}"
               draggable="false"
               onerror="this.onerror=null;this.src='${POSTER_PLACEHOLDER}';"

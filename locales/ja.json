@@ -1,8 +1,13 @@
 {
   "meta": {
     "title": "Pitta Band Archive",
-    "description": "PittaBand Archive",
-    "htmlLang": "ja"
+    "description": "Pitta Bandファンアーカイブ。アルバム、ライブ、メンバー紹介、リリース記念コンテンツを掲載しています。",
+    "htmlLang": "ja",
+    "siteName": "Pitta Band Archive",
+    "ogImage": "images/albums/paradox.png"
+  },
+  "accessibility": {
+    "skipToContent": "本文へスキップ"
   },
   "metaPages": {
     "about": {
@@ -76,7 +81,7 @@
     "statIntegrity": "完全性 %",
     "anniversary": {
       "label": "CELEBRATION",
-      "greeting": "Happy {ordinal} Anniversary!",
+      "greeting": "Happy {yearsYear} Anniversary!",
       "cta": "お祝いメッセージを書いてください",
       "message": "{title} {type} リリース {years}周年です。",
       "typeAlbum": "アルバム",
@@ -214,13 +219,15 @@
       "hideLyrics": "歌詞を閉じる",
       "listenMelon": "Melonで聴く",
       "listenSpotify": "Spotifyで聴く",
+      "platformSpotify": "Spotify",
       "listenYoutube": "YouTubeで聴く",
       "empty": "このカテゴリに項目がありません。",
       "loadError": "アルバムデータを読み込めませんでした。",
       "trackList": "トラックリスト",
       "titleTrack": "タイトル曲",
       "backToAlbum": "アルバムへ戻る",
-      "crumbSong": "Song"
+      "crumbSong": "Song",
+      "zoomCover": "ジャケットを拡大"
     },
     "concert": {
       "title": "Concert",

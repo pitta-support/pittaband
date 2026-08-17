@@ -1,7 +1,6 @@
 (function () {
   "use strict";
 
-  const clockEl = document.getElementById("sys-clock");
   const ddayBarEl = document.getElementById("dday-bar");
   const ddayFlipEl = document.getElementById("dday-flip");
   const ddayProgressEl = document.getElementById("dday-progress");
@@ -42,6 +41,7 @@
   }
 
   function setDdayHidden(hidden) {
+    document.documentElement.classList.toggle("is-dday-hidden", hidden);
     document.body.classList.toggle("is-dday-hidden", hidden);
     if (ddayBarEl) ddayBarEl.hidden = hidden;
   }
@@ -75,7 +75,10 @@
       return;
     }
 
-    ddayLogoEl.alt = DDAY_CONFIG.logoAlt || "";
+    const alt =
+      DDAY_CONFIG.logoAlt ||
+      (window.i18n ? window.i18n.t("dday.event") : "NEXUS LIVE · SEOUL");
+    ddayLogoEl.alt = alt;
     ddayLogoEl.onerror = () => {
       ddayLogoEl.hidden = true;
       ddayInfoEl?.classList.remove("has-logo");
@@ -207,17 +210,6 @@
     if (flipPastLabelEl) flipPastLabelEl.hidden = true;
   }
 
-  function updateClock() {
-    if (!clockEl) return;
-    const now = new Date();
-    const kst = new Date(now.getTime() + 9 * 60 * 60 * 1000);
-    const h = String(kst.getUTCHours()).padStart(2, "0");
-    const m = String(kst.getUTCMinutes()).padStart(2, "0");
-    const s = String(kst.getUTCSeconds()).padStart(2, "0");
-    const suffix = window.i18n ? window.i18n.t("header.clockSuffix") : "KST";
-    clockEl.textContent = `${h}:${m}:${s} ${suffix}`;
-  }
-
   function updateDday() {
     if (!ddayFlipEl || !ddayProgressEl) return;
     initFlipClock();
@@ -309,15 +301,12 @@
   initDdayVisibility();
   syncDdayLink();
   syncDdayLogo();
-  updateClock();
   updateDday();
-  setInterval(updateClock, 1000);
   setInterval(updateDday, 1000);
   syncNavActivePage();
 
   document.addEventListener("i18n:ready", () => {
     syncDdayLink();
-    updateClock();
     updateDday();
     syncNavActivePage();
     if (menuToggle && navMobile) {
@@ -328,7 +317,6 @@
 
   document.addEventListener("i18n:change", () => {
     syncDdayLink();
-    updateClock();
     updateDday();
     syncNavActivePage();
     if (menuToggle && navMobile) {
@@ -337,5 +325,5 @@
     }
   });
 
-  window.siteCore = { updateClock, updateDday, syncNavActivePage, DDAY_CONFIG };
+  window.siteCore = { updateDday, syncNavActivePage, DDAY_CONFIG };
 })();

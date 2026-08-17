@@ -42,8 +42,12 @@
 }
 
 @keyframes rotateSlow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .orbit-ring {
@@ -77,11 +81,18 @@
 }
 
 @keyframes orbitPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
-.hero-content { position: relative; }
+.hero-content {
+  position: relative;
+}
 
 .hero-anniversary {
   display: none;
@@ -96,9 +107,7 @@
   box-sizing: border-box;
   opacity: 0;
   transform: translateY(12px);
-  transition:
-    opacity 0.65s ease,
-    transform 0.65s ease;
+  transition: opacity 0.65s ease, transform 0.65s ease;
   overflow: visible;
 
   &.is-visible {
@@ -172,8 +181,7 @@
   height: auto;
   transform: translate(-50%, -50%);
   opacity: 0.88;
-  filter:
-    drop-shadow(0 0 3px rgba(255, 255, 255, 0.9))
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9))
     drop-shadow(0 0 8px rgba(0, 255, 246, 0.5))
     drop-shadow(0 0 16px rgba(0, 255, 246, 0.25));
 }
@@ -188,8 +196,7 @@
   z-index: 4;
   transform-origin: 82% 88%;
   animation: heroAnniversaryDandelionSway 5.5s ease-in-out infinite;
-  filter:
-    drop-shadow(0 0 4px rgba(255, 255, 255, 0.95))
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.95))
     drop-shadow(0 0 12px rgba(0, 255, 246, 0.6))
     drop-shadow(0 0 22px rgba(0, 255, 246, 0.3));
 }
@@ -217,8 +224,7 @@
 }
 
 .hero-anniversary__visual--dandelion .hero-anniversary__cover {
-  filter:
-    drop-shadow(0 0 48px rgba(48, 213, 255, 0.22))
+  filter: drop-shadow(0 0 48px rgba(48, 213, 255, 0.22))
     drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
 }
 
@@ -249,6 +255,15 @@
   align-self: center;
 }
 
+.hero-anniversary__greeting-accent {
+  color: #6aff00;
+}
+
+.hero-anniversary__greeting-year {
+  font-size: 0.82em;
+  vertical-align: baseline;
+}
+
 .hero-anniversary__label {
   display: inline-flex;
   align-items: center;
@@ -268,9 +283,9 @@
   font-family: "Great Vibes", cursive;
   font-size: 3.2rem;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.3;
   margin: 0;
-  padding: 0.06em 0 0;
+  padding: 0.08em 0 0.28em;
   color: #00fff6;
   text-shadow: 0 0 40px rgba(0, 255, 246, 0.35);
   white-space: nowrap;
@@ -278,23 +293,32 @@
   max-width: 100%;
   overflow: visible;
   opacity: 0;
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
+  -webkit-mask-size: 320% 200%;
+  mask-size: 320% 200%;
+  -webkit-mask-position: 100% 50%;
+  mask-position: 100% 50%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 .hero-anniversary.is-visible .hero-anniversary__greeting {
-  animation: heroAnniversaryGreetingReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: heroAnniversaryGreetingReveal 1.35s cubic-bezier(0.22, 1, 0.36, 1)
+    both;
   animation-delay: 0.4s;
 }
 
 @keyframes heroAnniversaryGreetingReveal {
   0% {
+    -webkit-mask-position: 100% 50%;
+    mask-position: 100% 50%;
     opacity: 0;
-    transform: translateX(-20px);
-    filter: blur(3px);
   }
   100% {
+    -webkit-mask-position: 0 50%;
+    mask-position: 0 50%;
     opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
   }
 }
 
@@ -316,7 +340,12 @@
     font-family: var(--font-display);
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: linear-gradient(120deg, var(--paradox-cyan) 0%, #fff 45%, var(--paradox-red) 100%);
+    background: linear-gradient(
+      120deg,
+      var(--paradox-cyan) 0%,
+      #fff 45%,
+      var(--paradox-red) 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -363,12 +392,8 @@
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.42);
   text-decoration: none;
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease,
+    box-shadow 0.25s ease, transform 0.25s ease;
 
   &:hover {
     color: var(--neon-cyan);
@@ -384,26 +409,19 @@
   flex-shrink: 0;
   width: 1.25rem;
   height: 1.25rem;
-  transition:
-    color 0.25s ease,
-    filter 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease, filter 0.25s ease, transform 0.25s ease;
 
   img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    transition:
-      filter 0.25s ease,
-      transform 0.25s ease;
+    transition: filter 0.25s ease, transform 0.25s ease;
   }
 }
 
 .hero-anniversary__cta:hover .hero-anniversary__cta-icon img {
-  filter:
-    drop-shadow(0 0 6px rgba(48, 213, 255, 0.75))
-    brightness(1.15);
+  filter: drop-shadow(0 0 6px rgba(48, 213, 255, 0.75)) brightness(1.15);
   transform: translateY(-1px);
 }
 
@@ -420,8 +438,7 @@
 .hero-anniversary__visual--paradox .hero-anniversary__cover {
   position: relative;
   z-index: 1;
-  filter:
-    drop-shadow(0 0 42px rgba(255, 0, 60, 0.18))
+  filter: drop-shadow(0 0 42px rgba(255, 0, 60, 0.18))
     drop-shadow(0 0 48px rgba(0, 229, 255, 0.14))
     drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
 }
@@ -444,7 +461,7 @@
 
 .hero-anniversary__nation-character {
   position: absolute;
-  left: -14%;
+  left: -30%;
   bottom: -10%;
   width: 48%;
   max-width: 210px;
@@ -457,20 +474,19 @@
 .hero-anniversary__visual--nation .hero-anniversary__cover {
   position: relative;
   z-index: 1;
-  filter:
-    drop-shadow(0 0 32px rgba(122, 205, 213, 0.16))
+  filter: drop-shadow(0 0 32px rgba(122, 205, 213, 0.16))
     drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
 }
 
 .hero-anniversary__release-logo--nation {
   filter: drop-shadow(0 0 10px rgba(122, 205, 213, 0.25));
+  margin-top: 20px;
 }
 
 .hero-anniversary__visual--shadow .hero-anniversary__cover {
   position: relative;
   z-index: 1;
-  filter:
-    drop-shadow(0 0 36px rgba(80, 60, 120, 0.22))
+  filter: drop-shadow(0 0 36px rgba(80, 60, 120, 0.22))
     drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55));
 }
 
@@ -499,11 +515,75 @@
   filter: drop-shadow(0 0 12px rgba(120, 100, 160, 0.35));
 }
 
+.hero-anniversary__logo-shell {
+  position: relative;
+  width: min(100%, 400px);
+  margin: 0.15rem 0 0;
+}
+
+.hero-anniversary__logo-ghost {
+  display: none;
+}
+
+.hero-anniversary__logo-shell--universe {
+  --universe-logo-url: url("images/effects/universe/universe_logo.svg");
+  margin-top: 0.85rem;
+
+  .hero-anniversary__release-logo {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 16px rgba(190, 220, 255, 0.16));
+  }
+
+  .hero-anniversary__logo-ghost {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: var(--universe-logo-url) center / contain no-repeat;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .hero-anniversary__logo-ghost--up {
+    transform: translateY(-14px);
+    opacity: 0.07;
+  }
+
+  .hero-anniversary__logo-ghost--down {
+    transform: translateY(14px);
+    opacity: 0.06;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--universe-logo-url) center / contain no-repeat;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &::before {
+    transform: translateY(-7px);
+    opacity: 0.11;
+  }
+
+  &::after {
+    transform: translateY(7px);
+    opacity: 0.09;
+  }
+}
+
 .hero-anniversary__visual--universe .hero-anniversary__cover {
   position: relative;
   z-index: 1;
-  filter:
-    drop-shadow(0 0 34px rgba(120, 170, 255, 0.2))
+  filter: drop-shadow(0 0 34px rgba(120, 170, 255, 0.2))
     drop-shadow(0 18px 40px rgba(0, 0, 0, 0.5));
 }
 
@@ -548,8 +628,13 @@
 }
 
 @keyframes heroUniverseOrbitDrift {
-  0%, 100% { transform: rotate(-1deg) translateY(0); }
-  50% { transform: rotate(1deg) translateY(-2px); }
+  0%,
+  100% {
+    transform: rotate(-1deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-2px);
+  }
 }
 
 @keyframes heroUniverseShuttleFly {
@@ -610,12 +695,25 @@
 }
 
 @keyframes holoFlicker {
-  0%, 100% { opacity: 1; }
-  92% { opacity: 1; }
-  93% { opacity: 0.4; }
-  94% { opacity: 1; }
-  96% { opacity: 0.6; }
-  97% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  93% {
+    opacity: 0.4;
+  }
+  94% {
+    opacity: 1;
+  }
+  96% {
+    opacity: 0.6;
+  }
+  97% {
+    opacity: 1;
+  }
 }
 
 .hero-title {
@@ -627,10 +725,17 @@
   letter-spacing: -0.02em;
 }
 
-.title-line { display: block; }
+.title-line {
+  display: block;
+}
 
 .accent-gradient {
-  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta), var(--paradox-cyan));
+  background: linear-gradient(
+    135deg,
+    var(--neon-cyan),
+    var(--neon-magenta),
+    var(--paradox-cyan)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

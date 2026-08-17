@@ -1,8 +1,13 @@
 {
   "meta": {
     "title": "Pitta Band Archive",
-    "description": "PittaBand Archive",
-    "htmlLang": "es"
+    "description": "Archivo de fans de Pitta Band: álbumes, conciertos, perfiles de miembros y contenido de aniversario.",
+    "htmlLang": "es",
+    "siteName": "Pitta Band Archive",
+    "ogImage": "images/albums/paradox.png"
+  },
+  "accessibility": {
+    "skipToContent": "Ir al contenido"
   },
   "metaPages": {
     "about": {
@@ -76,7 +81,7 @@
     "statIntegrity": "Integridad %",
     "anniversary": {
       "label": "CELEBRATION",
-      "greeting": "¡Feliz {ordinal} aniversario!",
+      "greeting": "Happy {yearsYear} Anniversary!",
       "cta": "Escribe un mensaje de felicitación",
       "message": "{title} {type} — {years} años desde su lanzamiento.",
       "typeAlbum": "Álbum",
@@ -214,13 +219,15 @@
       "hideLyrics": "Ocultar letra",
       "listenMelon": "Escuchar en Melon",
       "listenSpotify": "Escuchar en Spotify",
+      "platformSpotify": "Spotify",
       "listenYoutube": "Escuchar en YouTube",
       "empty": "No hay elementos en esta categoría.",
       "loadError": "No se pudieron cargar los datos del álbum.",
       "trackList": "Lista de pistas",
       "titleTrack": "Tema principal",
       "backToAlbum": "Volver al álbum",
-      "crumbSong": "Song"
+      "crumbSong": "Song",
+      "zoomCover": "Ampliar portada"
     },
     "concert": {
       "title": "Concert",

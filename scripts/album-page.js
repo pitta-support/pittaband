@@ -12,6 +12,9 @@
   const panelIdEl = document.getElementById("album-detail-id");
   const panelTitleEl = document.getElementById("album-detail-title");
   const panelBodyEl = document.getElementById("album-detail-body");
+  const coverLightbox = document.getElementById("album-cover-lightbox");
+  const coverLightboxImg = document.getElementById("album-cover-lightbox-img");
+  const coverLightboxPanel = coverLightbox?.querySelector(".album-cover-lightbox__dialog");
 
   const TAB_KEYS = ["album", "single", "ost"];
   const TITLE_KEYS = {
@@ -25,6 +28,7 @@
   let activeTab = "album";
   let openItemId = null;
   let lastFocusedEl = null;
+  let coverLightboxLastFocus = null;
 
   function t(key) {
     return window.i18n?.t(key) ?? key;
@@ -252,7 +256,9 @@
             <img
               class="album-card__cover"
               src="${item.cover || "images/albums/placeholder.svg"}"
-              alt=""
+              alt="${escapeHtml(getItemTitle(item, { category: item.category }) || item.id || "Pitta Band")}"
+              width="320"
+              height="320"
               loading="lazy"
               draggable="false"
               onerror="this.onerror=null;this.src='images/albums/placeholder.svg';"
@@ -438,6 +444,95 @@
       .replace(/"/g, "&quot;");
   }
 
+  function renderMagnifyIcon() {
+    return `<svg class="album-detail__zoom-icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+      <circle cx="10.5" cy="10.5" r="6.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+      <path d="M15.5 15.5L20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+    </svg>`;
+  }
+
+  function renderDetailCover(item, context = {}) {
+    const title = getItemTitle(item, context) || item.id || "Pitta Band";
+    const src = item.cover || "images/albums/placeholder.svg";
+    const zoomLabel = t("pages.album.zoomCover");
+    return `
+          <button
+            type="button"
+            class="album-detail__cover-btn"
+            data-album-cover-zoom
+            data-zoom-src="${escapeHtml(src)}"
+            aria-label="${escapeHtml(zoomLabel)}: ${escapeHtml(title)}"
+          >
+            <img
+              class="album-detail__cover"
+              src="${escapeHtml(src)}"
+              alt="${escapeHtml(title)}"
+              width="320"
+              height="320"
+              loading="lazy"
+              draggable="false"
+              onerror="this.onerror=null;this.src='images/albums/placeholder.svg';"
+            />
+            <span class="album-detail__cover-zoom" aria-hidden="true">${renderMagnifyIcon()}</span>
+          </button>`;
+  }
+
+  function openCoverLightbox(src, alt = "") {
+    if (!coverLightbox || !coverLightboxImg) return;
+
+    coverLightboxLastFocus = document.activeElement;
+    coverLightboxImg.src = src;
+    coverLightboxImg.alt = alt;
+    coverLightbox.hidden = false;
+    coverLightbox.removeAttribute("aria-hidden");
+    requestAnimationFrame(() => coverLightbox.classList.add("is-open"));
+    document.body.classList.add("album-cover-lightbox-open");
+
+    const closeBtn = coverLightbox.querySelector("[data-album-cover-lightbox-close].album-cover-lightbox__close");
+    closeBtn?.focus();
+  }
+
+  function closeCoverLightbox() {
+    if (!coverLightbox?.classList.contains("is-open")) return;
+
+    coverLightbox.classList.remove("is-open");
+    document.body.classList.remove("album-cover-lightbox-open");
+    coverLightbox.setAttribute("aria-hidden", "true");
+
+    const finish = () => {
+      coverLightbox.hidden = true;
+      coverLightboxImg?.removeAttribute("src");
+      if (coverLightboxLastFocus && typeof coverLightboxLastFocus.focus === "function") {
+        coverLightboxLastFocus.focus();
+      }
+      coverLightboxLastFocus = null;
+    };
+
+    if (!coverLightboxPanel) {
+      finish();
+      return;
+    }
+
+    let done = false;
+    const onEnd = (event) => {
+      if (event.target !== coverLightboxPanel || event.propertyName !== "opacity") return;
+      coverLightboxPanel.removeEventListener("transitionend", onEnd);
+      if (!done) {
+        done = true;
+        finish();
+      }
+    };
+
+    coverLightboxPanel.addEventListener("transitionend", onEnd);
+    setTimeout(() => {
+      if (!done) {
+        done = true;
+        coverLightboxPanel.removeEventListener("transitionend", onEnd);
+        finish();
+      }
+    }, 420);
+  }
+
   function youtubeEmbedUrl(url) {
     if (!url) return null;
     const match = url.match(
@@ -599,10 +694,46 @@
     return icons;
   }
 
+  function renderHeroPlatformButton(service, href, label) {
+    const iconSrc =
+      service === "melon" ? "images/icons/melon.svg?v=3" : "images/icons/spotify.svg";
+    return `
+        <a
+          class="album-detail__platform-btn album-detail__platform-btn--${service}"
+          href="${escapeHtml(href)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-album-track-link
+        >
+          <img
+            class="album-detail__platform-btn-icon"
+            src="${iconSrc}"
+            alt=""
+            width="20"
+            height="20"
+          />
+          <span class="album-detail__platform-btn-label">${escapeHtml(label)}</span>
+        </a>`;
+  }
+
   function renderPlatformLinks(links) {
-    const icons = renderPlatformIconAnchors(links, "album-detail__platform-link");
-    if (!icons.length) return "";
-    return `<div class="album-detail__platforms">${icons.join("")}</div>`;
+    const buttons = [];
+
+    if (isKoreanLang() && links.melon) {
+      buttons.push(renderHeroPlatformButton("melon", links.melon, t("pages.album.listenMelon")));
+    }
+
+    if (links.spotify) {
+      const label = isKoreanLang()
+        ? t("pages.album.listenSpotify")
+        : t("pages.album.platformSpotify");
+      buttons.push(renderHeroPlatformButton("spotify", links.spotify, label));
+    }
+
+    if (!buttons.length) return "";
+
+    const soloClass = buttons.length === 1 ? " album-detail__platforms--solo" : "";
+    return `<div class="album-detail__platforms${soloClass}">${buttons.join("")}</div>`;
   }
 
   function renderTrackRowLinks(links) {
@@ -641,12 +772,7 @@
     return `
       <div class="album-detail album-detail--release album-detail--has-tracklist">
         <div class="album-detail__hero">
-          <img
-            class="album-detail__cover"
-            src="${album.cover || "images/albums/placeholder.svg"}"
-            alt=""
-            onerror="this.onerror=null;this.src='images/albums/placeholder.svg';"
-          />
+          ${renderDetailCover(album, { category })}
         </div>
         ${renderTracklistPageContent(album, category, { desc })}
       </div>`;
@@ -669,12 +795,7 @@
       return `
         <div class="album-detail album-detail--has-tracklist album-detail--tracklist-only">
           <div class="album-detail__hero">
-            <img
-              class="album-detail__cover"
-              src="${item.cover || "images/albums/placeholder.svg"}"
-              alt=""
-              onerror="this.onerror=null;this.src='images/albums/placeholder.svg';"
-            />
+            ${renderDetailCover(item, { category: albumId ? "album" : category, albumId })}
           </div>
           ${renderTracklistPageContent(item, category, {
             desc,
@@ -691,12 +812,7 @@
     return `
       <div class="album-detail">
         <div class="album-detail__hero">
-          <img
-            class="album-detail__cover"
-            src="${item.cover || "images/albums/placeholder.svg"}"
-            alt=""
-            onerror="this.onerror=null;this.src='images/albums/placeholder.svg';"
-          />
+          ${renderDetailCover(item, { category: albumId ? "album" : category, albumId })}
           ${renderPlatformLinks(links)}
         </div>
         <nav
@@ -840,6 +956,8 @@
 
   function closeDetail({ fromHistory = false } = {}) {
     if (!overlay?.classList.contains("is-open")) return;
+
+    closeCoverLightbox();
 
     overlay.classList.remove("is-open");
     document.body.classList.remove("member-overlay-open");
@@ -997,6 +1115,13 @@
         return;
       }
 
+      const zoomBtn = e.target.closest("[data-album-cover-zoom]");
+      if (zoomBtn) {
+        const img = zoomBtn.querySelector(".album-detail__cover");
+        openCoverLightbox(zoomBtn.dataset.zoomSrc, img?.alt || "");
+        return;
+      }
+
       if (e.target.closest("[data-album-track-link]")) {
         return;
       }
@@ -1021,7 +1146,18 @@
       }
     });
 
+    coverLightbox?.addEventListener("click", (e) => {
+      if (e.target.closest("[data-album-cover-lightbox-close]")) {
+        closeCoverLightbox();
+      }
+    });
+
     document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && coverLightbox?.classList.contains("is-open")) {
+        closeCoverLightbox();
+        return;
+      }
+
       if (e.key === "Escape" && overlay?.classList.contains("is-open")) {
         closeDetail();
       }

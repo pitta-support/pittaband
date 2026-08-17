@@ -2,115 +2,15 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content="0; url=index.html#board" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board — Pitta Band Archive</title>
-    <meta name="description" content="Pitta Band Archive — Board" />
-    <meta name="robots" content="noindex, nofollow" />
-    <link
-      rel="stylesheet"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    />
-    <link rel="stylesheet" href="styles.css?v=118" />
+    <title>건의사항 — Pitta Band Archive</title>
+    <script>
+      window.location.replace("index.html#board");
+    </script>
   </head>
-  <body data-page="board">
-    <div class="scanlines" aria-hidden="true"></div>
-    <div class="grid-overlay" aria-hidden="true"></div>
-
-    <div class="dday-bar" id="dday-bar">
-      <div class="dday-bar-inner">
-        <div class="dday-info" id="dday-info">
-          <span class="dday-tag" data-i18n="dday.tag">UPCOMING</span>
-          <img class="dday-logo" id="dday-logo" src="" alt="" width="140" height="56" hidden />
-          <span class="dday-event" data-i18n="dday.event"
-            >NEXUS LIVE · SEOUL</span
-          >
-        </div>
-        <div class="dday-countdown" aria-live="polite">
-          <div class="dday-flip" id="dday-flip" aria-label="D-day countdown"></div>
-        </div>
-        <div class="dday-meta">
-          <a href="concert.html" class="dday-link" id="dday-link" data-i18n="dday.linkConcert">예매하기</a>
-          <label class="dday-hide">
-            <input type="checkbox" class="dday-hide__input" id="dday-hide-today" />
-            <span class="dday-hide__label" data-i18n="dday.hideToday">오늘 하루 보이지 않기</span>
-          </label>
-        </div>
-      </div>
-      <div class="dday-progress" aria-hidden="true">
-        <span class="dday-progress-fill" id="dday-progress"></span>
-      </div>
-    </div>
-
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="index.html" class="logo">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" fill="none">
-              <path d="M20 2L38 12V28L20 38L2 28V12L20 2Z" stroke="currentColor" stroke-width="1.2" />
-              <path d="M20 10L30 16V26L20 32L10 26V16L20 10Z" fill="currentColor" opacity="0.3" />
-            </svg>
-          </span>
-          <span class="logo-text">SCI-FI<span class="accent">ARCHIVE</span></span>
-        </a>
-        <div class="header-meta">
-          <div class="lang-switcher">
-            <label for="lang-select" class="lang-label" data-i18n="lang.label">언어</label>
-            <select id="lang-select" class="lang-select" aria-label="Language">
-              <option value="ko">한국어</option>
-              <option value="en">English</option>
-              <option value="ja">日本語</option>
-              <option value="es">Español</option>
-            </select>
-          </div>
-          <span class="status-pill">
-            <span class="pulse-dot"></span>
-            <span data-i18n="header.systemOnline">시스템 가동</span>
-          </span>
-          <span class="clock" id="sys-clock">00:00:00 KST</span>
-        </div>
-      </div>
-    </header>
-
-    <main class="site-main">
-      <article class="site-page site-page--board">
-        <header class="site-page__header">
-          <span class="site-page__id">BRD-01</span>
-          <h1 class="site-page__title" data-i18n="pages.board.title">건의사항</h1>
-        </header>
-        <div class="site-page__body">
-          <form class="board-form" id="board-form">
-            <div class="board-form__field">
-              <label class="board-form__label" for="board-title" data-i18n="pages.board.titleLabel">제목</label>
-              <input
-                class="board-form__input"
-                type="text"
-                id="board-title"
-                name="title"
-                maxlength="200"
-                required
-                autocomplete="off"
-              />
-            </div>
-            <div class="board-form__field">
-              <label class="board-form__label" for="board-content" data-i18n="pages.board.contentLabel">내용</label>
-              <textarea
-                class="board-form__textarea"
-                id="board-content"
-                name="content"
-                maxlength="10000"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="board-form__submit" id="board-submit" data-i18n="pages.board.submit">등록</button>
-          </form>
-        </div>
-      </article>
-    </main>
-
-    <script src="i18n.js"></script>
-    <script src="scripts/site-core.js"></script>
-    <script src="scripts/board-config.js"></script>
-    <script src="scripts/board-page.js?v=3"></script>
+  <body>
+    <p><a href="index.html#board">건의사항 작성</a></p>
   </body>
 </html>

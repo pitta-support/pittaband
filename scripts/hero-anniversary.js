@@ -22,6 +22,8 @@
 
   const releaseLogoEl = document.getElementById("hero-anniversary-release-logo");
 
+  const logoShellEl = document.getElementById("hero-anniversary-logo-shell");
+
   const ctaEl = document.getElementById("hero-anniversary-cta");
 
   const ctaTextEl = document.getElementById("hero-anniversary-cta-text");
@@ -172,6 +174,10 @@
 
       effectsClass: "hero-anniversary__effects--universe",
 
+      logo: "images/effects/universe/universe_logo.svg",
+
+      logoClass: "hero-anniversary__release-logo--universe",
+
       universeEffect: true,
 
       mark: null,
@@ -192,7 +198,7 @@
 
     "hero.anniversary.label": "CELEBRATION",
 
-    "hero.anniversary.greeting": "Happy {ordinal} Anniversary!",
+    "hero.anniversary.greeting": "Happy {yearsYear} Anniversary!",
 
     "hero.anniversary.cta": "축하 메세지를 써주세요",
 
@@ -212,6 +218,20 @@
     const api = getAnniversaryTestApi();
     if (api?.capture) return api.capture();
     if (api?.read) return api.read();
+
+    try {
+      const params = new URLSearchParams(location.search);
+      if (params.has("anniversaryTest")) {
+        return params.get("anniversaryTest").trim().toLowerCase();
+      }
+      const hash = location.hash.replace(/^#/, "");
+      if (hash.startsWith("anniversaryTest=")) {
+        const raw = hash.slice("anniversaryTest=".length).split("&")[0];
+        return decodeURIComponent(raw).trim().toLowerCase();
+      }
+    } catch {
+      /* ignore malformed URL */
+    }
     return null;
   }
 
@@ -666,11 +686,27 @@
 
 
 
+  function clearUniverseLogoShell() {
+    if (!logoShellEl) return;
+    logoShellEl.classList.remove("hero-anniversary__logo-shell--universe");
+    logoShellEl.style.removeProperty("--universe-logo-url");
+  }
+
+  function applyUniverseLogoShell(logoSrc) {
+    if (!logoShellEl || !logoSrc) return;
+    logoShellEl.classList.add("hero-anniversary__logo-shell--universe");
+    logoShellEl.style.setProperty("--universe-logo-url", `url("${logoSrc}")`);
+  }
+
+
+
   function setReleaseBrand(event) {
 
     const title = event.title || event.id;
 
     const config = getEffectConfig(event);
+
+    clearUniverseLogoShell();
 
 
 
@@ -706,6 +742,10 @@
 
         releaseLogoEl.classList.add(config.logoClass);
 
+      }
+
+      if (config.logoClass === "hero-anniversary__release-logo--universe") {
+        applyUniverseLogoShell(config.logo);
       }
 
       releaseLogoEl.hidden = false;
@@ -786,6 +826,17 @@
 
 
 
+  function renderGreetingHtml(years) {
+    const yearsYear =
+      `<span class="hero-anniversary__greeting-accent">` +
+      `<span class="hero-anniversary__greeting-num">${years}</span> ` +
+      `<span class="hero-anniversary__greeting-year">year</span>` +
+      `</span>`;
+    return t("hero.anniversary.greeting", { yearsYear });
+  }
+
+
+
   function renderEvent(event) {
 
     if (!greetingEl || !releaseTitleEl || !ctaEl) return;
@@ -794,19 +845,9 @@
 
     activeEvent = event;
 
-
-
-    const lang = getLang();
-
-    const ordinal = formatOrdinal(event.years, lang);
-
-
-
     if (labelEl) labelEl.textContent = t("hero.anniversary.label");
 
-
-
-    greetingEl.textContent = t("hero.anniversary.greeting", { ordinal });
+    greetingEl.innerHTML = renderGreetingHtml(event.years);
 
     greetingEl.removeAttribute("aria-hidden");
 

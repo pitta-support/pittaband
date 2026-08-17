@@ -8,7 +8,11 @@
   z-index: 100;
   height: var(--header-h);
   overflow: visible;
-  background: linear-gradient(180deg, rgba(10, 12, 16, 0.96) 0%, rgba(18, 23, 29, 0.65) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 16, 0.96) 0%,
+    rgba(18, 23, 29, 0.65) 100%
+  );
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -26,27 +30,69 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
-.logo-mark {
-  width: 36px;
-  height: 36px;
+.logo-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  line-height: 1;
+}
+
+.logo-wordmark__brand {
+  position: relative;
+  font-size: 1.32rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  transition: text-shadow 0.25s var(--ease);
+}
+
+.logo-wordmark__brand::before {
+  content: "Pitta";
+  position: absolute;
+  inset: 0;
   color: var(--cyan);
-  filter: drop-shadow(0 0 8px var(--cyan-dim));
+  opacity: 0.28;
+  transform: translate(0.06em, 0.05em);
+  pointer-events: none;
 }
 
-.logo-text {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.15rem;
-  letter-spacing: 0.12em;
+.logo-wordmark__slash {
+  align-self: center;
+  width: 1px;
+  height: 1.15rem;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--cyan) 38%,
+    var(--magenta) 62%,
+    transparent 100%
+  );
+  transform: skewX(-16deg);
+  opacity: 0.9;
 }
 
-.logo-text.small { font-size: 0.95rem; }
+.logo-wordmark__tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-bottom: 0.1em;
+  transition: color 0.25s var(--ease), letter-spacing 0.25s var(--ease);
+}
 
-.logo-text .accent { color: var(--cyan); }
+.logo:hover .logo-wordmark__brand {
+  text-shadow: 0 0 14px rgba(48, 213, 255, 0.28);
+}
+
+.logo:hover .logo-wordmark__tag {
+  color: var(--cyan);
+  letter-spacing: 0.32em;
+}
 
 .nav-desktop {
   display: flex;
@@ -56,18 +102,22 @@
 
 .nav-link {
   font-family: var(--font-wide);
-  font-size: 0.65rem;
   font-weight: 400;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0.5rem 1rem;
   color: var(--text-muted);
-  transition: color 0.25s var(--ease), text-shadow 0.25s;
-  position: relative;
 }
 
-.nav-link::after {
-  content: '';
+.nav-desktop .nav-link {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  position: relative;
+  transition: color 0.25s var(--ease), text-shadow 0.25s var(--ease);
+}
+
+.nav-desktop .nav-link::after {
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -78,14 +128,43 @@
   box-shadow: 0 0 6px var(--cyan);
 }
 
-.nav-link:hover,
-.nav-link.active {
+.nav-desktop .nav-link:hover,
+.nav-desktop .nav-link.active {
   color: var(--cyan);
   text-shadow: 0 0 12px var(--cyan-dim);
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
+.nav-desktop .nav-link.active::after {
+  width: 60%;
+  left: 20%;
+}
+
+.nav-mobile__links .nav-link {
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  transition: color 0.25s var(--ease), text-shadow 0.25s;
+  position: relative;
+}
+
+.nav-mobile__links .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s var(--ease), left 0.3s var(--ease);
+  box-shadow: 0 0 6px var(--cyan);
+}
+
+.nav-mobile__links .nav-link:hover,
+.nav-mobile__links .nav-link.active {
+  color: var(--cyan);
+  text-shadow: 0 0 12px var(--cyan-dim);
+}
+
+.nav-mobile__links .nav-link.active::after {
   width: 60%;
   left: 20%;
 }
@@ -124,7 +203,14 @@
   border: 1px solid rgba(48, 213, 255, 0.28);
   padding: 0.28rem 1.4rem 0.28rem 0.55rem;
   cursor: pointer;
-  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+  clip-path: polygon(
+    0 0,
+    calc(100% - 6px) 0,
+    100% 6px,
+    100% 100%,
+    6px 100%,
+    0 calc(100% - 6px)
+  );
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2330D5FF' stroke-width='1.2' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.4rem center;
@@ -166,8 +252,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
 }
 
 .menu-toggle {
@@ -233,7 +326,9 @@
   padding: 1.25rem 1.5rem max(1.5rem, env(safe-area-inset-bottom, 0px));
 }
 
-.nav-mobile.open { display: flex; }
+.nav-mobile.open {
+  display: flex;
+}
 
 body.nav-mobile-open {
   overflow: hidden;

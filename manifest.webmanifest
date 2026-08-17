@@ -1,0 +1,25 @@
+{
+  "name": "Pitta Band Archive",
+  "short_name": "Pitta Archive",
+  "description": "Pitta Band 팬 아카이브 — 앨범, 공연, 멤버 소개",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#12171D",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "images/albums/paradox.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

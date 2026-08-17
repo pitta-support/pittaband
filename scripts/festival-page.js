@@ -102,11 +102,13 @@
       ? ""
       : `<p class="festival-modal__placeholder">${escapeHtml(ti("detailPending"))}</p>`;
 
+    const posterAlt = escapeHtml(entry.title || "Pitta Band");
+
     return `
       <div class="festival-modal__content concert-card concert-card--with-poster concert-card--has-poster">
         <div class="concert-card__layout">
           <div class="concert-card__media concert-card__media--standard">
-            <img class="concert-card__poster" src="${escapeHtml(poster)}" alt="" loading="lazy" draggable="false" />
+            <img class="concert-card__poster" src="${escapeHtml(poster)}" alt="${posterAlt}" width="480" height="680" loading="lazy" draggable="false" />
           </div>
           <div class="concert-card__info festival-modal__info">
             <div class="concert-card__meta">
@@ -162,6 +164,7 @@
     const poster = entry.poster?.trim();
     const title = entry.title || "";
     const schedule = localizedField(entry.schedule);
+    const posterAlt = escapeHtml(title || "Pitta Band");
 
     return `
       <li class="festival-gallery__item" style="--festival-enter-index: ${index}" data-festival-index="${index}">
@@ -175,7 +178,9 @@
             <img
               class="festival-card__poster"
               src="${escapeHtml(poster)}"
-              alt=""
+              alt="${posterAlt}"
+              width="480"
+              height="680"
               loading="${index < 2 ? "eager" : "lazy"}"
               draggable="false"
             />
