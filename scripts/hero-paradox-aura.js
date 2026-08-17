@@ -13,7 +13,7 @@
 
   function getParticleCount() {
     if (prefersReducedMotion()) return 0;
-    return isMobileViewport() ? 18 : 56;
+    return isMobileViewport() ? 24 : 56;
   }
 
   function getMaxDpr() {
@@ -21,12 +21,12 @@
   }
 
   function getParticleScale() {
-    return isMobileViewport() ? 0.44 : 1;
+    return isMobileViewport() ? 0.78 : 1;
   }
 
   function getOrbitScale() {
     return isMobileViewport()
-      ? { x: 0.44, y: 0.42 }
+      ? { x: 0.54, y: 0.52 }
       : { x: 0.46, y: 0.46 };
   }
 
@@ -240,22 +240,22 @@
       this.angle = (this.index / this.total) * Math.PI * 2;
       this.baseX = metrics.centerX + Math.cos(this.angle) * metrics.distanceX;
       this.baseY = metrics.centerY + Math.sin(this.angle) * metrics.distanceY;
-      this.baseRadiusX = (Math.random() * (this.mobile ? 34 : 55) + (this.mobile ? 34 : 55)) * scale;
-      this.baseRadiusY = (Math.random() * (this.mobile ? 12 : 20) + (this.mobile ? 10 : 12)) * scale;
+      this.baseRadiusX = (Math.random() * (this.mobile ? 42 : 55) + (this.mobile ? 46 : 55)) * scale;
+      this.baseRadiusY = (Math.random() * (this.mobile ? 16 : 20) + (this.mobile ? 14 : 12)) * scale;
       this.speed = Math.random() * 0.0015 + 0.001;
-      this.wobbleX = (this.mobile ? 2 : 3.5) * scale;
-      this.wobbleY = (this.mobile ? 2 : 3.5) * scale;
-      this.pulseX = (this.mobile ? 12 : 25) * scale;
-      this.pulseY = (this.mobile ? 4 : 7) * scale;
+      this.wobbleX = (this.mobile ? 3 : 3.5) * scale;
+      this.wobbleY = (this.mobile ? 3 : 3.5) * scale;
+      this.pulseX = (this.mobile ? 18 : 25) * scale;
+      this.pulseY = (this.mobile ? 6 : 7) * scale;
 
-      const alphaBoost = this.mobile ? 0.72 : 1;
+      const alphaBoost = this.mobile ? 1.05 : 1;
 
       if (this.index % 2 === 0) {
         this.color = { r: 255, g: 0, b: 51 };
-        this.maxAlpha = (Math.random() * 0.22 + 0.28) * alphaBoost;
+        this.maxAlpha = (Math.random() * 0.26 + 0.42) * alphaBoost;
       } else {
         this.color = { r: 0, g: 240, b: 255 };
-        this.maxAlpha = (Math.random() * 0.2 + 0.24) * alphaBoost;
+        this.maxAlpha = (Math.random() * 0.24 + 0.38) * alphaBoost;
       }
     }
 
@@ -283,7 +283,7 @@
       gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
 
       ctx.beginPath();
-      ctx.globalCompositeOperation = this.mobile ? "source-over" : "screen";
+      ctx.globalCompositeOperation = this.mobile ? "lighter" : "screen";
       ctx.fillStyle = gradient;
       ctx.ellipse(0, 0, this.radiusX, this.radiusY, 0, 0, Math.PI * 2);
       ctx.fill();
