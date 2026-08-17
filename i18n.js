@@ -71,6 +71,7 @@
       <h1 class="band-stage__title site-page__title" data-i18n="pages.about.title">${t(
         "pages.about.title"
       )}</h1>
+      <div class="band-stage__figures">
       <a
         class="band-member band-member--vocal"
         href="#"
@@ -280,6 +281,7 @@
         class="band-stage__guest-btn"
         data-overlay="member-guest-piano"
       >${t("pages.about.guestMember")}</button>
+      </div>
       </div>
       <div class="band-stage__ambient" aria-hidden="true">
         <div class="band-stage__ambient-glow"></div>

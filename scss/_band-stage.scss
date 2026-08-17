@@ -72,16 +72,67 @@
 
     @include max-width($bp-xl - 1px) {
       --about-stage-chrome: 4.5rem;
-      aspect-ratio: 360 / 310;
-      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      max-height: none;
+      aspect-ratio: auto;
+      min-height: 0;
       max-width: 100%;
-      padding-top: 1.25rem;
+      padding: 0 1.24rem;
       box-sizing: border-box;
+      overflow: visible;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  @include max-width($bp-xl - 1px) {
+    .band-stage__title {
+      position: static;
+      flex-shrink: 0;
+      width: 100%;
+      margin: 0 0 0.85rem;
+      padding: 0.35rem 0 0;
+      pointer-events: auto;
+    }
+
+    .band-stage__figures {
+      position: relative;
+      flex: 1 1 auto;
+      width: 100%;
+      min-height: 250px;
+      aspect-ratio: 360 / 310;
+      overflow: hidden;
 
       &::before {
-        top: 1.25rem;
-        background-position: center top;
-        background-size: 94% auto;
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: url("assets/img/band_background.png") center top / 94%
+          auto no-repeat;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 20%;
+        z-index: 70;
+        pointer-events: none;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 1) 30%,
+          rgba(0, 0, 0, 0) 100%
+        );
       }
     }
   }
@@ -320,6 +371,12 @@
   @include min-width($bp-xl) {
     top: 1.5rem;
     left: 0;
+  }
+}
+
+.band-stage__figures {
+  @include min-width($bp-xl) {
+    display: contents;
   }
 }
 
