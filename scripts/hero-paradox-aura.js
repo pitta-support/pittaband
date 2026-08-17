@@ -13,11 +13,15 @@
 
   function getParticleCount() {
     if (prefersReducedMotion()) return 0;
-    return isMobileViewport() ? 32 : 56;
+    return isMobileViewport() ? 24 : 56;
   }
 
   function getMaxDpr() {
-    return isMobileViewport() ? 1.5 : 2;
+    return isMobileViewport() ? 1.25 : 2;
+  }
+
+  function getParticleScale() {
+    return isMobileViewport() ? 0.58 : 1;
   }
 
   class ParadoxAura {
@@ -28,6 +32,9 @@
       this.particles = [];
       this.rafId = 0;
       this.running = false;
+      this.dpr = 1;
+      this.cssWidth = 0;
+      this.cssHeight = 0;
 
       this.canvas = document.createElement("canvas");
       this.canvas.className = "hero-anniversary__paradox-aura";
@@ -48,6 +55,7 @@
 
       this.resizeObserver = new ResizeObserver(this.onResize);
       this.resizeObserver.observe(visualEl);
+      this.resizeObserver.observe(coverEl);
 
       this.intersectionObserver = new IntersectionObserver(
         (entries) => {
@@ -79,14 +87,12 @@
       }
 
       const coverRect = this.coverEl.getBoundingClientRect();
-      const scaleX = this.canvas.width / canvasRect.width;
-      const scaleY = this.canvas.height / canvasRect.height;
 
       return {
-        centerX: (coverRect.left + coverRect.width / 2 - canvasRect.left) * scaleX,
-        centerY: (coverRect.top + coverRect.height / 2 - canvasRect.top) * scaleY,
-        distanceX: coverRect.width * scaleX * 0.46,
-        distanceY: coverRect.height * scaleY * 0.46,
+        centerX: coverRect.left + coverRect.width / 2 - canvasRect.left,
+        centerY: coverRect.top + coverRect.height / 2 - canvasRect.top,
+        distanceX: coverRect.width * 0.46,
+        distanceY: coverRect.height * 0.46,
       };
     }
 
@@ -94,27 +100,28 @@
       const rect = this.canvas.getBoundingClientRect();
       if (!rect.width || !rect.height) return;
 
-      const dpr = Math.min(window.devicePixelRatio || 1, getMaxDpr());
-      this.canvas.width = Math.round(rect.width * dpr);
-      this.canvas.height = Math.round(rect.height * dpr);
-      this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.dpr = Math.min(window.devicePixelRatio || 1, getMaxDpr());
+      this.cssWidth = rect.width;
+      this.cssHeight = rect.height;
+      this.canvas.width = Math.max(1, Math.round(rect.width * this.dpr));
+      this.canvas.height = Math.max(1, Math.round(rect.height * this.dpr));
+      this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
       this.resetParticles();
     }
 
     resetParticles() {
       const metrics = this.getCoverMetrics();
       if (!metrics) return;
-      this.particles.forEach((particle) => particle.reset(metrics));
+      const scale = getParticleScale();
+      this.particles.forEach((particle) => particle.reset(metrics, scale));
     }
 
     drawFrame(timestamp) {
       const metrics = this.getCoverMetrics();
-      const { ctx, canvas } = this;
-      const cssW = canvas.width / Math.min(window.devicePixelRatio || 1, getMaxDpr());
-      const cssH = canvas.height / Math.min(window.devicePixelRatio || 1, getMaxDpr());
+      const { ctx } = this;
 
       ctx.globalCompositeOperation = "source-over";
-      ctx.clearRect(0, 0, cssW, cssH);
+      ctx.clearRect(0, 0, this.cssWidth, this.cssHeight);
 
       if (!metrics) return;
 
@@ -160,10 +167,13 @@
       this.index = index;
       this.total = total;
       this.timeOffset = Math.random() * 5000;
-      this.reset(null);
+      this.scale = 1;
+      this.reset(null, 1);
     }
 
-    reset(metrics) {
+    reset(metrics, scale = 1) {
+      this.scale = scale;
+
       if (!metrics) {
         this.angle = (this.index / this.total) * Math.PI * 2;
         return;
@@ -172,27 +182,31 @@
       this.angle = (this.index / this.total) * Math.PI * 2;
       this.baseX = metrics.centerX + Math.cos(this.angle) * metrics.distanceX;
       this.baseY = metrics.centerY + Math.sin(this.angle) * metrics.distanceY;
-      this.baseRadiusX = Math.random() * 55 + 55;
-      this.baseRadiusY = Math.random() * 20 + 12;
+      this.baseRadiusX = (Math.random() * 55 + 55) * scale;
+      this.baseRadiusY = (Math.random() * 20 + 12) * scale;
       this.speed = Math.random() * 0.0015 + 0.001;
+      this.wobbleX = 3.5 * scale;
+      this.wobbleY = 3.5 * scale;
+      this.pulseX = 25 * scale;
+      this.pulseY = 7 * scale;
 
       if (this.index % 2 === 0) {
         this.color = { r: 255, g: 0, b: 51 };
-        this.maxAlpha = Math.random() * 0.35 + 0.45;
+        this.maxAlpha = (Math.random() * 0.35 + 0.45) * (scale < 1 ? 1.08 : 1);
       } else {
         this.color = { r: 0, g: 240, b: 255 };
-        this.maxAlpha = Math.random() * 0.3 + 0.4;
+        this.maxAlpha = (Math.random() * 0.3 + 0.4) * (scale < 1 ? 1.08 : 1);
       }
     }
 
     update(time, metrics) {
-      if (!this.baseX) this.reset(metrics);
+      if (!this.baseX) this.reset(metrics, this.scale);
       const t = time * this.speed + this.timeOffset;
 
-      this.x = this.baseX + Math.sin(t * 0.3) * 3.5;
-      this.y = this.baseY + Math.cos(t * 0.2) * 3.5;
-      this.radiusX = this.baseRadiusX + Math.sin(t) * 25;
-      this.radiusY = this.baseRadiusY + Math.cos(t * 0.8) * 7;
+      this.x = this.baseX + Math.sin(t * 0.3) * this.wobbleX;
+      this.y = this.baseY + Math.cos(t * 0.2) * this.wobbleY;
+      this.radiusX = this.baseRadiusX + Math.sin(t) * this.pulseX;
+      this.radiusY = this.baseRadiusY + Math.cos(t * 0.8) * this.pulseY;
       this.alpha = this.maxAlpha;
     }
 

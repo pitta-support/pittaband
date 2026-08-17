@@ -2198,10 +2198,14 @@ body:has(.dday-bar[hidden]) {
   position: absolute;
   inset: -22%;
   z-index: 0;
-  width: 144%;
-  height: 144%;
+  width: calc(100% + 44%);
+  height: calc(100% + 44%);
   pointer-events: none;
   filter: saturate(1.8) contrast(1.3);
+}
+
+.hero-anniversary__visual--paradox {
+  isolation: isolate;
 }
 
 .hero-anniversary__visual--paradox .hero-anniversary__cover {
@@ -5266,6 +5270,20 @@ body.board-overlay-open {
   .hero-anniversary__cta-icon {
     width: 0.95rem;
     height: 0.95rem;
+  }
+  .hero-anniversary__visual--paradox {
+    overflow: hidden;
+  }
+  .hero-anniversary__paradox-aura {
+    inset: -12%;
+    width: 124%;
+    height: 124%;
+    filter: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .hero-anniversary__visual--paradox .hero-anniversary__cover {
+    filter: drop-shadow(0 0 28px rgba(255, 0, 60, 0.16)) drop-shadow(0 0 32px rgba(0, 229, 255, 0.12)) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.42));
   }
   .dday-tag {
     display: none;
