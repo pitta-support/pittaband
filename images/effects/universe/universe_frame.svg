@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+  <path d="M12 8 H42 M58 8 H88" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M92 12 V42 M92 58 V88" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M88 92 H58 M42 92 H12" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M8 88 V58 M8 42 V12" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M8 18 V8 H18" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M82 8 H92 V18" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M92 82 V92 H82" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M18 92 H8 V82" stroke="#fff" stroke-width="1.15" stroke-linecap="square"/>
+  <path d="M50 8 V14" stroke="#fff" stroke-width="0.95" stroke-linecap="square"/>
+  <path d="M92 50 H86" stroke="#fff" stroke-width="0.95" stroke-linecap="square"/>
+  <path d="M50 92 V86" stroke="#fff" stroke-width="0.95" stroke-linecap="square"/>
+  <path d="M8 50 H14" stroke="#fff" stroke-width="0.95" stroke-linecap="square"/>
+</svg>

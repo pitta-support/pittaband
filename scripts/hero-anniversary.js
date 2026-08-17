@@ -52,6 +52,8 @@
 
     "deep-shadow": "shadow",
 
+    universe: "universe",
+
   };
 
 
@@ -153,6 +155,24 @@
       logoClass: "hero-anniversary__release-logo--shadow",
 
       burstFragments: true,
+
+      mark: null,
+
+      orbit: [],
+
+      seedClass: null,
+
+      titleClass: null,
+
+    },
+
+    universe: {
+
+      visualClass: "hero-anniversary__visual--universe",
+
+      effectsClass: "hero-anniversary__effects--universe",
+
+      universeEffect: true,
 
       mark: null,
 
@@ -427,6 +447,8 @@
 
     window.heroShadowFragments?.stop();
 
+    window.heroUniverseEffect?.stop();
+
     if (effectsEl) {
 
       effectsEl.innerHTML = "";
@@ -580,6 +602,14 @@
     if (config.burstFragments && coverEl && visualEl) {
 
       window.heroShadowFragments?.start(visualEl, coverEl);
+
+    }
+
+
+
+    if (config.universeEffect && coverEl && visualEl) {
+
+      window.heroUniverseEffect?.start(visualEl, coverEl);
 
     }
 
@@ -949,6 +979,20 @@
         releaseDate: "2025-03-27",
 
         cover: "images/albums/deep-shadow.png",
+
+      },
+
+      universe: {
+
+        category: "single",
+
+        id: "universe",
+
+        title: "UNIVERSE",
+
+        releaseDate: "2020-10-29",
+
+        cover: "images/albums/universe.png",
 
       },
 
