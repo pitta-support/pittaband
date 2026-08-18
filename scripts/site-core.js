@@ -22,14 +22,17 @@
   const flipClocks = new Map();
 
   function t(key, fallback, params) {
-    if (window.i18n) return window.i18n.t(key, params);
+    if (window.i18n?.t) {
+      const resolved = params ? window.i18n.t(key, params) : window.i18n.t(key);
+      if (resolved != null && resolved !== key) return resolved;
+    }
     if (params && typeof fallback === "string") {
       return Object.keys(params).reduce(
         (text, name) => text.replace(`{${name}}`, String(params[name])),
         fallback
       );
     }
-    return fallback;
+    return fallback ?? key;
   }
 
   function getKstDateKey(date = new Date()) {
@@ -332,14 +335,12 @@
 
     if (tagEl) {
       const tagKey = info.tagI18n || "dday.tag";
-      tagEl.dataset.i18n = tagKey;
       tagEl.textContent = t(tagKey, "UPCOMING");
     }
 
     if (eventEl) {
       const eventKey = info.eventI18n || "dday.event";
       const eventFallback = info.eventFallback || "NEXUS LIVE · SEOUL";
-      eventEl.dataset.i18n = eventKey;
       eventEl.textContent = t(eventKey, eventFallback);
     }
 
@@ -387,7 +388,6 @@
       linkEl.removeAttribute("rel");
     }
 
-    linkEl.dataset.i18n = link.labelKey;
     linkEl.textContent = t(link.labelKey, link.labelFallback);
   }
 
@@ -527,6 +527,28 @@
     updateSliderNav(states.length);
   }
 
+  function refreshSliderDotLabels() {
+    if (!ddaySliderDotsEl) return;
+
+    ddaySliderDotsEl.querySelectorAll(".dday-slider__dot").forEach((dot, index) => {
+      dot.setAttribute(
+        "aria-label",
+        t("dday.sliderGoTo", "D-day {n}로 이동", { n: index + 1 })
+      );
+    });
+  }
+
+  function refreshDdayI18n() {
+    if (!activeCampaignStates.length || !ddaySliderTrackEl) return;
+
+    ddaySliderTrackEl.querySelectorAll(".dday-slide").forEach((slide, index) => {
+      const state = activeCampaignStates[index];
+      if (state) setSlideMode(slide, state);
+    });
+
+    refreshSliderDotLabels();
+  }
+
   function updateSliderNav(count) {
     const showNav = count > 1;
     if (ddaySliderNavEl) ddaySliderNavEl.hidden = !showNav;
@@ -553,6 +575,8 @@
       dot.classList.toggle("is-active", index === currentSlideIndex);
       dot.setAttribute("aria-current", index === currentSlideIndex ? "true" : "false");
     });
+
+    refreshSliderDotLabels();
   }
 
   function setSlideIndex(index, animate = true) {
@@ -813,30 +837,37 @@
     });
   }
 
-  initDdayVisibility();
-  updateDday();
-  setInterval(updateDday, 1000);
-  syncNavActivePage();
+  function syncMenuToggleLabel() {
+    if (!menuToggle || !navMobile) return;
+    const open = navMobile.classList.contains("open");
+    menuToggle.setAttribute("aria-label", open ? getMenuCloseLabel() : getMenuOpenLabel());
+  }
 
-  document.addEventListener("i18n:ready", () => {
-    slideSignature = "";
-    updateDday();
+  function onLocaleApplied() {
+    refreshDdayI18n();
     syncNavActivePage();
-    if (menuToggle && navMobile) {
-      const open = navMobile.classList.contains("open");
-      menuToggle.setAttribute("aria-label", open ? getMenuCloseLabel() : getMenuOpenLabel());
-    }
-  });
+    syncMenuToggleLabel();
+  }
 
-  document.addEventListener("i18n:change", () => {
-    slideSignature = "";
-    updateDday();
-    syncNavActivePage();
-    if (menuToggle && navMobile) {
-      const open = navMobile.classList.contains("open");
-      menuToggle.setAttribute("aria-label", open ? getMenuCloseLabel() : getMenuOpenLabel());
+  document.addEventListener("i18n:ready", onLocaleApplied);
+  document.addEventListener("i18n:change", onLocaleApplied);
+
+  async function boot() {
+    if (window.i18n?.ready) {
+      try {
+        await window.i18n.ready;
+      } catch {
+        /* locale fetch failed — render with fallbacks */
+      }
     }
-  });
+
+    initDdayVisibility();
+    updateDday();
+    setInterval(updateDday, 1000);
+    syncNavActivePage();
+  }
+
+  boot();
 
   window.siteCore = {
     updateDday,
