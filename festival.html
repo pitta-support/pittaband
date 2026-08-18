@@ -31,7 +31,7 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="styles.css?v=143" />
+    <link rel="stylesheet" href="styles.css?v=148" />
     <script>
       (function () {
         try {
@@ -58,18 +58,33 @@
 
     <div class="dday-bar" id="dday-bar">
       <div class="dday-bar-inner">
-        <div class="dday-info" id="dday-info">
-          <span class="dday-tag" data-i18n="dday.tag">UPCOMING</span>
-          <img class="dday-logo" id="dday-logo" src="" alt="" width="140" height="56" hidden />
-          <span class="dday-event" data-i18n="dday.event"
-            >NEXUS LIVE · SEOUL</span
-          >
-        </div>
-        <div class="dday-countdown" aria-live="polite">
-          <div class="dday-flip" id="dday-flip" aria-label="D-day countdown"></div>
+        <div class="dday-slider" id="dday-slider">
+          <div class="dday-slider__viewport">
+            <div class="dday-slider__track" id="dday-slider-track" aria-live="polite"></div>
+          </div>
+          <div class="dday-slider__nav" id="dday-slider-nav" hidden>
+            <button
+              type="button"
+              class="dday-slider__btn dday-slider__btn--prev"
+              id="dday-slider-prev"
+              data-i18n-attr="aria-label:dday.sliderPrev"
+              aria-label="이전 D-day"
+            >
+              <span aria-hidden="true">‹</span>
+            </button>
+            <div class="dday-slider__dots" id="dday-slider-dots"></div>
+            <button
+              type="button"
+              class="dday-slider__btn dday-slider__btn--next"
+              id="dday-slider-next"
+              data-i18n-attr="aria-label:dday.sliderNext"
+              aria-label="다음 D-day"
+            >
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
         </div>
         <div class="dday-meta">
-          <a href="concert.html" class="dday-link" id="dday-link" data-i18n="dday.linkConcert">예매하기</a>
           <label class="dday-hide">
             <input type="checkbox" class="dday-hide__input" id="dday-hide-today" />
             <span class="dday-hide__label" data-i18n="dday.hideToday">오늘 하루 보이지 않기</span>
@@ -432,7 +447,8 @@
     </footer>
 
     <script src="i18n.js?v=2" defer></script>
-    <script src="scripts/site-core.js" defer></script>
+    <script src="scripts/dday-config.js" defer></script>
+    <script src="scripts/site-core.js?v=4" defer></script>
     <script src="scripts/board-config.js" defer></script>
     <script src="scripts/board-modal.js?v=1" defer></script>
     <script src="scripts/festival-page.js?v=14" defer></script>

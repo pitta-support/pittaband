@@ -45,12 +45,35 @@
   },
   "dday": {
     "tag": "UPCOMING",
+    "tagAlbum": "NEW RELEASE",
+    "tagFestival": "FESTIVAL",
     "event": "NEXUS LIVE · SEOUL",
     "linkConcert": "Book Tickets",
+    "linkFestival": "Book Tickets",
     "linkAlbum": "Buy Now",
     "hideToday": "Hide for today",
     "dDay": "D-DAY",
-    "dPlus": "D+{days}"
+    "dPlus": "D+{days}",
+    "liveNow": "LIVE",
+    "festNow": "ON STAGE",
+    "outNow": "OUT NOW",
+    "sliderPrev": "Previous D-day",
+    "sliderNext": "Next D-day",
+    "sliderGoTo": "Go to D-day {n}",
+    "campaigns": {
+      "nexusLive": {
+        "event": "NEXUS LIVE · SEOUL",
+        "bannerTitle": "NEXUS LIVE · SEOUL"
+      },
+      "summerFest": {
+        "event": "SEOUL PARK ROCK FEST",
+        "bannerTitle": "SEOUL PARK ROCK FEST"
+      },
+      "paradox": {
+        "event": "PARADOX",
+        "bannerTitle": "PARADOX"
+      }
+    }
   },
   "header": {
     "navLabel": "Main menu",

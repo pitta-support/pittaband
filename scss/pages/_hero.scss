@@ -324,6 +324,56 @@
   }
 }
 
+.hero-anniversary__greetings {
+  display: contents;
+}
+
+.hero-anniversary--font-compare .hero-anniversary__greetings {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.35rem, 1.2vw, 0.85rem);
+  width: 100%;
+}
+
+.hero-anniversary--font-compare .hero-anniversary__body {
+  height: auto;
+  min-height: var(--anniversary-visual-size);
+}
+
+.hero-anniversary--font-compare #hero-anniversary-greeting {
+  display: none !important;
+}
+
+.hero-anniversary--font-compare .hero-anniversary__greeting--compare {
+  opacity: 1;
+  -webkit-mask-image: none;
+  mask-image: none;
+  animation: none !important;
+  font-size: clamp(1.5rem, 3.8vw, 2.35rem);
+  line-height: 1.2;
+  white-space: normal;
+  text-align: left;
+}
+
+.hero-anniversary__greeting--poiret {
+  font-family: "Poiret One", cursive;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.hero-anniversary__greeting--bebas {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.hero-anniversary__greeting--inter {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .hero-anniversary__release-title {
   font-family: "Instrument Serif", Georgia, serif;
   font-size: clamp(3rem, 8vw, 5.75rem);

@@ -866,14 +866,22 @@
       </div>`;
   }
 
+  function resetDetailScroll() {
+    if (panelBodyEl) panelBodyEl.scrollTop = 0;
+  }
+
   function showDetailPanel({ titleHtml, idLabel, bodyHtml }) {
     panelIdEl.textContent = idLabel;
     panelTitleEl.innerHTML = titleHtml;
     panelBodyEl.innerHTML = bodyHtml;
+    resetDetailScroll();
 
     overlay.hidden = false;
     overlay.removeAttribute("aria-hidden");
-    requestAnimationFrame(() => overlay.classList.add("is-open"));
+    requestAnimationFrame(() => {
+      resetDetailScroll();
+      overlay.classList.add("is-open");
+    });
     document.body.classList.add("member-overlay-open");
   }
 
@@ -966,7 +974,10 @@
 
     const finish = () => {
       overlay.hidden = true;
-      if (panelBodyEl) panelBodyEl.innerHTML = "";
+      if (panelBodyEl) {
+        panelBodyEl.innerHTML = "";
+        panelBodyEl.scrollTop = 0;
+      }
       if (panelTitleEl) panelTitleEl.innerHTML = "";
       if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
         lastFocusedEl.focus();

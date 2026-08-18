@@ -18,6 +18,12 @@
 
   const greetingEl = document.getElementById("hero-anniversary-greeting");
 
+  const greetingCompareEls = {
+    poiret: document.getElementById("hero-anniversary-greeting-poiret"),
+    bebas: document.getElementById("hero-anniversary-greeting-bebas"),
+    inter: document.getElementById("hero-anniversary-greeting-inter"),
+  };
+
   const releaseTitleEl = document.getElementById("hero-anniversary-release-title");
 
   const releaseLogoEl = document.getElementById("hero-anniversary-release-logo");
@@ -41,6 +47,32 @@
 
 
   const FANCAFE_URL = "https://cafe.naver.com/phantomkang";
+
+  function resolveCtaReleaseId(id) {
+    const aliases = window.HERO_ANNIVERSARY_CTA_ALIASES || {};
+    return aliases[id] || id;
+  }
+
+  function getAnniversaryCtaUrl(event) {
+    const links = window.HERO_ANNIVERSARY_CTA_LINKS || {};
+    const id = resolveCtaReleaseId(event?.id);
+    return links[id] || FANCAFE_URL;
+  }
+
+  function applyCtaLink(event) {
+    if (!ctaEl || !event) return;
+
+    const url = getAnniversaryCtaUrl(event);
+    ctaEl.href = url;
+
+    if (/^https?:\/\//i.test(url)) {
+      ctaEl.target = "_blank";
+      ctaEl.rel = "noopener noreferrer";
+    } else {
+      ctaEl.removeAttribute("target");
+      ctaEl.removeAttribute("rel");
+    }
+  }
 
 
 
@@ -674,7 +706,13 @@
 
   function replayGreetingAnimation() {
 
-    if (!greetingEl || !container.classList.contains("is-visible")) return;
+    if (
+      container.classList.contains("hero-anniversary--font-compare") ||
+      !greetingEl ||
+      !container.classList.contains("is-visible")
+    ) {
+      return;
+    }
 
     greetingEl.style.animation = "none";
 
@@ -835,6 +873,56 @@
     return t("hero.anniversary.greeting", { yearsYear });
   }
 
+  function isGreetingFontCompare() {
+    const testId = readAnniversaryTestId();
+    if (!testId) return false;
+    return resolveTestReleaseId(testId) === "dandelion";
+  }
+
+  function setGreetingCompareVisible(visible) {
+    container.classList.toggle("hero-anniversary--font-compare", visible);
+
+    if (greetingEl) {
+      greetingEl.hidden = visible;
+      if (visible) {
+        greetingEl.innerHTML = "";
+        greetingEl.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    Object.values(greetingCompareEls).forEach((el) => {
+      if (!el) return;
+      el.hidden = !visible;
+      if (!visible) {
+        el.innerHTML = "";
+        el.setAttribute("aria-hidden", "true");
+      }
+    });
+  }
+
+  function renderGreeting(years) {
+    const html = renderGreetingHtml(years);
+    const fontCompare = isGreetingFontCompare();
+
+    setGreetingCompareVisible(fontCompare);
+
+    if (fontCompare) {
+      Object.values(greetingCompareEls).forEach((el) => {
+        if (!el) return;
+        el.innerHTML = html;
+        el.removeAttribute("aria-hidden");
+      });
+      return;
+    }
+
+    if (!greetingEl) return;
+
+    greetingEl.innerHTML = html;
+    greetingEl.removeAttribute("aria-hidden");
+    greetingEl.hidden = false;
+    replayGreetingAnimation();
+  }
+
 
 
   function renderEvent(event) {
@@ -847,11 +935,7 @@
 
     if (labelEl) labelEl.textContent = t("hero.anniversary.label");
 
-    greetingEl.innerHTML = renderGreetingHtml(event.years);
-
-    greetingEl.removeAttribute("aria-hidden");
-
-    replayGreetingAnimation();
+    renderGreeting(event.years);
 
 
 
@@ -863,7 +947,7 @@
 
     ctaTarget.textContent = t("hero.anniversary.cta");
 
-    ctaEl.href = FANCAFE_URL;
+    applyCtaLink(event);
 
 
 
@@ -905,7 +989,13 @@
 
     if (heroDefault) heroDefault.removeAttribute("aria-hidden");
 
-    if (greetingEl) greetingEl.setAttribute("aria-hidden", "true");
+    setGreetingCompareVisible(false);
+
+    if (greetingEl) {
+      greetingEl.innerHTML = "";
+      greetingEl.setAttribute("aria-hidden", "true");
+      greetingEl.hidden = false;
+    }
 
   }
 

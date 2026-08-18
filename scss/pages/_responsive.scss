@@ -172,6 +172,15 @@
     margin-inline: auto;
   }
 
+  .hero-anniversary__logo-shell:has(.hero-anniversary__release-logo--paradox:not([hidden])) {
+    width: min(80%, 250px);
+    margin-inline: auto;
+  }
+
+  .hero-anniversary__release-logo--paradox {
+    width: 100%;
+  }
+
   .hero-anniversary__cta-slot {
     align-self: center;
     width: auto;

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting Font Test — Paradox · Pitta Archive</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poiret+One&family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css?v=148" />
+    <style>
+      :root {
+        --greeting-test-visual: min(320px, 72vw);
+      }
+
+      body.greeting-font-test-page {
+        min-height: 100dvh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: var(--bg-deep);
+      }
+
+      .greeting-font-test {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: calc(var(--site-top-h, 88px) + 1.5rem) 1.25rem 3rem;
+      }
+
+      .greeting-font-test__header {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(48, 213, 255, 0.14);
+      }
+
+      .greeting-font-test__eyebrow {
+        display: inline-block;
+        margin-bottom: 0.55rem;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--cyan);
+      }
+
+      .greeting-font-test__title {
+        margin: 0 0 0.45rem;
+        font-family: var(--font-wide);
+        font-size: clamp(1.2rem, 3vw, 1.65rem);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .greeting-font-test__desc {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+        line-height: 1.65;
+      }
+
+      .greeting-font-test__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .greeting-font-test__panel {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        border: 1px solid rgba(48, 213, 255, 0.16);
+        background: rgba(18, 23, 29, 0.72);
+        overflow: hidden;
+      }
+
+      .greeting-font-test__panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 0.75rem 0.9rem;
+        border-bottom: 1px solid rgba(48, 213, 255, 0.1);
+        background: rgba(48, 213, 255, 0.04);
+      }
+
+      .greeting-font-test__font-name {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        color: var(--text);
+      }
+
+      .greeting-font-test__font-note {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+      }
+
+      .greeting-font-test__stage {
+        display: grid;
+        grid-template-columns: var(--greeting-test-visual) minmax(0, 1fr);
+        gap: 1rem;
+        align-items: center;
+        padding: 1.1rem;
+        min-height: calc(var(--greeting-test-visual) + 1rem);
+      }
+
+      .greeting-font-test__visual {
+        position: relative;
+        width: var(--greeting-test-visual);
+        height: var(--greeting-test-visual);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .greeting-font-test__cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: drop-shadow(0 0 42px rgba(255, 0, 60, 0.18))
+          drop-shadow(0 0 48px rgba(0, 229, 255, 0.14))
+          drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
+      }
+
+      .greeting-font-test__body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        min-width: 0;
+        height: var(--greeting-test-visual);
+      }
+
+      .greeting-font-test .hero-anniversary__label {
+        margin-bottom: 0.85rem;
+      }
+
+      .greeting-font-test .hero-anniversary__greeting {
+        opacity: 1;
+        animation: none;
+        -webkit-mask-image: none;
+        mask-image: none;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        max-width: 100%;
+      }
+
+      .greeting-font-test__greeting--poiret {
+        font-family: "Poiret One", cursive;
+        font-size: clamp(2rem, 4.8vw, 2.65rem);
+        font-weight: 400;
+        letter-spacing: 0.04em;
+      }
+
+      .greeting-font-test__greeting--bebas {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2.35rem, 5.4vw, 3.15rem);
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.05;
+      }
+
+      .greeting-font-test__greeting--inter {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(1.65rem, 3.8vw, 2.2rem);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+      }
+
+      .greeting-font-test__greeting--current {
+        font-family: "Great Vibes", cursive;
+        font-size: clamp(2rem, 4.8vw, 2.75rem);
+        font-weight: 400;
+      }
+
+      .greeting-font-test__reference {
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px dashed rgba(255, 255, 255, 0.12);
+      }
+
+      .greeting-font-test__reference-label {
+        display: block;
+        margin-bottom: 0.55rem;
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.42);
+      }
+
+      .greeting-font-test__back {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        font-family: var(--font-kr);
+        font-size: 0.78rem;
+        color: var(--cyan);
+      }
+
+      @media (max-width: 1080px) {
+        .greeting-font-test__grid {
+          grid-template-columns: 1fr;
+        }
+
+        .greeting-font-test__stage {
+          grid-template-columns: minmax(0, 1fr);
+          min-height: auto;
+        }
+
+        .greeting-font-test__visual {
+          margin-inline: auto;
+        }
+
+        .greeting-font-test__body {
+          height: auto;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .greeting-font-test {
+          padding-top: 1.25rem;
+        }
+
+        .greeting-font-test__panel-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .greeting-font-test .hero-anniversary__greeting {
+          white-space: nowrap;
+        }
+      }
+    </style>
+  </head>
+  <body class="greeting-font-test-page is-dday-hidden">
+    <main class="greeting-font-test" id="main-content">
+      <header class="greeting-font-test__header">
+        <span class="greeting-font-test__eyebrow">Font comparison</span>
+        <h1 class="greeting-font-test__title">Happy 5 year Anniversary!</h1>
+        <p class="greeting-font-test__desc">
+          Paradox 발매 5주년 Hero 문구 기준 · Poiret One / Bebas Neue (대문자) / Inter
+          비교
+        </p>
+      </header>
+
+      <div class="greeting-font-test__grid">
+        <article class="greeting-font-test__panel">
+          <div class="greeting-font-test__panel-head">
+            <h2 class="greeting-font-test__font-name">Poiret One</h2>
+            <span class="greeting-font-test__font-note">Display / thin</span>
+          </div>
+          <div class="greeting-font-test__stage">
+            <div class="greeting-font-test__visual">
+              <img
+                class="greeting-font-test__cover"
+                src="images/albums/paradox.png"
+                alt="Paradox"
+                width="320"
+                height="320"
+              />
+            </div>
+            <div class="greeting-font-test__body">
+              <span class="hero-anniversary__label">CELEBRATION</span>
+              <p
+                class="hero-anniversary__greeting greeting-font-test__greeting--poiret"
+              >
+                Happy
+                <span class="hero-anniversary__greeting-accent"
+                  ><span class="hero-anniversary__greeting-num">5</span>
+                  <span class="hero-anniversary__greeting-year">year</span></span
+                >
+                Anniversary!
+              </p>
+              <img
+                class="hero-anniversary__release-logo hero-anniversary__release-logo--paradox"
+                src="images/effects/paradox/paradox.svg"
+                alt="Paradox"
+                width="280"
+                height="26"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="greeting-font-test__panel">
+          <div class="greeting-font-test__panel-head">
+            <h2 class="greeting-font-test__font-name">Bebas Neue</h2>
+            <span class="greeting-font-test__font-note">Uppercase only</span>
+          </div>
+          <div class="greeting-font-test__stage">
+            <div class="greeting-font-test__visual">
+              <img
+                class="greeting-font-test__cover"
+                src="images/albums/paradox.png"
+                alt="Paradox"
+                width="320"
+                height="320"
+              />
+            </div>
+            <div class="greeting-font-test__body">
+              <span class="hero-anniversary__label">CELEBRATION</span>
+              <p
+                class="hero-anniversary__greeting greeting-font-test__greeting--bebas"
+              >
+                Happy
+                <span class="hero-anniversary__greeting-accent"
+                  ><span class="hero-anniversary__greeting-num">5</span>
+                  <span class="hero-anniversary__greeting-year">year</span></span
+                >
+                Anniversary!
+              </p>
+              <img
+                class="hero-anniversary__release-logo hero-anniversary__release-logo--paradox"
+                src="images/effects/paradox/paradox.svg"
+                alt="Paradox"
+                width="280"
+                height="26"
+              />
+            </div>
+          </div>
+        </article>
+
+        <article class="greeting-font-test__panel">
+          <div class="greeting-font-test__panel-head">
+            <h2 class="greeting-font-test__font-name">Inter</h2>
+            <span class="greeting-font-test__font-note">Sans / medium</span>
+          </div>
+          <div class="greeting-font-test__stage">
+            <div class="greeting-font-test__visual">
+              <img
+                class="greeting-font-test__cover"
+                src="images/albums/paradox.png"
+                alt="Paradox"
+                width="320"
+                height="320"
+              />
+            </div>
+            <div class="greeting-font-test__body">
+              <span class="hero-anniversary__label">CELEBRATION</span>
+              <p
+                class="hero-anniversary__greeting greeting-font-test__greeting--inter"
+              >
+                Happy
+                <span class="hero-anniversary__greeting-accent"
+                  ><span class="hero-anniversary__greeting-num">5</span>
+                  <span class="hero-anniversary__greeting-year">year</span></span
+                >
+                Anniversary!
+              </p>
+              <img
+                class="hero-anniversary__release-logo hero-anniversary__release-logo--paradox"
+                src="images/effects/paradox/paradox.svg"
+                alt="Paradox"
+                width="280"
+                height="26"
+              />
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="greeting-font-test__reference" aria-label="Current font reference">
+        <span class="greeting-font-test__reference-label">Current (Great Vibes)</span>
+        <article class="greeting-font-test__panel">
+          <div class="greeting-font-test__stage">
+            <div class="greeting-font-test__visual">
+              <img
+                class="greeting-font-test__cover"
+                src="images/albums/paradox.png"
+                alt="Paradox"
+                width="320"
+                height="320"
+              />
+            </div>
+            <div class="greeting-font-test__body">
+              <span class="hero-anniversary__label">CELEBRATION</span>
+              <p
+                class="hero-anniversary__greeting greeting-font-test__greeting--current"
+              >
+                Happy
+                <span class="hero-anniversary__greeting-accent"
+                  ><span class="hero-anniversary__greeting-num">5</span>
+                  <span class="hero-anniversary__greeting-year">year</span></span
+                >
+                Anniversary!
+              </p>
+              <img
+                class="hero-anniversary__release-logo hero-anniversary__release-logo--paradox"
+                src="images/effects/paradox/paradox.svg"
+                alt="Paradox"
+                width="280"
+                height="26"
+              />
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <a class="greeting-font-test__back" href="index.html?anniversaryTest=paradox"
+        >← 메인 Hero (Paradox 테스트)로 돌아가기</a
+      >
+    </main>
+  </body>
+</html>
