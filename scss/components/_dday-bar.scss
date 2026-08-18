@@ -73,7 +73,7 @@ body:has(.dday-bar[hidden]) {
 
     .dday-countdown {
       flex: 1 1 auto;
-      justify-content: center;
+      justify-content: flex-end;
     }
 
     .dday-flip {
@@ -164,23 +164,7 @@ body:has(.dday-bar[hidden]) {
   align-items: center;
   gap: 0.65rem;
   min-width: 0;
-  flex: 0 1 auto;
-
-  &.has-logo .dday-event {
-    max-width: 10rem;
-  }
-}
-
-.dday-tag {
-  flex-shrink: 0;
-  font-family: var(--font-wide);
-  font-size: 0.52rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--crimson);
-  padding: 0.18rem 0.5rem;
-  border: 1px solid var(--crimson-dim);
-  background: rgba(255, 0, 60, 0.08);
+  flex: 0 0 auto;
 }
 
 .dday-logo {
@@ -199,23 +183,33 @@ body:has(.dday-bar[hidden]) {
   }
 }
 
-.dday-event {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+.dday-date {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: var(--text);
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.dday-event,
+.dday-tag {
+  display: none;
 }
 
 .dday-countdown {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex: 1 1 auto;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  flex: 0 0 auto;
   min-width: 0;
+  margin-left: auto;
 }
 
 /* Banner templates — concert / album */
@@ -544,15 +538,20 @@ body:has(.dday-bar[hidden]) {
   flex-shrink: 0;
 }
 
+.dday-banner__badge {
+  display: none !important;
+}
+
 .dday-link {
   font-family: var(--font-kr);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--cyan);
   white-space: nowrap;
-  padding: 0.4rem 0.7rem;
+  padding: 0.52rem 1rem;
   border: 1px solid rgba(48, 213, 255, 0.35);
   background: rgba(48, 213, 255, 0.06);
+  flex-shrink: 0;
   transition: text-shadow 0.25s, border-color 0.25s, background-color 0.25s;
 
   &[hidden] {
@@ -625,10 +624,7 @@ body:has(.dday-bar[hidden]) {
   .dday-slide {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "info countdown"
-      "link link";
+    grid-template-areas: "info countdown";
     gap: 0.35rem 0.65rem;
     align-items: center;
   }
@@ -643,17 +639,17 @@ body:has(.dday-bar[hidden]) {
   .dday-slide .dday-countdown {
     grid-area: countdown;
     justify-content: flex-end;
+    gap: 0.55rem;
     width: auto;
     min-width: 0;
+    margin-left: 0;
   }
 
   .dday-slide .dday-link {
-    grid-area: link;
-    justify-self: end;
-    font-size: 0.62rem;
-    padding: 0.28rem 0.45rem;
-    max-width: 100%;
-    white-space: normal;
+    font-size: 0.72rem;
+    padding: 0.42rem 0.75rem;
+    max-width: none;
+    white-space: nowrap;
     text-align: center;
   }
 

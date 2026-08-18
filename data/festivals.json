@@ -1,9 +1,37 @@
 {
   "festivals": [
     {
+      "id": "lets-rock-2026",
+      "title": "LET'S ROCK FESTIVAL 2026",
+      "dateTime": "2026-10-03T12:00:00+09:00",
+      "endDate": "2026-10-03",
+      "schedule": {
+        "ko": "2026.10.3(토)",
+        "en": "Oct 3, 2026",
+        "ja": "2026.10.3(土)",
+        "es": "3 oct 2026"
+      },
+      "venue": {
+        "ko": "서울",
+        "en": "Seoul",
+        "ja": "ソウル",
+        "es": "Seúl"
+      },
+      "poster": "images/festivals/lets-lock2026.jpg",
+      "instagram": "https://www.instagram.com/p/DcKfWn_k_9l/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+      "setlist": [],
+      "detail": {
+        "ko": "",
+        "en": "",
+        "ja": "",
+        "es": ""
+      }
+    },
+    {
       "id": "peak-fest-2024",
       "title": "PEAK FESTIVAL 2024",
       "dateTime": "2024-06-01T12:00:00+09:00",
+      "endDate": "2024-06-02",
       "schedule": {
         "ko": "2024.6.1(토) - 6.2(일)",
         "en": "Jun 1–2, 2024",
@@ -40,6 +68,7 @@
       "id": "someday-2024",
       "title": "SOMEDAY FESTIVAL 2024",
       "dateTime": "2024-09-07T11:30:00+09:00",
+      "endDate": "2024-09-08",
       "schedule": {
         "ko": "2024.9.7(토) - 9.8(일)",
         "en": "Sep 7–8, 2024",
@@ -77,6 +106,7 @@
       "id": "busan-rock-2024",
       "title": "2024 BUSAN INTERNATIONAL ROCK FESTIVAL",
       "dateTime": "2024-10-04T12:00:00+09:00",
+      "endDate": "2024-10-06",
       "schedule": {
         "ko": "2024.10.4(금) - 10.6(일)",
         "en": "Oct 4–6, 2024",
@@ -113,6 +143,7 @@
       "id": "busan-rock-2025",
       "title": "2025 BUSAN INTERNATIONAL ROCK FESTIVAL",
       "dateTime": "2025-09-26T12:00:00+09:00",
+      "endDate": "2025-09-28",
       "schedule": {
         "ko": "2025.9.26(금) - 9.28(일)",
         "en": "Sep 26–28, 2025",

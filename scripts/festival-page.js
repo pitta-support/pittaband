@@ -51,11 +51,54 @@
   }
 
   function updateModalHeader(entry) {
-    if (modalHeadingEl) modalHeadingEl.textContent = entry.title || "";
+    if (modalHeadingEl) {
+      modalHeadingEl.innerHTML = renderModalTitleHtml(entry);
+    }
     if (modalInstagramEl) {
       const instagram = entry.instagram?.trim();
       modalInstagramEl.innerHTML = instagram ? renderInstagramLink(instagram) : "";
     }
+  }
+
+  function getKstDateKey(date = new Date()) {
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(date);
+  }
+
+  function getFestivalStatus(entry, now = new Date()) {
+    const today = getKstDateKey(now);
+    const start = entry.dateTime?.slice(0, 10) || "";
+    const end = entry.endDate || start;
+    if (!start) return "ended";
+    if (today < start) return "upcoming";
+    if (today > end) return "ended";
+    return "live";
+  }
+
+  function statusLabel(status) {
+    const map = {
+      upcoming: "statusUpcoming",
+      live: "statusLive",
+      ended: "statusEnded",
+    };
+    return ti(map[status] || map.ended);
+  }
+
+  function renderStatusBadge(entry) {
+    const status = getFestivalStatus(entry);
+    const badgeClass = [
+      "concert-card__badge",
+      "festival-modal__status",
+      status === "live" ? "concert-card__badge--live" : "",
+      status === "ended" ? "concert-card__badge--ended" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    return `<span class="${badgeClass}">${escapeHtml(statusLabel(status))}</span>`;
+  }
+
+  function renderModalTitleHtml(entry) {
+    return `${renderStatusBadge(entry)}<span class="festival-modal__title-text">${escapeHtml(entry.title || "")}</span>`;
   }
 
   function localizeSetlistNote(note) {
@@ -208,8 +251,12 @@
     });
   }
 
+  function getGalleryCols() {
+    return window.matchMedia("(min-width: 768px)").matches ? 3 : 2;
+  }
+
   function getItemDistance(focusIndex, itemIndex) {
-    const cols = 2;
+    const cols = getGalleryCols();
     const focusRow = Math.floor(focusIndex / cols);
     const focusCol = focusIndex % cols;
     const itemRow = Math.floor(itemIndex / cols);
@@ -294,6 +341,12 @@
   }
 
   document.addEventListener("i18n:change", renderGallery);
+  window.addEventListener("resize", () => {
+    if (!galleryEl.classList.contains("festival-gallery--focus")) return;
+    const focused = galleryEl.querySelector('.festival-gallery__item[data-dist="0"]');
+    if (!focused) return;
+    setFocusIndex(Number(focused.dataset.festivalIndex));
+  });
 
   if (window.i18n?.ready) {
     window.i18n.ready.then(init);

@@ -52,6 +52,19 @@
     return getKstDateKey(new Date(start.getTime() + days * 86400000));
   }
 
+  function getCampaignDateStr(campaign) {
+    if (campaign.type === "concert") return campaign.dates?.[0] || "";
+    return campaign.date || "";
+  }
+
+  function formatDdayDateLabel(campaign) {
+    const dateStr = getCampaignDateStr(campaign);
+    if (!dateStr) return "";
+    const [year, month, day] = dateStr.split("-");
+    if (!year || !month || !day) return "";
+    return `${year.slice(-2)}.${month}.${day}`;
+  }
+
   function resolveCampaignState(campaign, now) {
     if (!campaign?.enabled) return null;
 
@@ -315,33 +328,19 @@
     return "concert";
   }
 
-  function getDefaultBannerBadge(type) {
-    if (type === "album") {
-      return { key: "dday.outNow", fallback: "OUT NOW" };
-    }
-    if (type === "festival") {
-      return { key: "dday.festNow", fallback: "ON STAGE" };
-    }
-    return { key: "dday.liveNow", fallback: "LIVE" };
-  }
-
   function syncSlideInfo(slide, state) {
     const { campaign } = state;
     const info = campaign.countdown || {};
     const infoEl = slide.querySelector(".dday-info");
-    const tagEl = slide.querySelector(".dday-tag");
-    const eventEl = slide.querySelector(".dday-event");
+    const dateEl = slide.querySelector(".dday-date");
     const logoEl = slide.querySelector(".dday-logo");
 
-    if (tagEl) {
-      const tagKey = info.tagI18n || "dday.tag";
-      tagEl.textContent = t(tagKey, "UPCOMING");
-    }
-
-    if (eventEl) {
-      const eventKey = info.eventI18n || "dday.event";
-      const eventFallback = info.eventFallback || "NEXUS LIVE · SEOUL";
-      eventEl.textContent = t(eventKey, eventFallback);
+    if (dateEl) {
+      const label = formatDdayDateLabel(campaign);
+      dateEl.textContent = label;
+      dateEl.hidden = !label;
+      if (label) dateEl.removeAttribute("aria-hidden");
+      else dateEl.setAttribute("aria-hidden", "true");
     }
 
     if (!logoEl) return;
@@ -395,7 +394,6 @@
     const { campaign } = state;
     const banner = campaign.banner || {};
     const theme = getBannerTheme(campaign.type);
-    const badgeDefault = getDefaultBannerBadge(campaign.type);
     const shellEl = slide.querySelector(".dday-banner__shell");
     const titleEl = slide.querySelector(".dday-banner__title");
     const badgeEl = slide.querySelector(".dday-banner__badge");
@@ -411,10 +409,8 @@
     }
 
     if (badgeEl) {
-      badgeEl.textContent = t(
-        banner.badgeI18n || badgeDefault.key,
-        banner.badgeFallback || badgeDefault.fallback
-      );
+      badgeEl.textContent = "";
+      badgeEl.hidden = true;
     }
 
     if (!visualEl) return;
@@ -467,9 +463,8 @@
 
     slide.innerHTML = `
       <div class="dday-info">
-        <span class="dday-tag"></span>
         <img class="dday-logo" src="" alt="" width="140" height="56" hidden />
-        <span class="dday-event"></span>
+        <span class="dday-date" hidden aria-hidden="true"></span>
       </div>
       <div class="dday-countdown">
         <div class="dday-flip" aria-label="D-day countdown"></div>
@@ -478,11 +473,11 @@
             <span class="dday-banner__glow" aria-hidden="true"></span>
             <img class="dday-banner__visual" src="" alt="" width="48" height="48" hidden />
             <span class="dday-banner__title"></span>
-            <span class="dday-banner__badge"></span>
+            <span class="dday-banner__badge" hidden aria-hidden="true"></span>
           </div>
         </div>
+        <a class="dday-link" href="#" hidden></a>
       </div>
-      <a class="dday-link" href="#" hidden></a>
     `;
 
     setSlideMode(slide, state);

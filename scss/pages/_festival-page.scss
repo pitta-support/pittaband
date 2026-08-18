@@ -21,6 +21,12 @@
   overflow: visible;
   align-items: center;
 
+  @include min-width($bp-md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 960px;
+    gap: 0.75rem;
+  }
+
   &--focus {
     gap: 0.35rem;
   }
@@ -76,6 +82,16 @@
     z-index: 1;
     margin-inline: -0.2rem;
     margin-block: -0.2rem;
+  }
+
+  &--focus &__item[data-dist="4"],
+  &--focus &__item[data-dist="5"] {
+    transform: scale(0.76);
+    opacity: 0.38;
+    filter: brightness(0.58);
+    z-index: 1;
+    margin-inline: -0.25rem;
+    margin-block: -0.25rem;
   }
 
   &__empty {
@@ -272,6 +288,18 @@
     font-size: clamp(0.95rem, 2.4vw, 1.3rem);
     line-height: 1.35;
     min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem 0.55rem;
+  }
+
+  &__title-text {
+    min-width: 0;
+  }
+
+  &__status {
+    flex-shrink: 0;
   }
 
   &__instagram-slot {
