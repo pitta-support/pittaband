@@ -65,6 +65,37 @@
     return `${year.slice(-2)}.${month}.${day}`;
   }
 
+  function resolveAssetUrl(path) {
+    if (!path) return "";
+    if (/^https?:\/\//i.test(path)) return path;
+
+    const siteBase = document.documentElement.dataset.siteBase?.replace(/\/$/, "");
+    if (siteBase) return `${siteBase}/${path.replace(/^\//, "")}`;
+
+    try {
+      return new URL(path, document.baseURI).href;
+    } catch {
+      return path;
+    }
+  }
+
+  function applyImageSrc(img, src, { onLoad, onError } = {}) {
+    if (!img || !src) return;
+
+    const resolved = resolveAssetUrl(src);
+    img.onerror = () => onError?.();
+    img.onload = () => onLoad?.();
+
+    if (img.getAttribute("src") !== resolved) {
+      img.src = resolved;
+    }
+
+    if (img.complete) {
+      if (img.naturalWidth > 0) onLoad?.();
+      else onError?.();
+    }
+  }
+
   function resolveCampaignState(campaign, now) {
     if (!campaign?.enabled) return null;
 
@@ -357,16 +388,16 @@
       : info.logoAltFallback || info.eventFallback || "";
 
     logoEl.alt = alt;
-    logoEl.onerror = () => {
-      logoEl.hidden = true;
-      infoEl?.classList.remove("has-logo");
-    };
-    logoEl.onload = () => {
-      logoEl.hidden = false;
-      infoEl?.classList.add("has-logo");
-    };
-
-    if (logoEl.getAttribute("src") !== src) logoEl.src = src;
+    applyImageSrc(logoEl, src, {
+      onLoad: () => {
+        logoEl.hidden = false;
+        infoEl?.classList.add("has-logo");
+      },
+      onError: () => {
+        logoEl.hidden = true;
+        infoEl?.classList.remove("has-logo");
+      },
+    });
   }
 
   function syncSlideLink(slide, state) {
@@ -423,14 +454,14 @@
     }
 
     visualEl.alt = titleEl?.textContent || "";
-    visualEl.onerror = () => {
-      visualEl.hidden = true;
-    };
-    visualEl.onload = () => {
-      visualEl.hidden = false;
-    };
-
-    if (visualEl.getAttribute("src") !== visualSrc) visualEl.src = visualSrc;
+    applyImageSrc(visualEl, visualSrc, {
+      onLoad: () => {
+        visualEl.hidden = false;
+      },
+      onError: () => {
+        visualEl.hidden = true;
+      },
+    });
   }
 
   function setSlideMode(slide, state) {
