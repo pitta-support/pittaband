@@ -110,6 +110,16 @@
       "typeAlbum": "アルバム",
       "typeSingle": "シングル",
       "typeOst": "OST"
+    },
+    "custom": {
+      "imageAlt": "PITTA レッツロックフェスティバル 2026",
+      "lead": "隠せないロッカーの本性",
+      "subtitle": "多彩な音楽的スペクトラムを見せる八色鳥",
+      "artist": "ボーカル PITTA（カン・ヒョンホ）",
+      "hook": "レッツロックフェスティバルで会いましょう！",
+      "date": "2026年10月3日（土）",
+      "venue": "ナンジハンガン公園",
+      "venueMapAria": "ナンジハンガン公園の地図を開く"
     }
   },
   "sectors": {

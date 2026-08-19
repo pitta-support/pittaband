@@ -110,6 +110,16 @@
       "typeAlbum": "앨범",
       "typeSingle": "싱글",
       "typeOst": "OST"
+    },
+    "custom": {
+      "imageAlt": "PITTA Lets Rock Festival 2026",
+      "lead": "숨길 수 없는 록커의 본색",
+      "subtitle": "다양한 음악적 스펙트럼을 보여주는 팔색조",
+      "artist": "보컬 PITTA(강형호)",
+      "hook": "렛츠락페스티벌에서 만나요!",
+      "date": "2026. 10. 03 (Sat)",
+      "venue": "난지한강공원",
+      "venueMapAria": "난지한강공원 지도 열기"
     }
   },
   "sectors": {

@@ -110,6 +110,16 @@
       "typeAlbum": "Álbum",
       "typeSingle": "Single",
       "typeOst": "OST"
+    },
+    "custom": {
+      "imageAlt": "PITTA en Lets Rock Festival 2026",
+      "lead": "La verdadera esencia de un rocker imposible de ocultar",
+      "subtitle": "Un kaleidoscopio del diverso espectro musical",
+      "artist": "Voz PITTA (Kang Hyung-ho)",
+      "hook": "¡Nos vemos en Lets Rock Festival!",
+      "date": "3 oct 2026 (sáb)",
+      "venue": "Parque Nanji Hangang",
+      "venueMapAria": "Abrir mapa del Parque Nanji Hangang"
     }
   },
   "sectors": {
