@@ -2,6 +2,7 @@
   "use strict";
 
   const LANG_KEY = "sf-archive-lang";
+  const LOCALE_VERSION = "6";
   const DEFAULT_LANG = "ko";
   const SUPPORTED = ["ko", "en", "ja", "es"];
   const LANG_NATIVE_LABELS = {
@@ -600,12 +601,24 @@
     langSelect.value = lang;
   }
 
+  function resolveI18nText(key, vars = {}) {
+    const value = getNested(dict, key);
+    if (value == null) return null;
+    if (typeof value !== "string") return String(value);
+    return Object.entries(vars).reduce(
+      (str, [k, v]) => str.replace(new RegExp(`\\{${k}\\}`, "g"), v),
+      value
+    );
+  }
+
   function applyElements() {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       if (el.closest("#lang-select")) return;
 
       const key = el.dataset.i18n;
-      const text = t(key);
+      const text = resolveI18nText(key);
+      if (text == null) return;
+
       if (el.dataset.i18nTarget === "html") {
         el.innerHTML = text;
       } else {
@@ -616,7 +629,9 @@
     document.querySelectorAll("[data-i18n-attr]").forEach((el) => {
       el.dataset.i18nAttr.split(";").forEach((pair) => {
         const [attr, key] = pair.split(":").map((s) => s.trim());
-        if (attr && key) el.setAttribute(attr, t(key));
+        if (!attr || !key) return;
+        const text = resolveI18nText(key);
+        if (text != null) el.setAttribute(attr, text);
       });
     });
 
@@ -626,9 +641,13 @@
     applyLangOptions();
   }
 
+  function localeUrl(code) {
+    return `locales/${code}.json?v=${LOCALE_VERSION}`;
+  }
+
   async function fetchKoDict() {
     if (koDictCache) return koDictCache;
-    const koRes = await fetch("locales/ko.json");
+    const koRes = await fetch(localeUrl("ko"));
     if (!koRes.ok) throw new Error("Locale not found: ko");
     koDictCache = await koRes.json();
     return koDictCache;
@@ -643,7 +662,7 @@
     } else if (mergedDictCache.has(code)) {
       dict = mergedDictCache.get(code);
     } else {
-      const res = await fetch(`locales/${code}.json`);
+      const res = await fetch(localeUrl(code));
       if (!res.ok) throw new Error(`Locale not found: ${code}`);
       const targetDict = await res.json();
       dict = deepMergeFallback(koDict, targetDict);
@@ -702,6 +721,9 @@
   window.i18n = {
     ready,
     get lang() {
+      return lang;
+    },
+    getLang() {
       return lang;
     },
     t,
