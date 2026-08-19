@@ -18,6 +18,56 @@
     gap: 0;
     overflow: visible;
   }
+  // Hero Section 커스텀 시 사용
+  &__custom {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 1px solid red;
+    &--img {
+      position: relative;
+      justify-self: flex-end;
+      align-self: stretch;
+      min-height: 0;
+      overflow: hidden;
+      aspect-ratio: auto;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &--content {
+      position: relative;
+      min-width: 0;
+      height: 100%;
+      max-width: 100%;
+      vertical-align: top;
+      .letslock-logo {
+        width: 280px;
+      }
+      &--text {
+        span {
+          display: block;
+        }
+        &--1 {
+        }
+        &--1 {
+        }
+        &--1 {
+        }
+        &--1 {
+        }
+      }
+      &--button {
+        display: flex;
+        justify-content: flex-end;
+        align-self: flex-end;
+      }
+    }
+  }
 }
 
 .hero-default {
@@ -295,7 +345,12 @@
   max-width: 100%;
   overflow: visible;
   opacity: 0;
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 42%,
+    transparent 72%
+  );
   mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
   -webkit-mask-size: 320% 200%;
   mask-size: 320% 200%;

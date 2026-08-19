@@ -673,7 +673,6 @@ section {
     display: none;
   }
 }
-
 body:has(.hero--anniversary) #particle-canvas {
   visibility: hidden;
 }
@@ -1412,6 +1411,7 @@ body:has(.dday-bar[hidden]) {
     white-space: nowrap;
     line-height: 1.35;
   }
+  /* Neon 7-segment countdown */
   .dday-flip {
     --dday-neon: #7df9ff;
     --dday-neon-core: #e8feff;
@@ -2345,6 +2345,181 @@ body:has(.dday-bar[hidden]) {
   padding: 0;
   gap: 0;
   overflow: visible;
+}
+.hero__custom {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.hero__custom--img {
+  position: relative;
+  justify-self: flex-end;
+  align-self: stretch;
+  min-height: 0;
+  overflow: hidden;
+  aspect-ratio: auto;
+}
+.hero__custom--img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero__custom-stars {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero__custom--content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+  min-width: 0;
+  height: 100%;
+  max-width: 100%;
+  padding-top: 0.15rem;
+  padding-right: 0.25rem;
+  box-sizing: border-box;
+}
+.hero__custom-label {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--crimson);
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(255, 0, 60, 0.55);
+  background: rgba(255, 0, 60, 0.1);
+  box-shadow: 0 0 20px rgba(255, 0, 60, 0.12);
+}
+.hero__custom--content__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.hero__custom--content .letslock-logo {
+  display: block;
+  width: min(100%, 280px);
+  height: auto;
+}
+.hero__custom--content--text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.28rem;
+  width: 100%;
+}
+.hero__custom-text {
+  display: block;
+  font-family: var(--font-kr);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+.hero__custom-text--lead {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.hero__custom-text--artist {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+}
+.hero__custom-text--hook {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+.hero__custom-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.hero__custom-meta--date {
+  margin-top: 0.35rem;
+}
+.hero__custom-meta--location {
+  margin-top: 0.1rem;
+}
+.hero__custom-meta-icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+  opacity: 0.88;
+  filter: invert(1) brightness(0.82);
+}
+.hero__custom-venue-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.hero__custom-venue-link span {
+  border-bottom: 1px solid rgba(48, 213, 255, 0.28);
+}
+.hero__custom-venue-link:hover,
+.hero__custom-venue-link:focus-visible {
+  color: var(--text);
+}
+.hero__custom-venue-link:hover span,
+.hero__custom-venue-link:focus-visible span {
+  border-color: var(--cyan);
+}
+.hero__custom-venue-link:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: 2px;
+}
+.hero__custom--content--button {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 0.55rem;
+  padding-top: 0;
+}
+.hero__custom-ticket-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-kr);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--crimson);
+  white-space: nowrap;
+  padding: 0.72rem 1.55rem;
+  border: 1px solid rgba(255, 0, 60, 0.55);
+  background: rgba(255, 0, 60, 0.1);
+  text-decoration: none;
+  transition: color 0.25s, border-color 0.25s, background-color 0.25s, box-shadow 0.25s;
+}
+.hero__custom-ticket-btn:hover,
+.hero__custom-ticket-btn:focus-visible {
+  color: #fff;
+  border-color: var(--crimson);
+  background: rgba(255, 0, 60, 0.24);
+  box-shadow: 0 0 18px rgba(255, 0, 60, 0.22);
+}
+.hero__custom-ticket-btn:focus-visible {
+  outline: 1px solid var(--crimson);
+  outline-offset: 2px;
 }
 
 .hero-default {
@@ -5846,6 +6021,61 @@ body.board-overlay-open {
   .access-geometry {
     display: none;
   }
+
+  .hero:has(.hero__custom--content) {
+    text-align: left;
+    padding-inline:
+      max(1rem, env(safe-area-inset-left, 0px))
+      max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  .hero__custom--img {
+    width: 100%;
+    max-width: min(100%, 420px);
+    margin-inline: auto;
+    height: auto;
+    align-self: center;
+  }
+
+  .hero__custom--img img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero__custom--content {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-width: 0;
+    padding-right: 0;
+  }
+
+  .hero__custom--content .letslock-logo {
+    width: min(100%, 280px);
+  }
+
+  .hero__custom-text {
+    font-size: clamp(0.82rem, 2.6vw, 0.88rem);
+  }
+
+  .hero__custom-text--lead {
+    font-size: clamp(0.94rem, 3.4vw, 1rem);
+  }
+
+  .hero__custom-text--hook {
+    font-size: clamp(0.86rem, 2.8vw, 0.92rem);
+  }
+
+  .hero__custom-meta {
+    font-size: clamp(0.68rem, 2.2vw, 0.72rem);
+  }
+
+  .hero__custom-ticket-btn {
+    min-height: 2.75rem;
+    font-size: clamp(0.84rem, 2.8vw, 0.92rem);
+    padding: 0.72rem 1.35rem;
+  }
 }
 @media (max-width: 768px) {
   :root {
@@ -5873,6 +6103,71 @@ body.board-overlay-open {
   .hero:not(.hero--anniversary) {
     overflow-x: clip;
   }
+
+  .hero:has(.hero__custom--content) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: auto;
+    padding-block: 1rem max(1.25rem, env(safe-area-inset-bottom, 0px));
+    gap: 0.85rem;
+  }
+
+  .hero__custom--content {
+    display: contents;
+  }
+
+  .hero__custom--img {
+    order: 1;
+    width: 100%;
+    max-width: min(100%, 400px);
+    height: auto;
+    align-self: center;
+    overflow: visible;
+  }
+
+  .hero__custom--img img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center top;
+  }
+
+  .hero__custom--content--button {
+    order: 2;
+    justify-content: center;
+    margin-top: 0;
+    padding-block: 0.15rem 0.35rem;
+  }
+
+  .hero__custom--content--button .hero__custom-ticket-btn {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero__custom--content__logo {
+    order: 3;
+    gap: 0;
+  }
+
+  .hero__custom-label {
+    display: none;
+  }
+
+  .hero__custom--content--text {
+    order: 4;
+  }
+
+  .hero__custom--content .letslock-logo {
+    width: min(100%, 240px);
+  }
+
+  .hero__custom-ticket-btn {
+    min-height: 2.85rem;
+    padding-inline: 1.25rem;
+  }
+
   .hero-content {
     width: 100%;
     max-width: 100%;
