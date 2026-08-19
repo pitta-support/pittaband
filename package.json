@@ -6,6 +6,8 @@
   "scripts": {
     "build:css": "sass scss/style.scss styles.css --style=expanded",
     "watch:css": "sass scss/style.scss styles.css --watch --style=expanded",
+    "build:html": "node scripts/build-html.mjs",
+    "build": "npm run build:css && npm run build:html",
     "i18n:sync": "node scripts/i18n-sync.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

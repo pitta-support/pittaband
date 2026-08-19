@@ -1,0 +1,18 @@
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("sf-archive-dday-hide");
+          if (!stored) return;
+          var kst = new Date(Date.now() + 32400000);
+          var key =
+            kst.getUTCFullYear() +
+            "-" +
+            String(kst.getUTCMonth() + 1).padStart(2, "0") +
+            "-" +
+            String(kst.getUTCDate()).padStart(2, "0");
+          if (stored === key) {
+            document.documentElement.classList.add("is-dday-hidden");
+          }
+        } catch (_) {}
+      })();
+    </script>

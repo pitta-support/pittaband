@@ -668,6 +668,16 @@ section {
   pointer-events: none;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  #particle-canvas {
+    display: none;
+  }
+}
+
+body:has(.hero--anniversary) #particle-canvas {
+  visibility: hidden;
+}
+
 .scanlines {
   position: fixed;
   inset: 0;
@@ -705,6 +715,13 @@ section {
   }
 }
 /* ===== D-day Bar ===== */
+@font-face {
+  font-family: "DSEG7 Classic";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("https://cdn.jsdelivr.net/fontsource/fonts/dseg7-classic@5.3.0/latin-700-normal.woff2") format("woff2"), url("https://cdn.jsdelivr.net/fontsource/fonts/dseg7-classic@5.3.0/latin-700-normal.woff") format("woff");
+}
 html.is-dday-hidden,
 body.is-dday-hidden,
 body:has(.dday-bar[hidden]) {
@@ -717,6 +734,8 @@ body:has(.dday-bar[hidden]) {
   top: 0;
   left: 0;
   right: 0;
+  width: 100%;
+  max-width: 100%;
   z-index: 110;
   height: var(--dday-h);
   background: #0a0a0a;
@@ -725,6 +744,22 @@ body:has(.dday-bar[hidden]) {
   transition: height 0.25s var(--ease);
 }
 .dday-bar[hidden] {
+  display: none;
+}
+
+.dday-bar__main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dday-bar__footer {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 0.75rem;
+}
+
+.dday-link--footer {
   display: none;
 }
 
@@ -1243,74 +1278,216 @@ body:has(.dday-bar[hidden]) {
 }
 
 @media (max-width: 768px) {
+  .dday-bar {
+    overflow: visible;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding-block: 0.5rem 0.48rem;
+    padding-inline: 0;
+  }
   .dday-bar-inner {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    height: 100%;
+    padding-inline: max(1rem, env(safe-area-inset-left, 0px)) max(1rem, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 0.35rem;
-    padding: 0.45rem 0.75rem;
+    gap: 0.28rem;
+    box-sizing: border-box;
   }
-  .dday-slide {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "info countdown";
-    gap: 0.35rem 0.65rem;
-    align-items: center;
-  }
-  .dday-slide .dday-info {
-    grid-area: info;
-    gap: 0;
+  .dday-bar__main {
+    width: 100%;
     min-width: 0;
-    justify-self: start;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .dday-slide .dday-countdown {
-    grid-area: countdown;
-    justify-content: flex-end;
-    gap: 0.55rem;
+  .dday-bar__footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+  .dday-slider {
+    width: 100%;
+    min-width: 0;
+    flex: 0 0 auto;
+  }
+  .dday-slider__viewport {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .dday-slider__track {
+    display: flex;
     width: auto;
     min-width: 0;
-    margin-left: 0;
   }
-  .dday-slide .dday-link {
-    font-size: 0.72rem;
-    padding: 0.42rem 0.75rem;
-    max-width: none;
-    white-space: nowrap;
-    text-align: center;
+  .dday-slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+    flex: 0 0 var(--dday-slide-w, 100%);
+    width: var(--dday-slide-w, 100%);
+    min-width: var(--dday-slide-w, 100%);
+    max-width: var(--dday-slide-w, 100%);
+    box-sizing: border-box;
+  }
+  .dday-slide .dday-info {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: min(46vw, 120px);
+    gap: 0;
+  }
+  .dday-slide .dday-date {
+    display: none !important;
+  }
+  .dday-slide .dday-countdown {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    min-width: 0;
+    margin-left: auto;
+    gap: 0;
+  }
+  .dday-slide .dday-flip {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    width: auto;
+    max-width: 100%;
+    overflow: visible;
+  }
+  .dday-slide .dday-link--slide {
+    display: none !important;
+  }
+  .dday-link--footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    padding: 0.3rem 0.55rem;
+    flex-shrink: 0;
+  }
+  .dday-link--footer[hidden] {
+    display: none !important;
+  }
+  .dday-slide.is-banner-mode {
+    justify-content: flex-end;
+  }
+  .dday-slide.is-banner-mode .dday-info {
+    display: none;
   }
   .dday-slide.is-banner-mode .dday-countdown {
+    width: 100%;
     justify-content: flex-end;
   }
   .dday-meta {
-    align-self: start;
+    position: static;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: none;
   }
   .dday-tag,
   .dday-event {
     display: none;
   }
   .dday-logo {
-    max-height: 32px;
-    max-width: 108px;
+    max-height: 28px;
+    max-width: 100%;
   }
   .dday-hide__label {
     font-size: 0.5rem;
-    white-space: normal;
+    white-space: nowrap;
     line-height: 1.35;
   }
+  .dday-flip {
+    --dday-neon: #7df9ff;
+    --dday-neon-core: #e8feff;
+    gap: 0.14em;
+    font-family: "DSEG7 Classic", "Share Tech Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+  }
   .dday-flip__digit {
-    width: 1.45rem;
-    height: 1.8rem;
+    width: auto;
+    min-width: 0;
+    flex: 0 0 auto;
+    height: auto;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: visible;
+  }
+  .dday-flip__digit::after {
+    display: none;
+  }
+  .dday-flip__digit.is-flip .dday-flip__digit-value {
+    animation: dday-neon-tick 0.22s ease;
   }
   .dday-flip__digit-top,
-  .dday-flip__digit-bottom,
+  .dday-flip__digit-bottom {
+    display: none;
+  }
   .dday-flip__digit-value {
-    font-size: 1.12rem;
+    position: static;
+    display: inline-block;
+    min-width: 0.72em;
+    padding: 0 0.04em;
+    text-align: center;
+    font-family: inherit;
+    font-size: clamp(0.78rem, 3.6vw, 0.96rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--dday-neon-core);
+    text-shadow: 0 0 2px #fff, 0 0 5px var(--dday-neon), 0 0 10px rgba(48, 213, 255, 0.88);
+  }
+  .dday-flip__group {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.07em;
+  }
+  .dday-flip__group--days {
+    margin-right: 0.28em;
   }
   .dday-flip__sep {
-    height: 1.35rem;
-    margin: 0 0.12rem;
+    display: none;
   }
-  .dday-flip {
-    gap: 0.24rem;
+  .dday-flip__colon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 0 0.06em;
+    font-family: inherit;
+    font-size: clamp(0.78rem, 3.6vw, 0.96rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--dday-neon-core);
+    text-shadow: 0 0 2px #fff, 0 0 5px var(--dday-neon), 0 0 10px rgba(48, 213, 255, 0.88);
+  }
+  .dday-flip__colon span {
+    display: none;
+  }
+  .dday-flip__colon::before {
+    content: ":";
+  }
+  .dday-flip--past .dday-flip__digit-value {
+    opacity: 0.45;
+    text-shadow: none;
+    color: rgba(255, 255, 255, 0.45);
   }
   .dday-banner__shell {
     gap: 0.55rem;
@@ -1330,7 +1507,17 @@ body:has(.dday-bar[hidden]) {
     padding: 0.16rem 0.4rem;
   }
   .dday-bar.is-slider-mode .dday-bar-inner {
-    padding-bottom: 0.35rem;
+    gap: 0.2rem;
+  }
+}
+@keyframes dday-neon-tick {
+  0% {
+    opacity: 0.55;
+    filter: brightness(1.35);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -5663,7 +5850,7 @@ body.board-overlay-open {
 @media (max-width: 768px) {
   :root {
     --header-h: 64px;
-    --dday-h: 82px;
+    --dday-h: 86px;
     --anniversary-visual-size: clamp(200px, 44vw, 280px);
   }
   main:not(.site-main) {
@@ -5783,71 +5970,6 @@ body.board-overlay-open {
   }
   .dday-event {
     display: none;
-  }
-  .dday-bar-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-rows: auto auto;
-    grid-template-areas: "info countdown" "hide link";
-    gap: 0.35rem 0.65rem;
-    padding: 0.45rem 0.75rem;
-    align-items: center;
-    min-width: 0;
-  }
-  .dday-info {
-    grid-area: info;
-    gap: 0;
-    min-width: 0;
-    justify-self: start;
-  }
-  .dday-countdown {
-    grid-area: countdown;
-    justify-content: flex-end;
-    width: auto;
-    min-width: 0;
-  }
-  .dday-meta {
-    display: contents;
-  }
-  .dday-hide {
-    grid-area: hide;
-    justify-self: start;
-    min-width: 0;
-    flex-shrink: 1;
-  }
-  .dday-link {
-    grid-area: link;
-    justify-self: end;
-    font-size: 0.62rem;
-    padding: 0.28rem 0.45rem;
-    max-width: 100%;
-    white-space: normal;
-    text-align: center;
-  }
-  .dday-logo {
-    max-height: 32px;
-    max-width: 108px;
-  }
-  .dday-hide__label {
-    font-size: 0.5rem;
-    white-space: normal;
-    line-height: 1.35;
-  }
-  .dday-flip__digit {
-    width: 1.45rem;
-    height: 1.8rem;
-  }
-  .dday-flip__digit-top,
-  .dday-flip__digit-bottom,
-  .dday-flip__digit-value {
-    font-size: 1.12rem;
-  }
-  .dday-flip__sep {
-    height: 1.35rem;
-    margin: 0 0.12rem;
-  }
-  .dday-flip {
-    gap: 0.24rem;
   }
   .nav-desktop,
   .header-meta .clock {

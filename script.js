@@ -3,12 +3,36 @@
 
   /* ===== Sparkle field ===== */
   const canvas = document.getElementById("particle-canvas");
+  if (canvas) {
   const ctx = canvas.getContext("2d");
   let particles = [];
   let shootingStars = [];
   let w, h;
   let mouse = { x: -1000, y: -1000 };
   let animationId;
+  let particlesRunning = false;
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function particlesShouldRun() {
+    if (reducedMotionQuery.matches || document.hidden) return false;
+    if (document.querySelector(".hero--anniversary")) return false;
+    return true;
+  }
+
+  function stopParticles() {
+    particlesRunning = false;
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+    ctx.clearRect(0, 0, w || 0, h || 0);
+  }
+
+  function startParticles() {
+    if (particlesRunning || !particlesShouldRun()) return;
+    particlesRunning = true;
+    drawParticles();
+  }
 
   const COLORS = {
     cyan: { h: 193, s: 100, l: 65 },
@@ -34,7 +58,10 @@
   }
 
   function initParticles() {
-    const count = Math.min(Math.floor((w * h) / 7000), 260);
+    const isMobile = w <= 768;
+    const density = isMobile ? 14000 : 10000;
+    const cap = isMobile ? 70 : 120;
+    const count = Math.min(Math.floor((w * h) / density), cap);
     particles = Array.from({ length: count }, () => {
       const typeRoll = Math.random();
       const type = typeRoll > 0.88 ? "orb" : typeRoll > 0.55 ? "star" : "dot";
@@ -85,8 +112,6 @@
     ctx.rotate(rot);
     ctx.strokeStyle = hsla(color, alpha);
     ctx.lineWidth = 1;
-    ctx.shadowBlur = size * 4;
-    ctx.shadowColor = hsla(color, alpha * 0.9);
     ctx.beginPath();
     ctx.moveTo(-size, 0);
     ctx.lineTo(size, 0);
@@ -108,6 +133,11 @@
   }
 
   function drawParticles() {
+    if (!particlesShouldRun()) {
+      stopParticles();
+      return;
+    }
+
     ctx.clearRect(0, 0, w, h);
 
     /* mouse glow */
@@ -157,24 +187,7 @@
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = hsla(p.color, alpha);
-        ctx.shadowBlur = 6;
-        ctx.shadowColor = hsla(p.color, alpha * 0.8);
         ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-
-      for (let j = i + 1; j < particles.length; j++) {
-        const q = particles[j];
-        const d = Math.hypot(p.x - q.x, p.y - q.y);
-        if (d < 110) {
-          const lineAlpha = 0.14 * (1 - d / 110);
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(48, 213, 255, ${lineAlpha})`;
-          ctx.lineWidth = 0.6;
-          ctx.stroke();
-        }
       }
     });
 
@@ -196,13 +209,10 @@
       grad.addColorStop(1, hsla(s.color, 0));
       ctx.strokeStyle = grad;
       ctx.lineWidth = 1.5;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = hsla(s.color, s.alpha * 0.6);
       ctx.beginPath();
       ctx.moveTo(s.x, s.y);
       ctx.lineTo(s.x - s.vx * s.len * 0.15, s.y - s.vy * s.len * 0.15);
       ctx.stroke();
-      ctx.shadowBlur = 0;
       return s.x < w + 100 && s.y < h + 100;
     });
 
@@ -216,7 +226,24 @@
   });
 
   resize();
-  drawParticles();
+  if (!reducedMotionQuery.matches) {
+    startParticles();
+  }
+
+  reducedMotionQuery.addEventListener("change", () => {
+    if (reducedMotionQuery.matches) stopParticles();
+    else startParticles();
+  });
+
+  const heroSection = document.querySelector(".hero");
+  if (heroSection) {
+    const heroObserver = new MutationObserver(() => {
+      if (particlesShouldRun()) startParticles();
+      else stopParticles();
+    });
+    heroObserver.observe(heroSection, { attributes: true, attributeFilter: ["class"] });
+  }
+  }
 
   /* ===== Overlay system (Modal / BottomSheet) ===== */
   const navLinks = document.querySelectorAll(
@@ -688,7 +715,8 @@
   const scanBtn = document.querySelector(".terminal-btn");
   const terminalInput = document.querySelector(".terminal-input");
 
-  scanBtn.addEventListener("click", () => {
+  if (scanBtn && terminalInput) {
+    scanBtn.addEventListener("click", () => {
     const scanning = window.i18n.t("hero.scanning");
     const scan = window.i18n.t("hero.scan");
     scanBtn.textContent = scanning;
@@ -703,14 +731,17 @@
         }, 600);
       }
     }, 1200);
-  });
+    });
+  }
 
   /* ===== Cleanup on page hide ===== */
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      cancelAnimationFrame(animationId);
-    } else {
-      drawParticles();
-    }
-  });
+  if (canvas) {
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopParticles();
+      } else {
+        startParticles();
+      }
+    });
+  }
 })();

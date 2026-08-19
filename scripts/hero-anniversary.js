@@ -1222,9 +1222,24 @@
 
 
 
+  function refreshEventI18n() {
+    if (!activeEvent) return;
+
+    if (labelEl) labelEl.textContent = t("hero.anniversary.label");
+    renderGreeting(activeEvent.years);
+
+    const ctaTarget = ctaTextEl || ctaEl;
+    if (ctaTarget) ctaTarget.textContent = t("hero.anniversary.cta");
+
+    applyCtaLink(activeEvent);
+    syncCtaAlignment();
+  }
+
+
+
   document.addEventListener("i18n:change", () => {
 
-    if (activeEvent) renderEvent(activeEvent);
+    if (activeEvent) refreshEventI18n();
 
   });
 

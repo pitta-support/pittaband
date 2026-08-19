@@ -320,11 +320,22 @@
     });
   }
 
+  function parseDateTime(value) {
+    const time = new Date(value).getTime();
+    return Number.isFinite(time) ? time : 0;
+  }
+
+  function sortFestivals(items) {
+    return [...items].sort(
+      (a, b) => parseDateTime(b.dateTime) - parseDateTime(a.dateTime)
+    );
+  }
+
   async function loadData() {
     const res = await fetch("data/festivals.json");
     if (!res.ok) throw new Error("Festival data not found");
     const data = await res.json();
-    festivals = data.festivals || [];
+    festivals = sortFestivals(data.festivals || []);
   }
 
   async function init() {

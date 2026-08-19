@@ -1,0 +1,59 @@
+    <div class="dday-bar" id="dday-bar">
+      <div class="dday-bar-inner">
+        <div class="dday-bar__main">
+          <div class="dday-slider" id="dday-slider">
+            <div class="dday-slider__viewport">
+              <div
+                class="dday-slider__track"
+                id="dday-slider-track"
+                aria-live="polite"
+              ></div>
+            </div>
+            <div class="dday-slider__nav" id="dday-slider-nav" hidden>
+              <button
+                type="button"
+                class="dday-slider__btn dday-slider__btn--prev"
+                id="dday-slider-prev"
+                data-i18n-attr="aria-label:dday.sliderPrev"
+                aria-label="이전 D-day"
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+              <div class="dday-slider__dots" id="dday-slider-dots"></div>
+              <button
+                type="button"
+                class="dday-slider__btn dday-slider__btn--next"
+                id="dday-slider-next"
+                data-i18n-attr="aria-label:dday.sliderNext"
+                aria-label="다음 D-day"
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="dday-bar__footer">
+          <div class="dday-meta">
+            <label class="dday-hide">
+              <input
+                type="checkbox"
+                class="dday-hide__input"
+                id="dday-hide-today"
+              />
+              <span class="dday-hide__label" data-i18n="dday.hideToday"
+                >오늘 하루 보지 않기</span
+              >
+            </label>
+          </div>
+          <a
+            class="dday-link dday-link--footer"
+            id="dday-bar-link"
+            href="#"
+            hidden
+          ></a>
+        </div>
+      </div>
+      <div class="dday-progress" aria-hidden="true">
+        <span class="dday-progress-fill" id="dday-progress"></span>
+      </div>
+    </div>

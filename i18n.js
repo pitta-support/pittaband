@@ -13,6 +13,13 @@
 
   let dict = null;
   let lang = DEFAULT_LANG;
+  let koDictCache = null;
+  const mergedDictCache = new Map();
+
+  function cloneData(value) {
+    if (typeof structuredClone === "function") return structuredClone(value);
+    return JSON.parse(JSON.stringify(value));
+  }
 
   function getNested(obj, path) {
     return path.split(".").reduce((acc, key) => acc?.[key], obj);
@@ -29,7 +36,7 @@
       return JSON.parse(JSON.stringify(override));
     }
 
-    const result = JSON.parse(JSON.stringify(base));
+    const result = cloneData(base);
     for (const key of Object.keys(override)) {
       const baseVal = base[key];
       const overrideVal = override[key];
@@ -619,20 +626,28 @@
     applyLangOptions();
   }
 
-  async function loadLocale(nextLang) {
-    const code = SUPPORTED.includes(nextLang) ? nextLang : DEFAULT_LANG;
-
+  async function fetchKoDict() {
+    if (koDictCache) return koDictCache;
     const koRes = await fetch("locales/ko.json");
     if (!koRes.ok) throw new Error("Locale not found: ko");
-    const koDict = await koRes.json();
+    koDictCache = await koRes.json();
+    return koDictCache;
+  }
+
+  async function loadLocale(nextLang) {
+    const code = SUPPORTED.includes(nextLang) ? nextLang : DEFAULT_LANG;
+    const koDict = await fetchKoDict();
 
     if (code === DEFAULT_LANG) {
       dict = koDict;
+    } else if (mergedDictCache.has(code)) {
+      dict = mergedDictCache.get(code);
     } else {
       const res = await fetch(`locales/${code}.json`);
       if (!res.ok) throw new Error(`Locale not found: ${code}`);
       const targetDict = await res.json();
       dict = deepMergeFallback(koDict, targetDict);
+      mergedDictCache.set(code, dict);
     }
 
     lang = code;

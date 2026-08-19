@@ -7,8 +7,10 @@
   const ddaySliderDotsEl = document.getElementById("dday-slider-dots");
   const ddaySliderPrevEl = document.getElementById("dday-slider-prev");
   const ddaySliderNextEl = document.getElementById("dday-slider-next");
+  const ddaySliderViewportEl = document.querySelector(".dday-slider__viewport");
   const ddayProgressEl = document.getElementById("dday-progress");
   const ddayHideCheckbox = document.getElementById("dday-hide-today");
+  const ddayBarLinkEl = document.getElementById("dday-bar-link");
   const menuToggle = document.getElementById("menu-toggle");
   const navMobile = document.getElementById("nav-mobile");
 
@@ -400,8 +402,47 @@
     });
   }
 
-  function syncSlideLink(slide, state) {
-    const linkEl = slide.querySelector(".dday-link");
+  function isMobileDdayLayout() {
+    return window.matchMedia("(max-width: 768px)").matches;
+  }
+
+  function getDdaySlideWidth() {
+    if (!ddaySliderViewportEl) return 0;
+    return ddaySliderViewportEl.clientWidth;
+  }
+
+  function syncMobileSlideWidths() {
+    if (!ddaySliderTrackEl || !isMobileDdayLayout()) return;
+
+    const slideWidth = getDdaySlideWidth();
+    if (!slideWidth) return;
+
+    ddaySliderTrackEl.style.setProperty("--dday-slide-w", `${slideWidth}px`);
+    ddaySliderTrackEl.querySelectorAll(".dday-slide").forEach((slide) => {
+      slide.style.flexBasis = `${slideWidth}px`;
+      slide.style.width = `${slideWidth}px`;
+      slide.style.minWidth = `${slideWidth}px`;
+    });
+  }
+
+  function applySlideTransform(animate = true) {
+    if (!ddaySliderTrackEl) return;
+
+    ddaySliderTrackEl.classList.toggle("is-animating", animate);
+
+    if (isMobileDdayLayout()) {
+      syncMobileSlideWidths();
+      const slideWidth = getDdaySlideWidth();
+      ddaySliderTrackEl.style.transform = slideWidth
+        ? `translate3d(-${currentSlideIndex * slideWidth}px, 0, 0)`
+        : "";
+      return;
+    }
+
+    ddaySliderTrackEl.style.transform = `translate3d(-${currentSlideIndex * 100}%, 0, 0)`;
+  }
+
+  function applyLinkState(linkEl, state) {
     if (!linkEl) return;
 
     const { campaign, showLink } = state;
@@ -419,6 +460,14 @@
     }
 
     linkEl.textContent = t(link.labelKey, link.labelFallback);
+  }
+
+  function syncSlideLink(slide, state) {
+    applyLinkState(slide.querySelector(".dday-link--slide"), state);
+  }
+
+  function syncBarFooterLink(state) {
+    applyLinkState(ddayBarLinkEl, state);
   }
 
   function renderSlideBanner(slide, state) {
@@ -507,7 +556,7 @@
             <span class="dday-banner__badge" hidden aria-hidden="true"></span>
           </div>
         </div>
-        <a class="dday-link" href="#" hidden></a>
+        <a class="dday-link dday-link--slide" href="#" hidden></a>
       </div>
     `;
 
@@ -543,14 +592,14 @@
 
       if (currentSlideIndex >= states.length) currentSlideIndex = 0;
       setSlideIndex(currentSlideIndex, false);
-    } else {
-      ddaySliderTrackEl.querySelectorAll(".dday-slide").forEach((slide, index) => {
-        const state = states[index];
-        if (state) setSlideMode(slide, state);
-      });
     }
 
     updateSliderNav(states.length);
+    syncBarFooterLink(states[currentSlideIndex] || states[0]);
+    requestAnimationFrame(() => {
+      syncMobileSlideWidths();
+      applySlideTransform(false);
+    });
   }
 
   function refreshSliderDotLabels() {
@@ -573,6 +622,7 @@
     });
 
     refreshSliderDotLabels();
+    syncBarFooterLink(activeCampaignStates[currentSlideIndex]);
   }
 
   function updateSliderNav(count) {
@@ -610,14 +660,12 @@
 
     currentSlideIndex = ((index % activeCampaignStates.length) + activeCampaignStates.length) % activeCampaignStates.length;
 
-    if (ddaySliderTrackEl) {
-      ddaySliderTrackEl.classList.toggle("is-animating", animate);
-      ddaySliderTrackEl.style.transform = `translate3d(-${currentSlideIndex * 100}%, 0, 0)`;
-    }
+    applySlideTransform(animate);
 
     updateSliderNav(activeCampaignStates.length);
     updateCurrentSlideCountdown();
     updateCurrentSlideProgress();
+    syncBarFooterLink(activeCampaignStates[currentSlideIndex]);
   }
 
   function stopSliderAutoplay() {
@@ -747,18 +795,32 @@
     }
   }
 
-  function updateDday() {
+  function syncDdayAutoplay() {
+    if (activeCampaignStates.length > 1 && !sliderTimer) {
+      startSliderAutoplay();
+    }
+    if (activeCampaignStates.length <= 1) {
+      stopSliderAutoplay();
+    }
+  }
+
+  function refreshDdayStructure() {
     const nextStates = getActiveCampaignStates();
 
     if (!nextStates.length) {
       activeCampaignStates = [];
+      slideSignature = "";
       setDdayBarGone(true);
-      return;
+      stopSliderAutoplay();
+      return false;
     }
 
     setDdayBarGone(false);
 
-    if (isDdayHiddenToday()) return;
+    if (isDdayHiddenToday()) {
+      activeCampaignStates = nextStates;
+      return false;
+    }
 
     if (ddayBarEl && ddayBarEl.hidden) {
       ddayBarEl.hidden = false;
@@ -766,18 +828,30 @@
       document.body.classList.remove("is-dday-hidden");
     }
 
+    const nextSignature = buildSlideSignature(nextStates);
+    const structureChanged = nextSignature !== slideSignature;
+
     activeCampaignStates = nextStates;
-    renderSlides(activeCampaignStates);
 
-    if (activeCampaignStates.length > 1 && !sliderTimer) {
-      startSliderAutoplay();
+    if (structureChanged) {
+      renderSlides(activeCampaignStates);
+      syncDdayAutoplay();
     }
 
-    if (activeCampaignStates.length <= 1) {
-      stopSliderAutoplay();
-    }
+    return true;
+  }
 
+  function tickDdayCountdown() {
+    if (document.hidden) return;
+    if (!activeCampaignStates.length || isDdayHiddenToday()) return;
+    if (ddayBarEl?.hidden) return;
     updateAllCountdowns();
+  }
+
+  function updateDday() {
+    if (refreshDdayStructure()) {
+      tickDdayCountdown();
+    }
   }
 
   function syncNavActivePage() {
@@ -826,6 +900,11 @@
       if (!ddayBarEl.contains(event.relatedTarget)) startSliderAutoplay();
     });
   }
+
+  window.addEventListener("resize", () => {
+    syncMobileSlideWidths();
+    applySlideTransform(false);
+  });
 
   if (ddayHideCheckbox) {
     ddayHideCheckbox.addEventListener("change", () => {
@@ -889,7 +968,10 @@
 
     initDdayVisibility();
     updateDday();
-    setInterval(updateDday, 1000);
+    setInterval(() => {
+      refreshDdayStructure();
+      tickDdayCountdown();
+    }, 1000);
     syncNavActivePage();
   }
 
