@@ -212,6 +212,29 @@
     document.documentElement.classList.toggle("is-dday-hidden", hidden);
     document.body.classList.toggle("is-dday-hidden", hidden);
     if (ddayBarEl) ddayBarEl.hidden = hidden;
+
+    if (hidden) {
+      document.documentElement.style.setProperty("--dday-h", "0px");
+      return;
+    }
+
+    syncDdayBarHeight();
+  }
+
+  function syncDdayBarHeight() {
+    if (!ddayBarEl || ddayBarEl.hidden || isDdayHiddenToday()) {
+      document.documentElement.style.removeProperty("--dday-h");
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      if (!ddayBarEl || ddayBarEl.hidden || isDdayHiddenToday()) return;
+
+      const height = Math.ceil(ddayBarEl.getBoundingClientRect().height);
+      if (height > 0) {
+        document.documentElement.style.setProperty("--dday-h", `${height}px`);
+      }
+    });
   }
 
   function setDdayBarGone(gone) {
@@ -224,9 +247,11 @@
       stopSliderAutoplay();
       document.documentElement.classList.add("is-dday-hidden");
       document.body.classList.add("is-dday-hidden");
+      document.documentElement.style.setProperty("--dday-h", "0px");
     } else if (!isDdayHiddenToday()) {
       document.documentElement.classList.remove("is-dday-hidden");
       document.body.classList.remove("is-dday-hidden");
+      syncDdayBarHeight();
     }
   }
 
@@ -599,6 +624,7 @@
     requestAnimationFrame(() => {
       syncMobileSlideWidths();
       applySlideTransform(false);
+      syncDdayBarHeight();
     });
   }
 
@@ -792,6 +818,8 @@
     if (isDdayHiddenToday()) {
       setDdayHidden(true);
       if (ddayHideCheckbox) ddayHideCheckbox.checked = true;
+    } else if (ddayHideCheckbox) {
+      ddayHideCheckbox.checked = false;
     }
   }
 
@@ -819,6 +847,8 @@
 
     if (isDdayHiddenToday()) {
       activeCampaignStates = nextStates;
+      if (ddayHideCheckbox) ddayHideCheckbox.checked = true;
+      setDdayHidden(true);
       return false;
     }
 
@@ -904,6 +934,7 @@
   window.addEventListener("resize", () => {
     syncMobileSlideWidths();
     applySlideTransform(false);
+    syncDdayBarHeight();
   });
 
   if (ddayHideCheckbox) {
@@ -926,6 +957,7 @@
 
       setDdayHidden(false);
       updateDday();
+      syncDdayBarHeight();
       startSliderAutoplay();
     });
   }
@@ -952,6 +984,7 @@
     refreshDdayI18n();
     syncNavActivePage();
     syncMenuToggleLabel();
+    syncDdayBarHeight();
   }
 
   document.addEventListener("i18n:ready", onLocaleApplied);
@@ -968,6 +1001,7 @@
 
     initDdayVisibility();
     updateDday();
+    syncDdayBarHeight();
     setInterval(() => {
       refreshDdayStructure();
       tickDdayCountdown();

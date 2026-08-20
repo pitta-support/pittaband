@@ -19,6 +19,18 @@ body:has(.dday-bar[hidden]) {
   --site-top-h: var(--header-h);
 }
 
+html.is-dday-hidden .dday-bar,
+body.is-dday-hidden .dday-bar,
+.dday-bar[hidden] {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+  pointer-events: none;
+}
+
 .dday-bar {
   position: fixed;
   top: 0;
@@ -47,7 +59,9 @@ body:has(.dday-bar[hidden]) {
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  flex-wrap: nowrap;
   gap: 0.75rem;
+  min-width: 0;
 }
 
 .dday-link--footer {
@@ -565,7 +579,8 @@ body:has(.dday-bar[hidden]) {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  flex-shrink: 0;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .dday-banner__badge {
@@ -644,11 +659,17 @@ body:has(.dday-bar[hidden]) {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --dday-h: 118px;
+  }
+
   .dday-bar {
     overflow: visible;
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
+    height: auto;
+    min-height: var(--dday-h);
     padding-block: 0.5rem 0.48rem;
     padding-inline: 0;
   }
@@ -781,9 +802,14 @@ body:has(.dday-bar[hidden]) {
 
   .dday-meta {
     position: static;
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     min-width: 0;
     max-width: none;
+  }
+
+  .dday-hide {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .dday-tag,

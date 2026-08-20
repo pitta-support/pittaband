@@ -60,25 +60,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
     />
-    <link rel="stylesheet" href="styles.css?v=161" />
-    <script>
-      (function () {
-        try {
-          var stored = localStorage.getItem("sf-archive-dday-hide");
-          if (!stored) return;
-          var kst = new Date(Date.now() + 32400000);
-          var key =
-            kst.getUTCFullYear() +
-            "-" +
-            String(kst.getUTCMonth() + 1).padStart(2, "0") +
-            "-" +
-            String(kst.getUTCDate()).padStart(2, "0");
-          if (stored === key) {
-            document.documentElement.classList.add("is-dday-hidden");
-          }
-        } catch (_) {}
-      })();
-    </script>
+    <link rel="stylesheet" href="styles.css?v=167" />
+    <script src="scripts/dday-hide-boot.js"></script>
   </head>
   <body data-page="concert">
     <a
@@ -502,7 +485,7 @@
 
     <script src="i18n.js?v=6" defer></script>
     <script src="scripts/dday-config.js" defer></script>
-    <script src="scripts/site-core.js?v=11" defer></script>
+    <script src="scripts/site-core.js?v=12" defer></script>
     <script src="scripts/board-config.js" defer></script>
     <script src="scripts/board-modal.js?v=1" defer></script>
     <script src="scripts/concert-page.js?v=24" defer></script>
