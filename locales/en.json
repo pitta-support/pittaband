@@ -260,7 +260,18 @@
       "titleTrack": "Title track",
       "backToAlbum": "Back to album",
       "crumbSong": "Song",
-      "zoomCover": "Zoom album cover"
+      "zoomCover": "Zoom album cover",
+      "chartMelon": "Melon Chart",
+      "chartHanteo": "Hanteo Chart",
+      "chartOpenMelon": "Open Melon realtime chart",
+      "chartOpenHanteo": "Open Hanteo daily album chart",
+      "chartOpenMelonAlbum": "View album on Melon",
+      "chartFirstDay": "First-day sales",
+      "chartFirstWeek": "First-week sales",
+      "chartPeak": "Peak rank",
+      "chartCopies": "{n} copies",
+      "chartRank": "#{n}",
+      "sourceHanteo": "Source: Hanteo Chart"
     },
     "concert": {
       "title": "Concert",

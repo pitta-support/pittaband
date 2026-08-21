@@ -15,6 +15,13 @@
   const coverLightbox = document.getElementById("album-cover-lightbox");
   const coverLightboxImg = document.getElementById("album-cover-lightbox-img");
   const coverLightboxPanel = coverLightbox?.querySelector(".album-cover-lightbox__dialog");
+  const chartPopup = document.getElementById("album-chart-popup");
+  const chartPopupPanel = chartPopup?.querySelector(".album-chart-popup__dialog");
+  const chartPopupTitleEl = document.getElementById("album-chart-popup-title");
+  const chartPopupBodyEl = document.getElementById("album-chart-popup-body");
+
+  const MELON_CHART_URL = "https://www.melon.com/chart/index.htm";
+  const CHART_POPUP_FEATURES = "popup=yes,width=430,height=820,scrollbars=yes,resizable=yes";
 
   const TAB_KEYS = ["album", "single", "ost"];
   const TITLE_KEYS = {
@@ -29,6 +36,8 @@
   let openItemId = null;
   let lastFocusedEl = null;
   let coverLightboxLastFocus = null;
+  let chartPopupLastFocus = null;
+  let chartPopupSource = null;
 
   function t(key) {
     return window.i18n?.t(key) ?? key;
@@ -742,6 +751,238 @@
     return `<span class="album-detail__track-links">${icons.join("")}</span>`;
   }
 
+  function hanteoChartUrl() {
+    const loc = getLang() === "ko" ? "ko" : "en";
+    return `https://www.hanteochart.com/${loc}/chart/album/daily`;
+  }
+
+  function melonAlbumUrl(albumId) {
+    if (!albumId) return "";
+    return `https://www.melon.com/album/detail.htm?albumId=${encodeURIComponent(albumId)}`;
+  }
+
+  function getItemCharts(item, { albumId = null } = {}) {
+    const parent = albumId ? findItem("album", albumId) : null;
+    const own = item?.charts && typeof item.charts === "object" ? item.charts : {};
+    const inherited =
+      parent?.charts && typeof parent.charts === "object" ? parent.charts : {};
+    return {
+      melon: { ...(inherited.melon || {}), ...(own.melon || {}) },
+      hanteo: { ...(inherited.hanteo || {}), ...(own.hanteo || {}) },
+    };
+  }
+
+  function getOpenCharts() {
+    const parsed = parseHash();
+    if (!parsed) return { melon: {}, hanteo: {} };
+
+    if (parsed.trackId) {
+      const track = findAlbumTrack(parsed.id, parsed.trackId);
+      return getItemCharts(track, { albumId: parsed.id });
+    }
+
+    const item = findItem(parsed.category, parsed.id);
+    return getItemCharts(item);
+  }
+
+  function formatChartNumber(value) {
+    const num =
+      typeof value === "number" ? value : Number(String(value).replace(/[^\d.-]/g, ""));
+    if (!Number.isFinite(num)) return String(value ?? "");
+    const lang = getLang();
+    try {
+      return new Intl.NumberFormat(lang === "ko" ? "ko-KR" : lang).format(num);
+    } catch {
+      return String(num);
+    }
+  }
+
+  function formatChartCopies(value) {
+    return t("pages.album.chartCopies", { n: formatChartNumber(value) });
+  }
+
+  function formatChartRank(value) {
+    return t("pages.album.chartRank", { n: formatChartNumber(value) });
+  }
+
+  function renderChartStatRow(label, value) {
+    if (!value) return "";
+    return `<div class="album-chart-popup__row"><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(
+      value
+    )}</dd></div>`;
+  }
+
+  function renderChartButtons() {
+    return `
+      <div class="album-detail__charts">
+        <button
+          type="button"
+          class="album-detail__chart-btn album-detail__chart-btn--melon"
+          data-album-chart="melon"
+        >
+          <img class="album-detail__chart-btn-icon" src="images/icons/melon.svg?v=3" alt="" width="20" height="20" />
+          <span class="album-detail__chart-btn-label">${escapeHtml(t("pages.album.chartMelon"))}</span>
+        </button>
+        <button
+          type="button"
+          class="album-detail__chart-btn album-detail__chart-btn--hanteo"
+          data-album-chart="hanteo"
+        >
+          <img class="album-detail__chart-btn-icon" src="images/icons/hanteo.svg" alt="" width="20" height="20" />
+          <span class="album-detail__chart-btn-label">${escapeHtml(t("pages.album.chartHanteo"))}</span>
+        </button>
+      </div>`;
+  }
+
+  function renderChartPopupBody(source, charts) {
+    const entry = charts?.[source] && typeof charts[source] === "object" ? charts[source] : {};
+    const liveUrl = source === "hanteo" ? hanteoChartUrl() : MELON_CHART_URL;
+    const liveLabel =
+      source === "hanteo" ? t("pages.album.chartOpenHanteo") : t("pages.album.chartOpenMelon");
+    const albumUrl = source === "melon" ? melonAlbumUrl(entry.albumId) : "";
+    const sourceLabel =
+      source === "hanteo" ? t("pages.album.sourceHanteo") : t("pages.album.sourceMelon");
+
+    const rows = [];
+    if (entry.firstDay) {
+      rows.push(renderChartStatRow(t("pages.album.chartFirstDay"), formatChartCopies(entry.firstDay)));
+    }
+    if (entry.firstWeek) {
+      rows.push(
+        renderChartStatRow(t("pages.album.chartFirstWeek"), formatChartCopies(entry.firstWeek))
+      );
+    }
+    (Array.isArray(entry.peaks) ? entry.peaks : []).forEach((peak) => {
+      if (!peak?.rank) return;
+      const label = peak.label || t("pages.album.chartPeak");
+      rows.push(renderChartStatRow(label, formatChartRank(peak.rank)));
+    });
+    (Array.isArray(entry.items) ? entry.items : []).forEach((stat) => {
+      if (!stat?.label || !stat?.value) return;
+      rows.push(renderChartStatRow(stat.label, stat.value));
+    });
+
+    const imageHtml = entry.image
+      ? `<div class="album-chart-popup__media">
+          <img class="album-chart-popup__img" src="${escapeHtml(entry.image)}" alt="" />
+        </div>`
+      : "";
+
+    const statsHtml = rows.length
+      ? `<dl class="album-chart-popup__stats">${rows.join("")}</dl>`
+      : "";
+
+    const albumLink = albumUrl
+      ? `<a
+          class="album-chart-popup__action"
+          href="${escapeHtml(albumUrl)}"
+          target="_blank"
+          rel="noopener noreferrer"
+        >${escapeHtml(t("pages.album.chartOpenMelonAlbum"))}</a>`
+      : "";
+
+    return `
+      ${imageHtml}
+      ${statsHtml}
+      <div class="album-chart-popup__actions">
+        <button
+          type="button"
+          class="album-chart-popup__action album-chart-popup__action--primary"
+          data-album-chart-window="${escapeHtml(liveUrl)}"
+          data-album-chart-window-name="${source}Chart"
+        >${escapeHtml(liveLabel)}</button>
+        ${albumLink}
+      </div>
+      <p class="album-chart-popup__source">${escapeHtml(sourceLabel)}</p>`;
+  }
+
+  function openExternalChart(url, name) {
+    if (!url) return;
+    const popup = window.open(url, name || "chartPopup", CHART_POPUP_FEATURES);
+    if (popup) {
+      try {
+        popup.opener = null;
+      } catch {
+        /* ignore */
+      }
+      popup.focus?.();
+    }
+  }
+
+  function openChartPopup(source) {
+    if (!chartPopup || (source !== "melon" && source !== "hanteo")) return;
+
+    const charts = getOpenCharts();
+    chartPopupLastFocus = document.activeElement;
+    chartPopupSource = source;
+
+    const title = source === "hanteo" ? t("pages.album.chartHanteo") : t("pages.album.chartMelon");
+    if (chartPopupTitleEl) chartPopupTitleEl.textContent = title;
+    if (chartPopupBodyEl) chartPopupBodyEl.innerHTML = renderChartPopupBody(source, charts);
+
+    chartPopup.hidden = false;
+    chartPopup.removeAttribute("aria-hidden");
+    requestAnimationFrame(() => chartPopup.classList.add("is-open"));
+    document.body.classList.add("album-chart-popup-open");
+
+    const closeBtn = chartPopup.querySelector(
+      "[data-album-chart-close].album-chart-popup__close"
+    );
+    closeBtn?.focus();
+  }
+
+  function closeChartPopup() {
+    if (!chartPopup?.classList.contains("is-open")) return;
+
+    chartPopup.classList.remove("is-open");
+    document.body.classList.remove("album-chart-popup-open");
+    chartPopup.setAttribute("aria-hidden", "true");
+
+    const finish = () => {
+      chartPopup.hidden = true;
+      if (chartPopupBodyEl) chartPopupBodyEl.innerHTML = "";
+      chartPopupSource = null;
+      if (chartPopupLastFocus && typeof chartPopupLastFocus.focus === "function") {
+        chartPopupLastFocus.focus();
+      }
+      chartPopupLastFocus = null;
+    };
+
+    if (!chartPopupPanel) {
+      finish();
+      return;
+    }
+
+    let done = false;
+    const onEnd = (event) => {
+      if (event.target !== chartPopupPanel || event.propertyName !== "opacity") return;
+      chartPopupPanel.removeEventListener("transitionend", onEnd);
+      if (!done) {
+        done = true;
+        finish();
+      }
+    };
+
+    chartPopupPanel.addEventListener("transitionend", onEnd);
+    setTimeout(() => {
+      if (!done) {
+        done = true;
+        chartPopupPanel.removeEventListener("transitionend", onEnd);
+        finish();
+      }
+    }, 420);
+  }
+
+  function refreshOpenChartPopup() {
+    if (!chartPopup?.classList.contains("is-open") || !chartPopupSource) return;
+    const title =
+      chartPopupSource === "hanteo" ? t("pages.album.chartHanteo") : t("pages.album.chartMelon");
+    if (chartPopupTitleEl) chartPopupTitleEl.textContent = title;
+    if (chartPopupBodyEl) {
+      chartPopupBodyEl.innerHTML = renderChartPopupBody(chartPopupSource, getOpenCharts());
+    }
+  }
+
   function renderLyricsPanel(item, links) {
     if (item.lyricsText) {
       return `<pre class="album-detail__lyrics-text">${escapeHtml(item.lyricsText)}</pre>`;
@@ -773,6 +1014,7 @@
       <div class="album-detail album-detail--release album-detail--has-tracklist">
         <div class="album-detail__hero">
           ${renderDetailCover(album, { category })}
+          ${renderChartButtons()}
         </div>
         ${renderTracklistPageContent(album, category, { desc })}
       </div>`;
@@ -796,6 +1038,7 @@
         <div class="album-detail album-detail--has-tracklist album-detail--tracklist-only">
           <div class="album-detail__hero">
             ${renderDetailCover(item, { category: albumId ? "album" : category, albumId })}
+            ${renderChartButtons()}
           </div>
           ${renderTracklistPageContent(item, category, {
             desc,
@@ -814,6 +1057,7 @@
         <div class="album-detail__hero">
           ${renderDetailCover(item, { category: albumId ? "album" : category, albumId })}
           ${renderPlatformLinks(links)}
+          ${renderChartButtons()}
         </div>
         <nav
           class="${navClass}"
@@ -889,6 +1133,8 @@
     const item = findItem(category, id);
     if (!item || !overlay || !panel) return;
 
+    closeChartPopup();
+
     if (trackId && isAlbumRelease(item, category)) {
       const track = findAlbumTrack(id, trackId);
       if (!track) return;
@@ -953,6 +1199,7 @@
     const album = findItem("album", albumId);
     if (!album) return;
 
+    closeChartPopup();
     openItemId = albumId;
     showDetailPanel({
       titleHtml: renderDetailTitleHtml({ category: "album", item: album }),
@@ -966,6 +1213,7 @@
     if (!overlay?.classList.contains("is-open")) return;
 
     closeCoverLightbox();
+    closeChartPopup();
 
     overlay.classList.remove("is-open");
     document.body.classList.remove("member-overlay-open");
@@ -1133,6 +1381,21 @@
         return;
       }
 
+      const chartBtn = e.target.closest("[data-album-chart]");
+      if (chartBtn) {
+        openChartPopup(chartBtn.dataset.albumChart);
+        return;
+      }
+
+      const chartWindowBtn = e.target.closest("[data-album-chart-window]");
+      if (chartWindowBtn) {
+        openExternalChart(
+          chartWindowBtn.dataset.albumChartWindow,
+          chartWindowBtn.dataset.albumChartWindowName
+        );
+        return;
+      }
+
       if (e.target.closest("[data-album-track-link]")) {
         return;
       }
@@ -1163,7 +1426,26 @@
       }
     });
 
+    chartPopup?.addEventListener("click", (e) => {
+      if (e.target.closest("[data-album-chart-close]")) {
+        closeChartPopup();
+        return;
+      }
+      const chartWindowBtn = e.target.closest("[data-album-chart-window]");
+      if (chartWindowBtn) {
+        openExternalChart(
+          chartWindowBtn.dataset.albumChartWindow,
+          chartWindowBtn.dataset.albumChartWindowName
+        );
+      }
+    });
+
     document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && chartPopup?.classList.contains("is-open")) {
+        closeChartPopup();
+        return;
+      }
+
       if (e.key === "Escape" && coverLightbox?.classList.contains("is-open")) {
         closeCoverLightbox();
         return;
@@ -1180,6 +1462,7 @@
       updateTitle();
       renderGrid();
       refreshOpenDetail();
+      refreshOpenChartPopup();
     });
   }
 

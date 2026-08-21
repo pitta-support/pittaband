@@ -259,7 +259,18 @@
       "titleTrack": "타이틀곡",
       "backToAlbum": "앨범으로",
       "crumbSong": "Song",
-      "zoomCover": "앨범 커버 확대"
+      "zoomCover": "앨범 커버 확대",
+      "chartMelon": "멜론 차트",
+      "chartHanteo": "한터 차트",
+      "chartOpenMelon": "멜론 실시간 차트 열기",
+      "chartOpenHanteo": "한터 일간 음반 차트 열기",
+      "chartOpenMelonAlbum": "멜론에서 앨범 보기",
+      "chartFirstDay": "첫날 판매량",
+      "chartFirstWeek": "초동 (1주차)",
+      "chartPeak": "최고 순위",
+      "chartCopies": "{n}장",
+      "chartRank": "{n}위",
+      "sourceHanteo": "출처: 한터차트"
     },
     "concert": {
       "title": "Concert",

@@ -142,7 +142,16 @@
           },
           "videoType": "lyricvideo"
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11487982"
+        },
+        "hanteo": {
+          "firstDay": 2653,
+          "firstWeek": 13086
+        }
+      }
     },
     {
       "id": "paradox",
@@ -331,7 +340,16 @@
             "lyrics": ""
           }
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11227000"
+        },
+        "hanteo": {
+          "firstDay": 609,
+          "firstWeek": 12118
+        }
+      }
     },
     {
       "id": "id-pitta",
@@ -477,7 +495,12 @@
             "lyrics": ""
           }
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "10751711"
+        }
+      }
     }
   ],
   "single": [
@@ -503,6 +526,11 @@
         "youtube": "https://youtu.be/zAi8wTN_54k?si=1ez0uXJBW4o14rIs",
         "liveclip": "https://youtu.be/fBlc-g-HJuA?si=0C5Ym-yhhsqcZI2D",
         "lyrics": ""
+      },
+      "charts": {
+        "melon": {
+          "albumId": "10509857"
+        }
       }
     },
     {
@@ -526,6 +554,11 @@
         "spotify": "https://open.spotify.com/track/725yNxYGDNLCBu45VstwVC?si=a5ca5debb5c9405d",
         "youtube": "https://youtu.be/_M13WgixhFw?si=DtVmbrdxT1nKP8WX",
         "lyrics": ""
+      },
+      "charts": {
+        "melon": {
+          "albumId": "10655790"
+        }
       }
     },
     {
@@ -550,6 +583,11 @@
         "youtube": "https://youtu.be/qIHyIOc3URE?si=ByXeewVUSbL3AAIw",
         "liveclip": "https://youtu.be/0Y__VuaOUQ8?si=dctBjphRwDV3VBDc",
         "lyrics": ""
+      },
+      "charts": {
+        "melon": {
+          "albumId": "10751711"
+        }
       }
     },
     {
@@ -590,7 +628,12 @@
           "title": "CARPE DIEM",
           "isMain": true
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11198156"
+        }
+      }
     },
     {
       "id": "haemu",
@@ -613,6 +656,11 @@
         "spotify": "https://open.spotify.com/track/5qC95MhoHhn9c879EdjLut?si=306d6f289f4141b1",
         "youtube": "https://youtu.be/DocWo1U6bIs?si=kW4xiM4QPFET4SqJ",
         "lyrics": ""
+      },
+      "charts": {
+        "melon": {
+          "albumId": "11392258"
+        }
       }
     },
     {
@@ -653,7 +701,12 @@
             "spotify": "https://open.spotify.com/track/27kSvKTyde1KVSdQj5NMIa?si=c18d8b22acba4802"
           }
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11436357"
+        }
+      }
     },
     {
       "id": "paradox",
@@ -678,6 +731,12 @@
         "lyrics": ""
       },
       "videoType": "lyricvideo"
+,
+      "charts": {
+        "melon": {
+          "albumId": "11606968"
+        }
+      }
     },
     {
       "id": "deep-shadow",
@@ -702,6 +761,12 @@
         "lyrics": ""
       },
       "videoType": "lyricvideo"
+,
+      "charts": {
+        "melon": {
+          "albumId": "11750921"
+        }
+      }
     }
   ],
   "ost": [
@@ -742,7 +807,12 @@
             "spotify": "https://open.spotify.com/track/3GLjXzQ0dbaPHHgljL0RTC?si=0bf36d09f61b46db"
           }
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11532828"
+        }
+      }
     },
     {
       "id": "family-by-choice-ost-part2",
@@ -781,7 +851,12 @@
             "spotify": "https://open.spotify.com/track/164AhcVrft3WhCwQYIyRSV?si=bbe2b9088f2644f5"
           }
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11621516"
+        }
+      }
     },
     {
       "id": "vanta-black",
@@ -820,7 +895,12 @@
             "spotify": "https://open.spotify.com/track/6Z47aHlxifMqsI5TUfYqu0?si=c02db60e16ba45de"
           }
         }
-      ]
+      ],
+      "charts": {
+        "melon": {
+          "albumId": "11825420"
+        }
+      }
     }
   ]
 }

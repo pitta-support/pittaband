@@ -260,7 +260,18 @@
       "titleTrack": "タイトル曲",
       "backToAlbum": "アルバムへ戻る",
       "crumbSong": "Song",
-      "zoomCover": "ジャケットを拡大"
+      "zoomCover": "ジャケットを拡大",
+      "chartMelon": "Melonチャート",
+      "chartHanteo": "ハンテオチャート",
+      "chartOpenMelon": "Melonリアルタイムチャートを開く",
+      "chartOpenHanteo": "ハンテオ日間アルバムチャートを開く",
+      "chartOpenMelonAlbum": "Melonでアルバムを見る",
+      "chartFirstDay": "初日売上",
+      "chartFirstWeek": "初動（1週目）",
+      "chartPeak": "最高順位",
+      "chartCopies": "{n}枚",
+      "chartRank": "{n}位",
+      "sourceHanteo": "出典: ハンテオチャート"
     },
     "concert": {
       "title": "Concert",

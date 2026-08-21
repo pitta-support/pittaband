@@ -260,7 +260,18 @@
       "titleTrack": "Tema principal",
       "backToAlbum": "Volver al álbum",
       "crumbSong": "Song",
-      "zoomCover": "Ampliar portada"
+      "zoomCover": "Ampliar portada",
+      "chartMelon": "Lista Melon",
+      "chartHanteo": "Lista Hanteo",
+      "chartOpenMelon": "Abrir lista en tiempo real de Melon",
+      "chartOpenHanteo": "Abrir lista diaria de álbumes de Hanteo",
+      "chartOpenMelonAlbum": "Ver álbum en Melon",
+      "chartFirstDay": "Ventas del primer día",
+      "chartFirstWeek": "Ventas de la primera semana",
+      "chartPeak": "Puesto máximo",
+      "chartCopies": "{n} copias",
+      "chartRank": "N.º {n}",
+      "sourceHanteo": "Fuente: Hanteo Chart"
     },
     "concert": {
       "title": "Concert",

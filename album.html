@@ -60,7 +60,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
     />
-    <link rel="stylesheet" href="styles.css?v=174" />
+    <link rel="stylesheet" href="styles.css?v=175" />
     <script src="scripts/dday-hide-boot.js"></script>
   </head>
   <body data-page="album">
@@ -551,11 +551,53 @@
       </div>
     </div>
 
-    <script src="i18n.js?v=6" defer></script>
+
+    <div
+      class="album-chart-popup"
+      id="album-chart-popup"
+      hidden
+      aria-hidden="true"
+    >
+      <div
+        class="album-chart-popup__backdrop"
+        data-album-chart-close
+        tabindex="-1"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="album-chart-popup__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="album-chart-popup-title"
+      >
+        <header class="album-chart-popup__header">
+          <h2 class="album-chart-popup__title" id="album-chart-popup-title"></h2>
+          <button
+            type="button"
+            class="album-chart-popup__close"
+            data-album-chart-close
+            data-i18n-attr="aria-label:overlay.close"
+            aria-label="닫기"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </button>
+        </header>
+        <div class="album-chart-popup__body" id="album-chart-popup-body"></div>
+      </div>
+    </div>
+
+    <script src="i18n.js?v=7" defer></script>
     <script src="scripts/dday-config.js?v=2" defer></script>
     <script src="scripts/site-core.js?v=15" defer></script>
     <script src="scripts/board-config.js" defer></script>
     <script src="scripts/board-modal.js?v=1" defer></script>
-    <script src="scripts/album-page.js?v=38" defer></script>
+    <script src="scripts/album-page.js?v=39" defer></script>
   </body>
 </html>
