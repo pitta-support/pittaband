@@ -1390,7 +1390,7 @@ body.is-dday-hidden .dday-bar,
   .dday-slide .dday-info {
     flex: 0 1 auto;
     min-width: 0;
-    max-width: min(56vw, 168px);
+    max-width: min(62vw, 196px);
     gap: 0.4rem;
     align-items: flex-end;
   }
@@ -1404,7 +1404,7 @@ body.is-dday-hidden .dday-bar,
     letter-spacing: 0.04em;
   }
   .dday-slide .dday-venue {
-    font-size: 0.52rem;
+    font-size: 0.58rem;
     letter-spacing: 0.01em;
     overflow: hidden;
     text-overflow: ellipsis;

@@ -388,10 +388,14 @@
 
   function resolveCountdownVenue(info) {
     if (!info) return "";
+    const fallback = String(info.venueFallback || info.venue || "").trim();
     if (info.venueI18n) {
-      return t(info.venueI18n, info.venueFallback || "");
+      const resolved = t(info.venueI18n, fallback);
+      const label = typeof resolved === "string" ? resolved.trim() : "";
+      if (label && label !== info.venueI18n) return label;
+      return fallback;
     }
-    return info.venueFallback || info.venue || "";
+    return fallback;
   }
 
   function syncSlideInfo(slide, state) {
@@ -637,10 +641,18 @@
 
   function buildSlideSignature(states) {
     return states
-      .map(
-        (state) =>
-          `${state.campaign.id}:${state.mode}:${state.showLink ? 1 : 0}:${state.campaign.type}`
-      )
+      .map((state) => {
+        const info = state.campaign.countdown || {};
+        return [
+          state.campaign.id,
+          state.mode,
+          state.showLink ? 1 : 0,
+          state.campaign.type,
+          info.logoSrc || "",
+          info.venueI18n || "",
+          info.venueFallback || info.venue || "",
+        ].join(":");
+      })
       .join("|");
   }
 
