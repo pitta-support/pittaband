@@ -106,8 +106,31 @@
     return note.replace(/앵콜/g, t("pages.concert.encore"));
   }
 
-  function renderSetlistHtml(setlist) {
-    if (!Array.isArray(setlist) || !setlist.length) return "";
+  function renderPhotoRecapHtml(url) {
+    const href = url?.trim();
+    if (!href) return "";
+
+    const label = ti("photoRecap");
+    return `
+      <a
+        class="festival-modal__photo-recap"
+        href="${escapeHtml(href)}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="${escapeHtml(label)}"
+      >
+        <span class="festival-modal__photo-recap-icon">${renderInstagramIcon()}</span>
+        <span class="festival-modal__photo-recap-label">${escapeHtml(label)}</span>
+      </a>`;
+  }
+
+  function renderSetlistHtml(setlist, photoRecapUrl) {
+    const recapHtml = renderPhotoRecapHtml(photoRecapUrl);
+    if (!Array.isArray(setlist) || !setlist.length) {
+      return recapHtml
+        ? `<div class="concert-card__setlist festival-modal__setlist">${recapHtml}</div>`
+        : "";
+    }
 
     const items = setlist
       .map((track, index) => {
@@ -121,11 +144,16 @@
       .filter(Boolean)
       .join("");
 
-    if (!items) return "";
+    if (!items) {
+      return recapHtml
+        ? `<div class="concert-card__setlist festival-modal__setlist">${recapHtml}</div>`
+        : "";
+    }
 
     return `
       <div class="concert-card__setlist festival-modal__setlist">
         <ol class="concert-card__setlist-list">${items}</ol>
+        ${recapHtml}
       </div>`;
   }
 
@@ -133,7 +161,7 @@
     const poster = entry.poster?.trim() || "";
     const schedule = localizedField(entry.schedule);
     const venue = localizedField(entry.venue);
-    const setlistHtml = renderSetlistHtml(entry.setlist);
+    const setlistHtml = renderSetlistHtml(entry.setlist, entry.photoRecap);
 
     const dateHtml = schedule
       ? `<p class="concert-card__date"><time datetime="${escapeHtml(entry.dateTime || "")}">${escapeHtml(schedule)}</time></p>`

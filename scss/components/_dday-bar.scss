@@ -205,10 +205,22 @@ body.is-dday-hidden .dday-bar,
 
 .dday-info {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.65rem;
   min-width: 0;
   flex: 0 0 auto;
+}
+
+.dday-info__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  padding-bottom: 0.3rem;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 .dday-logo {
@@ -233,8 +245,24 @@ body.is-dday-hidden .dday-bar,
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--text);
+  color: #eace41;
   white-space: nowrap;
+  line-height: 1.2;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.dday-venue {
+  flex-shrink: 0;
+  font-family: var(--font-kr);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #eace41;
+  white-space: nowrap;
+  line-height: 1.25;
 
   &[hidden] {
     display: none;
@@ -742,12 +770,27 @@ body.is-dday-hidden .dday-bar,
   .dday-slide .dday-info {
     flex: 0 1 auto;
     min-width: 0;
-    max-width: min(46vw, 120px);
-    gap: 0;
+    max-width: min(56vw, 168px);
+    gap: 0.4rem;
+    align-items: flex-end;
+  }
+
+  .dday-slide .dday-info__text {
+    min-width: 0;
+    gap: 0.06rem;
+    padding-bottom: 0;
   }
 
   .dday-slide .dday-date {
-    display: none !important;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  .dday-slide .dday-venue {
+    font-size: 0.52rem;
+    letter-spacing: 0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .dday-slide .dday-countdown {

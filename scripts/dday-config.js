@@ -76,6 +76,8 @@
         eventFallback: "LetsRock Festival",
         logoSrc: "images/dday/lets_lock.svg",
         logoAltFallback: "LetsRock Festival",
+        venueI18n: "hero.custom.venue",
+        venueFallback: "난지한강공원",
       },
       banner: {
         titleI18n: "dday.campaigns.summerFest.bannerTitle",

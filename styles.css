@@ -898,10 +898,21 @@ body.is-dday-hidden .dday-bar,
 
 .dday-info {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.65rem;
   min-width: 0;
   flex: 0 0 auto;
+}
+
+.dday-info__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  padding-bottom: 0.3rem;
+}
+.dday-info__text[hidden] {
+  display: none;
 }
 
 .dday-logo {
@@ -925,10 +936,25 @@ body.is-dday-hidden .dday-bar,
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--text);
+  color: #eace41;
   white-space: nowrap;
+  line-height: 1.2;
 }
 .dday-date[hidden] {
+  display: none;
+}
+
+.dday-venue {
+  flex-shrink: 0;
+  font-family: var(--font-kr);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #eace41;
+  white-space: nowrap;
+  line-height: 1.25;
+}
+.dday-venue[hidden] {
   display: none;
 }
 
@@ -1364,11 +1390,24 @@ body.is-dday-hidden .dday-bar,
   .dday-slide .dday-info {
     flex: 0 1 auto;
     min-width: 0;
-    max-width: min(46vw, 120px);
-    gap: 0;
+    max-width: min(56vw, 168px);
+    gap: 0.4rem;
+    align-items: flex-end;
+  }
+  .dday-slide .dday-info__text {
+    min-width: 0;
+    gap: 0.06rem;
+    padding-bottom: 0;
   }
   .dday-slide .dday-date {
-    display: none !important;
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+  .dday-slide .dday-venue {
+    font-size: 0.52rem;
+    letter-spacing: 0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .dday-slide .dday-countdown {
     display: flex;
@@ -5653,11 +5692,13 @@ body.album-cover-lightbox-open {
 .festival-modal__content .concert-card__info {
   min-height: 0;
   min-width: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   box-sizing: border-box;
   padding: 0.85rem 1rem 1rem;
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 }
 @media (min-width: 640px) {
   .festival-modal__content .concert-card__info {
@@ -5670,29 +5711,70 @@ body.album-cover-lightbox-open {
   border-top: none;
 }
 .festival-modal__content .festival-modal__setlist {
-  flex: 1 1 auto;
-  min-height: 0;
+  flex: 0 0 auto;
+  width: 100%;
   margin-top: 0.75rem;
   padding-top: 0.7rem;
   border-top: 1px solid rgba(48, 213, 255, 0.1);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 .festival-modal__content .festival-modal__setlist .concert-card__setlist-list {
   display: grid;
-  gap: 0.18rem;
+  gap: 0.12rem;
+}
+.festival-modal__photo-recap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  margin-top: 0.55rem;
+  margin-left: auto;
+  padding: 0.45rem 0.78rem;
+  font-family: var(--font-kr);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #e4405f;
+  text-decoration: none;
+  border: 1px solid rgba(228, 64, 95, 0.38);
+  background: rgba(228, 64, 95, 0.08);
+  align-self: flex-end;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+}
+.festival-modal__photo-recap-icon {
+  display: flex;
+  width: 0.95rem;
+  height: 0.95rem;
+  flex-shrink: 0;
+}
+.festival-modal__photo-recap-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.festival-modal__photo-recap:hover,
+.festival-modal__photo-recap:focus-visible {
+  color: #fff;
+  border-color: rgba(228, 64, 95, 0.62);
+  background: rgba(228, 64, 95, 0.18);
+  box-shadow: 0 0 14px rgba(228, 64, 95, 0.18);
+}
+.festival-modal__photo-recap:focus-visible {
+  outline: 1px solid #e4405f;
+  outline-offset: 2px;
 }
 .festival-modal__content .festival-modal__setlist .concert-card__setlist-list li {
   font-size: 0.72rem;
-  line-height: 1.35;
+  line-height: 1.3;
 }
 @media (min-width: 640px) {
   .festival-modal__content .festival-modal__setlist .concert-card__setlist-list {
-    display: grid;
-    columns: auto;
-    gap: 0.2rem;
+    gap: 0.14rem;
   }
   .festival-modal__content .festival-modal__setlist .concert-card__setlist-list li {
     font-size: 0.74rem;
+    line-height: 1.3;
   }
 }
 .festival-modal__content .concert-card__poster {

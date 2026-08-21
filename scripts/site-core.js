@@ -386,19 +386,45 @@
     return "concert";
   }
 
+  function resolveCountdownVenue(info) {
+    if (!info) return "";
+    if (info.venueI18n) {
+      return t(info.venueI18n, info.venueFallback || "");
+    }
+    return info.venueFallback || info.venue || "";
+  }
+
   function syncSlideInfo(slide, state) {
     const { campaign } = state;
     const info = campaign.countdown || {};
     const infoEl = slide.querySelector(".dday-info");
     const dateEl = slide.querySelector(".dday-date");
+    const venueEl = slide.querySelector(".dday-venue");
+    const textEl = slide.querySelector(".dday-info__text");
     const logoEl = slide.querySelector(".dday-logo");
 
+    const dateLabel = formatDdayDateLabel(campaign);
+    const venueLabel = resolveCountdownVenue(info);
+    const hasText = Boolean(dateLabel || venueLabel);
+
     if (dateEl) {
-      const label = formatDdayDateLabel(campaign);
-      dateEl.textContent = label;
-      dateEl.hidden = !label;
-      if (label) dateEl.removeAttribute("aria-hidden");
+      dateEl.textContent = dateLabel;
+      dateEl.hidden = !dateLabel;
+      if (dateLabel) dateEl.removeAttribute("aria-hidden");
       else dateEl.setAttribute("aria-hidden", "true");
+    }
+
+    if (venueEl) {
+      venueEl.textContent = venueLabel;
+      venueEl.hidden = !venueLabel;
+      if (venueLabel) venueEl.removeAttribute("aria-hidden");
+      else venueEl.setAttribute("aria-hidden", "true");
+    }
+
+    if (textEl) {
+      textEl.hidden = !hasText;
+      if (hasText) textEl.removeAttribute("aria-hidden");
+      else textEl.setAttribute("aria-hidden", "true");
     }
 
     if (!logoEl) return;
@@ -436,8 +462,24 @@
     return ddaySliderViewportEl.clientWidth;
   }
 
+  function clearMobileSlideWidths() {
+    if (!ddaySliderTrackEl) return;
+
+    ddaySliderTrackEl.style.removeProperty("--dday-slide-w");
+    ddaySliderTrackEl.querySelectorAll(".dday-slide").forEach((slide) => {
+      slide.style.removeProperty("flex-basis");
+      slide.style.removeProperty("width");
+      slide.style.removeProperty("min-width");
+    });
+  }
+
   function syncMobileSlideWidths() {
-    if (!ddaySliderTrackEl || !isMobileDdayLayout()) return;
+    if (!ddaySliderTrackEl) return;
+
+    if (!isMobileDdayLayout()) {
+      clearMobileSlideWidths();
+      return;
+    }
 
     const slideWidth = getDdaySlideWidth();
     if (!slideWidth) return;
@@ -464,6 +506,7 @@
       return;
     }
 
+    clearMobileSlideWidths();
     ddaySliderTrackEl.style.transform = `translate3d(-${currentSlideIndex * 100}%, 0, 0)`;
   }
 
@@ -569,7 +612,10 @@
     slide.innerHTML = `
       <div class="dday-info">
         <img class="dday-logo" src="" alt="" width="140" height="56" hidden />
-        <span class="dday-date" hidden aria-hidden="true"></span>
+        <div class="dday-info__text" hidden aria-hidden="true">
+          <span class="dday-date" hidden aria-hidden="true"></span>
+          <span class="dday-venue" hidden aria-hidden="true"></span>
+        </div>
       </div>
       <div class="dday-countdown">
         <div class="dday-flip" aria-label="D-day countdown"></div>

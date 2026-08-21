@@ -295,6 +295,7 @@
       "noUpcomingDesc": "새 페스티벌 일정이 확정되면 이 노드에 업데이트됩니다.",
       "tickets": "Tickets",
       "setlist": "Set List",
+      "photoRecap": "Photo Recap",
       "openMap": "지도 열기",
       "empty": "표시할 페스티벌이 없습니다.",
       "loadError": "페스티벌 데이터를 불러오지 못했습니다.",
