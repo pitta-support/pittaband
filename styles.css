@@ -6348,7 +6348,6 @@ body.festival-modal-open {
     display: contents;
   }
   .hero:not(.hero--anniversary) .hero-event__media {
-    order: 1;
     flex: 0 0 auto;
     width: 100%;
     min-height: 0;

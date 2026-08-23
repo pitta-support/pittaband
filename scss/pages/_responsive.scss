@@ -66,7 +66,10 @@
     margin: 0 auto;
   }
 
-  .hero-desc { margin-left: auto; margin-right: auto; }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .hero-default {
     width: 100%;
@@ -110,7 +113,7 @@
   }
 
   .hero:not(.hero--anniversary) .hero-event__media {
-    order: 1;
+    // order: 1;
     flex: 0 0 auto;
     width: 100%;
     min-height: 0;
@@ -173,7 +176,9 @@
     text-align: center;
   }
 
-  .access-geometry { display: none; }
+  .access-geometry {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -276,7 +281,9 @@
     margin-inline: auto;
   }
 
-  .hero-anniversary__logo-shell:has(.hero-anniversary__release-logo--paradox:not([hidden])) {
+  .hero-anniversary__logo-shell:has(
+      .hero-anniversary__release-logo--paradox:not([hidden])
+    ) {
     width: min(80%, 250px);
     margin-inline: auto;
   }
@@ -338,9 +345,13 @@
   }
 
   .nav-desktop,
-  .header-meta .clock { display: none; }
+  .header-meta .clock {
+    display: none;
+  }
 
-  .lang-label { display: none; }
+  .lang-label {
+    display: none;
+  }
 
   .header-inner {
     gap: 0.65rem;
@@ -388,15 +399,26 @@
     display: none;
   }
 
-  .sector-grid { grid-template-columns: 1fr; }
+  .sector-grid {
+    grid-template-columns: 1fr;
+  }
 
-  .hero-stats { grid-template-columns: 1fr; }
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
 
-  .terminal-meta { flex-direction: column; gap: 0.35rem; }
+  .terminal-meta {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
 
-  section { padding: 3.5rem 1.25rem; }
+  section {
+    padding: 3.5rem 1.25rem;
+  }
 
-  .access-panel { padding: 2rem 1.5rem; }
+  .access-panel {
+    padding: 2rem 1.5rem;
+  }
 }
 
 @media (min-width: 769px) {
@@ -439,7 +461,10 @@
   }
 
   .overlay-panel--sheet-mid {
-    height: min(var(--sheet-mid-h), calc(100dvh - env(safe-area-inset-top, 0px)));
+    height: min(
+      var(--sheet-mid-h),
+      calc(100dvh - env(safe-area-inset-top, 0px))
+    );
     max-height: min(55dvh, calc(100dvh - env(safe-area-inset-top, 0px)));
   }
 
@@ -452,9 +477,16 @@
     max-width: 220px;
   }
 
-  .hero-title { font-size: 2rem; }
+  .hero-title {
+    font-size: 2rem;
+  }
 
-  .terminal-bar { flex-wrap: wrap; }
+  .terminal-bar {
+    flex-wrap: wrap;
+  }
 
-  .terminal-btn { width: 100%; margin-top: 0.5rem; }
+  .terminal-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
 }
