@@ -461,7 +461,7 @@
     const infoHtml = `
       <div class="concert-card__head">
         <span class="${badgeClass}">${escapeHtml(statusLabel(status))}</span>
-        <span class="concert-card__title">${escapeHtml(show.title)}</span>
+        <h3 class="concert-card__title">${escapeHtml(show.title)}</h3>
       </div>
       <div class="concert-card__meta">
         ${dateHtml}

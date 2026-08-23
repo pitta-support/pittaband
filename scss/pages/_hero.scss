@@ -18,64 +18,284 @@
     gap: 0;
     overflow: visible;
   }
-  // Hero Section 커스텀 시 사용
-  &__custom {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    border: 1px solid red;
-    &--img {
-      position: relative;
-      justify-self: flex-end;
-      align-self: stretch;
-      min-height: 0;
-      overflow: hidden;
-      aspect-ratio: auto;
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-    }
-    &--content {
-      position: relative;
-      min-width: 0;
+  // Hero Section — concert / festival event layout (see scripts/hero-event.js)
+  &__custom--img {
+    position: relative;
+    align-self: stretch;
+    min-height: clamp(260px, 38vh, 420px);
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
       height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .hero-event__media {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+
+    .hero-event__image {
+      display: block;
+      width: auto;
+      height: auto;
       max-width: 100%;
-      vertical-align: top;
-      .letslock-logo {
-        width: 280px;
-      }
-      &--text {
-        span {
-          display: block;
-        }
-        &--1 {
-        }
-        &--1 {
-        }
-        &--1 {
-        }
-        &--1 {
-        }
-      }
-      &--button {
-        display: flex;
-        justify-content: flex-end;
-        align-self: flex-end;
-      }
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__custom-stars,
+  .hero-event__stars {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  &__custom--content,
+  .hero-event__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.25rem;
+    align-self: stretch;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__custom--content__logo,
+  .hero-event__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+
+    .letslock-logo,
+    .hero-event__logo--letslock {
+      width: min(100%, 280px);
+      height: auto;
+    }
+  }
+
+  &__custom-label,
+  .hero-event__tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    padding: 0.28rem 0.55rem;
+    border: 1px solid rgba(216, 0, 255, 0.35);
+    background: rgba(216, 0, 255, 0.08);
+  }
+
+  .hero-event__title {
+    margin: 0;
+    font-family: var(--font-kr);
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.35;
+  }
+
+  &__custom--content--text,
+  .hero-event__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  &__custom-text,
+  .hero-event__text {
+    display: block;
+    font-family: var(--font-kr);
+    font-size: clamp(0.88rem, 1.5vw, 1rem);
+    line-height: 1.55;
+    color: var(--text-muted);
+
+    &--lead {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    &--artist {
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    &--hook {
+      font-size: clamp(0.95rem, 1.65vw, 1.08rem);
+      font-weight: 700;
+      color: var(--text);
+    }
+  }
+
+  &__custom-meta,
+  .hero-event__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin: 0.2rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--text);
+
+    &--date {
+      color: #eace41;
+    }
+
+    &--location {
+      margin-top: 0.15rem;
+    }
+  }
+
+  &__custom-meta-icon,
+  .hero-event__meta-icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    opacity: 0.95;
+    filter: brightness(0) invert(1);
+  }
+
+  &__custom-venue-link,
+  .hero-event__venue-link {
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(48, 213, 255, 0.28);
+    transition: color 0.2s ease, border-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--text);
+      border-color: var(--cyan);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--cyan);
+      outline-offset: 2px;
+    }
+  }
+
+  &__custom--content--button,
+  .hero-event__actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-top: 0.35rem;
+  }
+
+  &__custom-ticket-btn,
+  .hero-event__ticket-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-kr);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--cyan);
+    white-space: nowrap;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid rgba(48, 213, 255, 0.35);
+    background: rgba(48, 213, 255, 0.06);
+    text-decoration: none;
+    transition:
+      text-shadow 0.25s ease,
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      transform 0.25s ease;
+
+    &:hover,
+    &:focus-visible {
+      text-shadow: 0 0 10px var(--cyan-dim);
+      border-color: var(--cyan);
+      background: rgba(48, 213, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--cyan);
+      outline-offset: 2px;
     }
   }
 }
 
 .hero-default {
-  display: contents;
+  width: 100%;
+  grid-column: 1 / -1;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.hero-event {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  align-items: stretch;
+  box-sizing: border-box;
 }
 
 .hero--anniversary .hero-default {
   display: none;
+}
+
+@media (min-width: 1025px) {
+  .hero-event__tag {
+    color: var(--crimson);
+    border-color: rgba(255, 0, 60, 0.35);
+    background: rgba(255, 0, 60, 0.08);
+  }
+
+  .hero-event__ticket-btn {
+    color: var(--crimson);
+    border-color: rgba(255, 0, 60, 0.35);
+    background: rgba(255, 0, 60, 0.06);
+
+    &:hover,
+    &:focus-visible {
+      text-shadow: 0 0 10px var(--crimson-dim);
+      border-color: var(--crimson);
+      background: rgba(255, 0, 60, 0.1);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--crimson);
+      outline-offset: 2px;
+    }
+  }
 }
 
 .hero-geometry {

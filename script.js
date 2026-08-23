@@ -736,7 +736,12 @@
 
   /* ===== Hero custom venue map link ===== */
   function syncHeroVenueLink() {
-    const link = document.querySelector(".hero__custom-venue-link");
+    if (window.heroEvent?.syncVenueLink) {
+      window.heroEvent.syncVenueLink();
+      return;
+    }
+
+    const link = document.querySelector(".hero-event__venue-link, .hero__custom-venue-link");
     if (!link) return;
 
     const lang = window.i18n?.getLang?.() || document.documentElement.lang || "ko";

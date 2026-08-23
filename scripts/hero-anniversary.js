@@ -969,6 +969,9 @@
 
     if (heroDefault) heroDefault.setAttribute("aria-hidden", "true");
 
+    window.heroEvent?.refresh?.();
+    document.dispatchEvent(new CustomEvent("hero-anniversary:done"));
+
   }
 
 
@@ -988,6 +991,9 @@
     document.querySelector("main:not(.site-main)")?.classList.remove("main--anniversary");
 
     if (heroDefault) heroDefault.removeAttribute("aria-hidden");
+
+    window.heroEvent?.refresh?.();
+    document.dispatchEvent(new CustomEvent("hero-anniversary:done"));
 
     setGreetingCompareVisible(false);
 

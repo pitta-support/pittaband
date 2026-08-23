@@ -30,9 +30,14 @@
       "description": "Pitta Band festival appearances, posters, and performance records.",
       "htmlLang": "en"
     },
-    "board": {
-      "title": "Suggestions — Pitta Band Archive",
-      "description": "Pitta Band Archive suggestions board",
+    "for-pitta": {
+      "title": "Vote — For Pitta",
+      "description": "For Pitta — ongoing votes and fan activities for Pitta Band.",
+      "htmlLang": "en"
+    },
+    "for-pitta-streaming": {
+      "title": "Streaming — For Pitta",
+      "description": "For Pitta — Pitta Band Spotify cumulative streaming counts.",
       "htmlLang": "en"
     }
   },
@@ -86,7 +91,8 @@
   "nav": {
     "about": "About",
     "album": "Album",
-    "concert": "Concert"
+    "concert": "Concert",
+    "forPitta": "For Pitta"
   },
   "hero": {
     "tag": "CLASSIFIED VAULT // LEVEL 7",
@@ -120,6 +126,27 @@
       "date": "Oct 3, 2026 (Sat)",
       "venue": "Nanji Hangang Park",
       "venueMapAria": "Open map for Nanji Hangang Park"
+    },
+    "events": {
+      "letslock2026": {
+        "imageAlt": "PITTA at Lets Rock Festival 2026",
+        "lead": "The true colors of a rocker who can't be hidden",
+        "subtitle": "A kaleidoscope showcasing a diverse musical spectrum",
+        "artist": "Vocal PITTA (Kang Hyung-ho)",
+        "hook": "See you at Lets Rock Festival!",
+        "date": "Oct 3, 2026 (Sat)",
+        "venue": "Nanji Hangang Park",
+        "venueMapAria": "Open map for Nanji Hangang Park"
+      },
+      "nexusLive2026": {
+        "imageAlt": "NEXUS LIVE · SEOUL",
+        "lead": "Pitta Band Live in Seoul",
+        "subtitle": "NEXUS LIVE — two-night run",
+        "hook": "See you at the show!",
+        "date": "Sep 15 (Tue) – 16 (Wed), 2026",
+        "venue": "Seoul",
+        "venueMapAria": "Open venue map"
+      }
     }
   },
   "sectors": {
@@ -183,7 +210,7 @@
   "footer": {
     "fanSite": "This is a Pitta Band fan site.",
     "officialLink": "Pitta Official Link",
-    "fancafe": "Pitta Fan Community",
+    "fancafe": "Pitta Fan",
     "suggest": "Suggestions",
     "x": "X",
     "instagram": "Instagram",
@@ -302,16 +329,20 @@
       "loadError": "Could not load festival data.",
       "detailPending": "Details will be updated soon."
     },
-    "board": {
-      "title": "Suggestions",
-      "titleLabel": "Title",
-      "contentLabel": "Message",
-      "submit": "Submit",
-      "subjectPrefix": "[Suggestion]",
-      "alertConfig": "Form setup is incomplete. (Access Key required)",
-      "alertRequired": "Please enter a title and message.",
-      "alertSuccess": "Submitted successfully.",
-      "alertFail": "Submission failed. Please try again later."
+    "forPitta": {
+      "vote": "Vote",
+      "streaming": "Streaming",
+      "melon": "Melon",
+      "spotify": "Spotify",
+      "voteListLabel": "Vote list",
+      "streamingListLabel": "Streaming list",
+      "voteEmpty": "No active votes.",
+      "streamingEmpty": "No tracks to display.",
+      "loadError": "Could not load data.",
+      "statsUpdated": "Data as of",
+      "statsSource": "Spotify",
+      "statsUpdateNote": "Play counts update daily at midnight.",
+      "voteEnds": "Vote ends :"
     },
     "sectorAlpha": {
       "title": "Neural Logs",

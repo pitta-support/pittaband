@@ -68,6 +68,102 @@
 
   .hero-desc { margin-left: auto; margin-right: auto; }
 
+  .hero-default {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero:not(.hero--anniversary) {
+    --hero-inline-pad: 1.25rem;
+    height: auto;
+    min-height: calc(100dvh - var(--site-top-h));
+    max-height: none;
+    overflow: visible;
+    padding: 1.25rem var(--hero-inline-pad);
+    gap: 1rem;
+  }
+
+  main:not(.site-main) {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+
+    &.main--anniversary {
+      overflow-y: auto;
+      overflow-x: clip;
+    }
+  }
+
+  .hero-event {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+  }
+
+  .hero-event__body {
+    display: contents;
+  }
+
+  .hero:not(.hero--anniversary) .hero-event__media {
+    order: 1;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .hero:not(.hero--anniversary) .hero-event__image {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .hero-event__actions {
+    order: 2;
+    justify-content: center;
+    width: 100%;
+    max-width: none;
+    margin-top: 0;
+    padding-top: 0;
+    flex-shrink: 0;
+  }
+
+  .hero-event__ticket-btn {
+    width: 100%;
+  }
+
+  .hero-event__tag {
+    display: none;
+  }
+
+  .hero-event__brand {
+    order: 3;
+    flex-shrink: 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-event__copy {
+    order: 4;
+    flex-shrink: 0;
+    text-align: center;
+    overflow: visible;
+  }
+
+  .hero__custom-meta,
+  .hero-event__meta {
+    justify-content: center;
+  }
+
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -100,14 +196,22 @@
   }
 
   .hero {
-    height: auto;
-    min-height: calc(100dvh - var(--site-top-h));
-    align-items: start;
-    align-content: start;
-    overflow: visible;
+    &.hero--anniversary {
+      height: auto;
+      min-height: calc(100dvh - var(--site-top-h));
+      align-items: start;
+      align-content: start;
+      overflow: visible;
+    }
 
     &:not(.hero--anniversary) {
-      overflow-x: clip;
+      --hero-inline-pad: 1.25rem;
+      height: auto;
+      min-height: calc(100dvh - var(--site-top-h));
+      max-height: none;
+      overflow: visible;
+      padding: 1rem var(--hero-inline-pad);
+      gap: 0.65rem;
     }
   }
 

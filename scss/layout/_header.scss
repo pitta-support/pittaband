@@ -31,7 +31,15 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  text-decoration: none;
+  margin: 0;
+  font: inherit;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .logo-wordmark {

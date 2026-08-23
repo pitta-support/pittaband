@@ -67,12 +67,24 @@
     return `${year.slice(-2)}.${month}.${day}`;
   }
 
+  function isProductionSiteHost() {
+    const siteBase = document.documentElement.dataset.siteBase;
+    if (!siteBase) return false;
+    try {
+      return window.location.host === new URL(siteBase).host;
+    } catch {
+      return false;
+    }
+  }
+
   function resolveAssetUrl(path) {
     if (!path) return "";
     if (/^https?:\/\//i.test(path)) return path;
 
     const siteBase = document.documentElement.dataset.siteBase?.replace(/\/$/, "");
-    if (siteBase) return `${siteBase}/${path.replace(/^\//, "")}`;
+    if (siteBase && isProductionSiteHost()) {
+      return `${siteBase}/${path.replace(/^\//, "")}`;
+    }
 
     try {
       return new URL(path, document.baseURI).href;
@@ -80,6 +92,8 @@
       return path;
     }
   }
+
+  window.resolveSiteAssetUrl = resolveAssetUrl;
 
   function applyImageSrc(img, src, { onLoad, onError } = {}) {
     if (!img || !src) return;

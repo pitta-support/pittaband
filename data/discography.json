@@ -1,27 +1,6 @@
 {
   "album": [
     {
-      "id": "deep-shadow",
-      "title": "Deep Shadow",
-      "releaseDate": "2024-03-15",
-      "cover": "images/albums/deep-shadow.jpg",
-      "lyricsBy": "",
-      "composedBy": "",
-      "arrangedBy": "",
-      "producedBy": "",
-      "description": {
-        "ko": "",
-        "en": "",
-        "ja": "",
-        "es": ""
-      },
-      "links": {
-        "melon": "",
-        "spotify": "",
-        "lyrics": ""
-      }
-    },
-    {
       "id": "new-normal-life",
       "title": "New Normal Life",
       "releaseDate": "2024-05-16",
@@ -143,48 +122,6 @@
           "videoType": "lyricvideo"
         }
       ]
-    },
-    {
-      "id": "paradox",
-      "title": "Paradox",
-      "releaseDate": "2026-01-20",
-      "cover": "images/albums/paradox.jpg",
-      "lyricsBy": "",
-      "composedBy": "",
-      "arrangedBy": "",
-      "producedBy": "",
-      "description": {
-        "ko": "",
-        "en": "",
-        "ja": "",
-        "es": ""
-      },
-      "links": {
-        "melon": "",
-        "spotify": "",
-        "lyrics": ""
-      }
-    },
-    {
-      "id": "void-cartography",
-      "title": "Void Cartography",
-      "releaseDate": "2026-04-10",
-      "cover": "images/albums/void-cartography.jpg",
-      "lyricsBy": "",
-      "composedBy": "",
-      "arrangedBy": "",
-      "producedBy": "",
-      "description": {
-        "ko": "",
-        "en": "",
-        "ja": "",
-        "es": ""
-      },
-      "links": {
-        "melon": "",
-        "spotify": "",
-        "lyrics": ""
-      }
     },
     {
       "id": "be-free",

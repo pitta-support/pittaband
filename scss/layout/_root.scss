@@ -44,6 +44,7 @@
   --dday-h: 88px;
   --header-h: 72px;
   --site-top-h: calc(var(--dday-h) + var(--header-h));
+  --hero-available-h: calc(100dvh - var(--site-top-h));
   --max-w: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }

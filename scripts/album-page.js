@@ -264,7 +264,7 @@
               onerror="this.onerror=null;this.src='images/albums/placeholder.svg';"
             />
           </span>
-          <span class="album-card__title">${renderCardTitleHtml(item)}</span>
+          <h3 class="album-card__title">${renderCardTitleHtml(item)}</h3>
           <time class="album-card__date" datetime="${item.releaseDate || ""}">${formatDate(item.releaseDate)}</time>
         </button>
       </li>`

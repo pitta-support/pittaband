@@ -56,7 +56,7 @@ body[data-page="album"] .site-main {
 
 body[data-page]:not([data-page="album"]):not([data-page="concert"]):not(
     [data-page="festival"]
-  ) {
+  ):not([data-page="for-pitta"]):not([data-page="for-pitta-streaming"]) {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
@@ -65,7 +65,9 @@ body[data-page]:not([data-page="album"]):not([data-page="concert"]):not(
 }
 
 body[data-page="concert"],
-body[data-page="festival"] {
+body[data-page="festival"],
+body[data-page="for-pitta"],
+body[data-page="for-pitta-streaming"] {
   display: flex;
   flex-direction: column;
   height: 100dvh;
@@ -96,13 +98,17 @@ body[data-page="festival"] {
 }
 
 html:has(body[data-page="concert"]),
-html:has(body[data-page="festival"]) {
+html:has(body[data-page="festival"]),
+html:has(body[data-page="for-pitta"]),
+html:has(body[data-page="for-pitta-streaming"]) {
   height: 100%;
   overflow: hidden;
 }
 
 body[data-page="concert"] .site-main,
-body[data-page="festival"] .site-main {
+body[data-page="festival"] .site-main,
+body[data-page="for-pitta"] .site-main,
+body[data-page="for-pitta-streaming"] .site-main {
   flex: 1 0 auto;
   min-height: 0;
 }

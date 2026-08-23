@@ -1,0 +1,86 @@
+{
+  "melon": {
+    "detail": {
+      "status": 200,
+      "hits": [
+        {
+          "path": "SONGINFO.PLAYTIME",
+          "value": 208
+        }
+      ]
+    },
+    "https://m2.melon.com/chartflow/report/basic.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/chartflow/report/weekly.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://www.melon.com/song/getSongInfo.json?songId=37527521": {
+      "status": 200,
+      "bodySample": "\n\r\n\t\r\n\t\t<meta http-equiv=\"REFRESH\" content=\"0;url=https://m2.melon.com\">\r\n\t\r\n\r\n"
+    },
+    "https://m2.melon.com/song/playcount.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/song/accPlayCnt.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/song/accPlayCount.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/song/detail/info.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/song/streaming.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/song/listen.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    },
+    "https://m2.melon.com/song/acc.json?songId=37527521": {
+      "status": 500,
+      "topKeys": [
+        "message"
+      ],
+      "hits": []
+    }
+  },
+  "spotify": {
+    "status": 200,
+    "length": 279677,
+    "matches": []
+  },
+  "cumulativePlayPath": "SONGINFO.PLAYTIME"
+}

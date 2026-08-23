@@ -74,7 +74,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
     />
-    <link rel="stylesheet" href="styles.css?v=174" />
+    <link rel="stylesheet" href="styles.css?v=193" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -179,13 +179,15 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="Pitta Support">
-          <span class="logo-wordmark">
-            <span class="logo-wordmark__brand">Pitta</span>
-            <span class="logo-wordmark__slash" aria-hidden="true"></span>
-            <span class="logo-wordmark__tag">Support</span>
-          </span>
-        </a>
+        <h1 class="logo">
+          <a href="index.html" aria-label="Pitta Support">
+            <span class="logo-wordmark">
+              <span class="logo-wordmark__brand">Pitta</span>
+              <span class="logo-wordmark__slash" aria-hidden="true"></span>
+              <span class="logo-wordmark__tag">Support</span>
+            </span>
+          </a>
+        </h1>
 
         <nav
           class="nav-desktop"
@@ -212,6 +214,13 @@
             data-nav-page="concert"
             data-i18n="nav.concert"
             >Concert</a
+          >
+          <a
+            href="for-pitta.html"
+            class="nav-link"
+            data-nav-page="for-pitta"
+            data-i18n="nav.forPitta"
+            >For Pitta</a
           >
         </nav>
 
@@ -270,6 +279,13 @@
           data-nav-page="concert"
           data-i18n="nav.concert"
           >Concert</a
+        >
+        <a
+          href="for-pitta.html"
+          class="nav-link"
+          data-nav-page="for-pitta"
+          data-i18n="nav.forPitta"
+          >For Pitta</a
         >
       </div>
       <div class="nav-mobile__footer">
@@ -345,11 +361,10 @@
           <li>
             <a
               href="https://cafe.naver.com/phantomkang"
-              class="footer-social__link footer-social__link--naver"
+              class="footer-fancafe footer-fancafe--naver"
               target="_blank"
               rel="noopener noreferrer"
               data-i18n-attr="aria-label:footer.fancafe"
-              aria-label="Pitta Fan Community"
             >
               <span class="footer-social__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor">
@@ -358,6 +373,9 @@
                   />
                 </svg>
               </span>
+              <span class="footer-fancafe__label" data-i18n="footer.fancafe"
+                >Pitta Fan</span
+              >
             </a>
           </li>
         </ul>
@@ -485,97 +503,111 @@
         </div>
 
         <div class="hero-default" id="hero-default">
-          <div class="hero__custom--img">
-            <img
-              src="images/hero/HQEJpaSbkAAv-fi.jpg"
-              alt="PITTA Lets Rock Festival 2026"
-              data-i18n-attr="alt:hero.custom.imageAlt"
-              width="400"
-              height="400"
-            />
-            <canvas
-              class="hero__custom-stars"
-              id="hero-custom-stars"
-              aria-hidden="true"
-            ></canvas>
-          </div>
-          <div class="hero__custom--content">
-            <div class="hero__custom--content__logo">
-              <span class="hero__custom-label" data-i18n="dday.tag">UPCOMING</span>
+          <div class="hero-event" id="hero-event" aria-live="polite">
+            <div class="hero-event__media">
               <img
-                src="images/dday/lets_lock.svg"
-                alt="Lets Rock Festival"
-                class="letslock-logo"
-                width="280"
-                height="48"
+                class="hero-event__image"
+                id="hero-event-image"
+                src="images/hero/HQEJpaSbkAAv-fi.jpg"
+                alt="PITTA Lets Rock Festival 2026"
+                data-i18n-attr="alt:hero.events.letslock2026.imageAlt"
+                width="400"
+                height="400"
               />
+              <canvas
+                class="hero-event__stars"
+                id="hero-custom-stars"
+                aria-hidden="true"
+              ></canvas>
             </div>
-
-            <div class="hero__custom--content--text">
-              <span
-                class="hero__custom-text hero__custom-text--lead"
-                data-i18n="hero.custom.lead"
-                >숨길 수 없는 록커의 본색</span
-              >
-              <span class="hero__custom-text" data-i18n="hero.custom.subtitle"
-                >다양한 음악적 스펙트럼을 보여주는 팔색조</span
-              >
-              <span
-                class="hero__custom-text hero__custom-text--artist"
-                data-i18n="hero.custom.artist"
-                >보컬 PITTA(강형호)</span
-              >
-              <span
-                class="hero__custom-text hero__custom-text--hook"
-                data-i18n="hero.custom.hook"
-                >렛츠락페스티벌에서 만나요!</span
-              >
-
-              <p class="hero__custom-meta hero__custom-meta--date">
+            <div class="hero-event__body">
+              <div class="hero-event__brand">
+                <span
+                  class="hero-event__tag"
+                  id="hero-event-tag"
+                  data-i18n="dday.tag"
+                  >UPCOMING</span
+                >
                 <img
-                  src="images/icons/calendar.svg"
-                  alt=""
-                  class="hero__custom-meta-icon"
-                  width="16"
-                  height="16"
-                  aria-hidden="true"
+                  class="hero-event__logo hero-event__logo--letslock"
+                  id="hero-event-logo"
+                  src="images/dday/lets_lock.svg"
+                  alt="Lets Rock Festival"
+                  width="280"
+                  height="48"
                 />
-                <span data-i18n="hero.custom.date">2026. 10. 03 (Sat)</span>
-              </p>
-
-              <p class="hero__custom-meta hero__custom-meta--location">
-                <img
-                  src="images/icons/location.svg"
-                  alt=""
-                  class="hero__custom-meta-icon"
-                  width="16"
-                  height="16"
-                  aria-hidden="true"
-                />
+              </div>
+              <div class="hero-event__copy" id="hero-event-copy">
+                <span
+                  class="hero-event__text hero-event__text--lead"
+                  data-i18n="hero.events.letslock2026.lead"
+                  >숨길 수 없는 록커의 본색</span
+                >
+                <span
+                  class="hero-event__text"
+                  data-i18n="hero.events.letslock2026.subtitle"
+                  >다양한 음악적 스펙트럼을 보여주는 팔색조</span
+                >
+                <span
+                  class="hero-event__text hero-event__text--artist"
+                  data-i18n="hero.events.letslock2026.artist"
+                  >보컬 PITTA(강형호)</span
+                >
+                <span
+                  class="hero-event__text hero-event__text--hook"
+                  data-i18n="hero.events.letslock2026.hook"
+                  >렛츠락페스티벌에서 만나요!</span
+                >
+                <p class="hero-event__meta hero-event__meta--date">
+                  <img
+                    src="images/icons/calendar.svg"
+                    alt=""
+                    class="hero-event__meta-icon"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  />
+                  <span data-i18n="hero.events.letslock2026.date"
+                    >2026. 10. 03 (Sat)</span
+                  >
+                </p>
+                <p class="hero-event__meta hero-event__meta--location">
+                  <img
+                    src="images/icons/location.svg"
+                    alt=""
+                    class="hero-event__meta-icon"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  />
+                  <a
+                    class="hero-event__venue-link"
+                    id="hero-event-venue-link"
+                    href="https://naver.me/5UEFjyW3"
+                    data-map-ko="https://naver.me/5UEFjyW3"
+                    data-map-default="https://maps.app.goo.gl/Hx85dyCraiNNVtUv7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n-attr="aria-label:hero.events.letslock2026.venueMapAria"
+                    aria-label="난지한강공원 지도 열기"
+                  >
+                    <span data-i18n="hero.events.letslock2026.venue"
+                      >난지한강공원</span
+                    >
+                  </a>
+                </p>
+              </div>
+              <div class="hero-event__actions" id="hero-event-actions">
                 <a
-                  class="hero__custom-venue-link"
-                  href="https://naver.me/5UEFjyW3"
-                  data-map-ko="https://naver.me/5UEFjyW3"
-                  data-map-default="https://maps.app.goo.gl/Hx85dyCraiNNVtUv7"
+                  class="hero-event__ticket-btn"
+                  id="hero-event-ticket-btn"
+                  href="https://nol.yanolja.com/ticket/products/26010980"
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-i18n-attr="aria-label:hero.custom.venueMapAria"
-                  aria-label="난지한강공원 지도 열기"
+                  data-i18n="dday.linkFestival"
+                  >예매하기</a
                 >
-                  <span data-i18n="hero.custom.venue">난지한강공원</span>
-                </a>
-              </p>
-            </div>
-
-            <div class="hero__custom--content--button">
-              <a
-                class="hero__custom-ticket-btn"
-                href="https://nol.yanolja.com/ticket/products/26010980"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-i18n="dday.linkFestival"
-                >예매하기</a
-              >
+              </div>
             </div>
           </div>
         </div>
@@ -1039,34 +1071,38 @@
                   </span>
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://cafe.naver.com/phantomkang"
+                  class="footer-fancafe footer-fancafe--naver"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-i18n-attr="aria-label:footer.fancafe"
+                >
+                  <span class="footer-social__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M16.273 12.845L7.376 0H0v24h7.727V11.156L16.624 24H24V0h-7.727v12.845z"
+                      />
+                    </svg>
+                  </span>
+                  <span class="footer-fancafe__label" data-i18n="footer.fancafe"
+                    >Pitta Fan</span
+                  >
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         <div class="footer-right">
           <a
-            href="#board"
+            href="https://x.com/pitta_support"
             class="footer-suggest"
-            data-board-open
+            target="_blank"
+            rel="noopener noreferrer"
             data-i18n="footer.suggest"
             >건의사항</a
           >
-          <a
-            href="https://cafe.naver.com/phantomkang"
-            class="footer-fancafe footer-fancafe--naver"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="footer-fancafe__label" data-i18n="footer.fancafe"
-              >Pitta Fan Community</span
-            >
-            <span class="footer-social__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M16.273 12.845L7.376 0H0v24h7.727V11.156L16.624 24H24V0h-7.727v12.845z"
-                />
-              </svg>
-            </span>
-          </a>
         </div>
       </div>
     </footer>
@@ -1146,18 +1182,17 @@
     </div>
 
     <script src="scripts/anniversary-test.js?v=2" defer></script>
-    <script src="i18n.js?v=6" defer></script>
-    <script src="scripts/dday-config.js?v=2" defer></script>
-    <script src="scripts/site-core.js?v=15" defer></script>
-    <script src="scripts/board-config.js" defer></script>
-    <script src="scripts/board-modal.js?v=1" defer></script>
+    <script src="i18n.js?v=8" defer></script>
+    <script src="scripts/dday-config.js?v=4" defer></script>
+    <script src="scripts/site-core.js?v=16" defer></script>
+    <script src="scripts/hero-event.js?v=4" defer></script>
     <script src="script.js?v=11" defer></script>
-    <script src="scripts/hero-custom-stars.js?v=1" defer></script>
+    <script src="scripts/hero-custom-stars.js?v=2" defer></script>
     <script src="scripts/hero-paradox-aura.js?v=7" defer></script>
     <script src="scripts/hero-nation-particles.js?v=2" defer></script>
     <script src="scripts/hero-shadow-fragments.js?v=2" defer></script>
     <script src="scripts/hero-universe-effect.js?v=6" defer></script>
     <script src="scripts/hero-anniversary-links.js?v=1" defer></script>
-    <script src="scripts/hero-anniversary.js?v=41" defer></script>
+    <script src="scripts/hero-anniversary.js?v=42" defer></script>
   </body>
 </html>

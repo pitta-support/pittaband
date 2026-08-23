@@ -7,6 +7,7 @@
   border-top: 1px solid var(--border);
   padding: 1.5rem 1.5rem;
   margin-top: 0;
+  background: var(--bg-deep);
 }
 
 .footer-inner {
@@ -100,6 +101,11 @@
   padding: 0;
 }
 
+.footer-social li {
+  display: flex;
+  align-items: center;
+}
+
 .footer-social--icons {
   flex-wrap: nowrap;
 }
@@ -126,6 +132,14 @@
   color: var(--text-muted);
   white-space: nowrap;
   flex-shrink: 0;
+  line-height: 1;
+}
+
+.footer-fancafe__label {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  height: 0.8rem;
 }
 
 .footer-social__link:hover,

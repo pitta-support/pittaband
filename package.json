@@ -8,6 +8,8 @@
     "watch:css": "sass scss/style.scss styles.css --watch --style=expanded",
     "build:html": "node scripts/build-html.mjs",
     "build": "npm run build:css && npm run build:html",
+    "fetch:streaming": "node scripts/fetch-spotify-stats.mjs",
+    "fetch:streaming:probe": "node scripts/spotify-probe.mjs",
     "i18n:sync": "node scripts/i18n-sync.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +18,8 @@
   "license": "ISC",
   "devDependencies": {
     "sass": "^1.77.8"
+  },
+  "dependencies": {
+    "spotify-web-api-node": "^5.0.2"
   }
 }

@@ -256,7 +256,7 @@
               draggable="false"
             />
             <span class="festival-card__meta">
-              <span class="festival-card__title">${escapeHtml(title)}</span>
+              <h3 class="festival-card__title">${escapeHtml(title)}</h3>
               ${schedule ? `<span class="festival-card__date">${escapeHtml(schedule)}</span>` : ""}
             </span>
           </span>

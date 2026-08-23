@@ -30,9 +30,14 @@
       "description": "Pitta Band フェスティバル情報",
       "htmlLang": "ja"
     },
-    "board": {
-      "title": "ご意見 — Pitta Band Archive",
-      "description": "Pitta Band Archive ご意見",
+    "for-pitta": {
+      "title": "Vote — For Pitta",
+      "description": "For Pitta — Pitta Bandの進行中投票とファン活動。",
+      "htmlLang": "ja"
+    },
+    "for-pitta-streaming": {
+      "title": "Streaming — For Pitta",
+      "description": "For Pitta — Pitta BandのSpotify累計ストリーミング。",
       "htmlLang": "ja"
     }
   },
@@ -86,7 +91,8 @@
   "nav": {
     "about": "About",
     "album": "Album",
-    "concert": "Concert"
+    "concert": "Concert",
+    "forPitta": "For Pitta"
   },
   "hero": {
     "tag": "機密保管庫 // レベル 7",
@@ -120,6 +126,27 @@
       "date": "2026年10月3日（土）",
       "venue": "ナンジハンガン公園",
       "venueMapAria": "ナンジハンガン公園の地図を開く"
+    },
+    "events": {
+      "letslock2026": {
+        "imageAlt": "PITTA レッツロックフェスティバル 2026",
+        "lead": "隠せないロッカーの本性",
+        "subtitle": "多彩な音楽的スペクトラムを見せる八色鳥",
+        "artist": "ボーカル PITTA（カン・ヒョンホ）",
+        "hook": "レッツロックフェスティバルで会いましょう！",
+        "date": "2026年10月3日（土）",
+        "venue": "ナンジハンガン公園",
+        "venueMapAria": "ナンジハンガン公園の地図を開く"
+      },
+      "nexusLive2026": {
+        "imageAlt": "NEXUS LIVE · SEOUL",
+        "lead": "Pitta Band ライブ in Seoul",
+        "subtitle": "NEXUS LIVE — 2日間",
+        "hook": "会場でお会いしましょう！",
+        "date": "2026年9月15日（火）–16日（水）",
+        "venue": "ソウル",
+        "venueMapAria": "会場の地図を開く"
+      }
     }
   },
   "sectors": {
@@ -183,7 +210,7 @@
   "footer": {
     "fanSite": "Pitta Bandファンサイトです。",
     "officialLink": "Pitta Official Link",
-    "fancafe": "Pitta Fan Community",
+    "fancafe": "Pitta Fan",
     "suggest": "ご意見",
     "x": "X",
     "instagram": "Instagram",
@@ -302,16 +329,20 @@
       "loadError": "フェスティバルデータを読み込めませんでした。",
       "detailPending": "詳細情報は後日更新されます。"
     },
-    "board": {
-      "title": "ご意見",
-      "titleLabel": "タイトル",
-      "contentLabel": "内容",
-      "submit": "送信",
-      "subjectPrefix": "[ご意見]",
-      "alertConfig": "フォーム設定が完了していません。（Access Keyが必要です）",
-      "alertRequired": "タイトルと内容を入力してください。",
-      "alertSuccess": "送信が完了しました。",
-      "alertFail": "送信に失敗しました。しばらくしてから再度お試しください。"
+    "forPitta": {
+      "vote": "Vote",
+      "streaming": "Streaming",
+      "melon": "Melon",
+      "spotify": "Spotify",
+      "voteListLabel": "投票リスト",
+      "streamingListLabel": "ストリーミングリスト",
+      "voteEmpty": "進行中の投票はありません。",
+      "streamingEmpty": "表示する曲がありません。",
+      "loadError": "データを読み込めませんでした。",
+      "statsUpdated": "データ基準",
+      "statsSource": "Spotify基準",
+      "statsUpdateNote": "再生回数は毎日0時に更新されます。",
+      "voteEnds": "投票締切 :"
     },
     "sectorAlpha": {
       "title": "ニューラルログ",

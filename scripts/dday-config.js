@@ -26,6 +26,10 @@
    *   date          : 발매일 1일
    *   구매하기      : 발매일~+displayDays (link.href)
    *   displayDays 경과 후 자동 숨김
+   *
+   * hero (선택) — index Hero Section 템플릿 (scripts/hero-event.js)
+   *   image, logo, lines[], dateI18n, venue, tagI18n, buttonI18n, stars …
+   *   concert / festival 캠페인에 hero 를 넣으면 활성 기간 동안 Hero 에 표시
    */
   window.DDAY_CAMPAIGNS = [
     {
@@ -48,6 +52,43 @@
         logoSrc: "images/dday/nexus-live-logo.png",
         logoAltI18n: "dday.campaigns.nexusLive.event",
         logoAltFallback: "NEXUS LIVE · SEOUL",
+      },
+      hero: {
+        image: "images/hero/nexus-live.jpg",
+        imageAltI18n: "hero.events.nexusLive2026.imageAlt",
+        imageAltFallback: "NEXUS LIVE · SEOUL",
+        tagI18n: "dday.tag",
+        tagFallback: "UPCOMING",
+        logo: "images/dday/nexus-live-logo.png",
+        logoAltFallback: "NEXUS LIVE · SEOUL",
+        lines: [
+          {
+            i18n: "hero.events.nexusLive2026.lead",
+            class: "lead",
+            fallback: "Pitta Band Live in Seoul",
+          },
+          {
+            i18n: "hero.events.nexusLive2026.subtitle",
+            fallback: "NEXUS LIVE — two-night run",
+          },
+          {
+            i18n: "hero.events.nexusLive2026.hook",
+            class: "hook",
+            fallback: "See you at the show!",
+          },
+        ],
+        dateI18n: "hero.events.nexusLive2026.date",
+        dateFallback: "2026. 09. 15 (Tue) – 16 (Wed)",
+        venue: {
+          i18n: "hero.events.nexusLive2026.venue",
+          fallback: "Seoul",
+          mapKo: "https://maps.app.goo.gl/Hx85dyCraiNNVtUv7",
+          mapDefault: "https://maps.app.goo.gl/Hx85dyCraiNNVtUv7",
+          mapAriaI18n: "hero.events.nexusLive2026.venueMapAria",
+          mapAriaFallback: "Open venue map",
+        },
+        buttonI18n: "dday.linkConcert",
+        stars: true,
       },
       banner: {
         titleI18n: "dday.campaigns.nexusLive.bannerTitle",
@@ -76,8 +117,51 @@
         eventFallback: "LetsRock Festival",
         logoSrc: "images/dday/lets_lock.svg",
         logoAltFallback: "LetsRock Festival",
-        venueI18n: "hero.custom.venue",
+        venueI18n: "hero.events.letslock2026.venue",
         venueFallback: "난지한강공원",
+      },
+      hero: {
+        image: "images/hero/HQEJpaSbkAAv-fi.jpg",
+        imageAltI18n: "hero.events.letslock2026.imageAlt",
+        imageAltFallback: "PITTA Lets Rock Festival 2026",
+        tagI18n: "dday.tag",
+        tagFallback: "UPCOMING",
+        logo: "images/dday/lets_lock.svg",
+        logoAltFallback: "Lets Rock Festival",
+        logoClass: "hero-event__logo--letslock",
+        lines: [
+          {
+            i18n: "hero.events.letslock2026.lead",
+            class: "lead",
+            fallback: "숨길 수 없는 록커의 본색",
+          },
+          {
+            i18n: "hero.events.letslock2026.subtitle",
+            fallback: "다양한 음악적 스펙트럼을 보여주는 팔색조",
+          },
+          {
+            i18n: "hero.events.letslock2026.artist",
+            class: "artist",
+            fallback: "보컬 PITTA(강형호)",
+          },
+          {
+            i18n: "hero.events.letslock2026.hook",
+            class: "hook",
+            fallback: "렛츠락페스티벌에서 만나요!",
+          },
+        ],
+        dateI18n: "hero.events.letslock2026.date",
+        dateFallback: "2026. 10. 03 (Sat)",
+        venue: {
+          i18n: "hero.events.letslock2026.venue",
+          fallback: "난지한강공원",
+          mapKo: "https://naver.me/5UEFjyW3",
+          mapDefault: "https://maps.app.goo.gl/Hx85dyCraiNNVtUv7",
+          mapAriaI18n: "hero.events.letslock2026.venueMapAria",
+          mapAriaFallback: "난지한강공원 지도 열기",
+        },
+        buttonI18n: "dday.linkFestival",
+        stars: true,
       },
       banner: {
         titleI18n: "dday.campaigns.summerFest.bannerTitle",

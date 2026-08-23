@@ -30,9 +30,14 @@
       "description": "Información de festivales de Pitta Band",
       "htmlLang": "es"
     },
-    "board": {
-      "title": "Sugerencias — Pitta Band Archive",
-      "description": "Tablón de sugerencias de Pitta Band Archive",
+    "for-pitta": {
+      "title": "Vote — For Pitta",
+      "description": "For Pitta — votaciones activas y actividades de fans de Pitta Band.",
+      "htmlLang": "es"
+    },
+    "for-pitta-streaming": {
+      "title": "Streaming — For Pitta",
+      "description": "For Pitta — reproducciones acumuladas en Spotify de Pitta Band.",
       "htmlLang": "es"
     }
   },
@@ -86,7 +91,8 @@
   "nav": {
     "about": "About",
     "album": "Album",
-    "concert": "Concert"
+    "concert": "Concert",
+    "forPitta": "For Pitta"
   },
   "hero": {
     "tag": "BÓVEDA CLASIFICADA // NIVEL 7",
@@ -120,6 +126,27 @@
       "date": "3 oct 2026 (sáb)",
       "venue": "Parque Nanji Hangang",
       "venueMapAria": "Abrir mapa del Parque Nanji Hangang"
+    },
+    "events": {
+      "letslock2026": {
+        "imageAlt": "PITTA en Lets Rock Festival 2026",
+        "lead": "La verdadera esencia de un rocker imposible de ocultar",
+        "subtitle": "Un kaleidoscopio del diverso espectro musical",
+        "artist": "Voz PITTA (Kang Hyung-ho)",
+        "hook": "¡Nos vemos en Lets Rock Festival!",
+        "date": "3 oct 2026 (sáb)",
+        "venue": "Parque Nanji Hangang",
+        "venueMapAria": "Abrir mapa del Parque Nanji Hangang"
+      },
+      "nexusLive2026": {
+        "imageAlt": "NEXUS LIVE · SEOUL",
+        "lead": "Pitta Band en vivo en Seúl",
+        "subtitle": "NEXUS LIVE — dos noches",
+        "hook": "¡Nos vemos en el concierto!",
+        "date": "15 (mar) – 16 (mié) sep 2026",
+        "venue": "Seúl",
+        "venueMapAria": "Abrir mapa del recinto"
+      }
     }
   },
   "sectors": {
@@ -183,7 +210,7 @@
   "footer": {
     "fanSite": "Este es un sitio de fans de Pitta Band.",
     "officialLink": "Pitta Official Link",
-    "fancafe": "Pitta Fan Community",
+    "fancafe": "Pitta Fan",
     "suggest": "Sugerencias",
     "x": "X",
     "instagram": "Instagram",
@@ -302,16 +329,20 @@
       "loadError": "No se pudieron cargar los datos de festivales.",
       "detailPending": "Los detalles se actualizarán pronto."
     },
-    "board": {
-      "title": "Sugerencias",
-      "titleLabel": "Título",
-      "contentLabel": "Contenido",
-      "submit": "Enviar",
-      "subjectPrefix": "[Sugerencia]",
-      "alertConfig": "La configuración del formulario no está completa. (Se requiere Access Key)",
-      "alertRequired": "Introduce un título y un mensaje.",
-      "alertSuccess": "Enviado correctamente.",
-      "alertFail": "Error al enviar. Inténtalo de nuevo más tarde."
+    "forPitta": {
+      "vote": "Vote",
+      "streaming": "Streaming",
+      "melon": "Melon",
+      "spotify": "Spotify",
+      "voteListLabel": "Lista de votaciones",
+      "streamingListLabel": "Lista de streaming",
+      "voteEmpty": "No hay votaciones activas.",
+      "streamingEmpty": "No hay canciones para mostrar.",
+      "loadError": "No se pudieron cargar los datos.",
+      "statsUpdated": "Datos al",
+      "statsSource": "Spotify",
+      "statsUpdateNote": "Las reproducciones se actualizan cada día a medianoche.",
+      "voteEnds": "Cierre de votación :"
     },
     "sectorAlpha": {
       "title": "Registros Neurales",

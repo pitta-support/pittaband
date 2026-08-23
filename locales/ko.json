@@ -30,9 +30,14 @@
       "description": "Pitta Band 페스티벌 출연 정보, 포스터, 공연 기록을 확인하세요.",
       "htmlLang": "ko"
     },
-    "board": {
-      "title": "건의사항 — Pitta Band Archive",
-      "description": "Pitta Band Archive 건의사항",
+    "for-pitta": {
+      "title": "Vote — For Pitta",
+      "description": "Pitta Band For Pitta — 진행 중인 투표와 팬 활동을 확인하세요.",
+      "htmlLang": "ko"
+    },
+    "for-pitta-streaming": {
+      "title": "Streaming — For Pitta",
+      "description": "Pitta Band For Pitta — Spotify 누적 스트리밍 현황을 확인하세요.",
       "htmlLang": "ko"
     }
   },
@@ -86,7 +91,8 @@
   "nav": {
     "about": "About",
     "album": "Album",
-    "concert": "Concert"
+    "concert": "Concert",
+    "forPitta": "For Pitta"
   },
   "hero": {
     "tag": "기밀 저장소 // 레벨 7",
@@ -120,6 +126,27 @@
       "date": "2026. 10. 03 (Sat)",
       "venue": "난지한강공원",
       "venueMapAria": "난지한강공원 지도 열기"
+    },
+    "events": {
+      "letslock2026": {
+        "imageAlt": "PITTA Lets Rock Festival 2026",
+        "lead": "숨길 수 없는 록커의 본색",
+        "subtitle": "다양한 음악적 스펙트럼을 보여주는 팔색조",
+        "artist": "보컬 PITTA(강형호)",
+        "hook": "렛츠락페스티벌에서 만나요!",
+        "date": "2026. 10. 03 (Sat)",
+        "venue": "난지한강공원",
+        "venueMapAria": "난지한강공원 지도 열기"
+      },
+      "nexusLive2026": {
+        "imageAlt": "NEXUS LIVE · SEOUL",
+        "lead": "Pitta Band Live in Seoul",
+        "subtitle": "NEXUS LIVE — 2일간의 라이브",
+        "hook": "공연장에서 만나요!",
+        "date": "2026. 09. 15 (Tue) – 16 (Wed)",
+        "venue": "서울",
+        "venueMapAria": "공연장 지도 열기"
+      }
     }
   },
   "sectors": {
@@ -183,7 +210,7 @@
   "footer": {
     "fanSite": "Pitta Band 팬사이트입니다.",
     "officialLink": "Pitta Official Link",
-    "fancafe": "Pitta Fan Community",
+    "fancafe": "Pitta Fan",
     "suggest": "건의사항",
     "x": "X",
     "instagram": "Instagram",
@@ -301,16 +328,20 @@
       "loadError": "페스티벌 데이터를 불러오지 못했습니다.",
       "detailPending": "상세 정보는 곧 업데이트됩니다."
     },
-    "board": {
-      "title": "건의사항",
-      "titleLabel": "제목",
-      "contentLabel": "내용",
-      "submit": "등록",
-      "subjectPrefix": "[건의사항]",
-      "alertConfig": "폼 설정이 완료되지 않았습니다. (Access Key 필요)",
-      "alertRequired": "제목과 내용을 입력해 주세요.",
-      "alertSuccess": "완료되었습니다.",
-      "alertFail": "등록에 실패했습니다. 잠시 후 다시 시도해 주세요."
+    "forPitta": {
+      "vote": "Vote",
+      "streaming": "Streaming",
+      "melon": "Melon",
+      "spotify": "Spotify",
+      "voteListLabel": "투표 목록",
+      "streamingListLabel": "스트리밍 목록",
+      "voteEmpty": "현재 진행중인 투표가 없습니다",
+      "streamingEmpty": "표시할 곡이 없습니다.",
+      "loadError": "데이터를 불러오지 못했습니다.",
+      "statsUpdated": "데이터 기준",
+      "statsSource": "Spotify 기준",
+      "statsUpdateNote": "재생횟수는 매일 자정에 갱신됩니다.",
+      "voteEnds": "투표마감 :"
     },
     "sectorAlpha": {
       "title": "뉴럴 로그",
