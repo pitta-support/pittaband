@@ -10,6 +10,14 @@
   if (!root || !wrapper) return;
 
   function t(key, fallback, params) {
+    if (!key) {
+      console.warn("[hero-event] Missing i18n key:", {
+        key,
+        fallback,
+      });
+      return fallback ?? "";
+    }
+
     if (window.i18n?.t) {
       const resolved = params ? window.i18n.t(key, params) : window.i18n.t(key);
       if (resolved != null && resolved !== key) return resolved;
@@ -45,7 +53,9 @@
   }
 
   function getKstDateKey(date = new Date()) {
-    return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(date);
+    return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Seoul" }).format(
+      date
+    );
   }
 
   function parseKstDateStart(dateStr) {
@@ -98,7 +108,10 @@
       if (!release) return null;
 
       const showFrom = parseKstDateStart(campaign.showFrom || release);
-      const lastDisplayDay = addDaysToDateStr(release, campaign.displayDays ?? 7);
+      const lastDisplayDay = addDaysToDateStr(
+        release,
+        campaign.displayDays ?? 7
+      );
       const displayEnd = parseKstDateEnd(lastDisplayDay);
       const nowKey = getKstDateKey(now);
 
@@ -112,11 +125,18 @@
   }
 
   function getActiveHeroEntry(now = new Date()) {
-    return (window.DDAY_CAMPAIGNS || [])
-      .filter((campaign) => campaign.enabled && campaign.hero)
-      .map((campaign) => ({ campaign, state: resolveCampaignState(campaign, now) }))
-      .filter((entry) => entry.state && !entry.state.expired)
-      .sort((a, b) => (b.campaign.priority || 0) - (a.campaign.priority || 0))[0] || null;
+    return (
+      (window.DDAY_CAMPAIGNS || [])
+        .filter((campaign) => campaign.enabled && campaign.hero)
+        .map((campaign) => ({
+          campaign,
+          state: resolveCampaignState(campaign, now),
+        }))
+        .filter((entry) => entry.state && !entry.state.expired)
+        .sort(
+          (a, b) => (b.campaign.priority || 0) - (a.campaign.priority || 0)
+        )[0] || null
+    );
   }
 
   function defaultButtonI18n(type) {
@@ -132,7 +152,9 @@
   function renderLines(container, lines) {
     if (!container || !lines?.length) return;
 
-    container.querySelectorAll(".hero-event__text").forEach((el) => el.remove());
+    container
+      .querySelectorAll(".hero-event__text")
+      .forEach((el) => el.remove());
 
     const meta = container.querySelector(".hero-event__meta");
     const fragment = document.createDocumentFragment();
@@ -183,7 +205,9 @@
 
     btn.href = href;
     btn.textContent = t(
-      hero.buttonI18n || campaign.link?.labelI18n || defaultButtonI18n(campaign.type),
+      hero.buttonI18n ||
+        campaign.link?.labelI18n ||
+        defaultButtonI18n(campaign.type),
       hero.buttonFallback || "예매하기"
     );
 
@@ -255,7 +279,8 @@
     const link = document.getElementById("hero-event-venue-link");
     if (!link) return;
 
-    const lang = window.i18n?.getLang?.() || document.documentElement.lang || "ko";
+    const lang =
+      window.i18n?.getLang?.() || document.documentElement.lang || "ko";
     const ko = link.dataset.mapKo;
     const fallback = link.dataset.mapDefault;
     link.href = lang === "ko" && ko ? ko : fallback || ko || link.href;
@@ -266,7 +291,11 @@
     if (section?.classList.contains("hero--anniversary")) return true;
 
     const anniversary = document.getElementById("hero-anniversary");
-    return Boolean(anniversary && !anniversary.hidden && anniversary.classList.contains("is-visible"));
+    return Boolean(
+      anniversary &&
+        !anniversary.hidden &&
+        anniversary.classList.contains("is-visible")
+    );
   }
 
   function refresh() {

@@ -23,6 +23,7 @@
   }
 
   function getNested(obj, path) {
+    if (!path || typeof path !== "string") return undefined;
     return path.split(".").reduce((acc, key) => acc?.[key], obj);
   }
 
@@ -86,7 +87,9 @@
         data-overlay="member-vocal"
         aria-label="${m("vocal")}"
       >
-      <span class="band-member__name name__vocal"><em>${mp("memberVocal").title}</em><br>${mp("memberVocal").name}</span>
+      <span class="band-member__name name__vocal"><em>${
+        mp("memberVocal").title
+      }</em><br>${mp("memberVocal").name}</span>
         <span class="band-member__noise" aria-hidden="true"></span>
         <svg
           class="member-svg member-svg--vocal"
@@ -125,7 +128,9 @@
         data-overlay="member-drums"
         aria-label="${m("drums")}"
       >
-      <span class="band-member__name name__drum"><em>${mp("memberDrums").title}</em><br>${mp("memberDrums").name}</span>
+      <span class="band-member__name name__drum"><em>${
+        mp("memberDrums").title
+      }</em><br>${mp("memberDrums").name}</span>
         <span class="band-member__noise" aria-hidden="true"></span>
         <svg
           class="member-svg member-svg--drum"
@@ -172,7 +177,9 @@
         data-overlay="member-guitar-1"
         aria-label="${m("guitar1")}"
       >
-      <span class="band-member__name name__guitar-left"><em>${mp("memberGuitar1").title}</em><br>${mp("memberGuitar1").name}</span>
+      <span class="band-member__name name__guitar-left"><em>${
+        mp("memberGuitar1").title
+      }</em><br>${mp("memberGuitar1").name}</span>
         <span class="band-member__noise" aria-hidden="true"></span>
         <svg
           class="member-svg member-svg--guitar-left"
@@ -205,7 +212,9 @@
         data-overlay="member-guitar-2"
         aria-label="${m("base")}"
       >
-      <span class="band-member__name name__bass"><em>${mp("memberGuitar2").title}</em><br>${mp("memberGuitar2").name}</span>
+      <span class="band-member__name name__bass"><em>${
+        mp("memberGuitar2").title
+      }</em><br>${mp("memberGuitar2").name}</span>
         <span class="band-member__noise" aria-hidden="true"></span>
         <svg
           class="member-svg member-svg--bass"
@@ -262,7 +271,9 @@
         data-overlay="member-guitar-3"
         aria-label="${m("guitar3")}"
       >
-      <span class="band-member__name name__guitar-right"><em>${mp("memberGuitar3").title}</em><br>${mp("memberGuitar3").name}</span>
+      <span class="band-member__name name__guitar-right"><em>${
+        mp("memberGuitar3").title
+      }</em><br>${mp("memberGuitar3").name}</span>
         <span class="band-member__noise" aria-hidden="true"></span>
 
         <svg
@@ -323,7 +334,9 @@
   function memberPageHtml(pageKey) {
     const page = getNested(dict, `pages.${pageKey}`);
     const instagramLink = page.instagram
-      ? `<a href="${page.instagram}" class="member-profile__instagram" target="_blank" rel="noopener noreferrer" aria-label="${t(
+      ? `<a href="${
+          page.instagram
+        }" class="member-profile__instagram" target="_blank" rel="noopener noreferrer" aria-label="${t(
           "overlay.instagram"
         )}">
           <span class="member-profile__instagram-icon">${memberInstagramIcon()}</span>
@@ -535,11 +548,13 @@
       ? new URL(pagePath, baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`).href
       : "";
     const ogImageUrl = baseUrl
-      ? new URL(ogImagePath, baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`).href
+      ? new URL(ogImagePath, baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`)
+          .href
       : ogImagePath;
 
     const canonicalEl = document.querySelector('link[rel="canonical"]');
-    if (canonicalEl && canonicalUrl) canonicalEl.setAttribute("href", canonicalUrl);
+    if (canonicalEl && canonicalUrl)
+      canonicalEl.setAttribute("href", canonicalUrl);
 
     const setMeta = (key, value, property = false) => {
       if (!value) return;
@@ -559,7 +574,17 @@
     setMeta("og:description", description, true);
     if (canonicalUrl) setMeta("og:url", canonicalUrl, true);
     setMeta("og:image", ogImageUrl, true);
-    setMeta("og:locale", htmlLang === "ko" ? "ko_KR" : htmlLang === "ja" ? "ja_JP" : htmlLang === "es" ? "es_ES" : "en_US", true);
+    setMeta(
+      "og:locale",
+      htmlLang === "ko"
+        ? "ko_KR"
+        : htmlLang === "ja"
+        ? "ja_JP"
+        : htmlLang === "es"
+        ? "es_ES"
+        : "en_US",
+      true
+    );
 
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
@@ -570,7 +595,9 @@
   }
 
   function applyHreflang(canonicalUrl) {
-    document.querySelectorAll('link[rel="alternate"][hreflang]').forEach((el) => el.remove());
+    document
+      .querySelectorAll('link[rel="alternate"][hreflang]')
+      .forEach((el) => el.remove());
     if (!canonicalUrl) return;
 
     const hreflangMap = { ko: "ko", en: "en", ja: "ja", es: "es" };
@@ -711,9 +738,7 @@
     }
 
     initLangSwitcher();
-    document.dispatchEvent(
-      new CustomEvent("i18n:ready", { detail: { lang } })
-    );
+    document.dispatchEvent(new CustomEvent("i18n:ready", { detail: { lang } }));
   }
 
   const ready = bootstrapLocale();

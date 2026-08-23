@@ -60,6 +60,7 @@
         tagI18n: "dday.tag",
         tagFallback: "UPCOMING",
         logo: "images/dday/nexus-live-logo.png",
+        logoAltI18n: "hero.events.nexusLive2026.logoAlt",
         logoAltFallback: "NEXUS LIVE · SEOUL",
         lines: [
           {
@@ -116,6 +117,7 @@
         eventI18n: "dday.campaigns.summerFest.event",
         eventFallback: "LetsRock Festival",
         logoSrc: "images/dday/lets_lock.svg",
+        logoAltI18n: "hero.events.letslock2026.logoAlt",
         logoAltFallback: "LetsRock Festival",
         venueI18n: "hero.events.letslock2026.venue",
         venueFallback: "난지한강공원",
@@ -127,6 +129,7 @@
         tagI18n: "dday.tag",
         tagFallback: "UPCOMING",
         logo: "images/dday/lets_lock.svg",
+        logoAltI18n: "hero.events.letslock2026.logoAlt",
         logoAltFallback: "Lets Rock Festival",
         logoClass: "hero-event__logo--letslock",
         lines: [
@@ -189,6 +192,7 @@
         eventI18n: "dday.campaigns.paradox.event",
         eventFallback: "PARADOX",
         logoSrc: "images/albums/paradox.png",
+        logoAltI18n: "hero.events.PARADOX.logoAlt",
         logoAltFallback: "PARADOX",
       },
       banner: {
