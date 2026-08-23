@@ -4,245 +4,253 @@
   /* ===== Sparkle field ===== */
   const canvas = document.getElementById("particle-canvas");
   if (canvas) {
-  const ctx = canvas.getContext("2d");
-  let particles = [];
-  let shootingStars = [];
-  let w, h;
-  let mouse = { x: -1000, y: -1000 };
-  let animationId;
-  let particlesRunning = false;
-  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+    let shootingStars = [];
+    let w, h;
+    let mouse = { x: -1000, y: -1000 };
+    let animationId;
+    let particlesRunning = false;
+    const reducedMotionQuery = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
 
-  function particlesShouldRun() {
-    if (reducedMotionQuery.matches || document.hidden) return false;
-    if (document.querySelector(".hero--anniversary")) return false;
-    return true;
-  }
-
-  function stopParticles() {
-    particlesRunning = false;
-    if (animationId) {
-      cancelAnimationFrame(animationId);
-      animationId = null;
+    function particlesShouldRun() {
+      if (reducedMotionQuery.matches || document.hidden) return false;
+      if (document.querySelector(".hero--anniversary")) return false;
+      return true;
     }
-    ctx.clearRect(0, 0, w || 0, h || 0);
-  }
 
-  function startParticles() {
-    if (particlesRunning || !particlesShouldRun()) return;
-    particlesRunning = true;
-    drawParticles();
-  }
+    function stopParticles() {
+      particlesRunning = false;
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+      ctx.clearRect(0, 0, w || 0, h || 0);
+    }
 
-  const COLORS = {
-    cyan: { h: 193, s: 100, l: 65 },
-    magenta: { h: 290, s: 100, l: 60 },
-    crimson: { h: 345, s: 100, l: 58 },
-  };
+    function startParticles() {
+      if (particlesRunning || !particlesShouldRun()) return;
+      particlesRunning = true;
+      drawParticles();
+    }
 
-  function pickColor() {
-    const roll = Math.random();
-    if (roll > 0.82) return COLORS.crimson;
-    if (roll > 0.55) return COLORS.magenta;
-    return COLORS.cyan;
-  }
+    window.startParticles = startParticles;
+    window.stopParticles = stopParticles;
 
-  function hsla(c, a) {
-    return `hsla(${c.h}, ${c.s}%, ${c.l}%, ${a})`;
-  }
+    const COLORS = {
+      cyan: { h: 193, s: 100, l: 65 },
+      magenta: { h: 290, s: 100, l: 60 },
+      crimson: { h: 345, s: 100, l: 58 },
+    };
 
-  function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-    initParticles();
-  }
+    function pickColor() {
+      const roll = Math.random();
+      if (roll > 0.82) return COLORS.crimson;
+      if (roll > 0.55) return COLORS.magenta;
+      return COLORS.cyan;
+    }
 
-  function initParticles() {
-    const isMobile = w <= 768;
-    const density = isMobile ? 14000 : 10000;
-    const cap = isMobile ? 70 : 120;
-    const count = Math.min(Math.floor((w * h) / density), cap);
-    particles = Array.from({ length: count }, () => {
-      const typeRoll = Math.random();
-      const type = typeRoll > 0.88 ? "orb" : typeRoll > 0.55 ? "star" : "dot";
+    function hsla(c, a) {
+      return `hsla(${c.h}, ${c.s}%, ${c.l}%, ${a})`;
+    }
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      initParticles();
+    }
+
+    function initParticles() {
+      const isMobile = w <= 768;
+      const density = isMobile ? 14000 : 10000;
+      const cap = isMobile ? 70 : 120;
+      const count = Math.min(Math.floor((w * h) / density), cap);
+      particles = Array.from({ length: count }, () => {
+        const typeRoll = Math.random();
+        const type = typeRoll > 0.88 ? "orb" : typeRoll > 0.55 ? "star" : "dot";
+        const color = pickColor();
+        return {
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * (type === "orb" ? 0.25 : 0.55),
+          vy: (Math.random() - 0.5) * (type === "orb" ? 0.25 : 0.55),
+          r:
+            type === "orb"
+              ? Math.random() * 2.2 + 1.8
+              : type === "star"
+              ? Math.random() * 2.5 + 1.5
+              : Math.random() * 1.4 + 0.4,
+          baseAlpha:
+            type === "orb"
+              ? Math.random() * 0.35 + 0.25
+              : Math.random() * 0.55 + 0.35,
+          phase: Math.random() * Math.PI * 2,
+          twinkle: Math.random() * 0.04 + 0.015,
+          rot: Math.random() * Math.PI,
+          rotSpeed: (Math.random() - 0.5) * 0.02,
+          type,
+          color,
+        };
+      });
+      shootingStars = [];
+    }
+
+    function spawnShootingStar() {
+      if (shootingStars.length > 3 || Math.random() > 0.012) return;
       const color = pickColor();
-      return {
-        x: Math.random() * w,
-        y: Math.random() * h,
-        vx: (Math.random() - 0.5) * (type === "orb" ? 0.25 : 0.55),
-        vy: (Math.random() - 0.5) * (type === "orb" ? 0.25 : 0.55),
-        r:
-          type === "orb"
-            ? Math.random() * 2.2 + 1.8
-            : type === "star"
-            ? Math.random() * 2.5 + 1.5
-            : Math.random() * 1.4 + 0.4,
-        baseAlpha:
-          type === "orb"
-            ? Math.random() * 0.35 + 0.25
-            : Math.random() * 0.55 + 0.35,
-        phase: Math.random() * Math.PI * 2,
-        twinkle: Math.random() * 0.04 + 0.015,
-        rot: Math.random() * Math.PI,
-        rotSpeed: (Math.random() - 0.5) * 0.02,
-        type,
+      shootingStars.push({
+        x: Math.random() * w * 0.8,
+        y: Math.random() * h * 0.4,
+        vx: Math.random() * 4 + 3,
+        vy: Math.random() * 2 + 1,
+        len: Math.random() * 60 + 40,
+        alpha: 1,
         color,
-      };
-    });
-    shootingStars = [];
-  }
-
-  function spawnShootingStar() {
-    if (shootingStars.length > 3 || Math.random() > 0.012) return;
-    const color = pickColor();
-    shootingStars.push({
-      x: Math.random() * w * 0.8,
-      y: Math.random() * h * 0.4,
-      vx: Math.random() * 4 + 3,
-      vy: Math.random() * 2 + 1,
-      len: Math.random() * 60 + 40,
-      alpha: 1,
-      color,
-    });
-  }
-
-  function drawStar(x, y, size, alpha, color, rot) {
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.rotate(rot);
-    ctx.strokeStyle = hsla(color, alpha);
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(-size, 0);
-    ctx.lineTo(size, 0);
-    ctx.moveTo(0, -size * 0.7);
-    ctx.lineTo(0, size * 0.7);
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  function drawOrb(x, y, r, alpha, color) {
-    const grad = ctx.createRadialGradient(x, y, 0, x, y, r * 3);
-    grad.addColorStop(0, hsla(color, alpha));
-    grad.addColorStop(0.4, hsla(color, alpha * 0.4));
-    grad.addColorStop(1, hsla(color, 0));
-    ctx.fillStyle = grad;
-    ctx.beginPath();
-    ctx.arc(x, y, r * 3, 0, Math.PI * 2);
-    ctx.fill();
-  }
-
-  function drawParticles() {
-    if (!particlesShouldRun()) {
-      stopParticles();
-      return;
+      });
     }
 
-    ctx.clearRect(0, 0, w, h);
-
-    /* mouse glow */
-    if (mouse.x > 0) {
-      const glow = ctx.createRadialGradient(
-        mouse.x,
-        mouse.y,
-        0,
-        mouse.x,
-        mouse.y,
-        160
-      );
-      glow.addColorStop(0, "rgba(48, 213, 255, 0.07)");
-      glow.addColorStop(0.5, "rgba(216, 0, 255, 0.03)");
-      glow.addColorStop(1, "rgba(48, 213, 255, 0)");
-      ctx.fillStyle = glow;
-      ctx.fillRect(mouse.x - 160, mouse.y - 160, 320, 320);
-    }
-
-    particles.forEach((p, i) => {
-      p.x += p.vx;
-      p.y += p.vy;
-      p.phase += p.twinkle;
-      p.rot += p.rotSpeed;
-
-      if (p.x < -20) p.x = w + 20;
-      if (p.x > w + 20) p.x = -20;
-      if (p.y < -20) p.y = h + 20;
-      if (p.y > h + 20) p.y = -20;
-
-      const dx = mouse.x - p.x;
-      const dy = mouse.y - p.y;
-      const dist = Math.hypot(dx, dy);
-      if (dist < 140) {
-        p.x -= dx * 0.012;
-        p.y -= dy * 0.012;
-      }
-
-      const twinkle = 0.45 + 0.55 * Math.sin(p.phase);
-      const alpha = p.baseAlpha * twinkle;
-
-      if (p.type === "star") {
-        drawStar(p.x, p.y, p.r, alpha, p.color, p.rot);
-      } else if (p.type === "orb") {
-        drawOrb(p.x, p.y, p.r, alpha, p.color);
-      } else {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = hsla(p.color, alpha);
-        ctx.fill();
-      }
-    });
-
-    spawnShootingStar();
-    shootingStars = shootingStars.filter((s) => {
-      s.x += s.vx;
-      s.y += s.vy;
-      s.alpha -= 0.018;
-
-      if (s.alpha <= 0) return false;
-
-      const grad = ctx.createLinearGradient(
-        s.x,
-        s.y,
-        s.x - s.vx * s.len * 0.15,
-        s.y - s.vy * s.len * 0.15
-      );
-      grad.addColorStop(0, hsla(s.color, s.alpha));
-      grad.addColorStop(1, hsla(s.color, 0));
-      ctx.strokeStyle = grad;
-      ctx.lineWidth = 1.5;
+    function drawStar(x, y, size, alpha, color, rot) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(rot);
+      ctx.strokeStyle = hsla(color, alpha);
+      ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(s.x, s.y);
-      ctx.lineTo(s.x - s.vx * s.len * 0.15, s.y - s.vy * s.len * 0.15);
+      ctx.moveTo(-size, 0);
+      ctx.lineTo(size, 0);
+      ctx.moveTo(0, -size * 0.7);
+      ctx.lineTo(0, size * 0.7);
       ctx.stroke();
-      return s.x < w + 100 && s.y < h + 100;
+      ctx.restore();
+    }
+
+    function drawOrb(x, y, r, alpha, color) {
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, r * 3);
+      grad.addColorStop(0, hsla(color, alpha));
+      grad.addColorStop(0.4, hsla(color, alpha * 0.4));
+      grad.addColorStop(1, hsla(color, 0));
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(x, y, r * 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function drawParticles() {
+      if (!particlesShouldRun()) {
+        stopParticles();
+        return;
+      }
+
+      ctx.clearRect(0, 0, w, h);
+
+      /* mouse glow */
+      if (mouse.x > 0) {
+        const glow = ctx.createRadialGradient(
+          mouse.x,
+          mouse.y,
+          0,
+          mouse.x,
+          mouse.y,
+          160
+        );
+        glow.addColorStop(0, "rgba(48, 213, 255, 0.07)");
+        glow.addColorStop(0.5, "rgba(216, 0, 255, 0.03)");
+        glow.addColorStop(1, "rgba(48, 213, 255, 0)");
+        ctx.fillStyle = glow;
+        ctx.fillRect(mouse.x - 160, mouse.y - 160, 320, 320);
+      }
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.phase += p.twinkle;
+        p.rot += p.rotSpeed;
+
+        if (p.x < -20) p.x = w + 20;
+        if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20;
+        if (p.y > h + 20) p.y = -20;
+
+        const dx = mouse.x - p.x;
+        const dy = mouse.y - p.y;
+        const dist = Math.hypot(dx, dy);
+        if (dist < 140) {
+          p.x -= dx * 0.012;
+          p.y -= dy * 0.012;
+        }
+
+        const twinkle = 0.45 + 0.55 * Math.sin(p.phase);
+        const alpha = p.baseAlpha * twinkle;
+
+        if (p.type === "star") {
+          drawStar(p.x, p.y, p.r, alpha, p.color, p.rot);
+        } else if (p.type === "orb") {
+          drawOrb(p.x, p.y, p.r, alpha, p.color);
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = hsla(p.color, alpha);
+          ctx.fill();
+        }
+      });
+
+      spawnShootingStar();
+      shootingStars = shootingStars.filter((s) => {
+        s.x += s.vx;
+        s.y += s.vy;
+        s.alpha -= 0.018;
+
+        if (s.alpha <= 0) return false;
+
+        const grad = ctx.createLinearGradient(
+          s.x,
+          s.y,
+          s.x - s.vx * s.len * 0.15,
+          s.y - s.vy * s.len * 0.15
+        );
+        grad.addColorStop(0, hsla(s.color, s.alpha));
+        grad.addColorStop(1, hsla(s.color, 0));
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - s.vx * s.len * 0.15, s.y - s.vy * s.len * 0.15);
+        ctx.stroke();
+        return s.x < w + 100 && s.y < h + 100;
+      });
+
+      animationId = requestAnimationFrame(drawParticles);
+    }
+
+    window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     });
 
-    animationId = requestAnimationFrame(drawParticles);
-  }
+    resize();
+    if (!reducedMotionQuery.matches) {
+      startParticles();
+    }
 
-  window.addEventListener("resize", resize);
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  });
-
-  resize();
-  if (!reducedMotionQuery.matches) {
-    startParticles();
-  }
-
-  reducedMotionQuery.addEventListener("change", () => {
-    if (reducedMotionQuery.matches) stopParticles();
-    else startParticles();
-  });
-
-  const heroSection = document.querySelector(".hero");
-  if (heroSection) {
-    const heroObserver = new MutationObserver(() => {
-      if (particlesShouldRun()) startParticles();
-      else stopParticles();
+    reducedMotionQuery.addEventListener("change", () => {
+      if (reducedMotionQuery.matches) stopParticles();
+      else startParticles();
     });
-    heroObserver.observe(heroSection, { attributes: true, attributeFilter: ["class"] });
-  }
+
+    const heroSection = document.querySelector(".hero");
+    if (heroSection) {
+      const heroObserver = new MutationObserver(() => {
+        if (particlesShouldRun()) startParticles();
+        else stopParticles();
+      });
+      heroObserver.observe(heroSection, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+    }
   }
 
   /* ===== Overlay system (Modal / BottomSheet) ===== */
@@ -434,7 +442,9 @@
       overlayHistoryLock = false;
     }
 
-    const closeBtn = overlayStackPanel.querySelector("[data-overlay-stack-close]");
+    const closeBtn = overlayStackPanel.querySelector(
+      "[data-overlay-stack-close]"
+    );
     if (closeBtn) closeBtn.focus();
   }
 
@@ -461,7 +471,8 @@
     };
 
     const onEnd = (e) => {
-      if (e.target !== overlayStackPanel || e.propertyName !== "transform") return;
+      if (e.target !== overlayStackPanel || e.propertyName !== "transform")
+        return;
       finish();
     };
 
@@ -583,7 +594,8 @@
     const overlayKey = getOverlayFromHash();
 
     if (overlayKey) {
-      if (overlayKey !== currentOverlayKey) openOverlay(overlayKey, { fromHistory: true });
+      if (overlayKey !== currentOverlayKey)
+        openOverlay(overlayKey, { fromHistory: true });
       return;
     }
 
@@ -717,20 +729,20 @@
 
   if (scanBtn && terminalInput) {
     scanBtn.addEventListener("click", () => {
-    const scanning = window.i18n.t("hero.scanning");
-    const scan = window.i18n.t("hero.scan");
-    scanBtn.textContent = scanning;
-    scanBtn.disabled = true;
-    setTimeout(() => {
-      scanBtn.textContent = scan;
-      scanBtn.disabled = false;
-      if (terminalInput.value.trim()) {
-        terminalInput.style.textShadow = "0 0 8px rgba(48,213,255,0.6)";
-        setTimeout(() => {
-          terminalInput.style.textShadow = "";
-        }, 600);
-      }
-    }, 1200);
+      const scanning = window.i18n.t("hero.scanning");
+      const scan = window.i18n.t("hero.scan");
+      scanBtn.textContent = scanning;
+      scanBtn.disabled = true;
+      setTimeout(() => {
+        scanBtn.textContent = scan;
+        scanBtn.disabled = false;
+        if (terminalInput.value.trim()) {
+          terminalInput.style.textShadow = "0 0 8px rgba(48,213,255,0.6)";
+          setTimeout(() => {
+            terminalInput.style.textShadow = "";
+          }, 600);
+        }
+      }, 1200);
     });
   }
 
@@ -741,10 +753,13 @@
       return;
     }
 
-    const link = document.querySelector(".hero-event__venue-link, .hero__custom-venue-link");
+    const link = document.querySelector(
+      ".hero-event__venue-link, .hero__custom-venue-link"
+    );
     if (!link) return;
 
-    const lang = window.i18n?.getLang?.() || document.documentElement.lang || "ko";
+    const lang =
+      window.i18n?.getLang?.() || document.documentElement.lang || "ko";
     const ko = link.dataset.mapKo;
     const fallback = link.dataset.mapDefault;
     link.href = lang === "ko" && ko ? ko : fallback || ko || link.href;
