@@ -4931,9 +4931,6 @@ body.album-cover-lightbox-open {
 .concert-card--featured .concert-card__title {
   font-size: clamp(1.55rem, 4.2vw, 2.05rem);
 }
-.concert-card--featured .concert-card__date {
-  font-size: 0.68rem;
-}
 .concert-card--featured .concert-card__venue {
   font-size: 0.62rem;
 }
@@ -5177,7 +5174,7 @@ body.album-cover-lightbox-open {
 .concert-card__date {
   margin: 0 0 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   letter-spacing: 0.1em;
   color: var(--text-muted);
   line-height: 1.45;
@@ -5317,9 +5314,6 @@ body.album-cover-lightbox-open {
   letter-spacing: 0.04em;
   color: var(--text-muted);
   line-height: 1.45;
-}
-.concert-card--featured .concert-card__session-date {
-  font-size: 0.78rem;
 }
 .concert-card__venue-link {
   display: inline-flex;

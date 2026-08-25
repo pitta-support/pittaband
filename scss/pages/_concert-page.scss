@@ -403,10 +403,6 @@
       font-size: clamp(1.55rem, 4.2vw, 2.05rem);
     }
 
-    .concert-card__date {
-      font-size: 0.68rem;
-    }
-
     .concert-card__venue {
       font-size: 0.62rem;
     }
@@ -687,7 +683,7 @@
   &__date {
     margin: 0 0 0.35rem;
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     letter-spacing: 0.1em;
     color: var(--text-muted);
     line-height: 1.45;
@@ -849,10 +845,6 @@
     letter-spacing: 0.04em;
     color: var(--text-muted);
     line-height: 1.45;
-  }
-
-  &--featured &__session-date {
-    font-size: 0.78rem;
   }
 
   &__venue-link {
