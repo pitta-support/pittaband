@@ -80,14 +80,12 @@
   }
 
   function formatStreamingDate(isoOrDate) {
-    const d =
+    const key =
       isoOrDate instanceof Date
-        ? isoOrDate
-        : new Date(`${String(isoOrDate).slice(0, 10)}T00:00:00`);
-    if (Number.isNaN(d.getTime())) return String(isoOrDate ?? "");
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
+        ? getKstDateKey(isoOrDate)
+        : String(isoOrDate ?? "").slice(0, 10);
+    const [year, month, day] = key.split("-");
+    if (!year || !month || !day) return String(isoOrDate ?? "");
     return `${year}.${month}.${day}`;
   }
 
@@ -379,6 +377,46 @@
     }).format(date);
   }
 
+  function msUntilNextKstMidnight() {
+    const now = Date.now();
+    const kstOffsetMs = 9 * 60 * 60 * 1000;
+    const dayMs = 24 * 60 * 60 * 1000;
+    const msIntoKstDay = ((now + kstOffsetMs) % dayMs + dayMs) % dayMs;
+    return dayMs - msIntoKstDay;
+  }
+
+  function updateStreamingDateDisplay() {
+    if (!streamDateEl) return;
+    const todayKey = getKstDateKey();
+    streamDateEl.textContent = formatStreamingDate(todayKey);
+    streamDateEl.dateTime = todayKey;
+  }
+
+  async function reloadStreamingStats() {
+    if (!streamListEl || !discography) return;
+    try {
+      const baseline = await loadJson(
+        `data/streaming-stats.json?t=${Date.now()}`
+      ).catch(() => streamingBaseline || { tracks: {} });
+      streamingBaseline = baseline;
+      streamingTracks = flattenDiscography(discography);
+      renderStreaming(streamingTracks, baselineToStatsMap(streamingTracks, baseline), {
+        loading: false,
+      });
+    } catch {
+      updateStreamingDateDisplay();
+    }
+  }
+
+  function scheduleStreamingDayRollover() {
+    if (!streamRoot) return;
+    const delay = Math.max(1000, msUntilNextKstMidnight() + 750);
+    window.setTimeout(() => {
+      void reloadStreamingStats();
+      scheduleStreamingDayRollover();
+    }, delay);
+  }
+
   function isVoteActive(vote) {
     if ((vote?.status || "active") !== "active") return false;
     const endsAt = String(vote?.endsAt || "").slice(0, 10);
@@ -439,14 +477,10 @@
     });
   }
 
-  function renderStreaming(tracks, statsByKey, { loading = false, updatedAt = null } = {}) {
+  function renderStreaming(tracks, statsByKey, { loading = false } = {}) {
     if (!streamListEl) return;
 
-    if (streamDateEl) {
-      streamDateEl.textContent = updatedAt
-        ? formatStreamingDate(updatedAt)
-        : formatStreamingDate(new Date());
-    }
+    updateStreamingDateDisplay();
 
     const sortedTracks = sortTracksBySpotifyPlays(tracks, statsByKey);
 
@@ -524,11 +558,12 @@
 
       renderStreaming(streamingTracks, statsMap, {
         loading: false,
-        updatedAt: baseline?.updatedAt,
       });
+      scheduleStreamingDayRollover();
     } catch {
       streamListEl.innerHTML = `<li class="for-pitta-list__empty"><p class="for-pitta-empty">${escapeHtml(t("pages.forPitta.loadError", "데이터를 불러오지 못했습니다."))}</p></li>`;
       streamListEl.classList.remove("for-pitta-list--loading");
+      updateStreamingDateDisplay();
     }
   }
 
@@ -545,7 +580,6 @@
       const statsMap = baselineToStatsMap(streamingTracks, streamingBaseline);
       renderStreaming(streamingTracks, statsMap, {
         loading: false,
-        updatedAt: streamingBaseline?.updatedAt,
       });
     }
   }

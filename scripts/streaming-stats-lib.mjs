@@ -103,7 +103,9 @@ export function flattenDiscographyTracks(discography) {
 }
 
 export function todayIso() {
-  return new Date().toISOString().slice(0, 10);
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Seoul",
+  }).format(new Date());
 }
 
 export function extractSpotifyCountFromHtml(html) {
