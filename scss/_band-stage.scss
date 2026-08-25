@@ -59,12 +59,25 @@
       100%,
       calc(
         (
+            100vh - var(--site-top-h) - var(--about-stage-chrome, 6rem)
+          ) * 1024 / 700
+      )
+    );
+    max-width: min(
+      1024px,
+      100%,
+      calc(
+        (
             100dvh - var(--site-top-h) - var(--about-stage-chrome, 6rem)
           ) * 1024 / 700
       )
     );
     aspect-ratio: 1024 / 700;
     height: auto;
+    max-height: min(
+      580px,
+      calc(100vh - var(--site-top-h) - var(--about-stage-chrome, 6rem))
+    );
     max-height: min(
       580px,
       calc(100dvh - var(--site-top-h) - var(--about-stage-chrome, 6rem))
@@ -252,7 +265,7 @@
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(168, 179, 189, 0.72);
+  color: rgba(168, 179, 189, 0.9);
   text-align: center;
 
   @include min-width($bp-xl) {

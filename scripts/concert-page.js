@@ -447,6 +447,7 @@
 
     const badgeClass = [
       "concert-card__badge",
+      status === "upcoming" ? "concert-card__badge--upcoming" : "",
       status === "live" ? "concert-card__badge--live" : "",
       status === "ended" ? "concert-card__badge--ended" : "",
     ]

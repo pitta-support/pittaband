@@ -59,4 +59,7 @@ for (const file of pageFiles) {
 }
 
 console.log(`\nHTML build complete (${changed} file(s) updated).`);
-console.log(`Source: src/pages/  |  Chrome: partials/`);
+console.log(`Source: src/pages/  |  Partials: partials/`);
+console.log(
+  `Chrome includes: skip-link, dday-bar, site-header, nav-mobile, site-footer, site-top, site-scripts-core`
+);

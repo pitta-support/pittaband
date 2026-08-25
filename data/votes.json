@@ -3,8 +3,14 @@
     {
       "id": "podoal-asea2027-test",
       "status": "empty",
-      "title": "[ASEA2027] Group of the Month",
-      "href": "https://podoal.io/app/fandings/625",
+      "title": {
+        "ko": "8월 Part.2 솔로 랭킹",
+        "en": "August Part.2 Solo Ranking",
+        "ja": "8月 Part.2 ソロランキング",
+        "es": "Clasificación individual de agosto, parte 2"
+      },
+      "href": "linktr.ee/thek_king",
+      "image": "images/votes/TheKing.webp",
       "endsAt": "2026-12-31"
     }
   ]

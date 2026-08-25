@@ -20,6 +20,7 @@
   let streamingTracks = [];
   let streamingBaseline = null;
   let streamingFetchToken = 0;
+  let votesData = null;
 
   function t(key, fallback) {
     const resolved = window.i18n?.t?.(key);
@@ -39,6 +40,13 @@
 
   function getLang() {
     return window.i18n?.lang ?? "ko";
+  }
+
+  function localizeVoteField(field) {
+    if (!field) return "";
+    if (typeof field === "string") return field;
+    const lang = getLang();
+    return field[lang] || field.ko || field.en || "";
   }
 
   function escapeHtml(str) {
@@ -582,11 +590,22 @@
       </div>`;
   }
 
+  function getKstDateKey(date = new Date()) {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Seoul",
+    }).format(date);
+  }
+
+  function isVoteActive(vote) {
+    if ((vote?.status || "active") !== "active") return false;
+    const endsAt = String(vote?.endsAt || "").slice(0, 10);
+    if (!endsAt) return true;
+    return getKstDateKey() <= endsAt;
+  }
+
   function renderVotes(votes) {
     if (!voteListEl) return;
-    const activeVotes = (votes || []).filter(
-      (vote) => (vote.status || "active") === "active"
-    );
+    const activeVotes = (votes || []).filter(isVoteActive);
 
     if (!activeVotes.length) {
       voteListEl.innerHTML = `<li class="for-pitta-list__empty"><p class="for-pitta-empty" data-i18n="pages.forPitta.voteEmpty">${escapeHtml(t("pages.forPitta.voteEmpty", "현재 진행중인 투표가 없습니다"))}</p></li>`;
@@ -595,9 +614,10 @@
 
     voteListEl.innerHTML = activeVotes
       .map((vote) => {
-        const title = escapeHtml(vote.title || "");
-        const desc = vote.description
-          ? `<p class="for-pitta-banner__desc">${escapeHtml(vote.description)}</p>`
+        const title = escapeHtml(localizeVoteField(vote.title));
+        const description = localizeVoteField(vote.description);
+        const desc = description
+          ? `<p class="for-pitta-banner__desc">${escapeHtml(description)}</p>`
           : "";
         const meta = vote.endsAt
           ? `<span class="for-pitta-banner__meta">${escapeHtml(t("pages.forPitta.voteEnds", "투표마감 :"))} ${escapeHtml(formatVoteDeadlineDate(vote.endsAt))}</span>`
@@ -671,7 +691,7 @@
               <div class="for-pitta-banner__main">
                 <div class="for-pitta-banner__streaming-row">
                   <div class="for-pitta-banner__info">
-                    <h2 class="for-pitta-banner__title">${escapeHtml(track.title)}</h2>
+                    <h3 class="for-pitta-banner__title">${escapeHtml(track.title)}</h3>
                     ${subtitle}
                   </div>
                   ${renderStreamingStat(spotify.total, spotify.delta, trackLoading, track.links?.spotify)}
@@ -693,8 +713,10 @@
     if (!voteListEl) return;
     await whenI18nReady();
     try {
-      const data = await loadJson("data/votes.json?v=3");
-      renderVotes(data.votes || []);
+      if (!votesData) {
+        votesData = await loadJson("data/votes.json?v=5");
+      }
+      renderVotes(votesData.votes || []);
     } catch {
       voteListEl.innerHTML = `<li class="for-pitta-list__empty"><p class="for-pitta-empty">${escapeHtml(t("pages.forPitta.loadError", "데이터를 불러오지 못했습니다."))}</p></li>`;
     }
@@ -744,7 +766,13 @@
   }
 
   function refreshLocalizedContent() {
-    if (voteRoot) initVotePage();
+    if (voteRoot) {
+      if (votesData) {
+        renderVotes(votesData.votes || []);
+      } else {
+        initVotePage();
+      }
+    }
     if (streamRoot && discography) {
       streamingTracks = buildStreamingTracks(discography);
       const statsMap = baselineToStatsMap(streamingTracks, streamingBaseline);

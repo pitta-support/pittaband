@@ -421,7 +421,9 @@
   }
 
   &--ended {
-    opacity: 0.62;
+    .concert-card__media {
+      opacity: 0.62;
+    }
   }
 
   &__layout {
@@ -675,21 +677,10 @@
     letter-spacing: 0.14em;
     text-transform: uppercase;
     padding: 0.18rem 0.45rem;
-    border: 1px solid rgba(48, 213, 255, 0.35);
-    color: var(--cyan);
-    background: rgba(48, 213, 255, 0.08);
+    border: 1px solid transparent;
 
     &--live {
-      border-color: rgba(255, 0, 60, 0.45);
-      color: var(--crimson);
-      background: rgba(255, 0, 60, 0.1);
       animation: concert-node-pulse 2.4s ease-in-out infinite;
-    }
-
-    &--ended {
-      border-color: rgba(255, 255, 255, 0.12);
-      color: var(--text-muted);
-      background: transparent;
     }
   }
 

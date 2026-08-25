@@ -2,7 +2,7 @@
   "use strict";
 
   const LANG_KEY = "sf-archive-lang";
-  const LOCALE_VERSION = "13";
+  const LOCALE_VERSION = "14";
   const DEFAULT_LANG = "ko";
   const SUPPORTED = ["ko", "en", "ja", "es"];
   const LANG_NATIVE_LABELS = {
@@ -77,9 +77,9 @@
       "pages.about.stageLabel"
     )}">
       <div class="band-stage__canvas">
-      <h1 class="band-stage__title site-page__title" data-i18n="pages.about.title">${t(
+      <h2 class="band-stage__title site-page__title" data-i18n="pages.about.title">${t(
         "pages.about.title"
-      )}</h1>
+      )}</h2>
       <div class="band-stage__figures">
       <a
         class="band-member band-member--vocal"

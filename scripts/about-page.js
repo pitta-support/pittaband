@@ -58,10 +58,17 @@
 
     const closeBtn = memberPanel.querySelector("[data-member-close]");
     if (closeBtn) closeBtn.focus();
+    if (typeof window.trapFocus === "function") {
+      window.trapFocus(memberPanel);
+    }
   }
 
   function closeMemberPanel({ fromHistory = false } = {}) {
     if (!memberOverlay?.classList.contains("is-open")) return;
+
+    if (typeof window.releaseFocusTrap === "function") {
+      window.releaseFocusTrap({ restore: false });
+    }
 
     memberOverlay.classList.remove("is-open");
     document.body.classList.remove("member-overlay-open");

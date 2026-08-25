@@ -103,10 +103,8 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--magenta);
     padding: 0.28rem 0.55rem;
-    border: 1px solid rgba(216, 0, 255, 0.35);
-    background: rgba(216, 0, 255, 0.08);
+    border: 1px solid transparent;
   }
 
   .hero-event__title {
@@ -273,12 +271,6 @@
 }
 
 @media (min-width: 1025px) {
-  .hero-event__tag {
-    color: var(--crimson);
-    border-color: rgba(255, 0, 60, 0.35);
-    background: rgba(255, 0, 60, 0.08);
-  }
-
   .hero-event__ticket-btn {
     color: var(--crimson);
     border-color: rgba(255, 0, 60, 0.35);

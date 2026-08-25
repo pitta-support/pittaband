@@ -1,0 +1,36 @@
+/* Shared UPCOMING / LIVE / ENDED status label colors (site-wide) */
+
+.concert-card__badge,
+.festival-card__badge,
+.festival-modal__status,
+.hero .hero-event__tag,
+.hero-event__tag,
+.hero__custom-label {
+  color: var(--status-upcoming);
+  border-color: rgba(255, 0, 60, 0.35);
+  background: rgba(255, 0, 60, 0.08);
+}
+
+.concert-card__badge--upcoming,
+.hero .hero-event__tag--upcoming,
+.hero-event__tag--upcoming {
+  color: var(--status-upcoming);
+  border-color: rgba(255, 0, 60, 0.35);
+  background: rgba(255, 0, 60, 0.08);
+}
+
+.concert-card__badge--live,
+.hero .hero-event__tag--live,
+.hero-event__tag--live {
+  color: var(--status-live);
+  border-color: rgba(216, 0, 255, 0.45);
+  background: rgba(216, 0, 255, 0.1);
+}
+
+.concert-card__badge--ended,
+.hero .hero-event__tag--ended,
+.hero-event__tag--ended {
+  color: var(--status-ended);
+  border-color: rgba(168, 179, 189, 0.28);
+  background: rgba(168, 179, 189, 0.08);
+}

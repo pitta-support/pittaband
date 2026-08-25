@@ -95,6 +95,69 @@
 
   window.resolveSiteAssetUrl = resolveAssetUrl;
 
+  const FOCUSABLE_SELECTOR =
+    'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
+  let focusTrapContainer = null;
+  let focusTrapLastEl = null;
+  let focusTrapHandler = null;
+
+  function getFocusableElements(container) {
+    if (!container) return [];
+    return [...container.querySelectorAll(FOCUSABLE_SELECTOR)].filter((el) => {
+      if (el.hasAttribute("disabled") || el.getAttribute("aria-hidden") === "true") {
+        return false;
+      }
+      return el.getClientRects().length > 0;
+    });
+  }
+
+  function trapFocus(container) {
+    if (!container) return;
+    releaseFocusTrap({ restore: false });
+    focusTrapContainer = container;
+    focusTrapLastEl = document.activeElement;
+    focusTrapHandler = (event) => {
+      if (event.key !== "Tab" || !focusTrapContainer) return;
+      const focusable = getFocusableElements(focusTrapContainer);
+      if (!focusable.length) {
+        event.preventDefault();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (event.shiftKey) {
+        if (active === first || !focusTrapContainer.contains(active)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !focusTrapContainer.contains(active)) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", focusTrapHandler);
+  }
+
+  function releaseFocusTrap({ restore = true } = {}) {
+    if (focusTrapHandler) {
+      document.removeEventListener("keydown", focusTrapHandler);
+      focusTrapHandler = null;
+    }
+    focusTrapContainer = null;
+    if (restore && focusTrapLastEl && typeof focusTrapLastEl.focus === "function") {
+      try {
+        focusTrapLastEl.focus();
+      } catch {
+        /* ignore */
+      }
+    }
+    focusTrapLastEl = null;
+  }
+
+  window.trapFocus = trapFocus;
+  window.releaseFocusTrap = releaseFocusTrap;
+
   function applyImageSrc(img, src, { onLoad, onError } = {}) {
     if (!img || !src) return;
 

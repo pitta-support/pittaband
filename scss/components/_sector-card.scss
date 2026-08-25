@@ -97,6 +97,11 @@
 
 .card-link:hover { text-shadow: 0 0 10px var(--cyan-dim); }
 
+.card-link:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .holo-bar {
   position: absolute;
   bottom: 0;

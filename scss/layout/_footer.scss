@@ -148,6 +148,12 @@
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.06);
 }
 
+.footer-social__link:focus-visible,
+.footer-fancafe:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: 2px;
+}
+
 .footer-social__link--x:hover {
   border-color: rgba(255, 255, 255, 0.35);
 }

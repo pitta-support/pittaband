@@ -25,6 +25,7 @@ body[data-page] .site-page--about {
 body[data-page="album"] {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   height: 100dvh;
   min-height: 0;
   overflow-x: hidden;
@@ -59,7 +60,9 @@ body[data-page]:not([data-page="album"]):not([data-page="concert"]):not(
   ):not([data-page="for-pitta"]):not([data-page="for-pitta-streaming"]) {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   min-height: 100svh;
+  height: 100vh;
   height: 100dvh;
   overflow: hidden;
 }
@@ -70,6 +73,7 @@ body[data-page="for-pitta"],
 body[data-page="for-pitta-streaming"] {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   height: 100dvh;
   min-height: 0;
   overflow-x: hidden;

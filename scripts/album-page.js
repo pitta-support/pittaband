@@ -490,10 +490,17 @@
 
     const closeBtn = coverLightbox.querySelector("[data-album-cover-lightbox-close].album-cover-lightbox__close");
     closeBtn?.focus();
+    if (typeof window.trapFocus === "function") {
+      window.trapFocus(coverLightboxPanel || coverLightbox);
+    }
   }
 
   function closeCoverLightbox() {
     if (!coverLightbox?.classList.contains("is-open")) return;
+
+    if (typeof window.releaseFocusTrap === "function") {
+      window.releaseFocusTrap({ restore: false });
+    }
 
     coverLightbox.classList.remove("is-open");
     document.body.classList.remove("album-cover-lightbox-open");
@@ -506,6 +513,9 @@
         coverLightboxLastFocus.focus();
       }
       coverLightboxLastFocus = null;
+      if (overlay?.classList.contains("is-open") && panel && typeof window.trapFocus === "function") {
+        window.trapFocus(panel);
+      }
     };
 
     if (!coverLightboxPanel) {
@@ -883,6 +893,9 @@
       overlay.classList.add("is-open");
     });
     document.body.classList.add("member-overlay-open");
+    if (typeof window.trapFocus === "function") {
+      window.trapFocus(panel);
+    }
   }
 
   function openDetail(category, id, { fromHistory = false, trackId = null } = {}) {
@@ -966,6 +979,10 @@
     if (!overlay?.classList.contains("is-open")) return;
 
     closeCoverLightbox();
+
+    if (typeof window.releaseFocusTrap === "function") {
+      window.releaseFocusTrap({ restore: false });
+    }
 
     overlay.classList.remove("is-open");
     document.body.classList.remove("member-overlay-open");

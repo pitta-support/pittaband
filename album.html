@@ -6,45 +6,24 @@
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Album — Pitta Band Archive</title>
-    <meta
-      name="description"
-      content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요."
-    />
+    <meta name="description" content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="googlebot" content="index, follow" />
     <meta name="Yeti" content="index, follow" />
-    <link
-      rel="canonical"
-      href="https://pitta-support.github.io/pittaband/album.html"
-    />
+    <link rel="canonical" href="https://pitta-support.github.io/pittaband/album.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Pitta Band Archive" />
     <meta property="og:title" content="Album — Pitta Band Archive" />
-    <meta
-      property="og:description"
-      content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요."
-    />
-    <meta
-      property="og:url"
-      content="https://pitta-support.github.io/pittaband/album.html"
-    />
-    <meta
-      property="og:image"
-      content="https://pitta-support.github.io/pittaband/images/albums/paradox.png"
-    />
+    <meta property="og:description" content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요." />
+    <meta property="og:url" content="https://pitta-support.github.io/pittaband/album.html" />
+    <meta property="og:image" content="https://pitta-support.github.io/pittaband/images/albums/paradox.png" />
     <meta property="og:locale" content="ko_KR" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Album — Pitta Band Archive" />
-    <meta
-      name="twitter:description"
-      content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요."
-    />
-    <meta
-      name="twitter:image"
-      content="https://pitta-support.github.io/pittaband/images/albums/paradox.png"
-    />
+    <meta name="twitter:description" content="Pitta Band 앨범·싱글·OST 아카이브. 발매일, 트랙리스트, 스트리밍 링크를 확인하세요." />
+    <meta name="twitter:image" content="https://pitta-support.github.io/pittaband/images/albums/paradox.png" />
     <meta name="theme-color" content="#12171D" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="images/albums/paradox.png" />
@@ -56,12 +35,8 @@
       crossorigin
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
-    /> -->
-    <link rel="stylesheet" href="styles.css?v=161" />
-    <script>
+    <link rel="stylesheet" href="styles.css?v=203" />
+        <script>
       (function () {
         try {
           var stored = localStorage.getItem("sf-archive-dday-hide");
@@ -79,18 +54,20 @@
         } catch (_) {}
       })();
     </script>
+
   </head>
   <body data-page="album">
-    <a
+            <a
       class="skip-link"
       href="#main-content"
       data-i18n="accessibility.skipToContent"
       >본문 바로가기</a
     >
+
     <div class="scanlines" aria-hidden="true"></div>
     <div class="grid-overlay" aria-hidden="true"></div>
 
-    <div class="dday-bar" id="dday-bar">
+        <div class="dday-bar" id="dday-bar">
       <div class="dday-bar-inner">
         <div class="dday-bar__main">
           <div class="dday-slider" id="dday-slider">
@@ -150,7 +127,7 @@
       </div>
     </div>
 
-    <header class="site-header">
+        <header class="site-header">
       <div class="header-inner">
         <h1 class="logo">
           <a href="index.html" aria-label="Pitta Support">
@@ -225,7 +202,7 @@
       </div>
     </header>
 
-    <nav
+        <nav
       class="nav-mobile"
       id="nav-mobile"
       data-i18n-attr="aria-label:header.mobileNavLabel"
@@ -355,7 +332,9 @@
       </div>
     </nav>
 
-    <main class="site-main" id="main-content">
+
+
+<main class="site-main" id="main-content">
       <article class="site-page site-page--album">
         <header class="site-page__header">
           <span class="site-page__id">ALB-02</span>
@@ -380,7 +359,103 @@
       </article>
     </main>
 
-    <footer class="site-footer">
+<div
+      class="member-overlay"
+      id="album-detail-overlay"
+      hidden
+      aria-hidden="true"
+    >
+      <div
+        class="member-overlay__backdrop"
+        data-album-detail-close
+        tabindex="-1"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="member-overlay__panel"
+        id="album-detail-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="album-detail-title"
+      >
+        <header class="overlay-header">
+          <span class="overlay-id" id="album-detail-id" hidden></span>
+          <h2 class="overlay-title" id="album-detail-title"></h2>
+          <button
+            class="overlay-close"
+            type="button"
+            data-album-detail-close
+            data-i18n-attr="aria-label:overlay.close"
+            aria-label="?�기"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </button>
+        </header>
+        <div class="overlay-body" id="album-detail-body"></div>
+      </div>
+    </div>
+
+    <div
+      class="album-cover-lightbox"
+      id="album-cover-lightbox"
+      hidden
+      aria-hidden="true"
+    >
+      <div
+        class="album-cover-lightbox__backdrop"
+        data-album-cover-lightbox-close
+        tabindex="-1"
+        aria-hidden="true"
+      ></div>
+      <div
+        class="album-cover-lightbox__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="album-cover-lightbox-title"
+      >
+        <h2
+          class="visually-hidden"
+          id="album-cover-lightbox-title"
+          data-i18n="pages.album.zoomCover"
+        >
+          ?�범 커버 ?��?
+        </h2>
+        <div class="album-cover-lightbox__media">
+          <button
+            type="button"
+            class="album-cover-lightbox__close"
+            data-album-cover-lightbox-close
+            data-i18n-attr="aria-label:overlay.close"
+            aria-label="?�기"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6 6l12 12M18 6L6 18"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </button>
+          <img
+            class="album-cover-lightbox__img"
+            id="album-cover-lightbox-img"
+            alt=""
+            width="640"
+            height="640"
+          />
+        </div>
+      </div>
+    </div>
+
+        <footer class="site-footer">
       <div class="footer-inner">
         <div class="footer-left">
           <p class="footer-fan-note" data-i18n="footer.fanSite">
@@ -494,105 +569,11 @@
       </div>
     </footer>
 
-    <div
-      class="member-overlay"
-      id="album-detail-overlay"
-      hidden
-      aria-hidden="true"
-    >
-      <div
-        class="member-overlay__backdrop"
-        data-album-detail-close
-        tabindex="-1"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="member-overlay__panel"
-        id="album-detail-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="album-detail-title"
-      >
-        <header class="overlay-header">
-          <span class="overlay-id" id="album-detail-id" hidden></span>
-          <h3 class="overlay-title" id="album-detail-title"></h3>
-          <button
-            class="overlay-close"
-            type="button"
-            data-album-detail-close
-            data-i18n-attr="aria-label:overlay.close"
-            aria-label="닫기"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-              />
-            </svg>
-          </button>
-        </header>
-        <div class="overlay-body" id="album-detail-body"></div>
-      </div>
-    </div>
 
-    <div
-      class="album-cover-lightbox"
-      id="album-cover-lightbox"
-      hidden
-      aria-hidden="true"
-    >
-      <div
-        class="album-cover-lightbox__backdrop"
-        data-album-cover-lightbox-close
-        tabindex="-1"
-        aria-hidden="true"
-      ></div>
-      <div
-        class="album-cover-lightbox__dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="album-cover-lightbox-title"
-      >
-        <h2
-          class="visually-hidden"
-          id="album-cover-lightbox-title"
-          data-i18n="pages.album.zoomCover"
-        >
-          앨범 커버 확대
-        </h2>
-        <div class="album-cover-lightbox__media">
-          <button
-            type="button"
-            class="album-cover-lightbox__close"
-            data-album-cover-lightbox-close
-            data-i18n-attr="aria-label:overlay.close"
-            aria-label="닫기"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                d="M6 6l12 12M18 6L6 18"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-              />
-            </svg>
-          </button>
-          <img
-            class="album-cover-lightbox__img"
-            id="album-cover-lightbox-img"
-            alt=""
-            width="640"
-            height="640"
-          />
-        </div>
-      </div>
-    </div>
-
-    <script src="i18n.js?v=5" defer></script>
+        <script src="i18n.js?v=14" defer></script>
     <script src="scripts/dday-config.js" defer></script>
-    <script src="scripts/site-core.js?v=11" defer></script>
-    <script src="scripts/album-page.js?v=39" defer></script>
+    <script src="scripts/site-core.js?v=17" defer></script>
+
+    <script src="scripts/album-page.js?v=40" defer></script>
   </body>
 </html>

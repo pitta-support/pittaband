@@ -446,10 +446,17 @@
       "[data-overlay-stack-close]"
     );
     if (closeBtn) closeBtn.focus();
+    if (typeof window.trapFocus === "function") {
+      window.trapFocus(overlayStackPanel);
+    }
   }
 
   function closeStackOverlay({ fromHistory = false } = {}) {
     if (!overlayStackActive) return;
+
+    if (typeof window.releaseFocusTrap === "function") {
+      window.releaseFocusTrap({ restore: false });
+    }
 
     overlayRoot.classList.remove("has-stack");
     overlayStackPanel.classList.remove("is-active");
@@ -462,6 +469,9 @@
 
       restoreBaseOverlayHeader();
       clearStackPanel();
+      if (overlayRoot.classList.contains("is-open") && typeof window.trapFocus === "function") {
+        window.trapFocus(overlayPanel);
+      }
 
       if (!fromHistory) {
         overlayHistoryLock = true;
@@ -537,6 +547,9 @@
 
     const closeBtn = overlayPanel.querySelector(".overlay-close");
     if (closeBtn) closeBtn.focus();
+    if (typeof window.trapFocus === "function") {
+      window.trapFocus(overlayPanel);
+    }
   }
 
   function closeOverlay({ fromHistory = false } = {}) {
@@ -546,6 +559,10 @@
     }
 
     if (overlayRoot.hidden && !currentOverlayKey) return;
+
+    if (typeof window.releaseFocusTrap === "function") {
+      window.releaseFocusTrap({ restore: false });
+    }
 
     currentOverlayKey = null;
     syncNavActive(null);

@@ -31,6 +31,11 @@
   --border: rgba(48, 213, 255, 0.16);
   --border-glow: rgba(48, 213, 255, 0.42);
 
+  /* Status labels — UPCOMING / LIVE / ENDED (site-wide) */
+  --status-upcoming: #ff003c;
+  --status-live: #d800ff;
+  --status-ended: #a8b3bd;
+
   /* Typography — Pretendard (all locales) */
   --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-display: var(--font-family);
@@ -44,6 +49,7 @@
   --dday-h: 88px;
   --header-h: 72px;
   --site-top-h: calc(var(--dday-h) + var(--header-h));
+  --hero-available-h: calc(100vh - var(--site-top-h));
   --hero-available-h: calc(100dvh - var(--site-top-h));
   --max-w: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

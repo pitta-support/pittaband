@@ -40,6 +40,7 @@
   display: flex;
   flex-direction: column;
   min-height: 0;
+  max-height: 100vh;
   max-height: 100dvh;
   overflow: hidden;
   transform: translateY(105%);
@@ -73,7 +74,9 @@
   position: fixed;
   inset: 0;
   width: 100%;
+  height: 100vh;
   height: 100dvh;
+  max-height: 100vh;
   max-height: 100dvh;
   z-index: calc(var(--overlay-z) + 2);
   transform: translateX(100%);
@@ -98,7 +101,9 @@
 
 /* Full-screen modal */
 .overlay-panel--modal {
+  height: 100vh;
   height: 100dvh;
+  max-height: 100vh;
   max-height: 100dvh;
   border-radius: 0;
   clip-path: none;
@@ -112,7 +117,12 @@
 
 /* Mid bottom sheet — 50% */
 .overlay-panel--sheet-mid {
+  height: min(var(--sheet-mid-h), calc(100vh - env(safe-area-inset-top, 0px)));
   height: min(var(--sheet-mid-h), calc(100dvh - env(safe-area-inset-top, 0px)));
+  max-height: min(
+    var(--sheet-mid-h),
+    calc(100vh - env(safe-area-inset-top, 0px))
+  );
   max-height: min(
     var(--sheet-mid-h),
     calc(100dvh - env(safe-area-inset-top, 0px))
@@ -123,7 +133,12 @@
 
 /* Small bottom sheet — 20% */
 .overlay-panel--sheet-sm {
+  height: min(var(--sheet-sm-h), calc(100vh - env(safe-area-inset-top, 0px)));
   height: min(var(--sheet-sm-h), calc(100dvh - env(safe-area-inset-top, 0px)));
+  max-height: min(
+    var(--sheet-sm-h),
+    calc(100vh - env(safe-area-inset-top, 0px))
+  );
   max-height: min(
     var(--sheet-sm-h),
     calc(100dvh - env(safe-area-inset-top, 0px))
@@ -354,6 +369,11 @@
 .overlay-btn:hover {
   background: rgba(48, 213, 255, 0.15);
   box-shadow: 0 0 14px rgba(48, 213, 255, 0.15);
+}
+
+.overlay-btn:focus-visible {
+  outline: 1px solid var(--cyan);
+  outline-offset: 2px;
 }
 
 .overlay-btn--ghost {

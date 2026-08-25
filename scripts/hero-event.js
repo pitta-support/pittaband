@@ -222,9 +222,30 @@
     actions.hidden = false;
   }
 
+  function resolveHeroStatus(campaign, state) {
+    if (campaign?.type === "concert" || campaign?.type === "festival") {
+      return state?.showLink ? "upcoming" : "live";
+    }
+    if (campaign?.type === "album") {
+      return state?.showLink ? "live" : "upcoming";
+    }
+    return "upcoming";
+  }
+
+  function statusTagLabel(status) {
+    const map = {
+      upcoming: ["pages.concert.statusUpcoming", "UPCOMING"],
+      live: ["pages.concert.statusLive", "LIVE"],
+      ended: ["pages.concert.statusEnded", "ENDED"],
+    };
+    const [key, fallback] = map[status] || map.upcoming;
+    return t(key, fallback);
+  }
+
   function renderHero(entry) {
     const { campaign, state } = entry;
     const hero = campaign.hero;
+    const status = resolveHeroStatus(campaign, state);
 
     const imageEl = document.getElementById("hero-event-image");
     if (imageEl && hero.image) {
@@ -233,7 +254,15 @@
     }
 
     const tagEl = document.getElementById("hero-event-tag");
-    setText(tagEl, t(hero.tagI18n, hero.tagFallback || ""));
+    if (tagEl) {
+      tagEl.className = `hero-event__tag hero-event__tag--${status}`;
+      setText(
+        tagEl,
+        campaign.type === "album"
+          ? t(hero.tagI18n, hero.tagFallback || statusTagLabel(status))
+          : statusTagLabel(status)
+      );
+    }
 
     const logoEl = document.getElementById("hero-event-logo");
     if (logoEl) {

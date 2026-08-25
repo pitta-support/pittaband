@@ -83,11 +83,12 @@
     return ti(map[status] || map.ended);
   }
 
-  function renderStatusBadge(entry) {
+  function renderStatusBadge(entry, { className = "festival-modal__status" } = {}) {
     const status = getFestivalStatus(entry);
     const badgeClass = [
       "concert-card__badge",
-      "festival-modal__status",
+      className,
+      status === "upcoming" ? "concert-card__badge--upcoming" : "",
       status === "live" ? "concert-card__badge--live" : "",
       status === "ended" ? "concert-card__badge--ended" : "",
     ]
@@ -104,6 +105,41 @@
   function localizeSetlistNote(note) {
     if (!note) return "";
     return note.replace(/앵콜/g, t("pages.concert.encore"));
+  }
+
+  function getMapUrl(entry) {
+    const map = entry?.mapUrl;
+    if (!map) return "";
+    if (typeof map === "string") return map;
+    const lang = getLang();
+    if (lang === "ko" && map.ko) return map.ko;
+    return map.default || map.en || map.ko || "";
+  }
+
+  function renderVenueHtml(entry, venue) {
+    if (!venue) return "";
+    const mapUrl = getMapUrl(entry);
+    const label = escapeHtml(ti("openMap"));
+
+    if (!mapUrl) {
+      return `<p class="concert-card__venue">${escapeHtml(venue)}</p>`;
+    }
+
+    return `
+      <p class="concert-card__venue">
+        <a
+          class="concert-card__venue-link"
+          href="${escapeHtml(mapUrl)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="${label}: ${escapeHtml(venue)}"
+        >
+          <svg class="concert-card__venue-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
+          </svg>
+          <span>${escapeHtml(venue)}</span>
+        </a>
+      </p>`;
   }
 
   function renderPhotoRecapHtml(url) {
@@ -166,7 +202,7 @@
     const dateHtml = schedule
       ? `<p class="concert-card__date"><time datetime="${escapeHtml(entry.dateTime || "")}">${escapeHtml(schedule)}</time></p>`
       : "";
-    const venueHtml = venue ? `<p class="concert-card__venue">${escapeHtml(venue)}</p>` : "";
+    const venueHtml = renderVenueHtml(entry, venue);
 
     const hasContent = schedule || venue || setlistHtml;
     const pendingHtml = hasContent
@@ -210,10 +246,17 @@
 
     const closeBtn = modalPanel.querySelector("[data-festival-close]");
     closeBtn?.focus();
+    if (typeof window.trapFocus === "function") {
+      window.trapFocus(modalPanel);
+    }
   }
 
   function closeModal() {
     if (!modalEl?.classList.contains("is-open")) return;
+
+    if (typeof window.releaseFocusTrap === "function") {
+      window.releaseFocusTrap({ restore: false });
+    }
 
     modalEl.classList.remove("is-open");
     document.body.classList.remove("festival-modal-open");
@@ -236,16 +279,21 @@
     const title = entry.title || "";
     const schedule = localizedField(entry.schedule);
     const posterAlt = escapeHtml(title || "Pitta Band");
+    const status = getFestivalStatus(entry);
+    const statusBadge = renderStatusBadge(entry, {
+      className: "festival-card__badge",
+    });
 
     return `
-      <li class="festival-gallery__item" style="--festival-enter-index: ${index}" data-festival-index="${index}">
+      <li class="festival-gallery__item" style="--festival-enter-index: ${index}" data-festival-index="${index}" data-festival-status="${escapeHtml(status)}">
         <button
           type="button"
           class="festival-card"
           data-festival-id="${escapeHtml(entry.id)}"
-          aria-label="${escapeHtml(title)}"
+          aria-label="${escapeHtml(`${statusLabel(status)} ${title}`)}"
         >
           <span class="festival-card__frame">
+            ${statusBadge}
             <img
               class="festival-card__poster"
               src="${escapeHtml(poster)}"

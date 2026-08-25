@@ -12,10 +12,14 @@
         "es": "3 oct 2026"
       },
       "venue": {
-        "ko": "서울",
-        "en": "Seoul",
-        "ja": "ソウル",
-        "es": "Seúl"
+        "ko": "난지한강공원",
+        "en": "Nanji Hangang Park",
+        "ja": "Nanji Hangang Park",
+        "es": "Nanji Hangang Park"
+      },
+      "mapUrl": {
+        "ko": "https://naver.me/5UEFjyW3",
+        "default": "https://maps.app.goo.gl/DrLMguVviwe5ySLK7"
       },
       "poster": "images/festivals/lets-lock2026.jpg",
       "instagram": "https://www.instagram.com/p/DcKfWn_k_9l/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -41,8 +45,12 @@
       "venue": {
         "ko": "난지한강공원",
         "en": "Nanji Hangang Park",
-        "ja": "Nanji Hangang Park",
-        "es": "Nanji Hangang Park"
+        "ja": "南智漢江公園",
+        "es": "Parque Nanji Hangang"
+      },
+      "mapUrl": {
+        "ko": "https://naver.me/5UEFjyW3",
+        "default": "https://maps.app.goo.gl/DrLMguVviwe5ySLK7"
       },
       "poster": "images/festivals/peak-fest-2024.png",
       "instagram": "https://www.instagram.com/p/C4-N583rMch/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -77,10 +85,14 @@
         "es": "7–8 sep 2024"
       },
       "venue": {
-        "ko": "서울",
-        "en": "Seoul",
-        "ja": "ソウル",
-        "es": "Seúl"
+        "ko": "난지한강공원",
+        "en": "Nanji Hangang Park",
+        "ja": "南智漢江公園",
+        "es": "Parque Nanji Hangang"
+      },
+      "mapUrl": {
+        "ko": "https://naver.me/5UEFjyW3",
+        "default": "https://maps.app.goo.gl/DrLMguVviwe5ySLK7"
       },
       "poster": "images/festivals/someday-2024.png",
       "instagram": "https://www.instagram.com/p/C-kHi11Ppt-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -116,10 +128,14 @@
         "es": "4–6 oct 2024"
       },
       "venue": {
-        "ko": "부산",
-        "en": "Busan",
-        "ja": "釜山",
-        "es": "Busan"
+        "ko": "삼락생태공원",
+        "en": "Samnak Ecological Park",
+        "ja": "サムラック生態公園",
+        "es": "Parque Ecológico de Samnak"
+      },
+      "mapUrl": {
+        "ko": "https://naver.me/Gct76XHl",
+        "default": "https://maps.app.goo.gl/H8eNCHuuCQwnB4b57"
       },
       "poster": "images/festivals/busan-rock-2024.png",
       "instagram": "https://www.instagram.com/p/C9llzprv5Ok/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
@@ -154,10 +170,14 @@
         "es": "26–28 sep 2025"
       },
       "venue": {
-        "ko": "부산",
-        "en": "Busan",
-        "ja": "釜山",
-        "es": "Busan"
+        "ko": "삼락생태공원",
+        "en": "Samnak Ecological Park",
+        "ja": "サムラック生態公園",
+        "es": "Parque Ecológico de Samnak"
+      },
+      "mapUrl": {
+        "ko": "https://naver.me/Gct76XHl",
+        "default": "https://maps.app.goo.gl/H8eNCHuuCQwnB4b57"
       },
       "poster": "images/festivals/busan-rock-2025.png",
       "instagram": "https://www.instagram.com/reel/DOKw7fgDCeo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
