@@ -2,15 +2,18 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+/**
+ * Expand <!-- @include partials/... --> in src/pages/*.html
+ * and write the result to the repo root (served by GitHub Pages).
+ *
+ * Edit:  src/pages/*.html + partials/*
+ * Output: ./*.html  (do not hand-edit root HTML — it is overwritten)
+ */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const pagesDir = path.join(root, "src", "pages");
 
 const INCLUDE_RE = /<!--\s*@include\s+([^\s]+)\s*-->/g;
-
-const CHROME_INCLUDES = `<!-- @include partials/dday-bar.html -->
-    <!-- @include partials/site-header.html -->
-    <!-- @include partials/nav-mobile.html -->`;
 
 function readPartial(relativePath) {
   const filePath = path.join(root, relativePath.replace(/\//g, path.sep));
@@ -59,7 +62,4 @@ for (const file of pageFiles) {
 }
 
 console.log(`\nHTML build complete (${changed} file(s) updated).`);
-console.log(`Source: src/pages/  |  Partials: partials/`);
-console.log(
-  `Chrome includes: skip-link, dday-bar, site-header, nav-mobile, site-footer, site-top, site-scripts-core`
-);
+console.log(`Edit src/pages/ + partials/  →  npm run build:html  →  root *.html`);

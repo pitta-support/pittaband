@@ -1,7 +1,7 @@
 {
   "name": "Pitta Band Archive",
   "short_name": "Pitta Archive",
-  "description": "Pitta Band 팬 아카이브 — 앨범, 공연, 멤버 소개",
+  "description": "Pitta Band의 앨범, 공연, 활동 정보를 기록하고 공유하는 팬사이트",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -9,17 +9,10 @@
   const streamListEl = document.getElementById("for-pitta-streaming-list");
   const streamDateEl = document.getElementById("for-pitta-streaming-date");
 
-  const CORS_PROXIES = [
-    (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
-    (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-  ];
-  const FETCH_CONCURRENCY = 4;
-
   let discography = null;
   let discographyI18n = null;
   let streamingTracks = [];
   let streamingBaseline = null;
-  let streamingFetchToken = 0;
   let votesData = null;
 
   function t(key, fallback) {
@@ -191,23 +184,10 @@
     return `${category}/${releaseId}/${trackId}`;
   }
 
-  function parseMelonSongId(url) {
-    if (!url) return null;
-    const match = String(url).match(/songId=(\d+)/i);
-    return match ? match[1] : null;
-  }
-
   function parseSpotifyTrackId(url) {
     if (!url) return null;
     const match = String(url).match(/track\/([a-zA-Z0-9]+)/i);
     return match ? match[1] : null;
-  }
-
-  function computeDelta(current, previous) {
-    const cur = normalizeCount(current);
-    const prev = normalizeCount(previous);
-    if (cur == null || prev == null) return 0;
-    return cur - prev;
   }
 
   function getLocalizedTitle(category, releaseId, track, fallbackTitle) {
@@ -331,21 +311,6 @@
     return buildStreamingTracks(data);
   }
 
-  async function proxyFetchText(url) {
-    let lastError = null;
-    for (const toProxyUrl of CORS_PROXIES) {
-      try {
-        const res = await fetch(toProxyUrl(url));
-        if (!res.ok) throw new Error(`Proxy HTTP ${res.status}`);
-        const text = await res.text();
-        if (text) return text;
-      } catch (err) {
-        lastError = err;
-      }
-    }
-    throw lastError || new Error("Proxy fetch failed");
-  }
-
   function baselineToStatsMap(tracks, baseline) {
     const map = {};
     for (const track of tracks) {
@@ -358,188 +323,6 @@
       };
     }
     return map;
-  }
-
-  function mergeLiveStats(savedStats, liveStats) {
-    if (!liveStats) return savedStats;
-    return {
-      melon: {
-        total:
-          liveStats.melon?.total ?? savedStats?.melon?.total ?? null,
-        delta:
-          liveStats.melon?.total != null && savedStats?.melon?.total != null
-            ? liveStats.melon.total - savedStats.melon.total
-            : liveStats.melon?.delta ?? savedStats?.melon?.delta ?? 0,
-      },
-      spotify: {
-        total:
-          liveStats.spotify?.total ?? savedStats?.spotify?.total ?? null,
-        delta:
-          liveStats.spotify?.total != null &&
-          savedStats?.spotify?.total != null
-            ? liveStats.spotify.total - savedStats.spotify.total
-            : liveStats.spotify?.delta ?? savedStats?.spotify?.delta ?? 0,
-      },
-    };
-  }
-
-  function extractMelonCountFromHtml(html) {
-    const patterns = [
-      /"listenCount"\s*:\s*"?(\d+)"?/,
-      /"accPlayCnt"\s*:\s*"?(\d+)"?/,
-      /"TOTPLAYCNT"\s*:\s*"?(\d+)"?/,
-      /"playCount"\s*:\s*"?(\d+)"?/,
-      /누적[^0-9]{0,40}([\d,]+)/,
-      /총[^0-9]{0,20}([\d,]+)\s*회/,
-    ];
-    for (const pattern of patterns) {
-      const match = html.match(pattern);
-      if (match) return normalizeCount(match[1]);
-    }
-    return null;
-  }
-
-  function extractSpotifyCountFromHtml(html) {
-    const patterns = [
-      /"playcount"\s*:\s*(\d+)/i,
-      /"playCount"\s*:\s*(\d+)/,
-      /"streamCount"\s*:\s*(\d+)/,
-      /Total streams<\/td>\s*<td[^>]*>\s*([\d,]+)/i,
-      /Total streams[\s\S]{0,200}?>\s*([\d,]+)\s*</i,
-      /([\d,]+)\s*streams on Spotify/i,
-    ];
-    for (const pattern of patterns) {
-      const match = html.match(pattern);
-      if (match) return normalizeCount(match[1]);
-    }
-    return null;
-  }
-
-  async function fetchMelonListenCountDirect(songId) {
-    if (!songId) return null;
-    const referer = `https://www.melon.com/song/detail.htm?songId=${songId}`;
-    try {
-      const pageRes = await fetch(referer, {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-          Referer: "https://www.melon.com/",
-          "Accept-Language": "ko-KR,ko;q=0.9",
-        },
-      });
-      const html = await pageRes.text();
-      return extractMelonCountFromHtml(html);
-    } catch {
-      return null;
-    }
-  }
-
-  async function fetchSpotifyStreamCountDirect(trackId) {
-    if (!trackId) return null;
-    try {
-      const res = await fetch(`https://open.spotify.com/track/${trackId}`, {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-          Accept: "text/html",
-        },
-      });
-      if (!res.ok) return null;
-      return extractSpotifyCountFromHtml(await res.text());
-    } catch {
-      return null;
-    }
-  }
-
-  async function fetchMelonListenCount(songId) {
-    const direct = await fetchMelonListenCountDirect(songId);
-    if (direct != null) return direct;
-
-    if (!songId) return null;
-    const jsonUrl = `https://www.melon.com/song/detail.json?songId=${songId}`;
-    try {
-      const text = await proxyFetchText(jsonUrl);
-      const data = JSON.parse(text);
-      return normalizeCount(
-        data?.songInfo?.listenCount ??
-          data?.listenCount ??
-          data?.songInfo?.accPlayCnt ??
-          data?.accPlayCnt
-      );
-    } catch {
-      try {
-        const html = await proxyFetchText(
-          `https://www.melon.com/song/detail.htm?songId=${songId}`
-        );
-        return extractMelonCountFromHtml(html);
-      } catch {
-        return null;
-      }
-    }
-  }
-
-  async function fetchSpotifyStreamCount(trackId) {
-    const direct = await fetchSpotifyStreamCountDirect(trackId);
-    if (direct != null) return direct;
-
-    if (!trackId) return null;
-    const urls = [
-      `https://kworb.net/spotify/track/${trackId}.html`,
-      `https://open.spotify.com/track/${trackId}`,
-    ];
-    for (const url of urls) {
-      try {
-        const html = await proxyFetchText(url);
-        const count = extractSpotifyCountFromHtml(html);
-        if (count != null) return count;
-      } catch {
-        /* try next */
-      }
-    }
-    return null;
-  }
-
-  async function fetchLiveTrackStats(track, baselineTrack) {
-    const melonId = parseMelonSongId(track.links?.melon);
-    const spotifyId = parseSpotifyTrackId(track.links?.spotify);
-    const prevMelon = baselineTrack?.melon?.total ?? null;
-    const prevSpotify = baselineTrack?.spotify?.total ?? null;
-
-    const [melonTotal, spotifyTotal] = await Promise.all([
-      fetchMelonListenCount(melonId),
-      fetchSpotifyStreamCount(spotifyId),
-    ]);
-
-    return {
-      melon: {
-        total: melonTotal,
-        delta: computeDelta(melonTotal, prevMelon),
-      },
-      spotify: {
-        total: spotifyTotal,
-        delta: computeDelta(spotifyTotal, prevSpotify),
-      },
-    };
-  }
-
-  async function mapConcurrent(items, limit, mapper) {
-    const results = new Array(items.length);
-    let index = 0;
-
-    async function worker() {
-      while (index < items.length) {
-        const current = index;
-        index += 1;
-        results[current] = await mapper(items[current], current);
-      }
-    }
-
-    const workers = Array.from(
-      { length: Math.min(limit, items.length) },
-      () => worker()
-    );
-    await Promise.all(workers);
-    return results;
   }
 
   function renderCover(cover) {
@@ -720,22 +503,6 @@
     } catch {
       voteListEl.innerHTML = `<li class="for-pitta-list__empty"><p class="for-pitta-empty">${escapeHtml(t("pages.forPitta.loadError", "데이터를 불러오지 못했습니다."))}</p></li>`;
     }
-  }
-
-  async function crawlStreamingStats(tracks, baseline, token) {
-    const statsMap = baselineToStatsMap(tracks, baseline);
-
-    await mapConcurrent(tracks, FETCH_CONCURRENCY, async (track) => {
-      const saved = statsMap[track.key];
-      const live = await fetchLiveTrackStats(track, baseline?.tracks?.[track.key]);
-      if (token !== streamingFetchToken) return;
-      statsMap[track.key] = mergeLiveStats(saved, live);
-      renderStreaming(tracks, statsMap, { loading: true });
-    });
-
-    if (token !== streamingFetchToken) return statsMap;
-    renderStreaming(tracks, statsMap, { loading: false });
-    return statsMap;
   }
 
   async function initStreamingPage() {

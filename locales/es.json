@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Pitta Band Archive",
-    "description": "Archivo de fans de Pitta Band: álbumes, conciertos, perfiles de miembros y contenido de aniversario.",
+    "title": "Archivo de la banda Pitta | Sitio web de fans de Pitta",
+    "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
     "htmlLang": "es",
-    "siteName": "Pitta Band Archive",
+    "siteName": "Archivo de la banda Pitta | Sitio web de fans de Pitta",
     "ogImage": "images/albums/paradox.png"
   },
   "accessibility": {
@@ -11,33 +11,33 @@
   },
   "metaPages": {
     "about": {
-      "title": "About — Pitta Band Archive",
-      "description": "Perfil de Pitta Band y archivo del escenario",
+      "title": "About — Archivo de la banda Pitta | Sitio web de fans de Pitta",
+      "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
       "htmlLang": "es"
     },
     "album": {
-      "title": "Album — Pitta Band Archive",
-      "description": "Archivo de álbumes de Pitta Band",
+      "title": "Album — Archivo de la banda Pitta | Sitio web de fans de Pitta",
+      "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
       "htmlLang": "es"
     },
     "concert": {
-      "title": "Concert — Pitta Band Archive",
-      "description": "Información de conciertos de Pitta Band",
+      "title": "Concert — Archivo de la banda Pitta | Sitio web de fans de Pitta",
+      "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
       "htmlLang": "es"
     },
     "festival": {
-      "title": "Festival — Pitta Band Archive",
-      "description": "Información de festivales de Pitta Band",
+      "title": "Festival — Archivo de la banda Pitta | Sitio web de fans de Pitta",
+      "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
       "htmlLang": "es"
     },
     "for-pitta": {
-      "title": "Vote — For Pitta",
-      "description": "For Pitta — votaciones activas y actividades de fans de Pitta Band.",
+      "title": "Vote — Archivo de la banda Pitta | Sitio web de fans de Pitta",
+      "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
       "htmlLang": "es"
     },
     "for-pitta-streaming": {
-      "title": "Streaming — For Pitta",
-      "description": "For Pitta — reproducciones acumuladas en Spotify de Pitta Band.",
+      "title": "Streaming — Archivo de la banda Pitta | Sitio web de fans de Pitta",
+      "description": "Este es un sitio web de fans que registra y comparte información sobre los álbumes, actuaciones y actividades de Pitta Band.",
       "htmlLang": "es"
     }
   },
@@ -332,7 +332,6 @@
     "forPitta": {
       "vote": "Vote",
       "streaming": "Streaming",
-      "melon": "Melon",
       "spotify": "Spotify",
       "voteListLabel": "Lista de votaciones",
       "streamingListLabel": "Lista de streaming",

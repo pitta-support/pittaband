@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Pitta Band Archive",
-    "description": "Pitta Bandファンアーカイブ。アルバム、ライブ、メンバー紹介、リリース記念コンテンツを掲載しています。",
+    "title": "Pitta Band Archive | Pittaファンサイト",
+    "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
     "htmlLang": "ja",
-    "siteName": "Pitta Band Archive",
+    "siteName": "Pitta Band Archive | Pittaファンサイト",
     "ogImage": "images/albums/paradox.png"
   },
   "accessibility": {
@@ -11,33 +11,33 @@
   },
   "metaPages": {
     "about": {
-      "title": "About — Pitta Band Archive",
-      "description": "Pitta Band 紹介とステージアーカイブ",
+      "title": "About — Pitta Band Archive | Pittaファンサイト",
+      "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
       "htmlLang": "ja"
     },
     "album": {
-      "title": "Album — Pitta Band Archive",
-      "description": "Pitta Band アルバムアーカイブ",
+      "title": "Album — Pitta Band Archive | Pittaファンサイト",
+      "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
       "htmlLang": "ja"
     },
     "concert": {
-      "title": "Concert — Pitta Band Archive",
-      "description": "Pitta Band ライブ情報",
+      "title": "Concert — Pitta Band Archive | Pittaファンサイト",
+      "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
       "htmlLang": "ja"
     },
     "festival": {
-      "title": "Festival — Pitta Band Archive",
-      "description": "Pitta Band フェスティバル情報",
+      "title": "Festival — Pitta Band Archive | Pittaファンサイト",
+      "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
       "htmlLang": "ja"
     },
     "for-pitta": {
-      "title": "Vote — For Pitta",
-      "description": "For Pitta — Pitta Bandの進行中投票とファン活動。",
+      "title": "Vote — Pitta Band Archive | Pittaファンサイト",
+      "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
       "htmlLang": "ja"
     },
     "for-pitta-streaming": {
-      "title": "Streaming — For Pitta",
-      "description": "For Pitta — Pitta BandのSpotify累計ストリーミング。",
+      "title": "Streaming — Pitta Band Archive | Pittaファンサイト",
+      "description": "Pitta Bandのアルバム、パフォーマンス、活動情報を記録、共有するファンサイトです。",
       "htmlLang": "ja"
     }
   },
@@ -332,7 +332,6 @@
     "forPitta": {
       "vote": "Vote",
       "streaming": "Streaming",
-      "melon": "Melon",
       "spotify": "Spotify",
       "voteListLabel": "投票リスト",
       "streamingListLabel": "ストリーミングリスト",
