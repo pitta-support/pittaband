@@ -279,6 +279,8 @@
       "hideLyrics": "歌詞を閉じる",
       "listenMelon": "Melonで聴く",
       "listenSpotify": "Spotifyで聴く",
+      "listenMelonFull": "Melonでフル視聴",
+      "listenSpotifyFull": "Spotifyでフル視聴",
       "platformSpotify": "Spotify",
       "listenYoutube": "YouTubeで聴く",
       "empty": "このカテゴリに項目がありません。",

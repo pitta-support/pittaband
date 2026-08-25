@@ -279,6 +279,8 @@
       "hideLyrics": "가사 닫기",
       "listenMelon": "멜론에서 듣기",
       "listenSpotify": "Spotify에서 듣기",
+      "listenMelonFull": "멜론에서 전체듣기",
+      "listenSpotifyFull": "스포티파이에서 전체듣기",
       "listenYoutube": "YouTube에서 듣기",
       "empty": "등록된 항목이 없습니다.",
       "loadError": "앨범 데이터를 불러오지 못했습니다.",

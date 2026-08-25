@@ -726,18 +726,26 @@
         </a>`;
   }
 
-  function renderPlatformLinks(links) {
+  function renderPlatformLinks(links, { album = false } = {}) {
     const buttons = [];
 
     if (isKoreanLang() && links.melon) {
-      buttons.push(renderHeroPlatformButton("melon", links.melon, t("pages.album.listenMelon")));
+      const melonLabel = album
+        ? t("pages.album.listenMelonFull")
+        : t("pages.album.listenMelon");
+      buttons.push(renderHeroPlatformButton("melon", links.melon, melonLabel));
     }
 
     if (links.spotify) {
-      const label = isKoreanLang()
-        ? t("pages.album.listenSpotify")
-        : t("pages.album.platformSpotify");
-      buttons.push(renderHeroPlatformButton("spotify", links.spotify, label));
+      let spotifyLabel;
+      if (album) {
+        spotifyLabel = t("pages.album.listenSpotifyFull");
+      } else if (isKoreanLang()) {
+        spotifyLabel = t("pages.album.listenSpotify");
+      } else {
+        spotifyLabel = t("pages.album.platformSpotify");
+      }
+      buttons.push(renderHeroPlatformButton("spotify", links.spotify, spotifyLabel));
     }
 
     if (!buttons.length) return "";
@@ -778,11 +786,13 @@
 
   function renderAlbumReleaseBody(album, category = "album") {
     const desc = getDescription(album, { category });
+    const links = album.links || {};
 
     return `
       <div class="album-detail album-detail--release album-detail--has-tracklist">
         <div class="album-detail__hero">
           ${renderDetailCover(album, { category })}
+          ${renderPlatformLinks(links, { album: true })}
         </div>
         ${renderTracklistPageContent(album, category, { desc })}
       </div>`;

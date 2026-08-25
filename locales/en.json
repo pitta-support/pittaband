@@ -279,6 +279,8 @@
       "hideLyrics": "Hide lyrics",
       "listenMelon": "Listen on Melon",
       "listenSpotify": "Listen on Spotify",
+      "listenMelonFull": "Listen full album on Melon",
+      "listenSpotifyFull": "Listen full album on Spotify",
       "platformSpotify": "Spotify",
       "listenYoutube": "Listen on YouTube",
       "empty": "No items in this category.",

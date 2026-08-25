@@ -4059,11 +4059,11 @@ body.member-overlay-open {
   align-items: stretch;
   justify-content: center;
   gap: 0.5rem;
-  width: min(100%, 280px);
+  width: min(100%, 320px);
   margin: 0.75rem auto 0;
 }
 .album-detail__platforms--solo {
-  max-width: min(100%, 280px);
+  max-width: min(100%, 320px);
 }
 .album-detail__platform-btn {
   flex: 1 1 0;
