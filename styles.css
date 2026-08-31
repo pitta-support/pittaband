@@ -2648,15 +2648,20 @@ body.is-dday-hidden .dday-bar,
 .hero .hero-event__actions {
   display: flex;
   justify-content: flex-end;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 0.55rem;
   flex-shrink: 0;
   margin-top: auto;
   padding-top: 0.35rem;
 }
 .hero__custom-ticket-btn,
-.hero .hero-event__ticket-btn {
+.hero .hero-event__ticket-btn,
+.hero .hero-event__promo-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.4rem;
   font-family: var(--font-kr);
   font-size: 0.82rem;
   font-weight: 600;
@@ -2667,20 +2672,43 @@ body.is-dday-hidden .dday-bar,
   border: 1px solid rgba(48, 213, 255, 0.35);
   background: rgba(48, 213, 255, 0.06);
   text-decoration: none;
-  transition: text-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+  transition: text-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 .hero__custom-ticket-btn:hover, .hero__custom-ticket-btn:focus-visible,
 .hero .hero-event__ticket-btn:hover,
-.hero .hero-event__ticket-btn:focus-visible {
+.hero .hero-event__ticket-btn:focus-visible,
+.hero .hero-event__promo-btn:hover,
+.hero .hero-event__promo-btn:focus-visible {
   text-shadow: 0 0 10px var(--cyan-dim);
   border-color: var(--cyan);
   background: rgba(48, 213, 255, 0.1);
   transform: translateY(-1px);
 }
 .hero__custom-ticket-btn:focus-visible,
-.hero .hero-event__ticket-btn:focus-visible {
+.hero .hero-event__ticket-btn:focus-visible,
+.hero .hero-event__promo-btn:focus-visible {
   outline: 1px solid var(--cyan);
   outline-offset: 2px;
+}
+.hero .hero-event__promo-btn {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+}
+.hero .hero-event__promo-btn:hover, .hero .hero-event__promo-btn:focus-visible {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.14);
+}
+.hero .hero-event__promo-btn:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+.hero .hero-event__promo-btn-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
 }
 
 .hero-default {
@@ -6481,9 +6509,14 @@ body.festival-modal-open {
     margin-top: 0;
     padding-top: 0;
     flex-shrink: 0;
+    gap: 0.5rem;
   }
-  .hero-event__ticket-btn {
-    width: 100%;
+  .hero-event__ticket-btn,
+  .hero-event__promo-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    padding-inline: 0.7rem;
   }
   .hero-event__tag {
     display: none;

@@ -201,16 +201,21 @@
   .hero-event__actions {
     display: flex;
     justify-content: flex-end;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0.55rem;
     flex-shrink: 0;
     margin-top: auto;
     padding-top: 0.35rem;
   }
 
   &__custom-ticket-btn,
-  .hero-event__ticket-btn {
+  .hero-event__ticket-btn,
+  .hero-event__promo-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.4rem;
     font-family: var(--font-kr);
     font-size: 0.82rem;
     font-weight: 600;
@@ -225,6 +230,7 @@
       text-shadow 0.25s ease,
       border-color 0.25s ease,
       background-color 0.25s ease,
+      color 0.25s ease,
       transform 0.25s ease;
 
     &:hover,
@@ -239,6 +245,31 @@
       outline: 1px solid var(--cyan);
       outline-offset: 2px;
     }
+  }
+
+  .hero-event__promo-btn {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.08);
+
+    &:hover,
+    &:focus-visible {
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+      border-color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    &:focus-visible {
+      outline: 1px solid #fff;
+      outline-offset: 2px;
+    }
+  }
+
+  .hero-event__promo-btn-icon {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
   }
 }
 

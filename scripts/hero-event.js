@@ -194,7 +194,8 @@
     if (!actions || !btn) return;
 
     if (!state.showLink) {
-      actions.hidden = true;
+      btn.hidden = true;
+      actions.hidden = !document.getElementById("hero-event-promo-btn");
       return;
     }
 
@@ -203,6 +204,7 @@
     const href = link.href || link.fallbackHref || "#";
     const external = link.external !== false && /^https?:\/\//i.test(href);
 
+    btn.hidden = false;
     btn.href = href;
     btn.textContent = t(
       hero.buttonI18n ||
