@@ -6620,9 +6620,12 @@ body.festival-modal-open {
     height: 0.95rem;
   }
   .hero-anniversary__media {
-    overflow: hidden;
-    width: min(100%, var(--anniversary-visual-size));
+    overflow: visible;
+    width: min(100%, var(--anniversary-visual-size) + 2 * clamp(1.1rem, 8vw, 2.5rem));
+    max-width: 100%;
     margin-inline: auto;
+    padding: clamp(1.1rem, 8vw, 2.5rem);
+    box-sizing: border-box;
   }
   .hero-anniversary__media:has(.hero-anniversary__visual--paradox) {
     overflow: visible;
@@ -6630,6 +6633,9 @@ body.festival-modal-open {
     max-width: 100%;
     padding: clamp(1.75rem, 12vw, 3rem);
     margin-bottom: 0.5rem;
+  }
+  .hero-anniversary__visual {
+    overflow: visible;
   }
   .hero-anniversary__visual--paradox {
     overflow: visible;

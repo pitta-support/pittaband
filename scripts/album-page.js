@@ -404,6 +404,11 @@
         ${renderReleaseDateMeta(release)}
         ${renderTracklistSection(release, category, { currentTrackId })}
         ${desc ? `<div class="album-detail__intro"><p class="album-detail__desc">${escapeHtml(desc)}</p></div>` : ""}
+        ${
+          desc && isKoreanLang() && !creditsItem
+            ? `<p class="album-detail__source">${t("pages.album.sourceMelon")}</p>`
+            : ""
+        }
         ${creditsHtml ? `<div class="album-detail__details">${creditsHtml}</div>` : ""}
       </div>`;
   }
