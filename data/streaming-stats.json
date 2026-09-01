@@ -1,143 +1,149 @@
 {
-  "updatedAt": "2026-08-22",
+  "updatedAt": "2026-09-01",
   "source": "spotify",
   "tracks": {
     "album/new-normal-life/apollon": {
       "spotify": {
-        "total": 57996,
-        "delta": 0
+        "total": 58835,
+        "delta": 839
       }
     },
     "album/new-normal-life/dont-be-quiet": {
       "spotify": {
-        "total": 44057,
-        "delta": 0
+        "total": 44629,
+        "delta": 572
       }
     },
     "album/new-normal-life/gtho": {
       "spotify": {
-        "total": 61145,
-        "delta": 0
+        "total": 61950,
+        "delta": 805
       }
     },
     "album/new-normal-life/newness": {
       "spotify": {
-        "total": 48317,
-        "delta": 0
+        "total": 48842,
+        "delta": 525
       }
     },
     "album/new-normal-life/better": {
       "spotify": {
-        "total": 44827,
-        "delta": 0
+        "total": 45313,
+        "delta": 486
       }
     },
     "single/i-norae/i-norae": {
       "spotify": {
-        "total": 68211,
-        "delta": 0
+        "total": 69253,
+        "delta": 1042
       }
     },
     "single/carpe-diem/carpe-diem": {
       "spotify": {
-        "total": 128092,
-        "delta": 0
+        "total": 129130,
+        "delta": 1038
       }
     },
     "album/be-free/smog": {
       "spotify": {
-        "total": 140462,
-        "delta": 0
+        "total": 141753,
+        "delta": 1291
       }
     },
     "album/be-free/be-free-title": {
       "spotify": {
-        "total": 141264,
-        "delta": 0
+        "total": 142422,
+        "delta": 1158
       }
     },
     "single/dandelion/dandelion": {
       "spotify": {
-        "total": 141433,
-        "delta": 0
+        "total": 142890,
+        "delta": 1457
       }
     },
     "single/universe/universe": {
       "spotify": {
-        "total": 153889,
+        "total": 156229,
+        "delta": 2340
+      }
+    },
+    "album/be-free/carpe-diem-applause-guide": {
+      "spotify": {
+        "total": 23147,
         "delta": 0
       }
     },
     "single/the-nation/the-nation": {
       "spotify": {
-        "total": 258980,
-        "delta": 0
+        "total": 260760,
+        "delta": 1780
       }
     },
     "album/id-pitta/be-the-one": {
       "spotify": {
-        "total": 100617,
-        "delta": 0
+        "total": 101345,
+        "delta": 728
       }
     },
     "album/id-pitta/persona": {
       "spotify": {
-        "total": 117228,
-        "delta": 0
+        "total": 117805,
+        "delta": 577
       }
     },
     "album/id-pitta/prayer": {
       "spotify": {
-        "total": 102691,
-        "delta": 0
+        "total": 103666,
+        "delta": 975
       }
     },
     "album/id-pitta/icarus": {
       "spotify": {
-        "total": 138936,
-        "delta": 0
+        "total": 140098,
+        "delta": 1162
       }
     },
     "album/id-pitta/not-alone": {
       "spotify": {
-        "total": 110357,
-        "delta": 0
+        "total": 111562,
+        "delta": 1205
       }
     },
     "single/haemu/haemu": {
       "spotify": {
-        "total": 135701,
-        "delta": 0
+        "total": 136692,
+        "delta": 991
       }
     },
     "single/paradox/paradox": {
       "spotify": {
-        "total": 43638,
-        "delta": 0
+        "total": 44143,
+        "delta": 505
       }
     },
     "single/deep-shadow/deep-shadow": {
       "spotify": {
-        "total": 44306,
-        "delta": 0
+        "total": 45081,
+        "delta": 775
       }
     },
     "ost/thank-you-ost-part1/thank-you-ost-part1": {
       "spotify": {
-        "total": 65714,
-        "delta": 0
+        "total": 66710,
+        "delta": 996
       }
     },
     "ost/family-by-choice-ost-part2/family-by-choice-ost-part2": {
       "spotify": {
-        "total": 288463,
-        "delta": 0
+        "total": 289713,
+        "delta": 1250
       }
     },
     "ost/vanta-black/vanta-black": {
       "spotify": {
-        "total": 37894,
-        "delta": 0
+        "total": 38664,
+        "delta": 770
       }
     }
   }

@@ -330,9 +330,12 @@
 
   &__delta {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
+    font-weight: 600;
     font-variant-numeric: tabular-nums;
-    color: #ff4d4d;
+    line-height: 1.15;
+    color: #ff003c;
+    white-space: nowrap;
   }
 
   &__loading {

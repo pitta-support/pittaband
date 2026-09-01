@@ -175,7 +175,7 @@
     const num = Number(delta);
     if (!Number.isFinite(num) || num === 0) return "";
     const sign = num > 0 ? "+" : "-";
-    return `<span class="for-pitta-stream-stat__delta">${sign}${formatNumber(Math.abs(num))}</span>`;
+    return `<span class="for-pitta-stream-stat__delta">(${sign}${formatNumber(Math.abs(num))})</span>`;
   }
 
   function buildTrackKey(category, releaseId, trackId) {
@@ -364,10 +364,10 @@
     return `
       <div class="for-pitta-stream-stat">
         <div class="for-pitta-stream-stat__row">
+          ${deltaHtml}
           <span class="for-pitta-stream-stat__total">${value}</span>
           ${spotifyLink}
         </div>
-        ${deltaHtml ? `<span class="for-pitta-stream-stat__delta-wrap">${deltaHtml}</span>` : ""}
       </div>`;
   }
 
