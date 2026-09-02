@@ -16,6 +16,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check Spotify secrets
+        env:
+          HAS_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID != '' }}
+          HAS_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET != '' }}
+        run: |
+          echo "SPOTIFY_CLIENT_ID set: ${HAS_CLIENT_ID}"
+          echo "SPOTIFY_CLIENT_SECRET set: ${HAS_CLIENT_SECRET}"
+          if [ "${HAS_CLIENT_ID}" != "true" ] || [ "${HAS_CLIENT_SECRET}" != "true" ]; then
+            echo "::error::Missing Spotify secrets. Add SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET under Settings → Secrets and variables → Actions, then re-run this workflow."
+            exit 1
+          fi
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
