@@ -36,4 +36,4 @@ jobs:
         with:
           commit_message: "chore: update Spotify streaming stats"
           file_pattern: data/streaming-stats.json
-          skip_dirty_check: true
+          skip_dirty_check: false

@@ -392,12 +392,17 @@
     streamDateEl.dateTime = todayKey;
   }
 
+  async function loadStreamingStats() {
+    const cacheKey = getKstDateKey();
+    return loadJson(
+      `data/streaming-stats.json?v=${encodeURIComponent(cacheKey)}&t=${Date.now()}`
+    ).catch(() => streamingBaseline || { tracks: {} });
+  }
+
   async function reloadStreamingStats() {
     if (!streamListEl || !discography) return;
     try {
-      const baseline = await loadJson(
-        `data/streaming-stats.json?t=${Date.now()}`
-      ).catch(() => streamingBaseline || { tracks: {} });
+      const baseline = await loadStreamingStats();
       streamingBaseline = baseline;
       streamingTracks = flattenDiscography(discography);
       renderStreaming(streamingTracks, baselineToStatsMap(streamingTracks, baseline), {
@@ -546,7 +551,7 @@
     try {
       const [disco, baseline, i18nData] = await Promise.all([
         loadJson("data/discography.json"),
-        loadJson("data/streaming-stats.json").catch(() => ({ tracks: {} })),
+        loadStreamingStats(),
         loadJson("data/discography-i18n.json").catch(() => ({})),
       ]);
 

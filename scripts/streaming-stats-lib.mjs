@@ -194,21 +194,35 @@ export function loadStreamingStatsFile(
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+/**
+ * Day-over-day merge:
+ * - New calendar day (KST): compare against yesterday's saved total
+ * - Same-day re-run: keep comparing against that same previousTotal
+ *   so deltas don't collapse to ~0 when the job is re-triggered
+ */
 export function mergeStatsWithBaseline(fetchedTracks, baseline = { tracks: {} }) {
+  const today = todayIso();
+  const baselineDate = String(baseline.updatedAt || "").slice(0, 10);
+  const sameDay = baselineDate === today;
   const tracks = {};
 
   for (const item of fetchedTracks) {
-    const prev = baseline.tracks?.[item.key] || {};
+    const prev = baseline.tracks?.[item.key]?.spotify || {};
+    const previousTotal = sameDay
+      ? normalizeCount(prev.previousTotal ?? prev.total)
+      : normalizeCount(prev.total);
+
     tracks[item.key] = {
       spotify: {
         total: item.spotify.total,
-        delta: computeDelta(item.spotify.total, prev.spotify?.total),
+        previousTotal,
+        delta: computeDelta(item.spotify.total, previousTotal),
       },
     };
   }
 
   return {
-    updatedAt: todayIso(),
+    updatedAt: today,
     source: "spotify",
     tracks,
   };

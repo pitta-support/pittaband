@@ -18,9 +18,8 @@ import {
   flattenDiscographyTracksForStreaming,
   fetchSpotifyStreamCount,
   loadStreamingStatsFile,
-  computeDelta,
+  mergeStatsWithBaseline,
   parseSpotifyTrackId,
-  todayIso,
 } from "./streaming-stats-lib.mjs";
 import { getSpotifyWebPlayerSession } from "./spotify-web-tokens.mjs";
 
@@ -57,26 +56,6 @@ function loadDotEnv(filePath = ENV_PATH) {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
-function mergeSpotifyStats(fetchedTracks, baseline = { tracks: {} }) {
-  const tracks = {};
-
-  for (const item of fetchedTracks) {
-    const prev = baseline.tracks?.[item.key] || {};
-    tracks[item.key] = {
-      spotify: {
-        total: item.spotify.total,
-        delta: computeDelta(item.spotify.total, prev.spotify?.total),
-      },
-    };
-  }
-
-  return {
-    updatedAt: todayIso(),
-    source: "spotify",
-    tracks,
-  };
 }
 
 async function createSpotifyApi() {
@@ -161,10 +140,13 @@ async function main() {
     log(`[${index + 1}/${tracks.length}] ${track.title}: ${total ?? "—"}`);
   }
 
-  const output = mergeSpotifyStats(fetched, baseline);
+  const output = mergeStatsWithBaseline(fetched, baseline);
+  const positiveDeltas = Object.values(output.tracks).filter(
+    (row) => Number(row?.spotify?.delta) > 0
+  ).length;
   fs.writeFileSync(OUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf8");
   log(
-    `\nWrote ${OUT_PATH}\nupdatedAt: ${output.updatedAt}\nspotify: ${success}/${tracks.length} tracks with counts`
+    `\nWrote ${OUT_PATH}\nupdatedAt: ${output.updatedAt}\nspotify: ${success}/${tracks.length} tracks with counts\ndelta>0: ${positiveDeltas}/${tracks.length}`
   );
 }
 
