@@ -154,7 +154,7 @@
           },
         ],
         dateI18n: "hero.events.letslock2026.date",
-        dateFallback: "2026. 10. 03 (Sat)",
+        dateFallback: "2026. 10. 03 (Sat) 15:10-15:50",
         venue: {
           i18n: "hero.events.letslock2026.venue",
           fallback: "난지한강공원",

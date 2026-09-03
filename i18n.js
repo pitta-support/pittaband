@@ -2,7 +2,7 @@
   "use strict";
 
   const LANG_KEY = "sf-archive-lang";
-  const LOCALE_VERSION = "14";
+  const LOCALE_VERSION = "15";
   const DEFAULT_LANG = "ko";
   const SUPPORTED = ["ko", "en", "ja", "es"];
   const LANG_NATIVE_LABELS = {
