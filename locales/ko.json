@@ -342,7 +342,7 @@
       "loadError": "데이터를 불러오지 못했습니다.",
       "statsUpdated": "데이터 기준",
       "statsSource": "Spotify 기준",
-      "statsUpdateNote": "재생횟수는 매일 자정에 갱신됩니다.",
+      "statsUpdateNote": "재생횟수는 매일 06:00(KST)에 갱신됩니다.",
       "voteEnds": "투표마감 :"
     },
     "sectorAlpha": {

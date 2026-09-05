@@ -343,7 +343,7 @@
       "loadError": "データを読み込めませんでした。",
       "statsUpdated": "データ基準",
       "statsSource": "Spotify基準",
-      "statsUpdateNote": "再生回数は毎日0時に更新されます。",
+      "statsUpdateNote": "再生回数は毎日06:00(KST)に更新されます。",
       "voteEnds": "投票締切 :"
     },
     "sectorAlpha": {

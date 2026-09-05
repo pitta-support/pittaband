@@ -343,7 +343,7 @@
       "loadError": "Could not load data.",
       "statsUpdated": "Data as of",
       "statsSource": "Spotify",
-      "statsUpdateNote": "Play counts update daily at midnight.",
+      "statsUpdateNote": "Play counts update daily at 06:00 (KST).",
       "voteEnds": "Vote ends :"
     },
     "sectorAlpha": {

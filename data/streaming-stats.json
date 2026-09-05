@@ -4,30 +4,30 @@
   "tracks": {
     "album/new-normal-life/apollon": {
       "spotify": {
-        "total": 59051,
+        "total": 59140,
         "previousTotal": 59051,
-        "delta": 0
+        "delta": 89
       }
     },
     "album/new-normal-life/dont-be-quiet": {
       "spotify": {
-        "total": 44819,
+        "total": 44896,
         "previousTotal": 44819,
-        "delta": 0
+        "delta": 77
       }
     },
     "album/new-normal-life/gtho": {
       "spotify": {
-        "total": 62166,
+        "total": 62237,
         "previousTotal": 62166,
-        "delta": 0
+        "delta": 71
       }
     },
     "album/new-normal-life/newness": {
       "spotify": {
-        "total": 49006,
+        "total": 49056,
         "previousTotal": 49006,
-        "delta": 0
+        "delta": 50
       }
     },
     "album/new-normal-life/better": {
@@ -39,51 +39,51 @@
     },
     "single/i-norae/i-norae": {
       "spotify": {
-        "total": 69700,
+        "total": 69866,
         "previousTotal": 69700,
-        "delta": 0
+        "delta": 166
       }
     },
     "single/carpe-diem/carpe-diem": {
       "spotify": {
-        "total": 129497,
+        "total": 129618,
         "previousTotal": 129497,
-        "delta": 0
+        "delta": 121
       }
     },
     "album/be-free/smog": {
       "spotify": {
-        "total": 142158,
+        "total": 142282,
         "previousTotal": 142158,
-        "delta": 0
+        "delta": 124
       }
     },
     "album/be-free/be-free-title": {
       "spotify": {
-        "total": 142747,
+        "total": 142848,
         "previousTotal": 142747,
-        "delta": 0
+        "delta": 101
       }
     },
     "single/dandelion/dandelion": {
       "spotify": {
-        "total": 143337,
+        "total": 143513,
         "previousTotal": 143337,
-        "delta": 0
+        "delta": 176
       }
     },
     "single/universe/universe": {
       "spotify": {
-        "total": 157067,
+        "total": 157335,
         "previousTotal": 157067,
-        "delta": 0
+        "delta": 268
       }
     },
     "album/be-free/carpe-diem-applause-guide": {
       "spotify": {
-        "total": 23230,
+        "total": 23256,
         "previousTotal": 23230,
-        "delta": 0
+        "delta": 26
       }
     },
     "single/the-nation/the-nation": {
@@ -95,9 +95,9 @@
     },
     "album/id-pitta/be-the-one": {
       "spotify": {
-        "total": 101576,
+        "total": 101641,
         "previousTotal": 101576,
-        "delta": 0
+        "delta": 65
       }
     },
     "album/id-pitta/persona": {
@@ -109,16 +109,16 @@
     },
     "album/id-pitta/prayer": {
       "spotify": {
-        "total": 103983,
+        "total": 104095,
         "previousTotal": 103983,
-        "delta": 0
+        "delta": 112
       }
     },
     "album/id-pitta/icarus": {
       "spotify": {
-        "total": 140553,
+        "total": 140708,
         "previousTotal": 140553,
-        "delta": 0
+        "delta": 155
       }
     },
     "album/id-pitta/not-alone": {
@@ -130,16 +130,16 @@
     },
     "single/haemu/haemu": {
       "spotify": {
-        "total": 137069,
+        "total": 137180,
         "previousTotal": 137069,
-        "delta": 0
+        "delta": 111
       }
     },
     "single/paradox/paradox": {
       "spotify": {
-        "total": 44265,
+        "total": 44299,
         "previousTotal": 44265,
-        "delta": 0
+        "delta": 34
       }
     },
     "single/deep-shadow/deep-shadow": {
@@ -151,23 +151,23 @@
     },
     "ost/thank-you-ost-part1/thank-you-ost-part1": {
       "spotify": {
-        "total": 67014,
+        "total": 67110,
         "previousTotal": 67014,
-        "delta": 0
+        "delta": 96
       }
     },
     "ost/family-by-choice-ost-part2/family-by-choice-ost-part2": {
       "spotify": {
-        "total": 290131,
+        "total": 290276,
         "previousTotal": 290131,
-        "delta": 0
+        "delta": 145
       }
     },
     "ost/vanta-black/vanta-black": {
       "spotify": {
-        "total": 38928,
+        "total": 39024,
         "previousTotal": 38928,
-        "delta": 0
+        "delta": 96
       }
     }
   }

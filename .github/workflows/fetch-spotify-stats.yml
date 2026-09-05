@@ -2,7 +2,9 @@ name: Fetch Spotify streaming stats
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    # 06:00 KST — Spotify play counts often lag right at midnight,
+    # which produced many delta=0 snapshots. Morning catch is more stable.
+    - cron: "0 6 * * *"
       timezone: Asia/Seoul
   workflow_dispatch:
 

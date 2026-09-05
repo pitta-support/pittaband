@@ -343,7 +343,7 @@
       "loadError": "No se pudieron cargar los datos.",
       "statsUpdated": "Datos al",
       "statsSource": "Spotify",
-      "statsUpdateNote": "Las reproducciones se actualizan cada día a medianoche.",
+      "statsUpdateNote": "Las reproducciones se actualizan cada día a las 06:00 (KST).",
       "voteEnds": "Cierre de votación :"
     },
     "sectorAlpha": {
