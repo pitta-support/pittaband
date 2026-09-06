@@ -10,4 +10,4 @@ Allow: /
 User-agent: Daumoa
 Allow: /
 
-Sitemap: pittaband.rweb.site/sitemap.xml
+Sitemap: https://pittaband.rweb.site/sitemap.xml
