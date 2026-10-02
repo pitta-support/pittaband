@@ -1,173 +1,173 @@
 {
-  "updatedAt": "2026-10-01",
+  "updatedAt": "2026-10-02",
   "source": "spotify",
   "tracks": {
     "album/new-normal-life/apollon": {
       "spotify": {
         "total": 60948,
-        "previousTotal": 60867,
-        "delta": 81
+        "previousTotal": 60948,
+        "delta": 0
       }
     },
     "album/new-normal-life/dont-be-quiet": {
       "spotify": {
         "total": 46634,
-        "previousTotal": 46563,
-        "delta": 71
+        "previousTotal": 46634,
+        "delta": 0
       }
     },
     "album/new-normal-life/gtho": {
       "spotify": {
         "total": 64175,
-        "previousTotal": 64087,
-        "delta": 88
+        "previousTotal": 64175,
+        "delta": 0
       }
     },
     "album/new-normal-life/newness": {
       "spotify": {
         "total": 50641,
-        "previousTotal": 50584,
-        "delta": 57
+        "previousTotal": 50641,
+        "delta": 0
       }
     },
     "album/new-normal-life/better": {
       "spotify": {
         "total": 47412,
-        "previousTotal": 47341,
-        "delta": 71
+        "previousTotal": 47412,
+        "delta": 0
       }
     },
     "single/i-norae/i-norae": {
       "spotify": {
         "total": 72863,
-        "previousTotal": 72752,
-        "delta": 111
+        "previousTotal": 72863,
+        "delta": 0
       }
     },
     "single/carpe-diem/carpe-diem": {
       "spotify": {
         "total": 132923,
-        "previousTotal": 132802,
-        "delta": 121
+        "previousTotal": 132923,
+        "delta": 0
       }
     },
     "album/be-free/smog": {
       "spotify": {
         "total": 146363,
-        "previousTotal": 146220,
-        "delta": 143
+        "previousTotal": 146363,
+        "delta": 0
       }
     },
     "album/be-free/be-free-title": {
       "spotify": {
         "total": 145906,
-        "previousTotal": 145787,
-        "delta": 119
+        "previousTotal": 145906,
+        "delta": 0
       }
     },
     "single/dandelion/dandelion": {
       "spotify": {
         "total": 147493,
-        "previousTotal": 147373,
-        "delta": 120
+        "previousTotal": 147493,
+        "delta": 0
       }
     },
     "single/universe/universe": {
       "spotify": {
         "total": 163306,
-        "previousTotal": 163097,
-        "delta": 209
+        "previousTotal": 163306,
+        "delta": 0
       }
     },
     "album/be-free/carpe-diem-applause-guide": {
       "spotify": {
         "total": 23847,
-        "previousTotal": 23821,
-        "delta": 26
+        "previousTotal": 23847,
+        "delta": 0
       }
     },
     "single/the-nation/the-nation": {
       "spotify": {
         "total": 266686,
-        "previousTotal": 266514,
-        "delta": 172
+        "previousTotal": 266686,
+        "delta": 0
       }
     },
     "album/id-pitta/be-the-one": {
       "spotify": {
         "total": 103899,
-        "previousTotal": 103813,
-        "delta": 86
+        "previousTotal": 103899,
+        "delta": 0
       }
     },
     "album/id-pitta/persona": {
       "spotify": {
         "total": 119787,
-        "previousTotal": 119713,
-        "delta": 74
+        "previousTotal": 119787,
+        "delta": 0
       }
     },
     "album/id-pitta/prayer": {
       "spotify": {
         "total": 107090,
-        "previousTotal": 106985,
-        "delta": 105
+        "previousTotal": 107090,
+        "delta": 0
       }
     },
     "album/id-pitta/icarus": {
       "spotify": {
         "total": 143770,
-        "previousTotal": 143662,
-        "delta": 108
+        "previousTotal": 143770,
+        "delta": 0
       }
     },
     "album/id-pitta/not-alone": {
       "spotify": {
         "total": 115090,
-        "previousTotal": 114964,
-        "delta": 126
+        "previousTotal": 115090,
+        "delta": 0
       }
     },
     "single/haemu/haemu": {
       "spotify": {
         "total": 139584,
-        "previousTotal": 139497,
-        "delta": 87
+        "previousTotal": 139584,
+        "delta": 0
       }
     },
     "single/paradox/paradox": {
       "spotify": {
         "total": 45855,
-        "previousTotal": 45794,
-        "delta": 61
+        "previousTotal": 45855,
+        "delta": 0
       }
     },
     "single/deep-shadow/deep-shadow": {
       "spotify": {
         "total": 47203,
-        "previousTotal": 47140,
-        "delta": 63
+        "previousTotal": 47203,
+        "delta": 0
       }
     },
     "ost/thank-you-ost-part1/thank-you-ost-part1": {
       "spotify": {
         "total": 69365,
-        "previousTotal": 69268,
-        "delta": 97
+        "previousTotal": 69365,
+        "delta": 0
       }
     },
     "ost/family-by-choice-ost-part2/family-by-choice-ost-part2": {
       "spotify": {
         "total": 293590,
-        "previousTotal": 293463,
-        "delta": 127
+        "previousTotal": 293590,
+        "delta": 0
       }
     },
     "ost/vanta-black/vanta-black": {
       "spotify": {
         "total": 40397,
-        "previousTotal": 40342,
-        "delta": 55
+        "previousTotal": 40397,
+        "delta": 0
       }
     }
   }
